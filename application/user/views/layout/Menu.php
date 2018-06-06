@@ -18,11 +18,11 @@
                                 <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Shop</a>
+                                <a class="nav-link" href="#">Kategori</a>
                                 <div class="c-dropdown-content" id="c-color-drop">
                                     <div class="row">
                                         <div class="col">
-                                            <h6>Catalog Layout</h6>
+                                            <h6>Catalog Produk</h6>
                                             <a href="#">Man Cloth</a>
                                             <a href="#">Dress Woman</a>
                                             <a href="#">Slim Bag</a>
@@ -41,7 +41,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
+                                <a class="nav-link" href="#">Product Terbaru</a>
                                 <div class="c-dropdown-content" id="c-color-drop">
                                     <h6>Product</h6>
                                     <a href="#">Full Width Layout</a>
@@ -50,7 +50,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Portfolios</a>
+                                <a class="nav-link" href="#">Hot Item</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>

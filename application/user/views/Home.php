@@ -78,8 +78,8 @@ include "layout/Menu.php";
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h2 class="">Top Rated</h2>
-        <span class="text-muted c-sub-cons">Top sale our store last week</span>
+        <h2 class="">Produk Terbaru</h2>
+        <span class="text-muted c-sub-cons">Produk terbaru kami minggu ini</span>
     </div>
 
 
@@ -103,14 +103,14 @@ include "layout/Menu.php";
                         <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                         <h5 class="c-price">Rp100.000</h5>
                         <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> ADD TO CART
+                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                         </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-heart c-cart-i2"></i>
-                        </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-refresh c-cart-i2""></i>
-                        </a>
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+<!--                        </a>-->
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
+<!--                        </a>-->
                     </div>
                 </div>
             </div>
@@ -131,14 +131,14 @@ include "layout/Menu.php";
                         <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                         <h5 class="c-price">Rp100.000</h5>
                         <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> ADD TO CART
+                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                         </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-heart c-cart-i2"></i>
-                        </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-refresh c-cart-i2""></i>
-                        </a>
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+<!--                        </a>-->
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
+<!--                        </a>-->
                     </div>
                 </div>
             </div>
@@ -159,14 +159,14 @@ include "layout/Menu.php";
                         <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                         <h5 class="c-price">Rp100.000</h5>
                         <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> ADD TO CART
+                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                         </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-heart c-cart-i2"></i>
-                        </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-refresh c-cart-i2"></i>
-                        </a>
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+<!--                        </a>-->
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-refresh c-cart-i2"></i>-->
+<!--                        </a>-->
                     </div>
                 </div>
             </div>
@@ -187,14 +187,14 @@ include "layout/Menu.php";
                         <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                         <h5 class="c-price">Rp100.000</h5>
                         <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> ADD TO CART
+                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                         </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-heart c-cart-i2"></i>
-                        </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-refresh c-cart-i2"></i>
-                        </a>
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+<!--                        </a>-->
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-refresh c-cart-i2"></i>-->
+<!--                        </a>-->
                     </div>
                 </div>
             </div>
