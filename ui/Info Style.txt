@@ -1,0 +1,14 @@
+Bg Color	: #FFFFFF
+Font Color	: #FCFCFC / #222 / #555
+Font Hover	: #56cfe1
+Element Color	: #777
+Border Color	: 1px solid #c2c2c2
+Star Color	: #FFC000
+Discount Color	: #fe9931
+Footer Color	: #F1F1F1
+
+
+Van Info	: font-size: 15px;
+    		  font-weight: 500;
+
+Slider		: 1350 X 700
