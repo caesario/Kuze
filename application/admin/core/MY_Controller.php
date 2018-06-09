@@ -22,9 +22,9 @@ class MY_Controller extends CI_Controller
         $this->load->config('weboptions');
 
         // load model
-        $this->load->model('Alamat_m', 'alamat');
+        $this->load->model('Alamat_m', 'Keranjang');
         $this->load->model('Artikel_m', 'artikel');
-        $this->load->model('Cart_m', 'cart');
+        $this->load->model('Cart_m', 'Keranjang');
         $this->load->model('Item_detil_m', 'item_detil');
         $this->load->model('Item_img_m', 'item_img');
         $this->load->model('Item_kategori_m', 'item_kategori');

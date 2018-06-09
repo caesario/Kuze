@@ -21,9 +21,9 @@ include "layout/Menu.php";
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Order Status</a>
-                            <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action c-profil-active">Transaction History</a>
-                            <a href="#" class="list-group-item list-group-item-action">Shipping  Order</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
+                            <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action c-profil-active">Riwayat Transaksi</a>
+                            <a href="#" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="<?= site_url('Order_detail'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="<?= site_url('Detail_pesanan'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Completed</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>

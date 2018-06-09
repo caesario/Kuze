@@ -20,9 +20,9 @@ class Order_pengiriman_m extends MY_Model
             'foreign_table'=>'orders',
             'foreign_key'=>'o_kode',
             'local_key'=>'o_kode');
-        $this->has_one['alamat'] = array(
+        $this->has_one['Keranjang'] = array(
             'foreign_model'=>'Alamat_m',
-            'foreign_table'=>'alamat',
+            'foreign_table'=> 'Keranjang',
             'foreign_key'=>'a_kode',
             'local_key'=>'a_kode');
         parent::__construct();

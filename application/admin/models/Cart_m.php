@@ -9,7 +9,7 @@
 class Cart_m extends MY_Model {
     public function __construct()
     {
-        $this->table = 'cart';
+        $this->table = 'Keranjang';
         $this->primary_key = 'ca_id';
         $this->protected = array('ca_id','created_at','update_at');
         $this->timestamps = TRUE;

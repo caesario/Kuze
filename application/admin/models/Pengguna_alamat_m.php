@@ -19,9 +19,9 @@ class Pengguna_alamat_m extends MY_Model {
             'foreign_table'=> 'pengguna',
             'foreign_key'=>'p_kode',
             'local_key'=>'p_kode');
-        $this->has_one['alamat'] = array(
+        $this->has_one['Keranjang'] = array(
             'foreign_model'=>'Alamat_m',
-            'foreign_table'=>'alamat',
+            'foreign_table'=> 'Keranjang',
             'foreign_key'=>'a_kode',
             'local_key'=>'a_kode');
         parent::__construct();

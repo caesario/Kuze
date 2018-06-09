@@ -61,7 +61,7 @@ include "layout/Menu.php";
                             <i class="fa fa-star c-star"></i>
                             <i class="fa fa-star c-star"></i>
                             <i class="fa fa-star-o c-star"></i>
-                            <span>&nbsp | &nbsp</span><a href=""> (3 Customer Reviews)</a>
+<!--                            <span>&nbsp | &nbsp</span><a href=""> (3 Customer Reviews)</a>-->
                         </div>
                         <!--<div class="col c-review">-->
                         <!--<a href="">(3 Customer Reviews)</a>-->
@@ -70,15 +70,27 @@ include "layout/Menu.php";
                     <div class="c-detail-price">
                         <p><del><span>Rp300.000</span></del> <span>Rp300.000</span></p>
                     </div>
-                    <div class="c-detail-p"><p>
+                    <div class="c-detail-p mb-5"><p>
                             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                             Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
                             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
                             Mauris placerat eleifend leo.</p>
                     </div>
-                    <div class="c-detail-number">
+
+                    <div class="c-detail-number mb-3">
                         <input type="number" placeholder="0">
+                        <input type="text" class="c-detail-stock ml-2" placeholder="4 pcs" disabled>
                     </div>
+
+                    <div class="c-detail-warna mb-5">
+                        <select class="custom-select mr-sm-2" id="">
+                            <option selected>Pilih Warna</option>
+                            <option value="1">Merah</option>
+                            <option value="2">Hitam</option>
+                            <option value="3">Biru</option>
+                        </select>
+                    </div>
+
                     <div class="c-detail-btn">
                         <a href="" class="btn btn-csr c-cart-detail c-cart-p">
                             <i class="fa fa-shopping-cart c-cart-i"></i> Buy Product

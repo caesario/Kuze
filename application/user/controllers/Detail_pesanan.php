@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cart extends CI_Controller {
+class Detail_pesanan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,6 @@ class Cart extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Cart');
+		$this->load->view('Detail_pesanan');
 	}
 }

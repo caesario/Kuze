@@ -625,12 +625,10 @@ li.c-li-side {
 .c-detail-p {
     font-family: 'Poppins', sans-serif;
     color: #888888;
-    margin-bottom: 60px;
 }
 .c-detail-number input {
     width: 155px;
     height: 40px;
-    margin-bottom: 30px;
     padding: 0 10px;
     color: #888;
     font-family: 'Poppins', sans-serif;
@@ -697,6 +695,18 @@ h5.c-title-second a {
 .c-margin-related {
     margin-bottom: 40px;
 }
+input.c-detail-stock {
+    width: 70px;
+}
+
+.c-detail-warna {
+    width: 280px;
+}
+.c-detail-warna select {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
 
 
 
@@ -751,9 +761,9 @@ th {
 .c-table-price {
     width: 130px;
 }
-/*.c-table-quantity {*/
-    /*width: 200px;*/
-/*}*/
+.c-table-quantity {
+    width: 120px;
+}
 .c-table-total {
     width: 130px;
 }
@@ -836,6 +846,20 @@ a.c-btn-cart {
     padding-left: 10px;
     font-family: 'Poppins', sans-serif;
     color: #888;
+}
+
+
+
+/* ====================== Style #checkout ====================== */
+
+p.c-pengiriman-jne {
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+p.c-pengiriman-jne:hover {
+    color: #56cfe1;
+
 }
 
 

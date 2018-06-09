@@ -5,14 +5,14 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">CHECKOUT</h5>
+        <h5 class="text-center c-title-cart">ALAMAT PENGIRIMAN</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
-                <a class="breadcrumb-item" href="#">Home</a>
+                <a class="breadcrumb-item" href="<?= site_url('Home'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="#">Cart</a>
+                <a class="breadcrumb-item" href="<?= site_url('Keranjang'); ?>">Keranjang</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="#">Checkout</a>
+                <a class="breadcrumb-item" href="<?= site_url('Metode'); ?>">Metode Pengiriman</a>
             </nav>
         </div>
     </div>
@@ -23,7 +23,7 @@ include "layout/Menu.php";
         <div class="row">
             <!-- ======= Checkout Left ======= -->
             <div class="col-lg-6">
-                <h5 class="mb-4">BILLING DETAILS</h5>
+                <h5 class="mb-4">DETAIL ALAMAT</h5>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -90,7 +90,7 @@ include "layout/Menu.php";
                 </form>
                 <!-- ======= Checkout Collapse ======= -->
                 <a class="c-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h5 class="mt-4 mb-4"><i class="fa fa-address-book-o"></i> SHIP TO A DIFFERENT ADDRESS ?</h5>
+                    <h5 class="mt-4 mb-4"><i class="fa fa-address-book-o"></i> KIRIM KE ALAMAT LAINNYA</h5>
                 </a>
                 <div class="collapse" id="collapseExample">
                     <form>
@@ -162,12 +162,12 @@ include "layout/Menu.php";
 
             <!-- ======= Checkout Right ======= -->
             <div class="col-lg-6">
-                <h5 class="mb-4">YOUR ORDER</h5>
+                <h5 class="mb-4">KERANJANG ANDA</h5>
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
-                        <th class="c-checkout-product text-center">Product</th>
                         <th></th>
+                        <th>Nama Produk</th>
                         <th class="text-center">Total</th>
                     </tr>
                     <tr>
@@ -185,11 +185,11 @@ include "layout/Menu.php";
                         <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">Rp225.000</span></td>
                     </tr>
                     <tr>
-                        <th class="p-1 pl-4">Shipping</th>
-                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">Rp25.000</span></td>
+                        <th class="p-1 pl-4">Pengiriman</th>
+                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>
                     </tr>
                     <tr>
-                        <th class="p-1 pl-4">Other</th>
+                        <th class="p-1 pl-4">Lainnya</th>
                         <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>
                     </tr>
                     <tr>
@@ -198,7 +198,7 @@ include "layout/Menu.php";
                     </tr>
                     </tbody>
                 </table>
-                <a href="<?= site_url('Order_detail'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">PLACED ORDER</a>
+                <a href="<?= site_url('Metode_pengiriman'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">METODE PENGIRIMAN</a>
             </div>
         </div>
     </div>

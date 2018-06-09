@@ -5,16 +5,18 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart c-margin-bot-cart">
-        <h5 class="text-center c-title-cart">Order Detail</h5>
+        <h5 class="text-center c-title-cart">Detail Pesanan</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
-                <a class="breadcrumb-item" href="#">Home</a>
+                <a class="breadcrumb-item" href="<?= site_url('Home'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="#">Cart</a>
+                <a class="breadcrumb-item" href="<?= site_url('Keranjang'); ?>">Keranjang</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="#">Checkout</a>
+                <a class="breadcrumb-item" href="<?= site_url('Alamat'); ?>">Alamat</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="#">Order Detail</a>
+                <a class="breadcrumb-item" href="<?= site_url('Metode_pengiriman'); ?>">Metode Pengiriman</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Detal_pesanan'); ?>">Detail Pesanan</a>
             </nav>
         </div>
     </div>
@@ -30,6 +32,10 @@ include "layout/Menu.php";
                 <li>Total : <b>Rp250.000</b></li>
                 <li>Payment method : <b>Virtual Account</b></li>
             </ul>
+        </div>
+        <div class="c-order-info">
+            <p class="mb-2">Rekening Transfer</p>
+            <p class="ml-4"><b>BCA a/n Kuze Shop - 41299488733</b></p>
         </div>
         <div class="row">
             <!-- ======= Detail Order Table ======= -->
@@ -69,6 +75,7 @@ include "layout/Menu.php";
                 </table>
             </div>
         </div>
+        <a href="<?= site_url(''); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
     </div>
 
 <?php

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Checkout extends CI_Controller {
+class Alamat extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,6 @@ class Checkout extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Checkout');
+		$this->load->view('Alamat');
 	}
 }

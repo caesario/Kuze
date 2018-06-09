@@ -18,7 +18,7 @@
                                 <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Kategori</a>
+                                <a class="nav-link" href=""<?= base_url ('Kategori'); ?>">Kategori</a>
                                 <div class="c-dropdown-content" id="c-color-drop">
                                     <div class="row">
                                         <div class="col">
@@ -70,7 +70,7 @@
             <div class="col-xl-2 col-lg-2 col-6 text-right c-icon-media">
                 <a href="<?= site_url('Profil'); ?>"><i class="fa fa-search fa-lg c-icon-top c-dis"></i></a>
                 <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
-                <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                <a href="<?= site_url('Keranjang'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
             </div>
         </div>
     </div>
