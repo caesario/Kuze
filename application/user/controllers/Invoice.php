@@ -20,6 +20,6 @@ class Invoice extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('i=Invoice');
+		$this->load->view('Invoice');
 	}
 }

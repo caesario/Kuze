@@ -44,7 +44,7 @@ include "layout/Menu.php";
                         <p class="c-pengiriman-jne">JNE OKE (Ongkos Kirim Ekonomis)</p>
                     </label>
                 </div>
-                <div class="form-check">
+                <div class="form-check mb-4">
                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
                     <label class="form-check-label" for="exampleRadios4">
                         <p class="c-pengiriman-jne">JNE PIPO (Pick-Up Point)</p>
@@ -54,15 +54,15 @@ include "layout/Menu.php";
                 <!-- ======= Bank Method ======= -->
                 <h5 class="mb-4">BANK</h5>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        <p class="c-pengiriman-jne">JNE REG (Reguler)</p>
+                    <input class="form-check-input" type="radio" name="exampleBank" id="exampleBank1" value="option1" checked>
+                    <label class="form-check-label" for="exampleBank1">
+                        <p class="c-pengiriman-jne">BCA a/n Pevita Pearce 345512756</p>
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        <p class="c-pengiriman-jne">JNE YES (Yakin Esok Sampai)</p>
+                    <input class="form-check-input" type="radio" name="exampleBank" id="exampleBank2" value="option2">
+                    <label class="form-check-label" for="exampleBank2">
+                        <p class="c-pengiriman-jne">Mandiri a/n Pevita Pearce 698223541</p>
                     </label>
                 </div>
             </div>
