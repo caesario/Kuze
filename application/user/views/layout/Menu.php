@@ -18,7 +18,7 @@
                                 <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=""<?= base_url ('Kategori'); ?>">Kategori</a>
+                                <a class="nav-link" href="<?= base_url ('Kategori'); ?>">Kategori</a>
                                 <div class="c-dropdown-content" id="c-color-drop">
                                     <div class="row">
                                         <div class="col">
