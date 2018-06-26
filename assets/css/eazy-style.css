@@ -1001,3 +1001,17 @@ span.c-out{
     color: #56cfe1;
     background-color: transparent;
 }
+
+
+/* ====================== Style #profil, status, history ====================== */
+
+.c-text-blog {
+    font-size: 18px;
+    color: #888;
+}
+.c-btn-blog {
+    padding: 10px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #777;
+}
