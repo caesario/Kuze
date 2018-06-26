@@ -50,7 +50,23 @@ include "layout/Menu.php";
                         <p class="c-pengiriman-jne">JNE PIPO (Pick-Up Point)</p>
                     </label>
                 </div>
+
+                <!-- ======= Bank Method ======= -->
+                <h5 class="mb-4">BANK</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        <p class="c-pengiriman-jne">JNE REG (Reguler)</p>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        <p class="c-pengiriman-jne">JNE YES (Yakin Esok Sampai)</p>
+                    </label>
+                </div>
             </div>
+
 
             <!-- ======= Checkout Right ======= -->
             <div class="col-lg-6">
