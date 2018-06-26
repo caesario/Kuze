@@ -90,65 +90,17 @@ include "layout/Menu.php";
                 </form>
                 <!-- ======= Checkout Collapse ======= -->
                 <a class="c-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h5 class="mt-4 mb-4"><i class="fa fa-address-book-o"></i> KIRIM KE ALAMAT LAINNYA</h5>
+                    <h5 class="mt-4 mb-4"><i class="fa fa-address-book-o"></i> DROPSHIP PESANAN</h5>
                 </a>
                 <div class="collapse" id="collapseExample">
                     <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label">First Name<span class="c-form-star">*</span></label>
-                                <input type="text" class="form-control" id="inputFirstName" placeholder="Jhon">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label">Last Name<span class="c-form-star">*</span></label>
-                                <input type="text" class="form-control" id="inputLastName" placeholder="Lincoln">
-                            </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Nama Pengirim<span class="c-form-star">*</span></label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Jhon">
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Jhon.lincoln@kuze.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress" class="col-form-label">Address<span class="c-form-star">*</span></label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Medan Merdeka Street 7th, Central Jakarta">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity" class="col-form-label">City<span class="c-form-star">*</span></label>
-                                <select id="inputCity" class="form-control">
-                                    <option selected>Choose City ...</option>
-                                    <option value="1">Jakarta</option>
-                                    <option value="2">Bandung</option>
-                                    <option value="3">Bogor</option>
-                                    <option value="4">Depok</option>
-                                    <option value="5">Tangerang</option>
-                                    <option value="6">Banten</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputState" class="col-form-label">State<span class="c-form-star">*</span></label>
-                                <select id="inputState" class="form-control">
-                                    <option value="1">...</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputSubdistric" class="col-form-label">Subdistric<span class="c-form-star">*</span></label>
-                                <select id="inputSubdistric" class="form-control">
-                                    <option value="1">...</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputZip" class="col-form-label">Postcode</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputPhone" class="col-form-label">Phone*</label>
-                                <input type="text" class="form-control" id="inputPhone" placeholder="0812 **** ****">
-                            </div>
+                            <label for="inputAddress" class="col-form-label">Nama Penerima<span class="c-form-star">*</span></label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Bob">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
