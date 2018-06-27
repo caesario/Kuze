@@ -64,51 +64,63 @@ include "layout/Menu.php";
                     </div>
                 </div>
             </div>
-
         </div>
 
 
-
-
-        <div class="row">
+        <div class="row mb-5">
             <!-- ======= Detail Order Table ======= -->
             <div class="col-lg-12">
-                <h5 class="mb-4 mt-4">YOUR ORDER</h5>
-                <table class="table table-bordered">
+                <h5 class="mb-4 mt-4">PESANAN ANDA</h5>
+                <table class="table table-bordered table-responsive-md">
                     <tbody>
                     <tr>
-                        <th class="c-order-table pl-4">Product</th>
+                        <th class="c-order-table pl-4">Nama Produk</th>
+                        <th class="text-center">Harga</th>
+                        <th class="text-center">Jumlah</th>
                         <th class="text-center">Total</th>
                     </tr>
                     <tr>
                         <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detail_item'); ?>">Tank with V-Neck and Panel Detail</a></p></td>
                         <td class="text-center"><span class="c-price-cart-3">Rp100.000</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">2</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">Rp250.000</span></td>
                     </tr>
                     <tr>
                         <td><p class="c-cart-productname ml-5"><a href="detail-item.html">Lavish Alice Deep Bandeau Asymmetric</a></p></td>
-                        <td class="text-center"><span class="c-price-cart-3">Rp125.000</span></td>
-                    </tr>
-                    <tr>
-                        <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
-                        <td class="text-center"><span class="c-price-cart-3">Rp225.000</span></td>
-                    </tr>
-                    <tr>
-                        <th class="p-1 pl-4">Shipping</th>
-                        <td class="text-center"><span class="c-price-cart-3">Rp25.000</span></td>
-                    </tr>
-                    <tr>
-                        <th class="p-1 pl-4">Other</th>
-                        <td class="text-center"><span class="c-price-cart-3">-</span></td>
-                    </tr>
-                    <tr>
-                        <th class="p-1 pl-4">Total</th>
-                        <td class="text-center"><span class="c-price-cart-4 c-l-hight">Rp250.000</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">Rp200.000</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">1</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">Rp250.000</span></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <a href="<?= site_url('Konfirmasi_pembayaran'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
+        <div class="">
+            <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 float-right p-0">
+                <h5 class="c-title-cart-total">PERHITUNGAN HARGA</h5>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
+                        <td><span class="c-price-cart-3 pl-3">Rp225.000</span></td>
+                    </tr>
+                    <tr>
+                        <th class="p-1 pl-4">Pengiriman</th>
+                        <td><span class="c-price-cart-3 pl-3">Rp25.000</span></td>
+                    </tr>
+                    <tr>
+                        <th class="p-1 pl-4">Lain-lain</th>
+                        <td><span class="c-price-cart-3 pl-3">-</span></td>
+                    </tr>
+                    <tr>
+                        <th class="p-1 pl-4">Total</th>
+                        <td><span class="c-price-cart-2 pl-3 c-l-hight">Rp450.000</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="<?= site_url('#'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
+            </div>
+        </div>
     </div>
 
 <?php
