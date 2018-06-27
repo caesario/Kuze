@@ -95,23 +95,23 @@ include "layout/Menu.php";
                         <a href="" class="btn btn-csr c-cart-detail c-cart-p">
                             <i class="fa fa-shopping-cart c-cart-i"></i> Buy Product
                         </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-heart c-cart-i2"></i>
-                        </a>
-                        <a href="" class="btn btn-csr c-cart">
-                            <i class="fa fa-refresh c-cart-i2""></i>
-                        </a>
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+<!--                        </a>-->
+<!--                        <a href="" class="btn btn-csr c-cart">-->
+<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
+<!--                        </a>-->
                     </div>
                     <div class="c-detail-category">
                         <p>Category : <a href="">Jackets</a></p>
                     </div>
-                    <div class="c-share-sosmed">
-                        <a href=""><i class="fa fa-facebook fa-2x"></i></a>
-                        <a href=""><i class="fa fa-twitter fa-2x"></i></a>
-                        <a href=""><i class="fa fa-google-plus fa-2x"></i></a>
-                        <a href=""><i class="fa fa-pinterest fa-2x"></i></a>
-                        <a href=""><i class="fa fa-linkedin fa-2x"></i></a>
-                    </div>
+<!--                    <div class="c-share-sosmed">-->
+<!--                        <a href=""><i class="fa fa-facebook fa-2x"></i></a>-->
+<!--                        <a href=""><i class="fa fa-twitter fa-2x"></i></a>-->
+<!--                        <a href=""><i class="fa fa-google-plus fa-2x"></i></a>-->
+<!--                        <a href=""><i class="fa fa-pinterest fa-2x"></i></a>-->
+<!--                        <a href=""><i class="fa fa-linkedin fa-2x"></i></a>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

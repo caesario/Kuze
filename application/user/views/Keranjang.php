@@ -84,10 +84,10 @@ include "layout/Menu.php";
                     <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
                     <td><span class="c-price-cart-3 pl-3">Rp225.000</span></td>
                 </tr>
-                <tr>
-                    <th class="p-1 pl-4">Pengiriman</th>
-                    <td><span class="c-price-cart-3 pl-3">Rp25.000</span></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <th class="p-1 pl-4">Pengiriman</th>-->
+<!--                    <td><span class="c-price-cart-3 pl-3">Rp25.000</span></td>-->
+<!--                </tr>-->
                 <tr>
                     <th class="p-1 pl-4">Lain-lain</th>
                     <td><span class="c-price-cart-3 pl-3">-</span></td>
