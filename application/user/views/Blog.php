@@ -21,32 +21,29 @@ include "layout/Menu.php";
                 <h5>Post Terbaru</h5>
                 <hr>
                 <div class="media mb-3">
-                    <div class="media-left"><a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">
-                            <img width="74" height="74" src="http://themepiko.com/demo/stock/default/wp-content/uploads/2016/12/blog01-150x150.jpg" class="attachment-64x64 size-64x64 wp-post-image" alt="">                                </a>
+                    <div class="media-left"><a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D"></a>
                     </div>
                     <div class="media-body">
-                        <p class="c-title-blog ml-3 mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
-                        <p class="c-text-footer m-0 ml-3">December 1, 2018</p>
+                        <p class="c-title-blog mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
+                        <p class="c-text-footer m-0 ">December 1, 2018</p>
+                    </div>
+                </div>
+                <div class="media mb-3">
+                    <div class="media-left">
+                        <a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D"></a>
+                    </div>
+                    <div class="media-body">
+                        <p class="c-title-blog mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
+                        <p class="c-text-footer m-0">December 1, 2018</p>
                     </div>
                 </div>
                 <div class="media mb-3">
                     <div class="media-left">
                         <a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">
-                            <img width="74" height="74" src="http://themepiko.com/demo/stock/default/wp-content/uploads/2016/12/blog01-150x150.jpg" class="attachment-64x64 size-64x64 wp-post-image" alt="">                                </a>
                     </div>
                     <div class="media-body">
-                        <p class="c-title-blog ml-3 mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
-                        <p class="c-text-footer m-0 ml-3">December 1, 2018</p>
-                    </div>
-                </div>
-                <div class="media mb-3">
-                    <div class="media-left">
-                        <a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">
-                            <img width="74" height="74" src="http://themepiko.com/demo/stock/default/wp-content/uploads/2016/12/blog01-150x150.jpg" class="attachment-64x64 size-64x64 wp-post-image" alt="">                                </a>
-                    </div>
-                    <div class="media-body">
-                        <p class="c-title-blog ml-3 mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
-                        <p class="c-text-footer m-0 ml-3">December 1, 2018</p>
+                        <p class="c-title-blog mb-0"><a href="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">Have you seen these stunning breakthroughs in 3D</a></p>
+                        <p class="c-text-footer m-0">December 1, 2018</p>
                     </div>
                 </div>
             </div>
@@ -67,7 +64,7 @@ include "layout/Menu.php";
                         <h4 class="card-title mb-2">Special title treatment</h4>
                         <p class="c-text-footer m-0">December 1, 2018</p>
                         <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta veniam vero.</p>
-                        <a href="https://dev.eazy-dev.xyz/kuze/Alamat" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
+                        <a href="#" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
                     </div>
                 </div>
                 <hr>
@@ -76,7 +73,7 @@ include "layout/Menu.php";
                         <h4 class="card-title mb-2">Special title treatment</h4>
                         <p class="c-text-footer m-0">December 1, 2018</p>
                         <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta veniam vero.</p>
-                        <a href="https://dev.eazy-dev.xyz/kuze/Alamat" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
+                        <a href="#" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
                     </div>
                 </div>
                 <hr>
