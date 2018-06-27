@@ -20,54 +20,80 @@ include "layout/Menu.php";
                     </div> -->
                     <div class="col-12">
                         <div class="list-group mb-4">
-                            <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action c-profil-active">Status Pesanan</a>
+                            <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action ">Profil</a>
+                            <a href="<?= site_url('Alamat_profil'); ?>" class="list-group-item list-group-item-action ">Alamat</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action c-profil-active">Transaksi Tertunda</a>
                             <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action">Riwayat Transaksi</a>
-                            <a href="#" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
+                            <a href="<?= site_url('Resi'); ?>" class="list-group-item list-group-item-action">Laporan Resi</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="media c-border-status p-2 mb-2">
-                            <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
-                            <div class="media-body">
-                                <a href="<?= site_url('Detail_pesanan'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Belum Mekalukan Pembayaran</span></h5></a>
-                                <h5 class="c-price-history mb-1">Rp100.000,-</h5>
-                                <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="media c-border-status p-2 mb-2">
-                            <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
-                            <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Pesanan Sedang Diproses</span></h5></a>
-                                <h5 class="c-price-history mb-1">Rp100.000,-</h5>
-                                <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-lg-9 c-color-profil">
+                <h5>Riwayat Pesanan</h5>
+                <div class="table-responsive mt-3">
+                    <table id="table" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nomor Order</th>
+                            <th scope="col">Detail Order</th>
+                            <th class="text-center" scope="col">Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                </div>
-                <div class="row mt-5">
-                    <div class="col">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item c-pagination disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item c-pagination"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item c-pagination"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item c-pagination"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item c-pagination">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                            <tr>
+                                <td class="align-middle">
+                                   LNTG001
+                                </td>
+                                <td class="align-middle">
+                                    <b class="c-order-info">Tanggal Order :</b><br>
+                                    23/01/2018
+                                    <br>
+                                    <b class="c-order-info">Total Harga :</b><br>
+                                    10000
+                                    <br>
+                                    <b class="c-order-info">Status :</b><br>
+                                    <span class="c-success">SUKSES (Telah dikirim)</span><br>
+                                    <b class="c-order-info">Deskripsi :</b><br>
+                                    <div>
+                                        SUKSES (Telah dikirim)
+                                    </div>
+
+                                </td>
+                                <td class="align-middle text-center">
+                                    <a class="btn c-login-btn c-edit" href="" role="button">Lihat Detail</a>
+                                    <a class="btn c-login-btn c-edit" href="" role="button">Proses</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">
+                                    LNTG001
+                                </td>
+                                <td class="align-middle">
+                                    <b class="c-order-info">Tanggal Order :</b><br>
+                                    23/01/2018
+                                    <br>
+                                    <b class="c-order-info">Total Harga :</b><br>
+                                    10000
+                                    <br>
+                                    <b class="c-order-info">Status :</b><br>
+                                    <span class="c-success">SUKSES (Telah dikirim)</span><br>
+                                    <b class="c-order-info">Deskripsi :</b><br>
+                                    <div>
+                                        SUKSES (Telah dikirim)
+                                    </div>
+
+                                </td>
+                                <td class="align-middle text-center">
+                                    <a class="btn c-login-btn c-edit" href="" role="button">Lihat Detail</a>
+                                    <a class="btn c-login-btn c-edit" href="" role="button">Proses</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
     </div>

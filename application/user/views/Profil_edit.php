@@ -21,8 +21,8 @@ include "layout/Menu.php";
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action c-profil-active">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Order Status</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Transaction History</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Riwayat Pesanan</a>
                             <a href="#" class="list-group-item list-group-item-action">Shipping  Order</a>
                         </div>
                     </div>
