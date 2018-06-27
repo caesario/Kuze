@@ -1,0 +1,43 @@
+h4 {
+    font-weight: 600;
+}
+
+p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.price {
+    font-size: 15px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.right {
+    float: right;
+}
+
+.thumbnail {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    padding: 15px;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0;
+}
+
+.thumbnail:hover {
+    opacity: 1.00;
+    border-color: #F06292;
+}
+
+.line {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 770px) {
+    .right {
+        float: left;
+        width: 100%;
+    }
+}

@@ -1,0 +1,233 @@
+var app = angular.module('admFashionGrosir', ['ngRoute', 'rzModule', 'ui.bootstrap']);
+
+app.run(function ($animate) {
+    $animate.enabled(true);
+});
+
+// FACTORY
+app.factory('LoadingListener', [ '$q', '$rootScope', function($q, $rootScope) {
+    var reqsActive = 0;
+
+    function onResponse() {
+        reqsActive--;
+        if (reqsActive === 0) {
+            $rootScope.$broadcast('loading:completed');
+        }
+    }
+
+    return {
+        'request': function(config) {
+            if (reqsActive === 0) {
+                $rootScope.$broadcast('loading:started');
+            }
+            reqsActive++;
+            return config;
+        },
+        'response': function(response) {
+            if (!response || !response.config) {
+                return response;
+            }
+            onResponse();
+            return response;
+        },
+        'responseError': function(rejection) {
+            if (!rejection || !rejection.config) {
+                return $q.reject(rejection);
+            }
+            onResponse();
+            return $q.reject(rejection);
+        },
+        isLoadingActive : function() {
+            return reqsActive === 0;
+        }
+    };
+}]);
+
+app.factory('Page', function () {
+    var title = 'Default';
+    return {
+        title: function () {
+            return title;
+        },
+        setTitle: function (newTitle) {
+            title = newTitle;
+        }
+    };
+});
+// END FACTORY
+
+// DIRECTIVE
+app.directive('loadingListener', [ '$rootScope', 'LoadingListener', function($rootScope, LoadingListener) {
+    return {
+        restrict: 'CA',
+        link: function linkFn(scope, elem, attr) {
+            if (!LoadingListener.isLoadingActive()) {
+                $('.loading-content').LoadingOverlay('hide');
+            }
+
+            $rootScope.$on('loading:started', function () {
+                $('.loading-content').LoadingOverlay('show', {
+                    image       : "",
+                    fontawesome : "fa fa-cog fa-spin"
+                });
+            });
+            $rootScope.$on('loading:completed', function () {
+                $('.loading-content').LoadingOverlay('hide');
+            });
+        }
+    };
+}]);
+// END DIRECTIVE
+
+// CONFIG
+// app.config('$locationProvider', function ($locationProvider) {
+//     $locationProvider.hashPrefix('?');
+// });
+
+app.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('LoadingListener');
+}]);
+
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when('/dashboard', {
+            templateUrl: base_url + "adm.php/navigasi/dashboard",
+            reloadOnSearch: false
+        })
+        // Item Controller
+        .when('/item/kategori/:id', {
+            templateUrl: function (param) {
+                return base_url + "adm.php/navigasi/item";
+            },
+            reloadOnSearch: false
+        })
+        .when('/item/kategori_new', {
+            templateUrl: base_url + "adm.php/kategori/baru",
+            reloadOnSearch: false
+        })
+        .when('/item/item_new', {
+            templateUrl: base_url + "adm.php/item/baru",
+            reloadOnSearch: false
+        })
+        .when('/customers', {
+            templateUrl: base_url + "adm.php/navigasi/customers",
+            reloadOnSearch: false
+        })
+        .when('/item/:action/:id', {
+            templateUrl: function (param) {
+                return base_url + "adm.php/item/" + param.action + "/" + param.id;
+            },
+            reloadOnSearch: false
+        });
+});
+// END CONFIG
+
+// CONTROLLER
+app.controller('MainController', function ($scope, $http, $location, Page) {
+    $scope.Page = Page;
+    $scope.itemsIsCollapsed = true;
+    $scope.transaksiIsCollapsed = true;
+
+    angular.element(document).ready(function () {
+        $scope.init = function () {
+            $http({
+                method: "GET",
+                url: base_url + "adm.php/get/list_kategori"
+            }).then(function (res) {
+                $scope.kategories = res.data;
+            }, function (res) {
+                console.log(res.data);
+            });
+        };
+
+        $scope.init();
+    });
+});
+
+app.controller('DashboardController', function ($scope, $http, Page) {
+    // judul
+    Page.setTitle('Dashboard');
+    angular.element(document).ready(function () {
+        $http({
+            method: "GET",
+            url: base_url + "adm.php/get/total_customers"
+        }).then(function (res) {
+            $scope.total_customers = res.data;
+        }, function (res) {
+            console.log(res.statusText);
+        });
+
+        $http({
+            method: "POST",
+            url: base_url + "adm.php/dashboard/dashboard_totalitem",
+            data: $.param(
+                {
+                    ecommerce_eazy: hashing
+                }
+            )
+        }).then(function (res) {
+            $scope.total_items = res.data;
+        }, function (res) {
+            console.log(res.statusText);
+        });
+    });
+});
+
+app.controller('ItemsController', function ($scope, $http, Page, $routeParams) {
+    // judul
+    Page.setTitle('Items');
+
+    // init
+    $scope.init = function () {
+        var min, max;
+
+        $http({
+            method: "GET",
+            url: base_url + "adm.php/get/kategori/" + $routeParams.id
+        }).then(function (res) {
+            $scope.items = res.data;
+        }, function (res) {
+            console.log(res.data);
+        });
+
+        $http({
+            method: "GET",
+            url: base_url + "adm.php/item/range_harga"
+        }).then(function (res) {
+            var min = parseInt(res.data.min[0]['item_harga1']);
+            var max = parseInt(res.data.max[0]['item_harga1']);
+
+            $scope.slider = {
+                minValue: min + 10000,
+                maxValue: max - 10000,
+                options: {
+                    floor: min,
+                    ceil: max,
+                    draggableRange: true,
+                    translate: function (value, sliderId, label) {
+                        switch (label) {
+                            case 'model':
+                                return '<b>Hrg. min:</b> Rp.' + value;
+                            case 'high':
+                                return '<b>Hrg. max:</b> Rp.' + value;
+                            default:
+                                return 'Rp.' + value
+                        }
+                    }
+                }
+            };
+
+        }, function (res) {
+            console.log(res.data);
+        });
+    };
+
+    $scope.init();
+
+});
+
+app.controller('CustomersController', function ($scope, $http, Page) {
+    // judul
+    Page.setTitle('Customers');
+});
+// END CONTROLLER

@@ -1,0 +1,32 @@
+/* Padding Untuk Card */
+body > div:nth-child(4) > div > div > div {
+    padding: 3%;
+}
+
+/* warna icon */
+body > div:nth-child(4) > div > div > div > div > div.col-4 > i {
+    color: #F06292;
+}
+
+/* warna border card */
+body > div:nth-child(4) > div > div > div {
+    border-color: #F06292;
+}
+
+/* Warna Badges */
+body > div:nth-child(4) > div > div > div > div > div.col-1 > span {
+    background-color: #F06292;
+}
+
+/* Style font kotak-3 */
+body > div:nth-child(4) > div > div:nth-child(3) > div > div > div.col-6 {
+    font-size: 13px;
+}
+
+/* Style font semua kotak  */
+body > div:nth-child(4) > div > div > div > div > div.col-6 {
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
