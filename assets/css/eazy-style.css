@@ -872,7 +872,7 @@ p.c-pengiriman-jne:hover {
     border-radius: 0;
     box-shadow: 0px 0px 0px 0px !important;
     border-color: #9b9b9b;
-    line-height: 30px;
+    line-height: 24px;
 }
 .form-control:focus {   /* css - reset */
     border-color: #222;
@@ -1013,12 +1013,26 @@ a.c-ubah-pass:hover {
 /* ====================== Style #profil, status, history ====================== */
 
 .c-text-blog {
-    font-size: 18px;
+    font-size: 16px;
     color: #888;
+    font-family: 'Poppins', sans-serif;
 }
 .c-btn-blog {
     padding: 10px 35px;
     font-size: 16px;
     font-weight: bold;
     color: #777;
+}
+.c-title-blog a {
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.c-title-blog:hover a {
+    color: #56cfe1;
+}
+.c-text-auth {
+    font-size: 15px;
+    color: #666;
 }

@@ -13,71 +13,62 @@ include "layout/Menu.php";
     </div>
 
     <!-- Detail Konfirmasi Pembayaran -->
-    <div class="container-fluid c-padding-header    ">
-
-        <div class="c-order-info">
-            <p>Detail Order</p>
-            <ul>
-                <li>Order number : <b>1504</b></li>
-                <li>Date : <b>19 May 2018</b></li>
-                <li>Total : <b>Rp250.000</b></li>
-                <li>Payment method : <b>Bank Transfer</b></li>
-            </ul>
+    <div class="container c-padding-header">
+        <h5 class="text-center c-order-info mb-0">DETAIL PESANAN : #421504</h5>
+        <p class="text-center c-order-info mb-4">19 May 2018</p>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="c-order-info">
+                    <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
+                    <p class="ml-5 mb-0">Jhon Pardede</p>
+                    <p class="ml-5">082112998381</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="c-order-info">
+                    <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
+                    <p class="ml-5">BCA a/n Kuze Shop - 41299488733</p>
+                </div>
+            </div>
         </div>
-        <div class="c-order-info">
-            <p class="mb-2">Rekening Transfer</p>
-            <p class="ml-4"><b>BCA a/n Kuze Shop - 41299488733</b></p>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="c-order-info">
+                    <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
+                    <p class="ml-5">Jl. Meruya Tower Utara No.17, Cengkareng - Jakarta Barat 12599</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="c-order-info">
+                    <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
+                    <p class="ml-5">Jalur Nugraha Ekakurir (JNE) - Ongkos Kirim Ekonomis (4-6 hari)</p>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <h5><i class="fa fa-money mr-2 mt-4 mb-2"></i>Form Konfirmasi Pembayaran</h5>
-
+        <div class="container-fluid c-padding-header mb-5">
            <div class="row">
-               <div class="col">
+               <div class="col-8 c-margin-auto">
+                   <h5><i class="fa fa-money mr-2 mt-4 mb-2 "></i>Form Konfirmasi Pembayaran</h5>
                    <form>
-                       <div class="form-group">
-                           <label class="col-form-label">Kode Invoice <span class="c-form-star ">*</span></label>
-                           <input type="text" class="form-control" id="inputKodeinvoice" placeholder="Masukkan Kode Invoice.." required>
-                       </div>
-                       <div class="form-group">
-                           <label class="col-form-label mt-1">Alamat Email <span class="c-form-star">*</span></label>
-                           <input type="email" class="form-control mt-1" id="inputAlamatEmail" placeholder="Masukkam Alamat Email..." required>
-                       </div>
-                       <div class="form-group">
-                           <label for="example-date-input mt-1" class="col-form-label">Tanggal Transfer <span class="c-form-star">*</span></label>
-                           <input class="form-control mt-1" type="date" value="dd-mm-yy" id="example-date-input" required>
-                       </div>
-                       <div class="form-group">
-                           <label class="col-form-label mt-1">Transfer dari Bank <span class="c-form-star ">*</span></label>
-                           <input type="text" class="form-control mt-1" id="inputNamaBank" placeholder="Masukkan Nama Bank..." required>
-                       </div>
-                   </form>
-
-               </div>
-
-               <div class="col">
-                   <form>
-
                        <div class="form-group">
                            <label class="col-form-label">Rekening Atas Nama  <span class="c-form-star">*</span></label>
                            <input type="text" class="form-control" id="inputRekeningNama" placeholder="Masukkan Nama Pemilik Rekening..." required>
                        </div>
                        <div class="form-group">
+                           <label class="col-form-label mt-1">Transfer dari Bank <span class="c-form-star ">*</span></label>
+                           <input type="text" class="form-control mt-1" id="inputNamaBank" placeholder="Masukkan Nama Bank..." required>
+                       </div>
+                       <div class="form-group">
                            <label for="example-date-input" class="col-form-label">Nominal Transfer<span class="c-form-star">*</span></label>
                            <input class="form-control" type="number" id="inputNominalTransfer" placeholder="Masukkan Nominal Transfer" required>
-
-                       </div>
-                       <div class="form-group ">
-                           <label for="example-date-input" class="col-form-label">Catatan ( Opsional )</label>
-                           <textarea class="form-control " type="text" id="inputCatatan" rows="5" placeholder="Masukkan Catatan.."></textarea>
-
                        </div>
                    </form>
-                   <a href="<?= site_url(''); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
+                   <a href="<?= site_url('Detail_pesanan'); ?>" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</a>
                </div>
-
            </div>
     </div>
-
 
 <?php
 include "layout/Footer.php";

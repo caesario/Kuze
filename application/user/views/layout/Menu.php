@@ -53,7 +53,7 @@
                                 <a class="nav-link" href="#">Hot Item</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
+                                <a class="nav-link" href="<?= site_url('Blog') ?>">Blog</a>
                                 <div class="c-dropdown-content" id="c-color-drop">
                                     <a href="#">Update Product</a>
                                     <a href="#">News Site</a>

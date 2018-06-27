@@ -75,20 +75,20 @@ include "layout/Menu.php";
                     <tbody>
                     <tr>
                         <th class="c-order-table pl-4">Nama Produk</th>
-                        <th class="text-center">Harga</th>
-                        <th class="text-center">Jumlah</th>
-                        <th class="text-center">Total</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-center">Harga Satuan</th>
+                        <th class="text-center">Total Harga</th>
                     </tr>
                     <tr>
                         <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detail_item'); ?>">Tank with V-Neck and Panel Detail</a></p></td>
-                        <td class="text-center"><span class="c-price-cart-3">Rp100.000</span></td>
                         <td class="text-center"><span class="c-price-cart-3">2</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">Rp100.000</span></td>
                         <td class="text-center"><span class="c-price-cart-3">Rp250.000</span></td>
                     </tr>
                     <tr>
                         <td><p class="c-cart-productname ml-5"><a href="detail-item.html">Lavish Alice Deep Bandeau Asymmetric</a></p></td>
-                        <td class="text-center"><span class="c-price-cart-3">Rp200.000</span></td>
                         <td class="text-center"><span class="c-price-cart-3">1</span></td>
+                        <td class="text-center"><span class="c-price-cart-3">Rp200.000</span></td>
                         <td class="text-center"><span class="c-price-cart-3">Rp250.000</span></td>
                     </tr>
                     </tbody>
@@ -118,7 +118,7 @@ include "layout/Menu.php";
                     </tr>
                     </tbody>
                 </table>
-                <a href="<?= site_url('#'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
+                <a href="<?= site_url('Konfirmasi_pembayaran'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
             </div>
         </div>
     </div>

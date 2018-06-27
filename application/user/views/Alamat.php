@@ -32,7 +32,7 @@ include "layout/Menu.php";
                     <form>
                         <div class="form-group">
                             <label class="col-form-label">Pilih Alamat<span class="c-form-star">*</span></label>
-                            <select class="form-control" style="height:45px;" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1">
                                 <option>1</option>
                             </select>
                         </div>

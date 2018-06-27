@@ -49,34 +49,33 @@ include "layout/Menu.php";
             </div>
 
             <!-- ======= Side Kanan ======= -->
-            <div class="col-lg-6 col-sm-12 ml-lg-5">
+            <div class="col-lg-8 col-sm-12 ml-lg-5">
                 <div class="card mb-4">
                     <div class="card-body pt-1">
                         <h4 class="card-title mb-2">Special title treatment</h4>
                         <p class="c-text-footer m-0">December 1, 2018</p>
-                        <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta veniam vero.</p>
-                        <a href="<?= site_url('Artikel') ?>" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
+                        <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam architecto aspernatur blanditiis
+                            dicta eos et excepturi, facere impedit ipsam mollitia natus officiis quaerat quo ratione sint temporibus vero,
+                            voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto aspernatur, commodi
+                            consequatur, consequuntur eaque eum fugit illum inventore ipsa labore nihil non nostrum placeat possimus quo rem
+                            sapiente veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias
+                            omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta
+                            veniam vero. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem culpa eaque earum eligendi
+                            error excepturi fugit hic iusto mollitia nam, necessitatibus, nesciunt ratione rem ut vero, voluptatibus.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam cum, dicta dignissimos earum eos et
+                            excepturi libero, omnis perferendis Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est facilis molestiae
+                            omnis tempore! Accusamus amet, dignissimos dolor, eligendi est facere inventore necessitatibus odio quibusdam ullam
+                            vel voluptatibus? A aliquid, sunt!, ratione similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            A accusamus accusantium autem debitis eos impedit nisi non perferendis quod sequi, similique, tempora velit veritatis.
+                            Corporis illum maxime molestias nobis sunt. Architecto error ipsum mollitia neque, possimus quaerat voluptas</p>
                     </div>
                 </div>
                 <hr>
-                <div class="card mb-4">
-                    <div class="card-body pt-1">
-                        <h4 class="card-title mb-2">Special title treatment</h4>
-                        <p class="c-text-footer m-0">December 1, 2018</p>
-                        <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta veniam vero.</p>
-                        <a href="https://dev.eazy-dev.xyz/kuze/Alamat" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
-                    </div>
+                <div class="c-text-auth mb-5">
+                    <span class="mr-3"><i class="fa fa-user mr-2"></i>Admin</span>
+                    <span><i class="fa fa-tags mr-2"></i>Fashion, News, Trends</span>
                 </div>
-                <hr>
-                <div class="card mb-4">
-                    <div class="card-body pt-1">
-                        <h4 class="card-title mb-2">Special title treatment</h4>
-                        <p class="c-text-footer m-0">December 1, 2018</p>
-                        <p class="card-text c-text-blog">With supporting text below as a natural lead-in lorem to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa fugiat, laborum maxime molestias omnis quos? Accusamus aliquam commodi debitis, distinctio doloribus eius illo libero provident qui quod soluta veniam vero.</p>
-                        <a href="https://dev.eazy-dev.xyz/kuze/Alamat" class="btn btn-csr c-btn-blog mt-1 float-right">Read More</a>
-                    </div>
-                </div>
-                <hr>
             </div>
         </div>
     </div>
