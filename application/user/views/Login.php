@@ -32,6 +32,7 @@ include "layout/Header.php";
                         </button>
                     </div>
                 <?php endif; ?>
+<!--                <h4 class="h4 mb-3 font-weight-normal text-center">--><?//= $brandname; ?><!--</h4>-->
                 <h4 class="h4 mb-3 font-weight-normal text-center">Kuze Login</h4>
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" name="email" class="form-control mb-2" placeholder="Email address" required autofocus>
