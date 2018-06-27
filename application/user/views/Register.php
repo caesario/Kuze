@@ -13,7 +13,7 @@ include "layout/Header.php";
     <!-- Register -->
     <div class="container-fluid c-padding-header">
         <div class="c-login">
-            <form class="form-signin">
+            <form class="form-signin" action="<?= site_url('auth/register'); ?>" method="post">
                 <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                 <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

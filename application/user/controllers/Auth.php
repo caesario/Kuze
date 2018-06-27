@@ -142,7 +142,7 @@ class Auth extends MY_Controller
             $this->email->to($this->data->email);
             $this->email->subject('Aktivasi Akun Pengguna Fashion Grosir');
 
-            $body = $this->load->view('email/new', $this->data, TRUE);
+//            $body = $this->load->view('email/new', $this->data, TRUE);
 
             $this->email->message($body);
 

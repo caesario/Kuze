@@ -10,7 +10,7 @@ class Register extends MY_Controller
 
     public function index()
     {
-        $this->load->view('Register');
+        $this->load->view('Auth');
     }
 }
 

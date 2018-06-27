@@ -46,7 +46,7 @@ include "layout/Header.php";
                 <button class="btn btn-lg btn-block c-login-btn" type="submit">Sign in</button>
                 <p class="text-center"><a class="c-link-color" href="">Forgot your password?</a></p>
                 <hr>
-                <p class="text-center">Don't have an account? <a class="c-link-color" href="<?= site_url('Register'); ?>">Sign Up</a></p>
+                <p class="text-center">Don't have an account? <a class="c-link-color" href="<?= site_url('register'); ?>">Sign Up</a></p>
             </form>
         </div>
     </div>
