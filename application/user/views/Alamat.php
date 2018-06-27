@@ -24,6 +24,27 @@ include "layout/Menu.php";
             <!-- ======= Checkout Left ======= -->
             <div class="col-lg-6">
                 <h5 class="mb-4">DETAIL ALAMAT</h5>
+                <a class="c-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h5 class="mt-4 mb-4"><i class="fa fa-address-book-o"></i> Pi</h5>
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <form>
+                        <div class="form-group">
+                            <label class="col-form-label">Nama Pengirim<span class="c-form-star">*</span></label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Jhon">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress" class="col-form-label">Nama Penerima<span class="c-form-star">*</span></label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Bob">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="exampleFormControlTextarea1" class="col-form-label">Order notes</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-6">
