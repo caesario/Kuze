@@ -241,7 +241,7 @@ include "layout/Menu.php";
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-wrapper">
                     <div class="card">
-                        <a class="" href=""><img class="card-img-top" src="assets/img/blog1.jpg" alt="Card image cap"></a>
+                        <a class="" href="<?= site_url('Artikel') ?>"><img class="card-img-top" src="assets/img/blog1.jpg" alt="Card image cap"></a>
                         <div class="card-body">
                             <h5 class="card-title c-title-blog">Have you seen these stunning breakthroughs in 3D right now</h5>
                             <ul class="c-ul-blog">

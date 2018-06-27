@@ -6,7 +6,11 @@ include "layout/Menu.php";
     <div class="wrapper-cart">
         <h5 class="text-center c-title-cart">BLOG</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
-            <p></p>
+            <nav class="c-nav-breadcrumb c-bread-cart">
+                <a class="breadcrumb-item" href="<?= site_url('Home'); ?>">Home</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Blog'); ?>">Blog</a>
+            </nav>
         </div>
     </div>
 
@@ -17,8 +21,7 @@ include "layout/Menu.php";
                 <h5>Post Terbaru</h5>
                 <hr>
                 <div class="media mb-3">
-                    <div class="media-left">
-                        <a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">
+                    <div class="media-left"><a href="" class="" rel="bookmark" title="Have you seen these stunning breakthroughs in 3D">
                             <img width="74" height="74" src="http://themepiko.com/demo/stock/default/wp-content/uploads/2016/12/blog01-150x150.jpg" class="attachment-64x64 size-64x64 wp-post-image" alt="">                                </a>
                     </div>
                     <div class="media-body">

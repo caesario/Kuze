@@ -6,7 +6,13 @@ include "layout/Menu.php";
     <div class="wrapper-cart">
         <h5 class="text-center c-title-cart">BLOG</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
-            <p></p>
+            <nav class="c-nav-breadcrumb c-bread-cart">
+                <a class="breadcrumb-item" href="<?= site_url('Home'); ?>">Home</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Blog'); ?>">Blog</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Artikel'); ?>">Artikel</a>
+            </nav>
         </div>
     </div>
 
