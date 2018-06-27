@@ -1,11 +1,11 @@
 <?php
-$url = site_url('users/simpan');
+$url = site_url('pengguna/simpan');
 if ($submit == 'Ubah') {
-    $id = $users->p_kode;
-    $nama = $users->p_nama;
-    $username = $users->p_username;
-    $password = $users->p_password;
-    $email = $users->p_email;
+    $id = $users->pengguna_kode;
+    $nama = $users->pengguna_nama;
+    $username = $users->pengguna_username;
+    $password = $users->pengguna_password;
+    $email = $users->pengguna_email;
 } else if ($submit == 'Simpan') {
     $id = $kode;
     $nama = '';
@@ -16,7 +16,7 @@ if ($submit == 'Ubah') {
 ?>
 
 <form action="<?= $url; ?>" method="post">
-    <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="form-group">
         <label for="nama">Nama</label>
@@ -50,8 +50,8 @@ if ($submit == 'Ubah') {
         </p>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary"><?= $submit; ?></button>
-        <button type="button" onclick="window.location.reload()" class="btn btn-danger">Tutup</button>
+        <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
     </div>
     <?php if (isset($berhasil)): ?>
         <p class="text-success"><?= $berhasil; ?></p>

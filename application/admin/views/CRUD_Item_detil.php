@@ -1,7 +1,7 @@
 <?php
 $url = site_url('item/simpan_detil');
 if ($submit == 'Ubah') {
-    $id = $item_detil->ide_kode;
+    $id = $item_detil->item_detil_kode;
     $warna = $item_detil->w_kode;
     $ukuran = $item_detil->u_kode;
     $seri = $item_detil->s_kode;
@@ -13,7 +13,7 @@ if ($submit == 'Ubah') {
 }
 ?>
 <form action="<?= $url; ?>" method="post">
-    <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="row">
         <div class="col form-group">
@@ -46,8 +46,8 @@ if ($submit == 'Ubah') {
     </div>
     <div class="form-group">
         <input type="hidden" id="counter" name="counter" value="1">
-        <button type="submit" class="btn btn-primary btn-sm"><?= $submit; ?></button>
-        <button type="button" onclick="window.location.reload()" class="btn btn-danger btn-sm">Tutup</button>
+        <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
     </div>
 </form>
 <link rel="stylesheet" href="<?= base_url('assets/vendor/select/css/multi-select.css'); ?>">

@@ -22,7 +22,7 @@ class Item_img extends MY_Controller
 
     public function index()
     {
-        $this->data->title = 'Fashion Grosir | Foto';
+        $this->data->title = $this->data->brandname . ' | Foto';
         $this->data->title_page = 'Foto';
         $this->data->total_item_img = $this->item_img->count_rows();
         $this->data->item_imgs = $this->item_img->with_item_detil->get_all();
@@ -37,7 +37,7 @@ class Item_img extends MY_Controller
         $id = $this->input->post('id');
 
         // get user from database where guid
-        $item_img = $this->item_img->where_p_kode($id)->get();
+        $item_img = $this->item_img->where_pengguna_kode($id)->get();
 
         if ($item_img) {
             $item_img = $this->item_img->where_i_kode($id)->update(array(
@@ -110,7 +110,7 @@ class Item_img extends MY_Controller
 
     public function foto($i_kode)
     {
-        $this->data->title = 'Fashion Grosir | Foto';
+        $this->data->title = $this->data->brandname . ' | Foto';
         $this->data->title_page = 'Foto';
         $this->data->item_imgs = $this->item_img->where('i_kode', $i_kode)->get_all();
         $this->data->i_kode = $i_kode;
@@ -119,7 +119,7 @@ class Item_img extends MY_Controller
 
     public function unggah($i_kode)
     {
-        $this->data->title = 'Fashion Grosir | Foto';
+        $this->data->title = $this->data->brandname . ' | Foto';
         $this->data->title_page = 'Foto';
         $this->data->i_kode = $i_kode;
         $this->load->view('CRUD_Foto', $this->data);
@@ -128,17 +128,17 @@ class Item_img extends MY_Controller
 
     public function detil($id)
     {
-        $this->data->title = 'Fashion Grosir | Foto > Detil';
-        $this->data->item_img = $this->item_img->where('p_kode', $id)->get();
+        $this->data->title = $this->data->brandname . ' | Foto > Detail';
+        $this->data->item_img = $this->item_img->where('pengguna_kode', $id)->get();
         $this->load->view('CRUD_Foto', $this->data);
     }
 
     public function ubah($id)
     {
-        $this->data->title = 'Fashion Grosir | Foto > Ubah';
+        $this->data->title = $this->data->brandname . ' | Foto > Ubah';
         $this->data->submit = 'Ubah';
         $this->data->kode = $id;
-        $this->data->item_img = $this->item_img->where('p_kode', $id)->get();
+        $this->data->item_img = $this->item_img->where('pengguna_kode', $id)->get();
 
         $this->load->view('CRUD_Foto', $this->data);
     }

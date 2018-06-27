@@ -49,6 +49,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Home';
+$route['default_controller'] = 'home';
+$route['login'] = 'auth/login';
+$route['register'] = 'auth/register';
+$route['forgot'] = 'auth/forgot';
+$route['logout'] = 'auth/logout';
+$route['cari'] = 'pencarian';
+$route['produk-terbaru'] = 'home/produkbaru';
+$route['produk-terbaru/item/(:any)/detil'] = 'home/item/$1';
+$route['produk-terbaru/item/(:any)/add_to_cart'] = 'cart/add';
+$route['hot-item/(:any)/detil'] = 'home/item/$1';
+$route['hot-item/(:any)/add_to_cart'] = 'cart/add/$1';
+$route['item/(:any)/detil'] = 'home/item/$1';
+$route['item/(:any)/add_to_cart'] = 'cart/add/$1';
+$route['kategori/(:any)'] = 'kategori/get_item/$1';
+$route['kategori/(:any)/item/(:any)/detil'] = 'kategori/get_item_detil/$1/$2';
+$route['kategori/(:any)/item/(:any)/add_to_cart'] = 'cart/add';
+$route['cart/(:any)/delete'] = 'cart/delete/$1';
+$route['checkout/(:any)/alamat_pengiriman'] = 'alamat/get/$1';
+$route['checkout/(:any)/alamat_pengiriman/simpan'] = 'alamat/simpan';
+$route['checkout/(:any)/alamat_pengiriman/alamat_simpan'] = 'alamat/alamat_simpan';
+$route['checkout/(:any)/ongkir_transfer'] = 'ongkir_transfer/get/$1';
+$route['checkout/(:any)/ongkir_transfer/simpan'] = 'ongkir_transfer/simpan';
+$route['checkout/(:any)/konfirmasi_pembayaran'] = 'konfirmasi/get/$1';
+$route['checkout/(:any)/konfirmasi_pembayaran/simpan'] = 'konfirmasi/simpan';
+$route['checkout/(:any)/sukses'] = 'konfirmasi/sukses';
+$route['artikel/(:any)'] = 'artikel/get/$1';
+$route['blog/(:any)'] = 'artikel/get/$1';
+$route['resi/(:any)/detil'] = 'resi/get/$1';
+$route['riwayat/(:any)/detil'] = 'detil';
+$route['pending/(:any)/detil'] = 'detil';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

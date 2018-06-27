@@ -59,7 +59,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-10">
-                            <h1><i class="fas fa-file-alt"></i> Invoice</h1>
+                            <h1>Invoice</h1>
                         </div>
                     </div>
 
@@ -79,26 +79,26 @@
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                     <tr>
-                                        <td><?= $order->o_noorder; ?></td>
-                                        <td><?= $order->p_nama; ?></td>
+                                        <td><?= $order->orders_noid; ?></td>
+                                        <td><?= $order->pengguna_nama; ?></td>
 
                                         <td>
-                                            <?php if ($order->o_status == 0): ?>
+                                            <?php if ($order->orders_status == 0): ?>
                                                 <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 1): ?>
+                                            <?php elseif ($order->orders_status == 1): ?>
                                                 <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
                                                 </div>
-                                            <?php elseif ($order->o_status == 2): ?>
+                                            <?php elseif ($order->orders_status == 2): ?>
                                                 <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 3): ?>
+                                            <?php elseif ($order->orders_status == 3): ?>
                                                 <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 4): ?>
+                                            <?php elseif ($order->orders_status == 4): ?>
                                                 <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
-                                            <?php elseif ($order->o_status == 5): ?>
+                                            <?php elseif ($order->orders_status == 5): ?>
                                                 <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 6): ?>
-                                                <div class="text-success">SUKSES</div>
-                                            <?php elseif ($order->o_status == 7): ?>
+                                            <?php elseif ($order->orders_status == 6): ?>
+                                                <div class="text-success">SUKSES (Telah dikirim)</div>
+                                            <?php elseif ($order->orders_status == 7): ?>
                                                 <div class="text-danger">BATAL</div>
                                             <?php endif; ?>
                                         </td>

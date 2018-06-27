@@ -10,20 +10,20 @@ class Pengguna_alamat_m extends MY_Model {
     public function __construct()
     {
         $this->table = 'pengguna_alamat';
-        $this->primary_key = 'pa_id';
-        $this->protected = array('pa_id','created_at','update_at');
+        $this->primary_key = 'pengguna_alamat_id';
+        $this->protected = array('pengguna_alamat_id','created_at','update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         $this->has_one['pengguna'] = array(
             'foreign_model'=>'Pengguna_m',
             'foreign_table'=> 'pengguna',
-            'foreign_key'=>'p_kode',
-            'local_key'=>'p_kode');
-        $this->has_one['Keranjang'] = array(
+            'foreign_key'=>'pengguna_kode',
+            'local_key'=>'pengguna_kode');
+        $this->has_one['alamat'] = array(
             'foreign_model'=>'Alamat_m',
-            'foreign_table'=> 'Keranjang',
-            'foreign_key'=>'a_kode',
-            'local_key'=>'a_kode');
+            'foreign_table'=>'alamat',
+            'foreign_key'=>'alamat_kode',
+            'local_key'=>'alamat_kode');
         parent::__construct();
     }
 

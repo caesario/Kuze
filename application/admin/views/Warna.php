@@ -59,80 +59,125 @@
             <div class="card">
                 <div class="card-header">
                     <h1>Warna</h1>
-                    <a data-toggle="modal" href="#" onclick="tambah()" data-target="#crud" data-backdrop="static" data-keyboard="false">Buat baru</a>
+
                 </div>
                 <div class="card-body">
-                    <?php if ($warnas != NULL): ?>
-                        <?php foreach ($warnas as $warna): ?>
-                            <div class="btn-group mb-2" role="group" aria-label="Basic example">
-                                <button type="button" class="btn">Warna : <?= $warna->w_nama; ?></button>
-                                <a class="btn btn-primary" tooltip data-toggle="modal" title="Ubah <?= $title_page; ?>"
-                                   href="#"
-                                   onclick="edit($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                   data-id="<?= $warna->w_kode; ?>"><i class="far fa-edit"></i></a>
-                                <a class="btn btn-danger" tooltip data-toggle="modal" title="Hapus <?= $title_page; ?>"
-                                   href="#"
-                                   onclick="hapus($(this))" data-target="#hapus"
-                                   data-id="<?= $warna->w_kode; ?>"><i class="far fa-trash-alt"></i></a>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" href="#" onclick="tambah()"
+                                   data-target="#crud" data-backdrop="static" data-keyboard="false"><i
+                                            class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table id="tables" class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>Warna</th>
+                                        <th>Dibuat pada</th>
+                                        <th>Diupdate pada</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if ($warnas != NULL): ?>
+                                        <?php foreach ($warnas as $warna): ?>
+                                            <tr>
+                                                <td><?= $warna->w_nama; ?></td>
+                                                <td><?= $warna->created_at; ?></td>
+                                                <td><?= $warna->updated_at; ?></td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                       href="#"
+                                                       onclick="edit($(this))" data-target="#crud"
+                                                       data-backdrop="static"
+                                                       data-id="<?= $warna->w_kode; ?>"><i class="far fa-edit mr-2"></i>Ubah</a>
+                                                    <a class="btn btn-sm btn-danger" data-toggle="modal"
+                                                       href="#"
+                                                       onclick="hapus($(this))" data-target="#hapus"
+                                                       data-backdrop="static"
+                                                       data-id="<?= $warna->w_kode; ?>"><i
+                                                                class="far fa-trash-alt mr-2"></i>Hapus</a>
+                                                </td>
+                                            </tr>
+
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    </tbody>
+                                </table>
                             </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+
+                        </div>
+                    </div>
                 </div>
+
             </div>
+            <script>
+                // ------------------------------------------------------ //
+                // Modal CRUD
+                // ------------------------------------------------------ //
 
-        </div>
-        <script>
-            // ------------------------------------------------------ //
-            // Modal CRUD
-            // ------------------------------------------------------ //
+                function tambah() {
+                    modal = $('#crud');
+                    bodymodal = modal.find('div.modal-body');
 
-            function tambah() {
-                modal = $('#crud');
-                bodymodal = modal.find('div.modal-body');
+                    bodymodal.load("<?= site_url('warna/tambah'); ?>");
+                }
 
-                bodymodal.load("<?= site_url('warna/tambah'); ?>");
-            }
+                function edit(data) {
+                    d = data;
+                    id = d.attr('data-id');
+                    modal = $('#crud');
+                    bodymodal = modal.find('div.modal-body');
 
-            function edit(data) {
-                d = data;
-                id = d.attr('data-id');
-                modal = $('#crud');
-                bodymodal = modal.find('div.modal-body');
+                    bodymodal.load("<?= site_url('warna/ubah/'); ?>" + id);
+                }
 
-                bodymodal.load("<?= site_url('warna/ubah/'); ?>" + id);
-            }
+                function detil(data) {
+                    d = data;
+                    id = d.attr('data-id');
+                    modal = $('#crud');
+                    bodymodal = modal.find('div.modal-body');
 
-            function detil(data) {
-                d = data;
-                id = d.attr('data-id');
-                modal = $('#crud');
-                bodymodal = modal.find('div.modal-body');
+                    bodymodal.load("<?= site_url('warna/detil/'); ?>" + id);
+                }
 
-                bodymodal.load("<?= site_url('warna/detil/'); ?>" + id);
-            }
+                function hapus(data) {
+                    d = data;
+                    id = d.attr('data-id');
+                    $('a#hapus').attr('href', "<?= site_url('warna/hapus/'); ?>" + id);
+                }
 
-            function hapus(data) {
-                d = data;
-                id = d.attr('data-id');
-                $('a#hapus').attr('href', "<?= site_url('warna/hapus/'); ?>" + id);
-            }
-
-            $(document).ready(function () {
-                $('[tooltip]').tooltip();
-            });
-
-            // ------------------------------------------------------ //
-            // Remove after 5 second
-            // ------------------------------------------------------ //
-
-            $(document).ready(function () {
-                setTimeout(function () {
-                    if ($('[role="alert"]').length > 0) {
-                        $('[role="alert"]').remove();
+                // ------------------------------------------------------ //
+                // Data table
+                // ------------------------------------------------------ //
+                $('#tables').DataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
                     }
-                }, 5000);
-            });
-        </script>
+                });
+
+                $(document).ready(function () {
+                    $('[tooltip]').tooltip();
+                });
+
+                // ------------------------------------------------------ //
+                // Remove after 5 second
+                // ------------------------------------------------------ //
+
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        if ($('[role="alert"]').length > 0) {
+                            $('[role="alert"]').remove();
+                        }
+                    }, 5000);
+                });
+            </script>
     </section>
     <footer class="main-footer">
         <div class="container-fluid">
@@ -164,6 +209,7 @@
             </div>
             <div class="modal-footer">
                 <a id="hapus" href="#" class="btn btn-sm btn-danger">Hapus</a>
+                <a id="batal" href="#" class="btn btn-sm btn-primary" data-dismiss="modal">Batal</a>
             </div>
         </div>
     </div>

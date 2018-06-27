@@ -33,20 +33,20 @@
                 <h5 class="card-title mb-1">Profil Saya</h5>
                 <form >
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">Full Name<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputName" autocomplete="off">
+                        <label class="col-form-label">Tipe Pengguna <span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="tipeUser" autocomplete="off" disabled>
                     </div>
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
-                        <input type="email" class="form-control" id="inputEmail" autocomplete="off">
+                        <label class="col-form-label">Nama Lengkap <span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputEmail" autocomplete="off">
                     </div>
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">Phone<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputPhone" autocomplete="off">
+                        <label class="col-form-label">Email <span class="c-form-star">*</span></label>
+                        <input type="email" class="form-control" id="inputPhone" autocomplete="off">
                     </div>
                     <div class="form-group col-md-6 ">
-                        <label for="inputAddress" class="col-form-label">Address<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputAddress" autocomplete="off">
+                        <label for="inputAddress" class="col-form-label">Nomer Telepon <span class="c-form-star">*</span></label>
+                        <input type="number" class="form-control" id="inputNumber" autocomplete="off">
                     </div>
                 </form>
                 <a class="btn float-left c-login-btn mb-5 ml-3 c-edit" href="<?= site_url('Profil_edit'); ?>" role="button">Simpan</a>

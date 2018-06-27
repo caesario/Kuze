@@ -57,56 +57,74 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h1><i class="fa fa-users"></i> <?= $title_page; ?></h1>
-                    <a data-toggle="modal" href="#" onclick="tambah()" data-target="#crud" data-backdrop="static"
-                       data-keyboard="false">Buat baru</a>
+                    <h1><?= $title_page; ?></h1>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Tipe</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">IP Address</th>
-                                <th scope="col">Login terakhir</th>
-                                <th scope="col" class="text-center">Aksi</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if ($customers != NULL): ?>
-                                <?php foreach ($customers as $customer): ?>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" href="#" onclick="tambah()"
+                                   data-target="#crud" data-backdrop="static"
+                                   data-keyboard="false"><i class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table id="tables" class="table table-sm">
+                                    <thead>
                                     <tr>
-                                        <td>
-                                            <?php if ($customer->p_tipe == 1): ?>
-                                                VIP
-                                            <?php elseif ($customer->p_tipe == 2): ?>
-                                                Reseller
-                                            <?php endif; ?>
-                                        </td>
-                                        <td><?= $customer->p_nama; ?></td>
-                                        <td><?= $customer->p_username; ?></td>
-                                        <td><?= $customer->p_email; ?></td>
-                                        <td><?= $customer->p_status == 0 ? 'Aktif' : 'Blocked'; ?></td>
-                                        <td><?= $customer->p_ipaddr; ?></td>
-                                        <td><?= $customer->p_login_terakhir; ?></td>
-                                        <td class="text-center">
-                                            <a tooltip data-toggle="modal" title="Ubah <?= $title_page; ?>" href="#"
-                                               onclick="edit($(this))" data-target="#crud" data-backdrop="static"
-                                               data-keyboard="false"
-                                               data-id="<?= $customer->p_kode; ?>"><i class="far fa-edit"></i></a> |
-                                            <a tooltip data-toggle="modal" title="Hapus <?= $title_page; ?>" href="#"
-                                               onclick="hapus($(this))" data-target="#hapus"
-                                               data-id="<?= $customer->p_kode; ?>"><i class="far fa-trash-alt"></i></a>
-                                        </td>
+                                        <th scope="col">Tipe</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">IP Address</th>
+                                        <th scope="col">Login terakhir</th>
+                                        <th scope="col" class="text-center">Aksi</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
+                                    </thead>
+                                    <tbody>
+                                    <?php if ($customers != NULL): ?>
+                                        <?php foreach ($customers as $customer): ?>
+                                            <tr>
+                                                <td>
+                                                    <?php if ($customer->pengguna_tipe == 1): ?>
+                                                        VIP
+                                                    <?php elseif ($customer->pengguna_tipe == 2): ?>
+                                                        Reseller
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td><?= $customer->pengguna_nama; ?></td>
+                                                <td><?= $customer->pengguna_username; ?></td>
+                                                <td><?= $customer->pengguna_email; ?></td>
+                                                <td><?= $customer->pengguna_status == 0 ? 'Aktif' : 'Blocked'; ?></td>
+                                                <td><?= $customer->pengguna_ipaddr; ?></td>
+                                                <td><?= $customer->pengguna_login_terakhir; ?></td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                       title="Ubah <?= $title_page; ?>" href="#"
+                                                       onclick="edit($(this))" data-target="#crud"
+                                                       data-backdrop="static"
+                                                       data-keyboard="false"
+                                                       data-id="<?= $customer->pengguna_kode; ?>"><i
+                                                                class="far fa-edit"></i>
+                                                        Ubah</a>
+                                                    <a class="btn btn-sm btn-danger" data-toggle="modal"
+                                                       title="Hapus <?= $title_page; ?>" href="#"
+                                                       onclick="hapus($(this))" data-target="#hapus"
+                                                       data-id="<?= $customer->pengguna_kode; ?>"><i
+                                                                class="far fa-trash-alt"></i> Hapus</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>

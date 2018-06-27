@@ -14,17 +14,17 @@ class Order_detil_m extends MY_Model
         $this->primary_key = 'od_id';
         $this->protected = array('od_id', 'created_at', 'update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         $this->has_one['order'] = array(
             'foreign_model'=>'Order_m',
             'foreign_table'=>'orders',
-            'foreign_key'=>'o_kode',
-            'local_key'=>'o_kode');
+            'foreign_key'=>'orders_noid',
+            'local_key'=>'orders_noid');
         $this->has_one['item_detil'] = array(
             'foreign_model'=>'Item_detil_m',
             'foreign_table'=>'item_detil',
-            'foreign_key'=>'ide_kode',
-            'local_key'=>'ide_kode');
+            'foreign_key'=>'item_detil_kode',
+            'local_key'=>'item_detil_kode');
         parent::__construct();
     }
 

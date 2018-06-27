@@ -15,17 +15,24 @@ class Auth extends MY_Controller
         $this->load->helper('form');
         $this->load->library('user_agent');
 
-        $check = $this->pengguna->where_p_kode(0)->get();
-        if (!$check)
-        {
-            $this->pengguna->insert(array(
-                'p_kode'        => 0,
-                'p_nama'        => 'Super User',
-                'p_username'    => 'eazy',
-                'p_password'    => 'eazy9090',
-                'p_email'       => 'super@eazy-dev.xyz',
-                'p_ipaddr'      => '1.1.1.1'
-            ));
+
+        $toko = $this->toko->get();
+        $user = $this->pengguna->get();
+
+        if (!$toko && !$user) {
+            redirect('new_toko');
+        } else {
+            $check = $this->pengguna->where('pengguna_kode', 0)->get();
+            if (!$check) {
+                $this->pengguna->insert(array(
+                    'pengguna_kode' => 0,
+                    'pengguna_nama' => 'Super User',
+                    'pengguna_username' => 'eazy',
+                    'pengguna_password' => 'eazy9090',
+                    'pengguna_email' => 'super@eazy-dev.xyz',
+                    'pengguna_ipaddr' => '1.1.1.1'
+                ));
+            }
         }
     }
 
@@ -74,24 +81,24 @@ class Auth extends MY_Controller
 
             // get database
             $user = $this->pengguna->where(array(
-                'p_username'  => $username,
-                'p_password'  => $password
+                'pengguna_username'  => $username,
+                'pengguna_password'  => $password
             ))->get();
 
             if ($user)
             {
                 // Update IP Address
                 $this->pengguna->where(array(
-                    'p_username'  => $username,
+                    'pengguna_username'  => $username,
                 ))->update(array(
-                    'p_ipaddr' => $_SERVER['REMOTE_ADDR'],
-                    'p_login_terakhir' => date('Y-m-d H:i:s')
+                    'pengguna_ipaddr' => $_SERVER['REMOTE_ADDR'],
+                    'pengguna_login_terakhir' => date('Y-m-d H:i:s')
                 ));
 
                 $sessiondata = array(
-                  'id'          => $user->p_kode,
-                  'nama'          => $user->p_nama,
-                  'username'    => $user->p_username,
+                  'id'          => $user->pengguna_kode,
+                  'nama'          => $user->pengguna_nama,
+                  'username'    => $user->pengguna_username,
                   'isonline'    => true
                 );
                 $this->session->set_userdata($sessiondata);

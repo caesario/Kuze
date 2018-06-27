@@ -59,48 +59,64 @@
             <div class="card">
                 <div class="card-header">
                     <h1><i class="fa fa-bank"></i> Bank</h1>
-                    <a data-toggle="modal" href="#" onclick="tambah()" data-target="#crud" data-backdrop="static"
-                       data-keyboard="false">Buat baru</a>
+
 
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Bank</th>
-                                <th scope="col">Nama Pemilik Rek</th>
-                                <th scope="col">Nomor Rek</th>
-                                <th scope="col">Aktif</th>
-                                <th scope="col" class="text-center"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if ($banks != NULL): ?>
-                                <?php foreach ($banks as $bank): ?>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" href="#" onclick="tambah()"
+                                   data-target="#crud" data-backdrop="static"
+                                   data-keyboard="false"><i class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table id="tables" class="table table-sm">
+                                    <thead>
                                     <tr>
-                                        <td><?= $bank->b_penerbit; ?></td>
-                                        <td><?= $bank->b_nama; ?></td>
-                                        <td><?= $bank->b_rek; ?></td>
-                                        <td><?= $bank->b_isaktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
-                                        <td class="text-center">
-                                            <a tooltip data-toggle="modal" title="Ubah <?= $title_page; ?>"
-                                               href="#"
-                                               onclick="edit($(this))" data-target="#crud" data-backdrop="static"
-                                               data-keyboard="false"
-                                               data-id="<?= $bank->b_kode; ?>"><i
-                                                        class="far fa-edit"></i></a> |
-                                            <a tooltip data-toggle="modal" title="Hapus <?= $title_page; ?>"
-                                               href="#"
-                                               onclick="hapus($(this))" data-target="#hapus"
-                                               data-id="<?= $bank->b_kode; ?>"><i
-                                                        class="far fa-trash-alt"></i></a>
-                                        </td>
+                                        <th scope="col">Bank</th>
+                                        <th scope="col">Nama Pemilik Rek</th>
+                                        <th scope="col">Nomor Rek</th>
+                                        <th scope="col">Aktif</th>
+                                        <th scope="col" class="text-center"></th>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
+                                    </thead>
+                                    <tbody>
+                                    <?php if ($banks != NULL): ?>
+                                        <?php foreach ($banks as $bank): ?>
+                                            <tr>
+                                                <td><?= $bank->bank_penerbit; ?></td>
+                                                <td><?= $bank->bank_nama; ?></td>
+                                                <td><?= $bank->bank_rek; ?></td>
+                                                <td><?= $bank->bank_isaktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                       title="Ubah <?= $title_page; ?>"
+                                                       href="#"
+                                                       onclick="edit($(this))" data-target="#crud"
+                                                       data-backdrop="static"
+                                                       data-keyboard="false"
+                                                       data-id="<?= $bank->bank_kode; ?>"><i
+                                                                class="far fa-edit mr-2"></i>Ubah</a>
+                                                    <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                       title="Hapus <?= $title_page; ?>"
+                                                       href="#"
+                                                       onclick="hapus($(this))" data-target="#hapus"
+                                                       data-id="<?= $bank->bank_kode; ?>"><i
+                                                                class="far fa-trash-alt mr-2"></i>Hapus</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,6 +157,15 @@
                 id = d.attr('data-id');
                 $('a#hapus').attr('href', "<?= site_url('bank/hapus/'); ?>" + id);
             }
+
+            // ------------------------------------------------------ //
+            // Data table
+            // ------------------------------------------------------ //
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
 
 
             $(document).ready(function () {

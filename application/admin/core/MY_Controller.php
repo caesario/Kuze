@@ -22,9 +22,9 @@ class MY_Controller extends CI_Controller
         $this->load->config('weboptions');
 
         // load model
-        $this->load->model('Alamat_m', 'Keranjang');
+        $this->load->model('Alamat_m', 'alamat');
         $this->load->model('Artikel_m', 'artikel');
-        $this->load->model('Cart_m', 'Keranjang');
+        $this->load->model('Cart_m', 'cart');
         $this->load->model('Item_detil_m', 'item_detil');
         $this->load->model('Item_img_m', 'item_img');
         $this->load->model('Item_kategori_m', 'item_kategori');
@@ -40,11 +40,14 @@ class MY_Controller extends CI_Controller
         $this->load->model('Order_ongkir_m', 'order_ongkir');
         $this->load->model('Order_payment_m', 'order_payment');
         $this->load->model('Order_bukti_m', 'order_bukti');
+        $this->load->model('Order_pengguna_m', 'order_pengguna');
+        $this->load->model('Order_resi_m', 'order_resi');
         $this->load->model('Seri_m', 'seri');
         $this->load->model('Toko_m', 'toko');
         $this->load->model('Ukuran_m', 'ukuran');
         $this->load->model('Warna_m', 'warna');
         $this->load->model('Bank_m', 'bank');
+        $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Provinsi_m', 'provinsi');
         $this->load->model('Kabupaten_m', 'kabupaten');
         $this->load->model('Kecamatan_m', 'kecamatan');
@@ -57,8 +60,20 @@ class MY_Controller extends CI_Controller
         $this->data->meta_keywords = $this->config->item('webkeywords');
         $this->data->menu_kategori = $this->item_kategori->with_kategori()->group_by('k_kode')->get_all();
         $this->data->menu_cart = function ($session_id) {
-            return $this->cart->with_item_detil()->where_p_kode($session_id)->get_all();
+            return $this->cart->with_item_detil()->where_pengguna_kode($session_id)->get_all();
         };
+
+        // cek user
+        if (isset($_SESSION['id'])) {
+            $user = $this->pengguna->where('pengguna_kode', $_SESSION['id'])->get();
+            if (!$user) {
+                $this->session->unset_userdata('id');
+                $this->session->unset_userdata('nama');
+                $this->session->unset_userdata('username');
+                $this->session->unset_userdata('isonline');
+            }
+        }
+
 
         $this->callback();
         $this->load_pref();
@@ -110,7 +125,7 @@ class MY_Controller extends CI_Controller
                 ->with_ukuran('order_by:u_nama')
                 ->with_seri()
                 ->with_item_img()
-                ->where_ide_kode($ide_kode)
+                ->where_item_detil_kode($ide_kode)
                 ->get();
         };
 
@@ -121,7 +136,7 @@ class MY_Controller extends CI_Controller
                 ->with_ukuran('order_by:u_nama')
                 ->with_seri()
                 ->with_item_img()
-                ->where_ide_kode($ide_kode)
+                ->where_item_detil_kode($ide_kode)
                 ->get_all();
         };
 
@@ -149,7 +164,7 @@ class MY_Controller extends CI_Controller
 
         $this->data->qty_detil = function ($ide_kode) {
             $hasil = 0;
-            $stoks = $this->item_qty->fields('iq_qty')->where_ide_kode($ide_kode)->get_all();
+            $stoks = $this->item_qty->fields('iq_qty')->where_item_detil_kode($ide_kode)->get_all();
             foreach ($stoks as $stok) {
                 $hasil += $stok->iq_qty;
             }
@@ -168,12 +183,12 @@ class MY_Controller extends CI_Controller
         };
 
         $this->data->cart_s = function ($p_kode) {
-            return $this->cart->where_p_kode($p_kode)->get_all();
+            return $this->cart->where_pengguna_kode($p_kode)->get_all();
         };
 
         $this->data->cart_total = function ($p_kode) {
             $hasil = 0;
-            foreach ($this->cart->where_p_kode($p_kode)->get_all() as $cart_total) {
+            foreach ($this->cart->where_pengguna_kode($p_kode)->get_all() as $cart_total) {
                 $hasil += (int)$cart_total->ca_tharga;
             }
 
@@ -190,8 +205,21 @@ class MY_Controller extends CI_Controller
         $toko = $this->toko->get();
         if ($toko) {
             $this->data->brandname = $toko->t_nama;
+            $this->data->brandkode = $toko->t_singkatan;
+            $this->data->email = $toko->t_email;
+            $this->data->whatsapp = $toko->t_wa;
+            $this->data->logo = $toko->t_logo;
+            $this->data->icon = $toko->t_icon;
         } else {
-            $this->data->brandname = '';
+            $this->data->brandname = 'E-Commerce Brand';
+            $this->data->brandkode = 'EB';
+            $this->data->email = '';
+            $this->data->whatsapp = '';
+
+            $this->data->logo = '';
+            $this->data->icon = '';
+
+
         }
 
 

@@ -140,18 +140,18 @@ class API extends MY_Controller
         $p_kode = $_SESSION['id'];
 
         if (isset($q)) {
-            $alamat = $this->pengguna_alamat->with_pengguna()->with_alamat()->where('p_kode', $p_kode)->get_all();
+            $alamat = $this->pengguna_alamat->with_pengguna()->with_alamat()->where('pengguna_kode', $p_kode)->get_all();
             foreach ($alamat as $g) {
                 array_push($data['results'], array(
-                    'id' => $g->alamat->a_kode,
+                    'id' => $g->alamat->alamat_kode,
                     'text' => $g->alamat->a_nama
                 ));
             }
         } else {
-            $alamat = $this->pengguna_alamat->with_pengguna()->with_alamat()->where('p_kode', $p_kode)->get_all();
+            $alamat = $this->pengguna_alamat->with_pengguna()->with_alamat()->where('pengguna_kode', $p_kode)->get_all();
             foreach ($alamat as $g) {
                 array_push($data['results'], array(
-                    'id' => $g->alamat->a_kode,
+                    'id' => $g->alamat->alamat_kode,
                     'text' => $g->alamat->a_nama
                 ));
             }
@@ -163,21 +163,21 @@ class API extends MY_Controller
 
     public function get_full_alamat($id)
     {
-        $g = $this->pengguna_alamat->with_alamat('where:a_kode = \'' . $id . '\'')->get_all();
+        $g = $this->pengguna_alamat->with_alamat('where:alamat_kode = \'' . $id . '\'')->get_all();
         foreach ($g as $alamat) {
             $hasil = array(
-                'pa_r_nama' => $alamat->pa_r_nama,
-                'pa_r_kontak' => $alamat->pa_r_kontak,
-                'pa_s_nama' => $alamat->pa_s_nama,
-                'pa_s_kontak' => $alamat->pa_s_kontak,
-                'a_kode' => $alamat->alamat->a_kode,
+                'pengguna_alamat_r_nama' => $alamat->pengguna_alamat_r_nama,
+                'pengguna_alamat_r_kontak' => $alamat->pengguna_alamat_r_kontak,
+                'pengguna_alamat_s_nama' => $alamat->pengguna_alamat_s_nama,
+                'pengguna_alamat_s_kontak' => $alamat->pengguna_alamat_s_kontak,
+                'alamat_kode' => $alamat->alamat->alamat_kode,
                 'a_nama' => $alamat->alamat->a_nama,
-                'a_provinsi' => $alamat->alamat->a_provinsi,
-                'a_kabupaten' => $alamat->alamat->a_kabupaten,
-                'a_kecamatan' => $alamat->alamat->a_kecamatan,
-                'a_desa' => $alamat->alamat->a_desa,
-                'a_kodepos' => $alamat->alamat->a_kodepos,
-                'a_deskripsi' => $alamat->alamat->a_deskripsi,
+                'alamat_provinsi' => $alamat->alamat->alamat_provinsi,
+                'alamat_kabupaten' => $alamat->alamat->alamat_kabupaten,
+                'alamat_kecamatan' => $alamat->alamat->alamat_kecamatan,
+                'alamat_desa' => $alamat->alamat->alamat_desa,
+                'alamat_kodepos' => $alamat->alamat->alamat_kodepos,
+                'alamat_deskripsi' => $alamat->alamat->alamat_deskripsi,
             );
         }
 

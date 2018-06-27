@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-sm-2">
                             <a tooltip data-toggle="modal" title="Tambah <?= $title_page; ?>" href="#"
-                               onclick="tambah()" data-target="#crud" data-backdrop="static" data-keyboard="false" class="btn btn-sm btn-primary btn-block"><i
+                               onclick="tambah()" data-target="#crud" data-backdrop="static" data-keyboard="false" class="btn btn-sm btn-primary"><i
                                         class="fas fa-plus"></i></a>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                                         <?php if ($item->item_detil != NULL): ?>
                                             <?php foreach ($item->item_detil as $detil): ?>
                                                 <td>
-                                                    <?= $warna($detil->ide_kode); ?>
+                                                    <?= $warna($detil->item_detil_kode); ?>
                                                 </td>
                                             <?php endforeach; ?>
                                         <?php else: ?>
@@ -106,7 +106,7 @@
                                         <?php if ($item->item_detil != NULL): ?>
                                             <?php foreach ($item->item_detil as $detil): ?>
                                                 <td>
-                                                    <?= $ukuran($detil->ide_kode); ?>
+                                                    <?= $ukuran($detil->item_detil_kode); ?>
                                                 </td>
                                             <?php endforeach; ?>
                                         <?php else: ?>
@@ -129,7 +129,7 @@
                                                        title="Tambah Stok <?= $title_page; ?>"
                                                        href="#"
                                                        onclick="tambah_qty($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                       data-id="<?= $item->ide_kode; ?>"><i
+                                                       data-id="<?= $item->item_detil_kode; ?>"><i
                                                                 class="fas fa-cart-plus fa-lg"></i></a> |
                                                     <a tooltip data-toggle="modal"
                                                        title="Tambah Foto <?= $title_page; ?>"
@@ -140,7 +140,7 @@
                                                     <a tooltip data-toggle="modal" title="Hapus <?= $title_page; ?>"
                                                        href="#"
                                                        onclick="hapus($(this))" data-target="#hapus"
-                                                       data-id="<?= $item->ide_kode; ?>"><i
+                                                       data-id="<?= $item->item_detil_kode; ?>"><i
                                                                 class="far fa-trash-alt fa-lg"></i></a>
                                                 </td>
                                             <?php endforeach; ?>

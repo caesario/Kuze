@@ -9,16 +9,16 @@
 class Cart_m extends MY_Model {
     public function __construct()
     {
-        $this->table = 'Keranjang';
+        $this->table = 'cart';
         $this->primary_key = 'ca_id';
         $this->protected = array('ca_id','created_at','update_at');
         $this->timestamps = TRUE;
         $this->has_one['item_detil'] = array(
             'foreign_model'=>'Item_detil_m',
             'foreign_table'=>'item_detil',
-            'foreign_key'=>'ide_kode',
-            'local_key'=>'ide_kode');
-        $this->soft_deletes = TRUE;
+            'foreign_key'=>'item_detil_kode',
+            'local_key'=>'item_detil_kode');
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 

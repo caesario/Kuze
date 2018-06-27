@@ -1,11 +1,11 @@
 <?php
 $url = site_url('bank/simpan');
 if ($submit == 'Ubah') {
-    $id = $bank->b_kode;
-    $penerbit = $bank->b_penerbit;
-    $nama = $bank->b_nama;
-    $rekening = $bank->b_rek;
-    $isaktif = $bank->b_isaktif;
+    $id = $bank->bank_kode;
+    $penerbit = $bank->bank_penerbit;
+    $nama = $bank->bank_nama;
+    $rekening = $bank->bank_rek;
+    $isaktif = $bank->bank_isaktif;
 } else if ($submit == 'Simpan') {
     $id = $kode;
     $penerbit = '';
@@ -16,7 +16,7 @@ if ($submit == 'Ubah') {
 ?>
 
 <form action="<?= $url; ?>" method="post">
-    <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="form-group">
         <label for="penerbit">Bank</label>
@@ -43,8 +43,8 @@ if ($submit == 'Ubah') {
         </div>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary"><?= $submit; ?></button>
-        <button type="button" onclick="window.location.reload()" class="btn btn-danger">Tutup</button>
+        <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
+        <button type="button" onclick="window.location.reload()" class="btn btn-sm btn-danger">Tutup</button>
     </div>
     <?php if (isset($berhasil)): ?>
         <p class="text-success"><?= $berhasil; ?></p>

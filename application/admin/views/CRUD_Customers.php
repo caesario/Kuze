@@ -1,12 +1,12 @@
 <?php
 $url = site_url('customers/simpan');
 if ($submit == 'Ubah') {
-    $id = $customers->p_kode;
-    $tipe = $customers->p_tipe;
-    $nama = $customers->p_nama;
-    $username = $customers->p_username;
-    $password = $customers->p_password;
-    $email = $customers->p_email;
+    $id = $customers->pengguna_kode;
+    $tipe = $customers->pengguna_tipe;
+    $nama = $customers->pengguna_nama;
+    $username = $customers->pengguna_username;
+    $password = $customers->pengguna_password;
+    $email = $customers->pengguna_email;
 } else if ($submit == 'Simpan') {
     $id = $kode;
     $tipe = '';
@@ -18,7 +18,7 @@ if ($submit == 'Ubah') {
 ?>
 
 <form action="<?= $url; ?>" method="post">
-    <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="form-group">
         <label for="tipe">Tipe</label>
@@ -55,8 +55,8 @@ if ($submit == 'Ubah') {
         </p>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary"><?= $submit; ?></button>
-        <button type="button" onclick="window.location.reload()" class="btn btn-danger">Tutup</button>
+        <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
+        <button type="button" onclick="window.location.reload()" class="btn btn-sm btn-danger">Tutup</button>
     </div>
     <?php if (isset($berhasil)): ?>
         <p class="text-success"><?= $berhasil; ?></p>

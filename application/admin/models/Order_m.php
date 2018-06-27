@@ -11,15 +11,15 @@ class Order_m extends MY_Model
     public function __construct()
     {
         $this->table = 'orders';
-        $this->primary_key = 'o_id';
-        $this->protected = array('o_id', 'created_at', 'update_at');
+        $this->primary_key = 'orders_noid';
+        $this->protected = array('created_at', 'update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         $this->has_many['order_detil'] = array(
             'foreign_model'=>'order_detil_m',
             'foreign_table'=>'order_detil',
-            'foreign_key'=>'o_kode',
-            'local_key'=>'o_kode'
+            'foreign_key'=>'orders_noid',
+            'local_key'=>'orders_noid'
         );
         parent::__construct();
     }
@@ -37,52 +37,100 @@ class Order_m extends MY_Model
 
     public function select_orders()
     {
-        $query = $this->db->query("SELECT orders.o_kode, orders.created_at, orders.o_noorder, orders.o_status, pengguna.p_nama, SUM(orders_detil.od_tharga) total
+        $query = $this->db->query("SELECT orders.orders_noid, orders.created_at, orders.orders_status, orders.orders_deskripsi, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
-                                    ON orders.p_kode = pengguna.p_kode
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
                                     LEFT JOIN orders_detil
-                                    ON orders.o_kode = orders_detil.o_kode
-                                    GROUP BY orders.o_noorder;");
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    GROUP BY orders.orders_noid;");
+
+        return $query->result();
+    }
+
+    public function select_orders_users($id)
+    {
+        $query = $this->db->query("SELECT orders.orders_noid, orders.created_at, orders.orders_status, orders.orders_deskripsi, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+                                    FROM orders
+                                    INNER JOIN pengguna
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_detil
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    WHERE pengguna.pengguna_kode = '$id'
+                                    GROUP BY orders.orders_noid;");
 
         return $query->result();
     }
 
     public function select_orders_where($status)
     {
-        $query = $this->db->query("SELECT orders.o_kode, orders.o_noorder, orders.o_status, pengguna.p_nama, SUM(orders_detil.od_tharga) total
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_status, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
-                                    ON orders.p_kode = pengguna.p_kode
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
                                     LEFT JOIN orders_detil
-                                    ON orders.o_kode = orders_detil.o_kode
-                                    WHERE orders.o_status = $status
-                                    GROUP BY orders.o_noorder;");
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    WHERE orders.orders_status = $status
+                                    GROUP BY orders.orders_noid;");
+
+        return $query->result();
+    }
+
+    public function select_orders_where_id($id)
+    {
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_status, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+                                    FROM orders
+                                    INNER JOIN pengguna
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_detil
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    WHERE orders.orders_noid = $id
+                                    GROUP BY orders.orders_noid;");
 
         return $query->result();
     }
 
     public function select_orders_bukti($status)
     {
-        $query = $this->db->query("SELECT orders_bukti.*, orders.o_noorder, orders.o_status
+        $query = $this->db->query("SELECT orders_bukti.*, orders.orders_noid, orders.orders_status
                                     FROM orders_bukti
                                     LEFT JOIN orders
-                                    ON orders_bukti.o_kode = orders.o_kode
-                                    WHERE orders.o_status = $status;");
+                                    ON orders_bukti.orders_noid = orders.orders_noid
+                                    WHERE orders.orders_status = $status;");
 
         return $query->result();
     }
 
-    public function select_invoice()
+    public function select_invoice($status)
     {
-        $query = $this->db->query("SELECT orders.o_noorder, orders.o_status, pengguna.p_nama, SUM(orders_detil.od_tharga) total
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_status, orders.created_at, orders_resi.orders_resi_no, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
-                                    ON orders.p_kode = pengguna.p_kode
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_resi
+                                    ON orders.orders_noid = orders_resi.orders_noid
                                     LEFT JOIN orders_detil
-                                    ON orders.o_kode = orders_detil.o_kode
-                                    WHERE orders.o_status = '6'
-                                    GROUP BY orders.o_noorder;");
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    WHERE orders.orders_status = $status
+                                    GROUP BY orders.orders_noid;");
+
+        return $query->result();
+    }
+
+    public function select_invoice_users($id, $status)
+    {
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_status, orders.created_at, orders_resi.orders_resi_no, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+                                    FROM orders
+                                    INNER JOIN pengguna
+                                    ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_resi
+                                    ON orders.orders_noid = orders_resi.orders_noid
+                                    LEFT JOIN orders_detil
+                                    ON orders.orders_noid = orders_detil.orders_noid
+                                    WHERE orders.orders_status = $status 
+                                    AND
+                                    pengguna.pengguna_kode = '$id'
+                                    GROUP BY orders.orders_noid;");
 
         return $query->result();
     }

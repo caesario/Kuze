@@ -13,7 +13,7 @@ class Seri_m extends MY_Model {
         $this->primary_key = 's_id';
         $this->protected = array('s_id','created_at','update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 

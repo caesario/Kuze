@@ -10,10 +10,10 @@ class Pengguna_m extends MY_Model {
     public function __construct()
     {
         $this->table = 'pengguna';
-        $this->primary_key = 'p_id';
-        $this->protected = array('p_id','created_at','update_at');
+        $this->primary_key = 'pengguna_id';
+        $this->protected = array('pengguna_id','created_at','update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 

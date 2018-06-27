@@ -24,7 +24,7 @@ class Dashboard extends MY_Controller
     public function index()
     {
         // set title
-        $this->data->title = 'Fashion Grosir | Dashboard';
+        $this->data->title = $this->data->brandname . ' | Dashboard';
 
         // set total
         $this->data->totalitem = $this->set_totalitem();
@@ -47,7 +47,7 @@ class Dashboard extends MY_Controller
     {
         // load model
         $this->load->model('Pengguna_m','customer');
-        $total = $this->customer->where('p_tipe',array('1','2'))->count_rows();
+        $total = $this->customer->where('pengguna_tipe',array('1','2'))->count_rows();
         return $total;
     }
 
@@ -63,7 +63,7 @@ class Dashboard extends MY_Controller
     {
         // load model
         $this->load->model('Order_m','order');
-        $total = $this->order->where_o_status(4)->count_rows();
+        $total = $this->order->where_orders_status(4)->count_rows();
         return $total;
     }
 

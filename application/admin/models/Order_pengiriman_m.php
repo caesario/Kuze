@@ -11,20 +11,15 @@ class Order_pengiriman_m extends MY_Model
     public function __construct()
     {
         $this->table = 'orders_pengiriman';
-        $this->primary_key = 'op_id';
-        $this->protected = array('op_id', 'created_at', 'update_at');
+        $this->primary_key = 'orders_noid';
+        $this->protected = array('created_at', 'update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         $this->has_one['order'] = array(
             'foreign_model'=>'Order_m',
             'foreign_table'=>'orders',
-            'foreign_key'=>'o_kode',
-            'local_key'=>'o_kode');
-        $this->has_one['Keranjang'] = array(
-            'foreign_model'=>'Alamat_m',
-            'foreign_table'=> 'Keranjang',
-            'foreign_key'=>'a_kode',
-            'local_key'=>'a_kode');
+            'foreign_key'=>'orders_noid',
+            'local_key'=>'orders_noid');
         parent::__construct();
     }
 

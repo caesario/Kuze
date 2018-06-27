@@ -14,7 +14,7 @@ class Item_warna_m extends MY_Model {
         $this->protected = array('iw_id','created_at','update_at');
         $this->has_one['item'] = 'Item_m';
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 

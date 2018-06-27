@@ -68,7 +68,7 @@
                 </div>
                 <div class="card-body">
                     <form action="<?= site_url('customers/alamat/' . $id . '/tambah'); ?>" method="post">
-                        <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+                        <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <div class="form-group">
                             <label for="judul">Judul</label>
                             <input type="text" class="form-control" name="judul" placeholder="Input Judul" required>
@@ -148,10 +148,10 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><?= $submit; ?></button>
-                            <button type="button" onclick="window.location.reload()" class="btn btn-danger">Tutup
+                            <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
+                            <button type="button" onclick="window.location.reload()" class="btn btn-sm btn-danger">Tutup
                             </button>
-                            <a href="<?= site_url('customers/alamat/' . $id); ?>" class="btn btn-danger">Kembali</a>
+                            <a href="<?= site_url('customers/alamat/' . $id); ?>" class="btn btn-sm btn-danger">Kembali</a>
                         </div>
                         <?php if (isset($berhasil)): ?>
                             <p class="text-success"><?= $berhasil; ?></p>

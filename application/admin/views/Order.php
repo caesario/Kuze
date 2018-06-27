@@ -59,19 +59,18 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-10">
-                            <h1><i class="fas fa-file-alt"></i> Order</h1>
+                            <h1>Order</h1>
                         </div>
                     </div>
 
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
+                        <table id="tables" class="table table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">No. Order</th>
-                                <th scope="col">Nama Pelanggan</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">Detail Order</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -79,67 +78,114 @@
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                     <tr>
-                                        <td class="text-danger"><?= $order->o_noorder; ?></td>
-                                        <td><?= $order->p_nama; ?></td>
-                                        <td id="rupiah"><?= $order->total; ?></td>
-                                        <td>
-                                            <?php if ($order->o_status == 3): ?>
-                                                <a tooltip data-toggle="modal" title="Konfirmasi Pembayaran" href="#"
-                                                   onclick="konfirmasi($(this))" data-target="#konfirmasi"
-                                                   data-id="<?= $order->o_kode; ?>"><i class="fas fa-check"></i>
-                                                </a>
-                                            <?php endif; ?>
-
-                                            <?php if ($order->o_status == 4): ?>
-                                                <a <?= $order->o_status == 4 ? '' : 'disabled'; ?>
-                                                        tooltip data-toggle="modal" title="Proses <?= $title_page; ?>"
-                                                        href="#"
-                                                        onclick="proses($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                        data-id="<?= $order->o_kode; ?>"><i
-                                                            class="fas fa-exchange-alt"></i>
-                                                </a>
-                                            <?php endif; ?>
-
-                                            <?php if ($order->o_status == 5): ?>
-                                                <a tooltip data-toggle="modal"
-                                                   title="Konfirmasi Pengiriman" href="#"
-                                                   onclick="pengiriman($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                   data-id="<?= $order->o_kode; ?>">
-                                                    <i class="fas fa-truck-moving"></i>
-                                                </a>
-                                            <?php endif; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="3"><b>Tanggal Order : </b><br>
-                                            <?= $order->created_at; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="3"><b>Status Order : </b>
-                                            <?php if ($order->o_status == 0): ?>
-                                                <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 1): ?>
-                                                <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
+                                        <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
+                                        <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Nama Pelanggan :</b><br>
+                                                <?= $order->pengguna_nama; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Total Pembayaran : </b><br>
+                                                <div id="rupiah">
+                                                    <?= $order->total; ?>
                                                 </div>
-                                            <?php elseif ($order->o_status == 2): ?>
-                                                <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 3): ?>
-                                                <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 4): ?>
-                                                <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
-                                            <?php elseif ($order->o_status == 5): ?>
-                                                <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 6): ?>
-                                                <div class="text-success">SUKSES</div>
-                                            <?php elseif ($order->o_status == 7): ?>
-                                                <div class="text-danger">BATAL</div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Tanggal Order : </b><br>
+                                                <?= $order->created_at; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Status Order : </b><br>
+                                                <?php if ($order->orders_status == 0): ?>
+                                                    <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
+                                                <?php elseif ($order->orders_status == 1): ?>
+                                                    <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN &
+                                                        PEMBAYARAN
+                                                    </div>
+                                                <?php elseif ($order->orders_status == 2): ?>
+                                                    <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN
+                                                    </div>
+                                                <?php elseif ($order->orders_status == 3): ?>
+                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
+                                                <?php elseif ($order->orders_status == 4): ?>
+                                                    <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
+                                                <?php elseif ($order->orders_status == 5): ?>
+                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
+                                                <?php elseif ($order->orders_status == 6): ?>
+                                                    <div class="text-success">SUKSES (Telah dikirim)</div>
+                                                <?php elseif ($order->orders_status == 7): ?>
+                                                    <div class="text-danger">BATAL</div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
+                                               onclick="detil($(this))" data-target="#cruddetil"
+                                               data-id="<?= $order->orders_noid; ?>"><i
+                                                        class="fas fa-sync mr-2"></i>Lihat <?= $title_page; ?>
+
+                                            </a>
+                                            <?php if ($order->orders_status > 4 && $order->orders_status < 7): ?>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button id="cetak" type="button"
+                                                            class="btn btn-primary dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                        Cetak
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="opsi">
+                                                        <a class="dropdown-item"
+                                                           href="<?= site_url('print_pdf/slip_pengiriman/' . $order->orders_noid); ?>"
+                                                        ><i class="far fa-file-alt mr-2"></i>Slip Pengiriman
+                                                        </a>
+                                                        <a class="dropdown-item" data-toggle="modal" href="#"
+                                                           onclick="print_invoice($(this))" data-target="#crud"
+                                                           data-id="<?= $order->orders_noid; ?>"><i
+                                                                    class="far fa-file-alt mr-2"></i>Invoice
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($order->orders_status == 3): ?>
+                                                <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
+                                                   onclick="konfirmasi($(this))" data-target="#konfirmasi"
+                                                   data-id="<?= $order->orders_noid; ?>"><i
+                                                            class="fas fa-sync mr-2"></i>Konfirmasi &
+                                                    Proses <?= $title_page; ?>
+                                                </a>
+
+                                            <?php endif; ?>
+
+                                            <?php if ($order->orders_status == 4): ?>
+                                                <a class="btn btn-sm btn-primary" <?= $order->orders_status == 4 ? '' : 'disabled'; ?>
+                                                   data-toggle="modal" href="#"
+                                                   onclick="proses($(this))" data-target="#konfirmasi"
+                                                   data-id="<?= $order->orders_noid; ?>">Proses <?= $title_page; ?>
+                                                </a>
+                                            <?php endif; ?>
+
+                                            <?php if ($order->orders_status == 5): ?>
+                                                <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                   title="Konfirmasi Pengiriman" href="#"
+                                                   onclick="pengiriman($(this))" data-target="#crud"
+                                                   data-backdrop="static" data-keyboard="false"
+                                                   data-id="<?= $order->orders_noid; ?>">
+                                                    Konfirmasi Pengiriman
+                                                </a>
+                                            <?php endif; ?>
+                                            <?php if ($order->orders_status != 7 && $order->orders_status < 5): ?>
+                                                <a class="btn btn-sm btn-danger"
+                                                   data-toggle="modal"
+                                                   data-target="#batal"
+                                                   data-url="<?= site_url('order/batal/' . $order->orders_noid); ?>"
+                                                   onclick="batal($(this))"
+                                                   href="#"><i class="fas fa-times mr-2"></i>
+                                                    Batalkan <?= $title_page; ?>
+                                                </a>
                                             <?php endif; ?>
                                         </td>
                                     </tr>
-
                                 <?php endforeach; ?>
                             <?php endif; ?>
                             </tbody>
@@ -160,11 +206,28 @@
                 $('a#konfirmasi').attr('href', "<?= site_url('order/konfirmasi/'); ?>" + id + "/proses");
             }
 
-            function tambah() {
+            function proses(data) {
+                d = data;
+                id = d.attr('data-id');
+                $('a#konfirmasi').attr('href', "<?= site_url('order/proses/'); ?>" + id + "/proses");
+            }
+
+            function pengiriman(data) {
+                d = data;
+                id = d.attr('data-id');
+
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('ukuran/tambah'); ?>");
+                bodymodal.load("<?= site_url('order/resi/'); ?>" + id);
+            }
+
+            function batal(data) {
+                d = data;
+                url = d.attr('data-url');
+                modal = $('#batal');
+                formmodal = modal.find('div.modal-body > form');
+                formmodal.prop('action', url);
             }
 
             function edit(data) {
@@ -179,10 +242,10 @@
             function detil(data) {
                 d = data;
                 id = d.attr('data-id');
-                modal = $('#crud');
+                modal = $('#cruddetil');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('ukuran/detil/'); ?>" + id);
+                bodymodal.load("<?= site_url('order/detil/'); ?>" + id);
             }
 
             function hapus(data) {
@@ -192,9 +255,13 @@
             }
 
             // ------------------------------------------------------ //
-            // Data table users
+            // Data table
             // ------------------------------------------------------ //
-            // $('#tables').DataTable();
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();
@@ -224,7 +291,7 @@
             });
 
             $(document).ready(function () {
-                $('td[id="rupiah"]').each(function (index) {
+                $('div[id="rupiah"]').each(function (index) {
                     var value = parseInt($(this).html()),
                         hasil = moneyFormat.to(value);
 
@@ -255,16 +322,51 @@
     </div>
 </div>
 
+<div class="modal fade" id="cruddetil" tabindex="-1" role="dialog" aria-labelledby="cruddetil" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
 
             <div class="modal-body">
-                <p>Apakah anda yakin?</p>
+                <p>Apakah anda yakin ingin melanjutkan proses ini?</p>
             </div>
             <div class="modal-footer">
-                <a id="konfirmasi" href="#" class="btn btn-primary btn-sm">Proses</a>
-                <a data-dismiss="modal" href="#" class="btn btn-danger btn-sm">Tutup</a>
+                <a id="konfirmasi" href="#" class="btn btn-sm btn-primary">Proses</a>
+                <a data-dismiss="modal" href="#" class="btn btn-sm btn-danger">Tutup</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="batal" tabindex="-1" role="dialog" aria-labelledby="batal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
+                    <div class="form-group">
+                        <label for="alasan">Alasan</label>
+                        <textarea class="form-control" name="alasan" id="alasan" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-sm btn-primary">Batalkan</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

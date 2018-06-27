@@ -59,56 +59,62 @@
             <div class="card">
                 <div class="card-header">
                     <h1>Kategori</h1>
-                    <a data-toggle="modal" href="#" onclick="tambah()" data-target="#crud" data-backdrop="static" data-keyboard="false">Buat baru</a>
 
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Parent</th>
-                                <th scope="col">Child</th>
-                                <th scope="col" class="text-center"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if ($kategoris != NULL): ?>
-                                <?php foreach ($kategoris as $kategori): ?>
-                                    <?php if ($kategori->k_parent_kode == 0): ?>
-                                        <tr>
-                                            <td><?= $kategori->k_nama; ?></td>
-                                            <td>
-                                                <?php
-                                                $child = array();
-                                                foreach ($kategoris as $subkat) {
-                                                    if ($subkat->k_parent_kode == $kategori->k_kode) {
-                                                        array_push($child, $subkat->k_nama);
-                                                    }
-                                                }
-                                                echo implode(',', $child);
-                                                ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php if ($kategori->k_kode != '0'): ?>
-                                                    <a tooltip data-toggle="modal" title="Ubah <?= $title_page; ?>"
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" href="#" onclick="tambah()"
+                                   data-target="#crud" data-backdrop="static" data-keyboard="false"><i
+                                            class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table id="tables" class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th>Dibuat pada</th>
+                                        <th>Diupdate pada</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if ($kategoris != NULL): ?>
+                                        <?php foreach ($kategoris as $kategori): ?>
+                                            <tr>
+                                                <td class="align-middle">
+                                                    <?= $kategori->k_nama; ?>
+                                                </td>
+                                                <td class="align-middle"><?= $kategori->created_at; ?></td>
+                                                <td class="align-middle"><?= $kategori->updated_at; ?></td>
+
+                                                <td class="align-middle">
+                                                    <a data-toggle="modal" class="btn btn-sm btn-primary"
                                                        href="#"
-                                                       onclick="edit($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
+                                                       onclick="edit($(this))" data-target="#crud"
+                                                       data-backdrop="static" data-keyboard="false"
                                                        data-id="<?= $kategori->k_kode; ?>"><i
-                                                                class="far fa-edit"></i></a> |
-                                                    <a tooltip data-toggle="modal" title="Hapus <?= $title_page; ?>"
+                                                                class="far fa-edit mr-2"></i>Ubah</a>
+                                                    <a data-toggle="modal" class="btn btn-sm btn-danger"
                                                        href="#"
                                                        onclick="hapus($(this))" data-target="#hapus"
+                                                       data-backdrop="static" data-keyboard="false"
                                                        data-id="<?= $kategori->k_kode; ?>"><i
-                                                                class="far fa-trash-alt"></i></a>
-                                                <?php endif; ?>
-                                            </td>
-                                        </tr>
+                                                                class="far fa-trash-alt mr-2"></i> Hapus</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,6 +156,14 @@
                 $('a#hapus').attr('href', "<?= site_url('kategori/hapus/'); ?>" + id);
             }
 
+            // ------------------------------------------------------ //
+            // Data table
+            // ------------------------------------------------------ //
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();
@@ -192,12 +206,18 @@
 <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="hapus" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-
+            <div class="modal-header">
+                <h1 class="modal-title" id="hapus"><?= $title_page; ?></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="modal-body">
                 <p>Apakah anda yakin ingin menghapus data ini?</p>
             </div>
             <div class="modal-footer">
                 <a id="hapus" href="#" class="btn btn-sm btn-danger">Hapus</a>
+                <a id="batal" href="#" class="btn btn-sm btn-primary" data-dismiss="modal">Batal</a>
             </div>
         </div>
     </div>

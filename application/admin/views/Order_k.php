@@ -61,81 +61,87 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm-10">
-                            <h1><i class="fas fa-file-alt"></i> Pembayaran</h1>
+                            <h1>Pembayaran</h1>
                         </div>
                     </div>
 
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
+                        <table id="tables" class="table table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">No. Order</th>
-                                <th scope="col">Nominal</th>
-                                <th scope="col" class="text-center">Konfirmasi</th>
+                                <th scope="col">Detail Bank & Bukti</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                     <tr>
-                                        <td class="text-danger"><?= $order->o_noorder; ?></td>
-                                        <td id="rupiah"><?= $order->ob_nominal; ?></td>
-                                        <td class="text-center">
-                                            <a tooltip data-toggle="modal" title="Proses <?= $title_page; ?>" href="#"
-                                               onclick="proses($(this))" data-target="#proses"
-                                               data-id="<?= $order->o_kode; ?>"><i class="fas fa-check"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><b>No Pemilik Rekening : </b><br>
-                                            <?= $order->ob_no_rek; ?>
-                                        </td>
-                                        <td rowspan="2"><b>Bukti : </b>
-                                            <div class="fotorama"
-                                                 data-nav="false"
-                                                 data-arrows="false"
-                                                 data-click="true"
-                                                 data-swipe="true"
-                                                 data-allowfullscreen="true"
-                                                 data-width="220"
-                                                 data-height="150">
-                                                <img src="http://s.fotorama.io/1.jpg" width="220" height="150">
+                                        <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
+                                        <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Nominal : </b><br>
+                                                <div id="rupiah">
+                                                    <?= $order->orders_bukti_nominal; ?>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Bank : </b><br>
+                                                <?= $order->orders_bukti_bank_nama; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Nomor Pemilik Rekening : </b><br>
+                                                <?= $order->orders_bukti_no_rek; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Bukti : </b><br>
+                                                <?php if ($order->orders_bukti_foto != NULL): ?>
+                                                    <div class="fotorama"
+                                                         data-nav="false"
+                                                         data-arrows="false"
+                                                         data-click="true"
+                                                         data-swipe="true"
+                                                         data-allowfullscreen="true"
+                                                         data-width="220"
+                                                         data-height="150">
+                                                        <img src="<?= base_url('upload/' . $order->orders_bukti_foto); ?>"
+                                                             width="220" height="150">
+                                                    </div>
+                                                <?php else: ?>
+                                                    Tidak ada gambar.
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Status : </b><br>
+                                                <?php if ($order->orders_status == 0): ?>
+                                                    <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
+                                                <?php elseif ($order->orders_status == 1): ?>
+                                                    <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN &
+                                                        PEMBAYARAN
+                                                    </div>
+                                                <?php elseif ($order->orders_status == 2): ?>
+                                                    <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN
+                                                    </div>
+                                                <?php elseif ($order->orders_status == 3): ?>
+                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
+                                                <?php elseif ($order->orders_status == 4): ?>
+                                                    <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
+                                                <?php elseif ($order->orders_status == 5): ?>
+                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
+                                                <?php elseif ($order->orders_status == 6): ?>
+                                                    <div class="text-success">SUKSES (Telah dikirim)</div>
+                                                <?php elseif ($order->orders_status == 7): ?>
+                                                    <div class="text-danger">BATAL</div>
+                                                <?php endif; ?>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><b>Nama Pemilik Rekening : </b><br>
-                                            <?= $order->ob_nama_rek; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td><b>Bank : </b><br>
-                                            <?= $order->ob_bank_nama; ?>
-                                        </td>
-                                        <td><b>Status : </b><br>
-                                            <?php if ($order->o_status == 0): ?>
-                                                <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 1): ?>
-                                                <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
-                                                </div>
-                                            <?php elseif ($order->o_status == 2): ?>
-                                                <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 3): ?>
-                                                <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
-                                            <?php elseif ($order->o_status == 4): ?>
-                                                <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
-                                            <?php elseif ($order->o_status == 5): ?>
-                                                <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
-                                            <?php elseif ($order->o_status == 6): ?>
-                                                <div class="text-success">SUKSES</div>
-                                            <?php elseif ($order->o_status == 7): ?>
-                                                <div class="text-danger">BATAL</div>
-                                            <?php endif; ?>
+                                        <td class="align-middle">
+                                            <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
+                                               onclick="proses($(this))" data-target="#proses"
+                                               data-id="<?= $order->orders_noid; ?>"><i class="fas fa-check mr-2"></i>Proses <?= $title_page; ?></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -163,6 +169,15 @@
             // Data table users
             // ------------------------------------------------------ //
             // $('#tables').DataTable();
+
+            // ------------------------------------------------------ //
+            // Data table
+            // ------------------------------------------------------ //
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();
@@ -192,7 +207,7 @@
             });
 
             $(document).ready(function () {
-                $('td[id="rupiah"]').each(function (index) {
+                $('div[id="rupiah"]').each(function (index) {
                     var value = parseInt($(this).html()),
                         hasil = moneyFormat.to(value);
 
@@ -230,8 +245,8 @@
                 <p>Apakah anda yakin?</p>
             </div>
             <div class="modal-footer">
-                <a id="proses" href="#" class="btn btn-primary btn-sm">Proses</a>
-                <a data-dismiss="modal" href="#" class="btn btn-danger btn-sm">Tutup</a>
+                <a id="proses" href="#" class="btn btn-sm btn-primary">Proses</a>
+                <a href="#" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</a>
             </div>
         </div>
     </div>

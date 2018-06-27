@@ -57,233 +57,175 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
+                    <h1><?= $title_page; ?></h1>
+
+                </div>
+                <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-10">
-                            <h1><i class="fas fa-shopping-cart"></i> <?= $title_page; ?></h1>
-                            <a data-toggle="modal" href="#" onclick="tambah()" data-target="#crud" data-backdrop="static" data-keyboard="false">Buat baru</a>
-                        </div>
-                        <div class="col-sm-2">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" href="#" onclick="tambah()"
+                                   data-target="#crud"
+                                   data-backdrop="static" data-keyboard="false"><i class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
 
                         </div>
                     </div>
 
-                </div>
-                <div class="card-body">
-                    <p class="small">
-                        *Note: <br>
-                        <i>W : Warna, U : Ukuran, S : Seri</i>
-                    </p>
                     <div class="table-responsive">
-                        <table id="tables" class="table table-sm">
+                        <table id="tables" class="table">
                             <thead>
                             <tr>
-                                <th scope="col">Foto</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Deskripsi</th>
-                                <th scope="col">Hrg VIP</th>
-                                <th scope="col">Hrg Reseller</th>
-                                <th scope="col">Berat (Gr)</th>
-                                <th scope="col" class="text-center">W*</th>
-                                <th scope="col" class="text-center">U*</th>
-                                <th scope="col" class="text-center">S*</th>
-                                <th scope="col" class="text-center">QTY</th>
                                 <th scope="col"></th>
+                                <th scope="col">Kode Item</th>
+                                <th scope="col">Hrg Reseller</th>
+                                <th scope="col">Hrg VIP</th>
+                                <th scope="col">Berat (Gram)</th>
+                                <th scope="col">Detail</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php if ($items != NULL): ?>
-                                <?php foreach ($items
-
-                                               as $item): ?>
-                                    <?php $counter = isset($item->item_detil) ? count((array)$item->item_detil) : 0 ?>
+                                <?php foreach ($items as $item): ?>
                                     <tr>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                class="align-middle">
-                                            <a data-toggle="modal"
-                                               href="#"
-                                               onclick="foto($(this))" data-target="#crudfoto"
-                                               data-id="<?= $item->i_kode; ?>">Lihat</a> |
-                                            <a data-toggle="modal"
-                                               href="#"
-                                               onclick="unggah($(this))" data-target="#crudfoto"
-                                               data-id="<?= $item->i_kode; ?>">Unggah</a>
-                                        </td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                scope="row"
-                                                class="align-middle"><?= $item->i_nama; ?>
-                                        </td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                scope="row"
-                                                class="align-middle"><?= $kategori($item->i_kode); ?>
-                                        </td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                scope="row"
-                                                class="align-middle">
-                                            <a href="#"
-                                               data-toggle="modal"
-                                               onclick="deskripsi($(this))"
-                                               data-target="#deskripsi"
-                                               data-backdrop="static"
-                                               data-keyboard="false"
-                                               data-msg="<?= $item->i_deskripsi; ?>">Lihat</a>
-                                        </td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                class="align-middle"
-                                                id="rupiah"><?= $item->i_hrg_vip; ?></td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                class="align-middle"
-                                                id="rupiah"><?= $item->i_hrg_reseller; ?>
-                                        </td>
-                                        <td <?= $counter <= 1 ? '' : 'rowspan="' . (string)($counter + 1) . '" '; ?>
-                                                class="align-middle"><?= $item->i_berat; ?> Gr
-                                        </td>
-                                        <?php if (isset($item->item_detil) && count((array)$item->item_detil) == 1): ?>
-                                            <?php foreach ($item->item_detil as $detil): ?>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($warna($detil->ide_kode, $detil->w_kode)->w_nama)): ?>
-                                                        <?= $warna($detil->ide_kode, $detil->w_kode)->w_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
+                                        <td scope="row" class="align-middle">
+                                            <div class="btn-group btn-group-sm" role="group">
+                                                <button id="itembtn" type="button"
+                                                        class="btn btn-primary dropdown-toggle"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    Opsi Item
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="itembtn">
+                                                    <a class="dropdown-item small" data-toggle="modal"
+                                                       href="#"
+                                                       onclick="edit_item($(this))" data-target="#crud"
+                                                       data-backdrop="static" data-keyboard="false"
+                                                       data-id="<?= $item->i_kode; ?>"><i
+                                                                class="far fa-edit mr-2"></i>Ubah Item</a>
+                                                    <a class="dropdown-item small" data-toggle="modal"
+                                                       href="#"
+                                                       onclick="tambah_detil($(this))" data-target="#crud"
+                                                       data-backdrop="static" data-keyboard="false"
+                                                       data-id="<?= $item->i_kode; ?>"><i
+                                                                class="fas fa-plus mr-2"></i>Tambah Detail</a>
+                                                    <a class="dropdown-item small" data-toggle="modal"
+                                                       data-backdrop="static" data-keyboard="false"
+                                                       href="#"
+                                                       onclick="foto($(this))" data-target="#crudfoto"
+                                                       data-id="<?= $item->i_kode; ?>"><i
+                                                                class="far fa-images mr-2"></i>Lihat Gambar</a>
+                                                    <a class="dropdown-item small" data-toggle="modal"
+                                                       data-backdrop="static" data-keyboard="false"
+                                                       href="#"
+                                                       onclick="unggah($(this))" data-target="#crudfoto"
+                                                       data-id="<?= $item->i_kode; ?>"><i
+                                                                class="fas fa-upload mr-2"></i>Upload Gambar</a>
+                                                    <?php if ($item->item_detil == NULL): ?>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item small" data-toggle="modal"
+                                                           data-backdrop="static" data-keyboard="false"
+                                                           href="#"
+                                                           onclick="hapus_item($(this))" data-target="#crudfoto"
+                                                           data-id="<?= $item->i_kode; ?>"><i
+                                                                    class="far fa-trash-alt mr-2"></i>Hapus Item</a>
                                                     <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($ukuran($detil->ide_kode, $detil->u_kode)->u_nama)): ?>
-                                                        <?= $ukuran($detil->ide_kode, $detil->u_kode)->u_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($seri($detil->ide_kode, $detil->s_kode)->s_nama)): ?>
-                                                        <?= $seri($detil->ide_kode, $detil->s_kode)->s_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?= $qty($detil->ide_kode); ?>
-                                                </td>
-
-                                                <td class="align-middle">
-                                                    <div class="btn-group btn-group-sm" role="group">
-                                                        <button id="toko" type="button"
-                                                                class="btn btn-sm btn-primary dropdown-toggle"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                            Toko
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="toko">
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="edit_detil($(this))" data-target="#crud"
-                                                               data-backdrop="static" data-keyboard="false"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="far fa-edit fa-lg"></i> Ubah</a>
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="tambah_qty($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="fas fa-cart-plus fa-lg"></i> Tambaht QTY</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="hapus($(this))" data-target="#hapus"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="far fa-trash-alt fa-lg"></i> Hapus</a>
-                                                        </div>
-
-                                                    </div>
-                                                </td>
-                                            <?php endforeach; ?>
-                                        <?php elseif (!isset($item->item_detil)): ?>
-                                            <td class="align-middle"><i>(Null)</i></td>
-                                            <td class="align-middle"><i>(Null)</i></td>
-                                            <td class="align-middle"><i>(Null)</i></td>
-                                            <td class="align-middle"><i>(Null)</i></td>
-                                            <td class="align-middle">
-                                                <div class="btn-group btn-group-sm" role="group">
-                                                    <button id="toko" type="button"
-                                                            class="btn btn-sm btn-primary dropdown-toggle"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                        Toko
-                                                    </button>
-                                                    <div class="dropdown-menu" aria-labelledby="toko">
-                                                        <a class="dropdown-item small" data-toggle="modal" href="#"
-                                                           onclick="edit_item($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                           data-id="<?= $item->i_kode; ?>">
-                                                            Tambah Detil
-                                                        </a>
-                                                        <a class="dropdown-item small" data-toggle="modal" href="#"
-                                                           onclick="hapus_item($(this))" data-target="#hapus"
-                                                           data-id="<?= $item->i_kode; ?>">
-                                                            Hapus
-                                                        </a>
-                                                    </div>
                                                 </div>
-                                            </td>
-                                        <?php endif; ?>
-                                    </tr>
-                                    <?php if (isset($item->item_detil) && count((array)$item->item_detil) > 1): ?>
-                                        <?php foreach ($item->item_detil as $detil): ?>
-                                            <tr>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($warna($detil->ide_kode, $detil->w_kode)->w_nama)): ?>
-                                                        <?= $warna($detil->ide_kode, $detil->w_kode)->w_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($ukuran($detil->ide_kode, $detil->u_kode)->u_nama)): ?>
-                                                        <?= $ukuran($detil->ide_kode, $detil->u_kode)->u_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?php if (isset($seri($detil->ide_kode, $detil->s_kode)->s_nama)): ?>
-                                                        <?= $seri($detil->ide_kode, $detil->s_kode)->s_nama; ?>
-                                                    <?php else: ?>
-                                                        <i>(Null)</i>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <?= $qty($detil->ide_kode); ?>
-                                                </td>
 
-                                                <td class="align-middle">
-                                                    <div class="btn-group btn-group-sm" role="group">
-                                                        <button id="toko" type="button"
-                                                                class="btn btn-sm btn-primary dropdown-toggle"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                            Toko
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="toko">
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="edit_detil($(this))" data-target="#crud"
-                                                               data-backdrop="static" data-keyboard="false"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="far fa-edit fa-lg"></i> Ubah</a>
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="tambah_qty($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="fas fa-cart-plus fa-lg"></i> Tambaht QTY</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item small" data-toggle="modal"
-                                                               href="#"
-                                                               onclick="hapus($(this))" data-target="#hapus"
-                                                               data-id="<?= $detil->ide_kode; ?>"><i
-                                                                        class="far fa-trash-alt fa-lg"></i> Hapus</a>
-                                                        </div>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
+                                            </div>
+                                        </td>
+                                        <td scope="row" class="align-middle"><?= $item->i_nama; ?></td>
+                                        <td scope="row" class="align-middle"
+                                            id="rupiah"><?= $item->i_hrg_reseller; ?></td>
+                                        <td scope="row" class="align-middle" id="rupiah"><?= $item->i_hrg_vip; ?></td>
+                                        <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
+                                        <td>
+                                            <?php if (isset($item->item_detil)): ?>
+                                                <table class="table table-sm table-borderless">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Warna</th>
+                                                        <th>Ukuran</th>
+                                                        <th>Seri</th>
+                                                        <th>QTY</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php foreach ($item->item_detil as $detil): ?>
+                                                        <tr>
+                                                            <td class="align-middle">
+                                                                <?php if (isset($warna($detil->item_detil_kode, $detil->w_kode)->w_nama)): ?>
+                                                                    <?= $warna($detil->item_detil_kode, $detil->w_kode)->w_nama; ?>
+
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <?php if (isset($ukuran($detil->item_detil_kode, $detil->u_kode)->u_nama)): ?>
+                                                                    <?= $ukuran($detil->item_detil_kode, $detil->u_kode)->u_nama; ?>
+
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <?php if (isset($seri($detil->item_detil_kode, $detil->s_kode)->s_nama)): ?>
+                                                                    <?= $seri($detil->item_detil_kode, $detil->s_kode)->s_nama; ?>
+
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <?= $qty($detil->item_detil_kode); ?>
+                                                            </td>
+
+                                                            <td class="align-middle">
+                                                                <div class="btn-group btn-group-sm" role="group">
+                                                                    <button id="opsi" type="button"
+                                                                            class="btn btn-primary dropdown-toggle"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                        Opsi Detail
+                                                                    </button>
+                                                                    <div class="dropdown-menu" aria-labelledby="opsi">
+                                                                        <a class="dropdown-item small"
+                                                                           data-toggle="modal"
+                                                                           href="#"
+                                                                           onclick="edit_detil($(this))"
+                                                                           data-target="#crud"
+                                                                           data-backdrop="static" data-keyboard="false"
+                                                                           data-id="<?= $detil->item_detil_kode; ?>"><i
+                                                                                    class="far fa-edit mr-2"></i> Ubah
+                                                                            Detail</a>
+                                                                        <a class="dropdown-item small"
+                                                                           data-toggle="modal"
+                                                                           href="#"
+                                                                           onclick="tambah_qty($(this))"
+                                                                           data-target="#crud"
+                                                                           data-backdrop="static" data-keyboard="false"
+                                                                           data-id="<?= $detil->item_detil_kode; ?>"><i
+                                                                                    class="fas fa-cart-plus mr-2"></i>
+                                                                            Tambaht
+                                                                            QTY</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item small"
+                                                                           data-toggle="modal"
+                                                                           href="#"
+                                                                           onclick="hapus($(this))"
+                                                                           data-target="#modal_hapus"
+                                                                           data-backdrop="static" data-keyboard="false"
+                                                                           data-id="<?= $detil->item_detil_kode; ?>"><i
+                                                                                    class="far fa-trash-alt mr-2"></i>
+                                                                            Hapus</a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                    </tbody>
+
+                                                </table>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                             </tbody>
@@ -304,6 +246,24 @@
                 bodymodal = modal.find('div.modal-body');
 
                 bodymodal.load("<?= site_url('item/tambah'); ?>");
+            }
+
+            function edit_item(data) {
+                d = data;
+                id = d.attr('data-id');
+                modal = $('#crud');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('item/edit_item/'); ?>" + id);
+            }
+
+            function tambah_detil(data) {
+                d = data;
+                id = d.attr('data-id');
+                modal = $('#crud');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('item/tambah_detil/'); ?>" + id);
             }
 
             function detil_item(data) {
@@ -391,6 +351,15 @@
             // });
 
             // ------------------------------------------------------ //
+            // Data table
+            // ------------------------------------------------------ //
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
+
+            // ------------------------------------------------------ //
             // Tooltip
             // ------------------------------------------------------ //
             $(document).ready(function () {
@@ -469,7 +438,7 @@
                     <textarea class="form-control" name="deskripsi" id="deskripsi" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" onclick="window.location.reload()">Tutup</button>
+                    <button class="btn btn-sm btn-primary" onclick="window.location.reload()">Tutup</button>
                 </div>
             </div>
         </div>
@@ -488,22 +457,21 @@
 <div class="modal fade" id="crudfoto" tabindex="-1" role="dialog" aria-labelledby="crudfoto" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
         <div class="modal-content">
-
             <div class="modal-body">
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="hapus" aria-hidden="true">
+<div class="modal fade" id="modal_hapus" tabindex="-1" role="dialog" aria-labelledby="modal_hapus" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-
             <div class="modal-body">
                 <p>Apakah anda yakin ingin menghapus data ini?</p>
             </div>
             <div class="modal-footer">
                 <a id="hapus" href="#" class="btn btn-sm btn-danger">Hapus</a>
+                <a id="batal" href="#" class="btn btn-sm btn-primary" data-dismiss="modal">Batal</a>
             </div>
         </div>
     </div>

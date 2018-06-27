@@ -14,7 +14,7 @@ class Item_m extends MY_Model
         $this->primary_key = 'i_id';
         $this->protected = array('i_id', 'created_at', 'update_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         $this->has_many['item_detil'] = array(
             'foreign_model'=>'Item_detil_m',
             'foreign_table'=>'item_detil',
@@ -59,9 +59,9 @@ class Item_m extends MY_Model
                                     INNER JOIN warna w ON id.w_kode = w.w_kode
                                     INNER JOIN ukuran u ON id.u_kode = u.u_kode
                                     LEFT JOIN seri s ON id.s_kode = s.s_kode
-                                    LEFT JOIN item_qty iq ON id.ide_kode = iq.ide_kode
-                                    WHERE id.ide_kode = '$id'
-                                    GROUP BY id.ide_kode;");
+                                    LEFT JOIN item_qty iq ON id.item_detil_kode = iq.item_detil_kode
+                                    WHERE id.item_detil_kode = '$id'
+                                    GROUP BY id.item_detil_kode;");
 
         return $query->result();
     }

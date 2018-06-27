@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $email = $toko->t_email;
         $instagram = $toko->t_insta;
         $whatsapp = $toko->t_wa;
-        $facebook = $toko->t_fb;
+        $line = $toko->t_line;
     } else {
         $tokoid = $id;
         $namatoko = '';
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $email = '';
         $instagram = '';
         $whatsapp = '';
-        $facebook = '';
+        $line = '';
     }
 }
 ?>
@@ -93,11 +93,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h1><i class="fa fa-cogs"></i> Toko</h1>
+                    <h1>Toko</h1>
                 </div>
-                <form action="<?= site_url('toko/simpan'); ?>" method="post" class="card-body">
-                    <input type="hidden" name="token_fg" value="<?= $this->security->get_csrf_hash(); ?>">
+                <form action="<?= site_url('toko/simpan'); ?>" method="post" enctype="multipart/form-data"
+                      class="card-body">
+                    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <input type="hidden" name="t_kode" value="<?= $tokoid; ?>">
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="logo">Logo</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="logo" name="logo">
+                                <label class="custom-file-label" for="logo">Pilih Logo...</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="icon">Icon</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="icon" name="icon">
+                                <label class="custom-file-label" for="icon">Pilih Icon...</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row form-group">
                         <div class="col">
                             <label for="nama">Nama Toko</label>
@@ -180,13 +197,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                    placeholder="Whatsapp">
                         </div>
                         <div class="col">
-                            <label for="facebook">Facebook</label>
-                            <input type="text" class="form-control" name="facebook" value="<?= $facebook; ?>"
-                                   placeholder="Facebook">
+                            <label for="line">Line</label>
+                            <input type="text" class="form-control" name="line" value="<?= $line; ?>"
+                                   placeholder="Line">
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

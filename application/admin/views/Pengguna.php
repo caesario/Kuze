@@ -57,50 +57,68 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h1><i class="fa fa-users"></i> Admin</h1>
-                    <a data-toggle="modal" title="Tambah Admin" href="#" onclick="tambah()"
-                       data-target="#crud" data-backdrop="static" data-keyboard="false">Buat baru</a>
+                    <h1>Admin</h1>
+
 
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tables" class="table table-sm table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">IP Address</th>
-                                <th scope="col">Login terakhir</th>
-                                <th scope="col" class="text-center">Aksi</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php if ($users != NULL): ?>
-                                <?php foreach ($users as $user): ?>
-                                    <?php if ($user->p_kode != '0'): ?>
-                                        <tr>
-                                            <td><?= $user->p_nama; ?></td>
-                                            <td><?= $user->p_username; ?></td>
-                                            <td><?= $user->p_email; ?></td>
-                                            <td><?= $user->p_status == 0 ? 'Aktif' : 'Blocked'; ?></td>
-                                            <td><?= $user->p_ipaddr; ?></td>
-                                            <td><?= $user->p_login_terakhir; ?></td>
-                                            <td class="text-center">
-                                                <a tooltip data-toggle="modal" title="Ubah User" href="#"
-                                                   onclick="edit($(this))" data-target="#crud" data-backdrop="static" data-keyboard="false"
-                                                   data-id="<?= $user->p_kode; ?>"><i class="far fa-edit"></i></a> |
-                                                <a tooltip data-toggle="modal" title="Hapus User" href="#"
-                                                   onclick="hapus($(this))" data-target="#hapus"
-                                                   data-id="<?= $user->p_kode; ?>"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="modal" title="Tambah Admin" href="#"
+                                   onclick="tambah()"
+                                   data-target="#crud" data-backdrop="static" data-keyboard="false"><i
+                                            class="fa fa-plus mr-2"></i>Buat Data</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table id="tables" class="table table-sm table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">IP Address</th>
+                                        <th scope="col">Login terakhir</th>
+                                        <th scope="col" class="text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if ($users != NULL): ?>
+                                        <?php foreach ($users as $user): ?>
+                                            <?php if ($user->pengguna_kode != '0'): ?>
+                                                <tr>
+                                                    <td><?= $user->pengguna_nama; ?></td>
+                                                    <td><?= $user->pengguna_username; ?></td>
+                                                    <td><?= $user->pengguna_email; ?></td>
+                                                    <td><?= $user->pengguna_status == 0 ? 'Aktif' : 'Blocked'; ?></td>
+                                                    <td><?= $user->pengguna_ipaddr; ?></td>
+                                                    <td><?= $user->pengguna_login_terakhir; ?></td>
+                                                    <td class="text-center">
+                                                        <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
+                                                           onclick="edit($(this))" data-target="#crud"
+                                                           data-backdrop="static" data-keyboard="false"
+                                                           data-id="<?= $user->pengguna_kode; ?>"><i
+                                                                    class="far fa-edit"></i>
+                                                            Ubah</a>
+                                                        <a class="btn btn-sm btn-danger" data-toggle="modal" href="#"
+                                                           onclick="hapus($(this))" data-target="#hapus"
+                                                           data-id="<?= $user->pengguna_kode; ?>"><i
+                                                                    class="far fa-trash-alt"></i> Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
@@ -144,9 +162,13 @@
             }
 
             // ------------------------------------------------------ //
-            // Data table users
+            // Data table
             // ------------------------------------------------------ //
-            $('#tables').DataTable();
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                }
+            });
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();

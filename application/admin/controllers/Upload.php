@@ -30,6 +30,15 @@ class Upload extends MY_Controller
         echo $counter;
         for($i=0; $i < $counter ; $i++)
         {
+            // cek update
+            $img = $this->item_img->where(array('i_kode' => $this->input->post('i_kode'), 'ii_default' => 1))->get();
+
+            if (!$img) {
+                $default = 1;
+            } else {
+                $default = 0;
+            }
+
             $_FILES['image']['name']= $_FILES['images']['name'][$i];
             $_FILES['image']['type']= $_FILES['images']['type'][$i];
             $_FILES['image']['tmp_name']= $_FILES['images']['tmp_name'][$i];
@@ -39,9 +48,10 @@ class Upload extends MY_Controller
             //upload an image options
             $config = array();
             $config['upload_path'] = './upload';
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'jpg|jpeg|png';
             $config['max_size']      = '0';
             $config['overwrite']     = TRUE;
+            $config['encrypt_name'] = TRUE;
 
             $this->load->library('upload', $config);
             $this->upload->do_upload('image');
@@ -51,14 +61,62 @@ class Upload extends MY_Controller
                 'ii_kode'       => $this->item_img->guid(),
                 'ii_nama'       => $files[$i]['file_name'],
                 'ii_url'       => $files[$i]['file_name'],
+                'ii_default' => $default,
                 'i_kode'        => $this->input->post('i_kode')
             );
+
+            // insert
             $this->item_img->insert($data);
         }
+
         $this->data->berhasil = 'Foto Item berhasil diperbarui.';
         $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
         redirect('item');
+    }
+
+    public function multiple_image()
+    {
+        $files = array();
+        $counter = count($_FILES['images']['size']);
+        for ($i = 0; $i < $counter; $i++) {
+            $_FILES['image']['name'] = $_FILES['images']['name'][$i];
+            $_FILES['image']['type'] = $_FILES['images']['type'][$i];
+            $_FILES['image']['tmp_name'] = $_FILES['images']['tmp_name'][$i];
+            $_FILES['image']['error'] = $_FILES['images']['error'][$i];
+            $_FILES['image']['size'] = $_FILES['images']['size'][$i];
+
+            //upload an image options
+            $config = array();
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'jpg|jpeg|png';
+            $config['max_size'] = '0';
+            $config['overwrite'] = TRUE;
+            $config['encrypt_name'] = TRUE;
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('image');
+            $files[] = $this->upload->data();
+        }
+
+        echo json_encode($files);
+    }
+
+    public function single_image()
+    {
+        //upload an image options
+        $config = array();
+        $config['upload_path'] = './upload';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size'] = '0';
+        $config['overwrite'] = TRUE;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('image');
+        $hasil = $this->upload->data();
+
+        echo json_encode($hasil);
     }
 
 

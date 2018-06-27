@@ -22,65 +22,6 @@
         </nav>
     </header>
     <!-- Counts Section -->
-    <section class="dashboard-counts section-padding">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Count item widget-->
-                <div class="col-xl-3 col-md-4 col-6">
-                    <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="icon-user"></i></div>
-                        <div class="name"><strong class="text-uppercase">Pelanggan</strong>
-                            <div class="count-number"><?= $totalcustomer ?></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Count item widget-->
-                <div class="col-xl-3 col-md-4 col-6">
-                    <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="icon-padnote"></i></div>
-                        <div class="name"><strong class="text-uppercase">Item</strong>
-                            <div class="count-number"><?= $totalitem ?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Count item widget-->
-                <div class="col-xl-3 col-md-4 col-6">
-                    <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="icon-bill"></i></div>
-                        <div class="name"><strong class="text-uppercase">Order</strong>
-                            <div class="count-number"><?= $totalorder ?></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Count item widget-->
-                <div class="col-xl-3 col-md-4 col-6">
-                    <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="icon-list"></i></div>
-                        <div class="name"><strong class="text-uppercase">Invoice</strong>
-                            <div class="count-number"><?= $totalinv ?></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Statistics Section-->
-    <section class="statistics">
-        <div class="container-fluid">
-            <div class="row d-flex">
-                <div class="col-lg-12">
-                    <!-- Income-->
-                    <div class="card income text-center">
-                        <div class="icon"><i class="icon-line-chart"></i></div>
-                        <div class="number">Rp.120.000.000</div>
-                        <strong class="text-primary">Penjualan</strong>
-                        <p>Total penjualan hari ini</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <footer class="main-footer">
         <div class="container-fluid">
             <div class="row">

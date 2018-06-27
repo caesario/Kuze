@@ -13,8 +13,8 @@
                 <h2 class="h5"><?= $_SESSION['nama']; ?></h2><span>Admin</span>
             </div>
             <!-- Small Brand information, appears on minimized sidebar-->
-            <div class="sidenav-header-logo"><a href="<?= site_url('dashboard'); ?>"" class="brand-small text-center">
-                <strong>F</strong><strong class="text-primary">G</strong></a></div>
+            <div class="sidenav-header-logo"><a href="<?= site_url('dashboard'); ?>" class="brand-small text-center">
+                    <strong class="text-primary"><?= $brandkode; ?></strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
@@ -22,44 +22,48 @@
             <ul id="side-main-menu" class="side-menu list-unstyled">
                 <li><a href="<?= site_url('dashboard'); ?>"> <i class="icon-home"></i>Dashboard </a></li>
                 <li>
-                    <a href="#misc" aria-expanded="false" data-toggle="collapse"><i class="fas fa-filter"></i>Master</a>
+                    <a href="#misc" aria-expanded="false" data-toggle="collapse"><i class="fas fa-filter mr-2"></i>Master</a>
                     <ul id="misc" class="collapse list-unstyled ">
-                        <li><a href="<?= site_url('kategori'); ?>"><i class="fas fa-angle-right"></i>Kategori </a></li>
-                        <li><a href="<?= site_url('ukuran'); ?>"><i class="fas fa-angle-right"></i>Ukuran </a></li>
-                        <li><a href="<?= site_url('seri'); ?>"><i class="fas fa-angle-right"></i>Seri </a></li>
-                        <li><a href="<?= site_url('warna'); ?>"><i class="fas fa-angle-right"></i>Warna </a></li>
+                        <li><a href="<?= site_url('kategori'); ?>"><i class="fas fa-angle-right mr-2"></i>Kategori </a>
+                        </li>
+                        <li><a href="<?= site_url('ukuran'); ?>"><i class="fas fa-angle-right mr-2"></i>Ukuran </a></li>
+                        <li><a href="<?= site_url('seri'); ?>"><i class="fas fa-angle-right mr-2"></i>Seri </a></li>
+                        <li><a href="<?= site_url('warna'); ?>"><i class="fas fa-angle-right mr-2"></i>Warna </a></li>
                     </ul>
                 </li>
-                <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart"></i>Item</a></li>
+                <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item</a></li>
                 <li><a href="#transaksi" aria-expanded="false" data-toggle="collapse"><i
-                                class="fas fa-exchange-alt"></i>Transaksi</a>
+                                class="fas fa-exchange-alt mr-2"></i>Transaksi</a>
                     <ul id="transaksi" class="collapse list-unstyled">
                         <li>
-                            <a href="<?= site_url('order'); ?>"><i class="fas fa-file-alt"></i>Order</a>
+                            <a href="<?= site_url('order'); ?>"><i class="fas fa-angle-right mr-2"></i>Order</a>
                         </li>
                         <li>
-                            <a href="<?= site_url('order/konfirmasi'); ?>"><i class="fas fa-file-alt"></i>Pembayaran</a>
+                            <a href="<?= site_url('order/konfirmasi'); ?>"><i class="fas fa-angle-right mr-2"></i>Pembayaran</a>
                         </li>
                         <li>
-                            <a href="<?= site_url('order/invoice'); ?>"><i class="fas fa-file-alt"></i>Invoice</a>
+                            <a href="<?= site_url('order/invoice'); ?>"><i
+                                        class="fas fa-angle-right mr-2"></i>Invoice</a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#pelanggan" aria-expanded="false" data-toggle="collapse"><i class="fa fa-users"></i>Pelanggan
+                <li><a href="#pelanggan" aria-expanded="false" data-toggle="collapse"><i class="fa fa-users mr-2"></i>Pelanggan
                     </a>
                     <ul id="pelanggan" class="collapse list-unstyled">
                         <li>
-                            <a href="<?= site_url('customers'); ?>"><i class="fas fa-user"></i>Semua</a>
+                            <a href="<?= site_url('customers'); ?>"><i class="fas fa-angle-right mr-2"></i>Semua</a>
                         </li>
                         <li>
-                            <a href="<?= site_url('customers/by_vip'); ?>"><i class="fas fa-user"></i>VIP</a>
+                            <a href="<?= site_url('customers/by_vip'); ?>"><i
+                                        class="fas fa-angle-right mr-2"></i>VIP</a>
                         </li>
                         <li>
-                            <a href="<?= site_url('customers/by_reseller'); ?>"><i class="fas fa-user"></i>Reseller</a>
+                            <a href="<?= site_url('customers/by_reseller'); ?>"><i class="fas fa-angle-right mr-2"></i>Reseller</a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="<?= site_url('artikel'); ?>"><i class="fas fa-newspaper"></i> Artikel</a></li>
+                <li><a href="<?= site_url('artikel'); ?>"><i class="fas fa-newspaper mr-2"></i>Artikel</a></li>
+                <li><a href="<?= site_url('resi'); ?>"><i class="fas fa-truck-loading mr-2"></i>Resi</a></li>
             </ul>
         </div>
         <div class="admin-menu">
@@ -68,11 +72,12 @@
             </h5>
             <ul id="side-admin-menu" class="side-menu list-unstyled">
                 <li>
-                    <a href="<?= site_url('pengguna'); ?>"><i class="fa fa-users"></i>Admin
+                    <a href="<?= site_url('pengguna'); ?>"><i class="fa fa-users mr-2"></i>Admin
                     </a>
                 </li>
-                <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs"></i>Toko </a></li>
-                <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank"></i>Bank </a></li>
+                <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
+                <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
+                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide Promo</a></li>
             </ul>
         </div>
     </div>

@@ -11,8 +11,8 @@ class Item_detil_m extends MY_Model
     public function __construct()
     {
         $this->table = 'item_detil';
-        $this->primary_key = 'ide_id';
-        $this->protected = array('ide_id', 'created_at', 'update_at');
+        $this->primary_key = 'item_detil_id';
+        $this->protected = array('item_detil_id', 'created_at', 'update_at');
         $this->has_one['item'] = array(
             'foreign_model'=>'Item_m',
             'foreign_table'=>'item',
@@ -36,15 +36,15 @@ class Item_detil_m extends MY_Model
         $this->has_many['item_qty'] = array(
             'foreign_model'=>'Item_qty_m',
             'foreign_table'=>'item_qty',
-            'foreign_key'=>'ide_kode',
-            'local_key'=>'ide_kode');
+            'foreign_key'=>'item_detil_kode',
+            'local_key'=>'item_detil_kode');
         $this->has_many['item_img'] = array(
             'foreign_model'=>'Item_img_m',
             'foreign_table'=>'item_img',
-            'foreign_key'=>'ide_kode',
-            'local_key'=>'ide_kode');
+            'foreign_key'=>'item_detil_kode',
+            'local_key'=>'item_detil_kode');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 

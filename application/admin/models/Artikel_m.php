@@ -11,10 +11,10 @@ class Artikel_m extends MY_Model
     public function __construct()
     {
         $this->table = 'artikel';
-        $this->primary_key = 'ar_id';
-        $this->protected = array('ar_id', 'created_at', 'update_at', 'deleted_at');
+        $this->primary_key = 'artikel_id';
+        $this->protected = array('artikel_id', 'created_at', 'update_at', 'deleted_at');
         $this->timestamps = TRUE;
-        $this->soft_deletes = TRUE;
+        $this->soft_deletes = FALSE;
         parent::__construct();
     }
 
