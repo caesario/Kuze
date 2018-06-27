@@ -34,7 +34,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="<?= site_url('Detail_pesanan'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="<?= site_url('Detail_pesanan'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Suskses</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>
@@ -44,7 +44,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-out">Gagal</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>
@@ -54,7 +54,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Sukses</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>
@@ -64,7 +64,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Sukses</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>
@@ -74,7 +74,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Sukses</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>
@@ -84,7 +84,7 @@ include "layout/Menu.php";
                         <div class="media c-border-status p-2 mb-2">
                             <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
                             <div class="media-body">
-                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Completed</span></h5></a>
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-out">Gagal</span></h5></a>
                                 <h5 class="c-price-history mb-1">Rp100.000,-</h5>
                                 <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                             </div>

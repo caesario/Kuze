@@ -29,32 +29,47 @@ include "layout/Menu.php";
                 </div>
             </div>
             <div class="col-lg-9">
-                <div class="media c-border-status p-2 mb-2">
-                    <a href="<?= site_url('Detail_item'); ?>"><img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image"></a>
-                    <div class="media-body">
-                        <a href="<?= site_url('Detail_item'); ?>" class="c-title"><h5 class="mt-0">Lavish Alice Deep Bandeau - <span class="c-success">Pending</span></h5></a>
-                        <h5 class="c-price-history mb-1">Rp100.000 X 2</h5>
-                        <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="media c-border-status p-2 mb-2">
+                            <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
+                            <div class="media-body">
+                                <a href="<?= site_url('Detail_pesanan'); ?>" class="c-title"><h5 class="mt-0 c-color-profil">B1H04EV  - <span class="c-success">Belum Mekalukan Pembayaran</span></h5></a>
+                                <h5 class="c-price-history mb-1">Rp100.000,-</h5>
+                                <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="media c-border-status p-2 mb-2">
-                    <a href="detail-item.html"><img class="d-flex mr-3 c-img-order" src="assets/img/detail_product3.jpg" alt="Generic placeholder image"></a>
-                    <div class="media-body">
-                        <a href="detail-item.html" class="c-title"><h5 class="mt-0">Boxy Fit River Island - <span class="c-success">Pending</span></h5></a>
-                        <h5 class="c-price-history mb-1">Rp125.000 X 1</h5>
-                        <p class="card-text"><small class="text-muted">22 Sep 2018</small></p>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="media c-border-status p-2 mb-2">
+                            <!--<img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image">-->
+                            <div class="media-body">
+                                <a href="" class="c-title"><h5 class="mt-0">B1H04EV  - <span class="c-success">Pesanan Sedang Diproses</span></h5></a>
+                                <h5 class="c-price-history mb-1">Rp100.000,-</h5>
+                                <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <div class="media c-border-status p-2 mb-2">
-                    <a href="detail-item.html"><img class="d-flex mr-3 c-img-order" src="assets/img/detail_product2.jpg" alt="Generic placeholder image"></a>
-                    <div class="media-body">
-                        <a href="detail-item.html" class="c-title"><h5 class="mt-0">Asymmetric Hem Midi Dress - <span class="c-out">Out of Stock</span></h5></a>
-                        <h5 class="c-price-history mb-1">Rp80.000 X 1</h5>
-                        <p class="card-text"><small class="text-muted">17 Sep 2018</small></p>
+                <div class="row mt-5">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item c-pagination disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item c-pagination"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item c-pagination"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item c-pagination"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item c-pagination">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
 <?php

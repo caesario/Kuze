@@ -23,7 +23,7 @@
                             <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action c-profil-active">Profil</a>
                             <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
                             <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action">Riwayat Transaksi</a>
-                            <a href="#" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
+                            <a href="<?= site_url(''); ?>" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
                         </div>
                     </div>
                 </div>

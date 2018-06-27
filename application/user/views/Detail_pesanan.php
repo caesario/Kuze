@@ -75,7 +75,7 @@ include "layout/Menu.php";
                 </table>
             </div>
         </div>
-        <a href="<?= site_url(''); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
+        <a href="<?= site_url('Konfirmasi_pembayaran'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">KONFIRMASI PEMBAYARAN</a>
     </div>
 
 <?php
