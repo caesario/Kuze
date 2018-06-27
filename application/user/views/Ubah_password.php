@@ -1,6 +1,6 @@
 <?php
-include "layout/Header.php";
-include "layout/Menu.php";
+    include "layout/Header.php";
+    include "layout/Menu.php";
 ?>
 
     <hr class="mb-5 c-hr-reset">
@@ -21,9 +21,9 @@ include "layout/Menu.php";
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action c-profil-active">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Order Status</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Transaction History</a>
-                            <a href="#" class="list-group-item list-group-item-action">Shipping  Order</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
+                            <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action">Riwayat Transaksi</a>
+                            <a href="<?= site_url(''); ?>" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
                         </div>
                     </div>
                 </div>
@@ -31,20 +31,16 @@ include "layout/Menu.php";
             <div class="col-lg-9">
                 <form>
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">Full Name<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputName" autocomplete="off">
+                        <label class="col-form-label">Password Lama<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputOldPass" autocomplete="off">
                     </div>
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
-                        <input type="email" class="form-control" id="inputEmail" autocomplete="off">
+                        <label class="col-form-label">Password Baru<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputNewPass" autocomplete="off">
                     </div>
-                    <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">Phone<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputPhone" autocomplete="off">
-                    </div>
-                    <div class="form-group col-md-6 ">
-                        <label for="inputAddress" class="col-form-label">Address<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputAddress" autocomplete="off">
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label">Konfirmasi Password Baru<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputKonfPass" autocomplete="off">
                     </div>
                 </form>
                 <button class="btn c-login-btn float-left ml-3 mb-5" type="submit">Save</button>

@@ -1001,6 +1001,13 @@ span.c-out{
     color: #56cfe1;
     background-color: transparent;
 }
+a.c-ubah-pass {
+    text-decoration: none;
+    color: #56cfe1;
+}
+a.c-ubah-pass:hover {
+    color: #888;
+}
 
 
 /* ====================== Style #profil, status, history ====================== */

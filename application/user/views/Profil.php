@@ -37,8 +37,9 @@
                     <li class="list-group-item"><i class="fa fa-map-marker c-width-i c-profil-icon"></i> Caesar Tower, 27th Cengkareng Raya Street, South Cengkareng Indonesia 12520</li>
                     <li class="list-group-item"><i class="fa fa-sign-in c-profil-icon"></i> 24 Sep 2018</li>
                 </ul>
-
+                <a class="c-ubah-pass"href="<?= site_url('Ubah_password'); ?>">Ubah Password</a>
                 <a class="btn c-login-btn float-right mb-5 c-edit" href="<?= site_url('Profil_edit'); ?>" role="button">Edit</a>
+
 
             </div>
         </div>
