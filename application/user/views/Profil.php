@@ -21,24 +21,35 @@
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action c-profil-active">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
+                            <a href="<?= site_url('Alamat_profil'); ?>" class="list-group-item list-group-item-action">Alamat</a>
+                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Transaksi Tertunda</a>
                             <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action">Riwayat Transaksi</a>
-                            <a href="<?= site_url(''); ?>" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
+                            <a href="<?= site_url('Resi'); ?>" class="list-group-item list-group-item-action">Laporan Resi</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9 c-color-profil">
-                <h5 class="card-title">Jhon Doe Ponegoro</h5>
-                <ul class="list-group list-group-flush mb-3">
-                    <li class="list-group-item"><i class="fa fa-envelope c-profil-icon"></i> diponegoro@eazydev.com</li>
-                    <li class="list-group-item"><i class="fa fa-phone c-width-i c-profil-icon"></i> 082112343211</li>
-                    <li class="list-group-item"><i class="fa fa-calendar-check-o c-profil-icon"></i> 17 Aug 1871</li>
-                    <li class="list-group-item"><i class="fa fa-map-marker c-width-i c-profil-icon"></i> Caesar Tower, 27th Cengkareng Raya Street, South Cengkareng Indonesia 12520</li>
-                    <li class="list-group-item"><i class="fa fa-sign-in c-profil-icon"></i> 24 Sep 2018</li>
-                </ul>
-                <a class="c-ubah-pass"href="<?= site_url('Ubah_password'); ?>">Ubah Password</a>
-                <a class="btn c-login-btn float-right mb-5 c-edit" href="<?= site_url('Profil_edit'); ?>" role="button">Edit</a>
+                <h5 class="card-title mb-1">Profil Saya</h5>
+                <form >
+                    <div class="form-group col-md-6 mb-0">
+                        <label class="col-form-label">Full Name<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputName" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
+                        <input type="email" class="form-control" id="inputEmail" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        <label class="col-form-label">Phone<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputPhone" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 ">
+                        <label for="inputAddress" class="col-form-label">Address<span class="c-form-star">*</span></label>
+                        <input type="text" class="form-control" id="inputAddress" autocomplete="off">
+                    </div>
+                </form>
+                <a class="btn float-left c-login-btn mb-5 ml-3 c-edit" href="<?= site_url('Profil_edit'); ?>" role="button">Simpan</a>
 
 
             </div>
