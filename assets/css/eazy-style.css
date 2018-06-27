@@ -939,6 +939,21 @@ a.c-link-color {
 a.c-link-color:hover {
     color: #222;
 }
+.c-head-login {
+    height: 40px;
+    margin-bottom: 0px;
+    font-size: 0.8em;
+    background-color: #F1F1F1;
+    line-height: 40px;
+    color: #fefefe;
+}
+a.c-kembali {
+    color: #777;
+    text-decoration: none;
+}
+a.c-kembali:hover{
+    color: #444;
+}
 
 
 /* ====================== Style #profil, status, history ====================== */

@@ -2,6 +2,10 @@
 include "layout/Header.php";
 ?>
 
+    <div class="-fluid c-head-login">
+        <a href="<?= site_url('/') ?>" class="c-kembali ml-2"><i class="fa fa-arrow-left"></i> Kembali</a>
+    </div>
+
     <!-- Register -->
     <div class="container-fluid c-padding-header">
         <div class="c-login">
