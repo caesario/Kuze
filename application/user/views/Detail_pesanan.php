@@ -24,19 +24,52 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Order ======= -->
     <div class="container-fluid c-padding-header c-margin-bot-detail-order">
-        <div class="c-order-info">
-            <p>Thank you, Your order has been received</p>
-            <ul>
-                <li>Order number : <b>1504</b></li>
-                <li>Date : <b>19 May 2018</b></li>
-                <li>Total : <b>Rp250.000</b></li>
-                <li>Payment method : <b>Virtual Account</b></li>
-            </ul>
+<!--        <div class="c-order-info">-->
+<!--            <p>Thank you, Your order has been received</p>-->
+<!--            <ul>-->
+<!--                <li>Order number : <b>#421504</b></li>-->
+<!--                <li>Date : <b>19 May 2018</b></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+
+        <div class="container">
+            <h5 class="text-center c-order-info mb-0">DETAIL PESANAN : #421504</h5>
+            <p class="text-center c-order-info mb-4">19 May 2018</p>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="c-order-info">
+                        <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
+                        <p class="ml-5 mb-0">Jhon Pardede</p>
+                        <p class="ml-5">082112998381</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="c-order-info">
+                        <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
+                        <p class="ml-5">BCA a/n Kuze Shop - 41299488733</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="c-order-info">
+                        <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
+                        <p class="ml-5">Jl. Meruya Tower Utara No.17, Cengkareng - Jakarta Barat 12599</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="c-order-info">
+                        <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
+                        <p class="ml-5">Jalur Nugraha Ekakurir (JNE) - Ongkos Kirim Ekonomis (4-6 hari)</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="c-order-info">
-            <p class="mb-2">Rekening Transfer</p>
-            <p class="ml-4"><b>BCA a/n Kuze Shop - 41299488733</b></p>
-        </div>
+
+
+
+
         <div class="row">
             <!-- ======= Detail Order Table ======= -->
             <div class="col-lg-12">
