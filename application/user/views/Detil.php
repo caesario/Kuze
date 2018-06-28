@@ -53,6 +53,8 @@ include "layout/Menu.php";
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="c-detail-info">
+                    <form action="add_to_cart" method="post">
+                        <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <h5>Lavish Alice Deep Bandeau Asymmetric Hem Midi Dress</h5>
                     <div class="row">
                         <div class="col c-review">
@@ -112,6 +114,7 @@ include "layout/Menu.php";
 <!--                        <a href=""><i class="fa fa-pinterest fa-2x"></i></a>-->
 <!--                        <a href=""><i class="fa fa-linkedin fa-2x"></i></a>-->
 <!--                    </div>-->
+                    </form>
                 </div>
             </div>
         </div>

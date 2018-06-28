@@ -30,9 +30,9 @@ include "layout/Menu.php";
             </div>
             <div class="col-lg-9">
                 <div class="media c-border-status p-2 mb-2">
-                    <a href="<?= site_url('Detail_item'); ?>"><img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image"></a>
+                    <a href="<?= site_url('Detil'); ?>"><img class="d-flex mr-3 c-img-order" src="assets/img/detail_product1.jpg" alt="Generic placeholder image"></a>
                     <div class="media-body">
-                        <a href="<?= site_url('Detail_item'); ?>" class="c-title"><h5 class="mt-0">Lavish Alice Deep Bandeau - <span class="c-success">Pending</span></h5></a>
+                        <a href="<?= site_url('Detil'); ?>" class="c-title"><h5 class="mt-0">Lavish Alice Deep Bandeau - <span class="c-success">Pending</span></h5></a>
                         <h5 class="c-price-history mb-1">Rp100.000 X 2</h5>
                         <p class="card-text"><small class="text-muted">24 Sep 2018</small></p>
                     </div>

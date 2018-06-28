@@ -70,7 +70,7 @@ include "layout/Menu.php";
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-                                <a class="" href="<?= base_url ('Detail_item'); ?>"><img class="card-img-top" src="assets/img/product1.jpg" alt="Card image cap">
+                                <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product1.jpg" alt="Card image cap">
                                     <div class="middle">
                                         <a href="" class="c-view-kat-text">Quick View</a>
                                     </div>
@@ -98,9 +98,9 @@ include "layout/Menu.php";
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-                                <a class="" href="<?= base_url ('Detail_item'); ?>"><img class="card-img-top" src="assets/img/product2.jpg" alt="Card image cap">
+                                <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product2.jpg" alt="Card image cap">
                                     <div class="middle">
-                                        <a href="<?= base_url ('Detail_item'); ?>" class="c-view-kat-text">Quick View</a>
+                                        <a href="<?= base_url ('Detil'); ?>" class="c-view-kat-text">Quick View</a>
                                     </div>
                                 </a>
                                 <div class="card-body">
@@ -126,7 +126,7 @@ include "layout/Menu.php";
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-                                <a class="" href="<?= base_url ('Detail_item'); ?>"><img class="card-img-top" src="assets/img/product3.jpg" alt="Card image cap">
+                                <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product3.jpg" alt="Card image cap">
                                     <div class="middle">
                                         <a href="" class="c-view-kat-text">Quick View</a>
                                     </div>
@@ -154,7 +154,7 @@ include "layout/Menu.php";
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-                                <a class="" href="<?= base_url ('Detail_item'); ?>"><img class="card-img-top" src="assets/img/product4.jpg" alt="Card image cap">
+                                <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product4.jpg" alt="Card image cap">
                                     <div class="middle">
                                         <a href="" class="c-view-kat-text">Quick View</a>
                                     </div>

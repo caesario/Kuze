@@ -80,7 +80,7 @@ include "layout/Menu.php";
                         <th class="text-center">Total Harga</th>
                     </tr>
                     <tr>
-                        <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detail_item'); ?>">Tank with V-Neck and Panel Detail</a></p></td>
+                        <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detil'); ?>">Tank with V-Neck and Panel Detail</a></p></td>
                         <td class="text-center"><span class="c-price-cart-3">2</span></td>
                         <td class="text-center"><span class="c-price-cart-3">Rp100.000</span></td>
                         <td class="text-center"><span class="c-price-cart-3">Rp250.000</span></td>
