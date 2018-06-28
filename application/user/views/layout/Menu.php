@@ -93,11 +93,14 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
+
+
                 <?php else: ?>
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
                     <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
                     <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
                 <?php endif; ?>
+
             </div>
         </div>
     </div>
