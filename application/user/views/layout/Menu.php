@@ -9,8 +9,8 @@
             </div>
             <div class="col-xl-8 col-lg-8 col-12">
                 <div class="row mt-lg-4 mt-0">
-                    <form class="form-inline my-2 my-lg-0 col-11 m-auto" action="<?= site_url('cari'); ?>" method="get">
-                        <div class="input-group col-12">
+                    <form class="form-inline my-2 my-lg-0 col-md-11 col-12 m-auto" action="<?= site_url('cari'); ?>" method="get">
+                        <div class="input-group col-12 px-0">
                             <input class="form-control" type="text" placeholder="Cari Produk"
                                    aria-label="Search" id="cari" name="cari" autocomplete="off">
                             <div class="input-group-addon">
@@ -22,7 +22,7 @@
                     </form>
                 </div>
                 <div class="row">
-                    <nav class="navbar navbar-expand-lg navbar-light main-menu m-auto">
+                    <nav class="navbar navbar-expand-lg navbar-light main-menu m-lg-auto pl-3 my-2">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -82,7 +82,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-6 text-right c-icon-media">
+            <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                     <a href="<?= site_url('Profil'); ?>" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>
                     <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>

@@ -34,6 +34,7 @@ a {
 @media (max-width: 992px) {
     .logo {
         text-align: center;
+        padding: 20px 0;
     }
 }
 
@@ -71,10 +72,10 @@ a {
         padding: 0px;
     }
     .main-menu {
-        margin-top: -70px;
+        /*margin-top: -70px;*/
     }
     .c-icon-media {
-        margin-top: -110px;
+        margin-top: -85px;
     }
 }
 
