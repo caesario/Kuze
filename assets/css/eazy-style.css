@@ -29,16 +29,21 @@ a {
 }
 
 .logo {
-    padding: 35px 0;
+    padding: 40px 0;
 }
 @media (max-width: 992px) {
     .logo {
         text-align: center;
+        padding: 20px 0;
     }
 }
 
+.c-width-full{
+    width: 70% !important;
+}
+
 .main-menu li {
-    padding: 35px 0;
+    padding: 10px 0;
 }
 
 .main-menu li a {
@@ -50,8 +55,10 @@ a {
     border-radius: 20px;
 }
 .main-menu li a {
-    padding-left: 23px !important;
-    padding-right: 23px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 .main-menu li a:hover {
     color: #56cfe1 !important;
@@ -65,10 +72,10 @@ a {
         padding: 0px;
     }
     .main-menu {
-        margin-top: -70px;
+        /*margin-top: -70px;*/
     }
     .c-icon-media {
-        margin-top: -110px;
+        margin-top: -85px;
     }
 }
 
