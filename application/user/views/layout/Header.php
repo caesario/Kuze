@@ -15,7 +15,7 @@
 <!--    <link rel="stylesheet" href="--><?//= base_url('assets/css/pricing.css'); ?><!--">-->
 
     <!-- Icon -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/aMenu.phpll.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/aMenu.phpll.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
