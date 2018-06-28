@@ -310,7 +310,21 @@ a.c-cart-p {
     background-color: #fff;
     color: #777;
 }
+
+.c-view-kat-text{
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    padding: 5px 7.5px;
+    background-color: #fff;
+    color: #777;
+}
 a.c-view-text:hover{
+    text-decoration: none;
+    color: #56cfe1;
+}
+
+a.c-view-kat-text:hover{
     text-decoration: none;
     color: #56cfe1;
 }
@@ -1056,4 +1070,17 @@ a.c-ubah-pass:hover {
 .c-text-auth {
     font-size: 15px;
     color: #666;
+}
+
+.r-kat-item {
+    color: #222;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+.r-kat-item:hover {
+    color: #888;
+    text-decoration: none;
+    font-size: 20px;
+
 }
