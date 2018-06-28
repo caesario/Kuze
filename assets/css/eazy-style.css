@@ -29,7 +29,7 @@ a {
 }
 
 .logo {
-    padding: 35px 0;
+    padding: 45px 0;
 }
 @media (max-width: 992px) {
     .logo {
@@ -37,8 +37,12 @@ a {
     }
 }
 
+.c-width-full{
+    width: 70% !important;
+}
+
 .main-menu li {
-    padding: 35px 0;
+    padding: 10px 0;
 }
 
 .main-menu li a {
@@ -50,8 +54,10 @@ a {
     border-radius: 20px;
 }
 .main-menu li a {
-    padding-left: 23px !important;
-    padding-right: 23px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 .main-menu li a:hover {
     color: #56cfe1 !important;
