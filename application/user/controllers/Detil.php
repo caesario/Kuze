@@ -94,7 +94,7 @@ class Detil extends MY_Controller
         $this->data->breadcumurl2 = site_url($this->uri->segment(2));
         $this->data->breadcum1 = $this->uri->segment(1);
         $this->data->breadcum2 = $this->uri->segment(2);
-        $this->load->view('Detil', $this->data);
+        $this->load->view('DetailPesanan', $this->data);
     }
 }
 

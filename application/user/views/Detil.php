@@ -10,13 +10,11 @@ include "layout/Menu.php";
         <div class="container-flu c-padding-header">
             <div class="c-breadcrumb">
                 <nav class="c-nav-breadcrumb">
-                    <a class="breadcrumb-item" href="#">Home</a>
+                    <a class="breadcrumb-item" href="<?= site_url('/'); ?>">Home</a>
                     <i class="fa fa-arrow-right"></i>
-                    <a class="breadcrumb-item" href="#">Shop</a>
+                    <a class="breadcrumb-item" href="<?= $breadcumburl; ?>"><?= $breadcumb; ?></a>
                     <i class="fa fa-arrow-right"></i>
-                    <a class="breadcrumb-item" href="#">Jackets</a>
-                    <i class="fa fa-arrow-right"></i>
-                    <span class="breadcrumb-item c-breadcrum-active">Lavish Alice Deep Bandeau Asymmetric Hem Midi Dress</span>
+                    <span class="breadcrumb-item c-breadcrum-active"><a href="<?= $breadcumburl1; ?>"><?= $breadcumb1; ?></a></span>
                 </nav>
             </div>
         </div>
@@ -26,6 +24,7 @@ include "layout/Menu.php";
     <!-- ======= Detail Site ======= -->
     <div class="container-flu c-padding-header">
         <div class="row">
+            <?php if (isset($item) && $item != NULL): ?>
             <div class="col-lg-6 col-md-6">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-2">
@@ -55,7 +54,7 @@ include "layout/Menu.php";
                 <div class="c-detail-info">
                     <form action="add_to_cart" method="post">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-                    <h5>Lavish Alice Deep Bandeau Asymmetric Hem Midi Dress</h5>
+                    <h5><?= $item->i_nama; ?></h5>
                     <div class="row">
                         <div class="col c-review">
                             <i class="fa fa-star c-star"></i>
@@ -70,33 +69,39 @@ include "layout/Menu.php";
                         <!--</div>-->
                     </div>
                     <div class="c-detail-price">
-                        <p><del><span>Rp300.000</span></del> <span>Rp300.000</span></p>
+                        <input type="hidden" name="harga" value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
+                        <p id="rupiah"
+                            class="">Rp <?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
+
                     </div>
-                    <div class="c-detail-p mb-5"><p>
-                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
-                            Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                            Mauris placerat eleifend leo.</p>
+                    <div class="c-detail-p mb-5">
+                        <p>
+                            <?= $item->i_deskripsi; ?>
+                        </p>
                     </div>
 
                     <div class="c-detail-number mb-3">
-                        <input type="number" placeholder="0">
-                        <input type="text" class="c-detail-stock ml-2" placeholder="4 pcs" disabled>
+                        <input type="number" name="qty" min="1" id="qty" value="1">
+                        <input type="text" id="stok" class="c-detail-stock ml-2" placeholder="4 pcs" disabled>
                     </div>
 
                     <div class="c-detail-warna mb-5">
-                        <select class="custom-select mr-sm-2" id="">
-                            <option selected>Pilih Warna</option>
-                            <option value="1">Merah</option>
-                            <option value="2">Hitam</option>
-                            <option value="3">Biru</option>
+                        <select name="wu" id="wu" class="custom-select mr-sm-2 form-control" required>
+                            <option data-qty="0" value="">Pilih Warna</option>
+                            <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
+                                <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>" value="<?= $id->item_detil_kode; ?>">
+                                    <?= $id->warna->w_nama; ?> -
+                                    <?= $id->ukuran->u_nama; ?>
+                                </option>
+                            <?php endforeach; ?>
+
                         </select>
                     </div>
 
                     <div class="c-detail-btn">
-                        <a href="" class="btn btn-csr c-cart-detail c-cart-p">
+                        <button type="submit" href="" class="btn btn-csr c-cart-detail c-cart-p">
                             <i class="fa fa-shopping-cart c-cart-i"></i> Buy Product
-                        </a>
+                        </button>
 <!--                        <a href="" class="btn btn-csr c-cart">-->
 <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
 <!--                        </a>-->
@@ -115,6 +120,12 @@ include "layout/Menu.php";
 <!--                        <a href=""><i class="fa fa-linkedin fa-2x"></i></a>-->
 <!--                    </div>-->
                     </form>
+                    <?php else: ?>
+                        <div class="col">
+                            <h2 class="text-center text-muted">Item tidak ditemukan</h2>
+
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -125,31 +136,43 @@ include "layout/Menu.php";
         <div class="c-tab-list">
             <h5>Description</h5>
             <hr>
-            <p class="c-detail-des">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
-                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+            <p class="c-detail-des"> <?= $item->i_deskripsi; ?></p>
         </div>
     </div>
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h3 class="">Related Product</h3>
+        <h3 class="">Hot Item</h3>
     </div>
 
 
     <div class="container-fluid c-padding-header c-margin-related">
         <div class="row">
+            <?php foreach ($this->item->with_item_img('where:ii_default =1')->limit(5)->get_all() as $hot): ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="card border">
-                    <a class="" href=""><img class="card-img-top" src="assets/img/product7.jpg" alt="Card image cap">
+                    <?php if ($item_img($hot->i_kode) != NULL): ?>
+                    <a class="" href=""><img class="card-img-top" src="<?= base_url('upload/' . $item_img($hot->i_kode)->ii_nama); ?>" alt="<?= $item_img($hot->i_kode)->ii_nama; ?>">
                         <div class="middle">
                             <a href="" class="c-view-text">Quick View</a>
                         </div>
                     </a>
+                    <?php else: ?>
+                    <a class="" href="">
+                    <img class="img-fluid" src="<?= base_url('assets/img/noimg.png'); ?>" alt="No Image">
+                        <div class="middle">
+                            <a href="" class="c-view-text">Quick View</a>
+                        </div>
+                    </a>
+                    <?php endif; ?>
                     <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a></h5>
-                        <h5 class="c-price text-center">Rp100.000</h5>
+                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Kuze Product</h5>
+                        <h5 class="card-title text-center mb-2 c-title-second"><a href=""><?= $hot->i_nama; ?></a></h5>
+                        <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
+                        <h5 class="c-price text-center"><?= $hot->i_hrg_vip; ?></h5>
+                        <?php else: ?>
+                        <h5 class="c-price text-center"><?= $hot->i_hrg_vip; ?></h5>
+                        <?php endif; ?>
                     </div>
                     <!--<div class="card-body text-center c-card-dis">-->
                     <!--<h5 class="c-price">Rp100.000</h5>-->
@@ -162,77 +185,36 @@ include "layout/Menu.php";
                     <!--</div>-->
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card border">
-                    <a class="" href=""><img class="card-img-top" src="assets/img/product5.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a></h5>
-                        <h5 class="c-price text-center">Rp100.000</h5>
-                    </div>
-                    <!--<div class="card-body text-center c-card-dis">-->
-                    <!--<h5 class="c-price">Rp100.000</h5>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-heart c-cart-i2"></i>-->
-                    <!--</a>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-refresh c-cart-i2""></i>-->
-                    <!--</a>-->
-                    <!--</div>-->
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card border">
-                    <a class="" href=""><img class="card-img-top" src="assets/img/product6.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a></h5>
-                        <h5 class="c-price text-center">Rp100.000</h5>
-                    </div>
-                    <!--<div class="card-body text-center c-card-dis">-->
-                    <!--<h5 class="c-price">Rp100.000</h5>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-heart c-cart-i2"></i>-->
-                    <!--</a>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-refresh c-cart-i2""></i>-->
-                    <!--</a>-->
-                    <!--</div>-->
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card border">
-                    <a class="" href=""><img class="card-img-top" src="assets/img/product1.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a></h5>
-                        <h5 class="c-price text-center">Rp100.000</h5>
-                    </div>
-                    <!--<div class="card-body text-center c-card-dis">-->
-                    <!--<h5 class="c-price">Rp100.000</h5>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-heart c-cart-i2"></i>-->
-                    <!--</a>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-refresh c-cart-i2""></i>-->
-                    <!--</a>-->
-                    <!--</div>-->
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
+
+    <script>
+        $('#wu').change(function () {
+            var qty = $(this).find(':selected').data('qty');
+            var value = $(this).val();
+            $.when(
+                $('#stok').val(qty),
+                $('#qty').attr('max', qty)
+            );
+            if (qty === 0 && value !== '') {
+                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
+                $('#check').show()
+                    .removeClass('text-success')
+                    .addClass('text-danger')
+                    .html('Stok habis');
+            } else if (qty > 0 && value !== '') {
+                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
+                $('#check').show()
+                    .removeClass('text-danger')
+                    .addClass('text-success')
+                    .html('Stok tersedia');
+            } else {
+                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').addClass('mt-3');
+                $('#check').hide();
+            }
+        })
+    </script>
 
 <?php
 include "layout/Footer.php";
