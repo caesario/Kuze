@@ -53,8 +53,8 @@ class Item extends MY_Controller
 
         $this->data->qty = function ($ide_kode) {
             $hasil = 0;
-            $stoks = $this->item_qty->fields('iq_qty')->with_item_detil('where:item_detil_kode = \'' . $ide_kode . '\'')->get_all();
-            foreach ($stoks as $stok) {
+            $stoks = $this->item_detil->where('item_detil_kode', $ide_kode)->with_item_qty()->get();
+            foreach ($stoks->item_qty as $stok) {
                 $hasil += $stok->iq_qty;
             }
 
