@@ -86,9 +86,46 @@ include "layout/Menu.php";
     <!-- ======= Product ======= -->
     <div class="container-fluid c-padding-header">
         <div class="row">
+            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['gagal']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-success alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['berhasil']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="row">
+            <?php if ($terbaru_items() != NULL): ?>
+                <?php foreach ($terbaru_items() as $terbaru): ?>
+                    <?php $stok = $qty($terbaru->i_kode); ?>
+                        <?php if ($stok >= 1): ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="card">
-                    <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product1.jpg" alt="Card image cap">
+                    <a class="" href="<?= base_url ('Detil'); ?>">
+                        <?php if ($item_img($terbaru->i_kode) != NULL): ?>
+                        <img class="card-img-top" src="<?= base_url('upload/' . $item_img($terbaru->i_kode)->ii_nama); ?>" alt="<?= $item_img($terbaru->i_kode)->ii_nama; ?>">
+                        <?php else: ?>
+                            <img class="img-fluid mx-auto d-block"
+                                 src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                 alt="No Image">
+                        <?php endif; ?>
                         <div class="middle">
                             <a href="" class="c-view-text">Quick View</a>
                         </div>
@@ -100,9 +137,15 @@ include "layout/Menu.php";
                         <i class="fa fa-star float-right c-star"></i>
                         <i class="fa fa-star float-right c-star"></i>
                         <i class="fa fa-star float-right c-star"></i>
-                        <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
-                        <h5 class="c-price">Rp100.000</h5>
-                        <a href="" class="btn btn-csr c-cart c-cart-p">
+                        <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
+                            <p tooltip class="" title="<?= $terbaru->i_deskripsi; ?>"
+                               id="title"><?= $terbaru->i_deskripsi; ?></p>
+                        <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
+                        <h5 class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
+                        <?php else: ?>
+                        <h5 class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
+                        <?php endif; ?>
+                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>" class="btn btn-csr c-cart c-cart-p">
                             <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                         </a>
 <!--                        <a href="" class="btn btn-csr c-cart">-->
@@ -114,90 +157,12 @@ include "layout/Menu.php";
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card">
-                    <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product2.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="<?= base_url ('Detil'); ?>" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Adadas</h6>
-                        <i class="fa fa-star-o float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
-                        <h5 class="c-price">Rp100.000</h5>
-                        <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                        </a>
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-<!--                        </a>-->
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-<!--                        </a>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card">
-                    <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product3.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Adadas</h6>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
-                        <h5 class="c-price">Rp100.000</h5>
-                        <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                        </a>
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-<!--                        </a>-->
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-refresh c-cart-i2"></i>-->
-<!--                        </a>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card">
-                    <a class="" href="<?= base_url ('Detil'); ?>"><img class="card-img-top" src="assets/img/product4.jpg" alt="Card image cap">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Adadas</h6>
-                        <i class="fa fa-star-o float-right c-star"></i>
-                        <i class="fa fa-star-o float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
-                        <h5 class="c-price">Rp100.000</h5>
-                        <a href="" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                        </a>
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-<!--                        </a>-->
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-refresh c-cart-i2"></i>-->
-<!--                        </a>-->
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            <?php else: ?>
+                <p class="col">Tidak ada item yang ditampilkan</p>
+            <?php endif; ?>
+
         </div>
     </div>
 
