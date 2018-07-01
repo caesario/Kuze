@@ -25,31 +25,52 @@ include "layout/Menu.php";
     <div class="container-flu c-padding-header">
         <div class="row">
             <?php if (isset($item) && $item != NULL): ?>
-            <div class="col-lg-6 col-md-6">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-2">
-                        <div class="c-img-side">
-                            <ul class="c-ul-side ">
-                                <li class="c-li-side">
-                                    <img src="assets/img/detail_product1.jpg" alt="">
-                                </li>
-                                <li class="c-li-side">
-                                    <img src="assets/img/detail_product2.jpg" alt="">
-                                </li>
-                                <li class="c-li-side">
-                                    <img src="assets/img/detail_product3.jpg" alt="">
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-9 col-sm-10">
-                        <div class="c-img-show">
-                            <img src="assets/img/detail_product1.jpg" alt="">
-                        </div>
-                    </div>
 
+            <div class="col-lg-6 col-md-6">
+                <div class="fotorama"
+                     data-fit="cover"
+                     data-navposition="bottom"
+                     data-transition="dissolve"
+                     data-nav="thumbs"
+                     data-allowfullscreen="native"
+                     data-width="600"
+                     data-height="400">
+                    <?php if ($item_img_all($item->i_kode) != NULL): ?>
+                        <?php foreach ($item_img_all($item->i_kode) as $img): ?>
+                            <img src="<?= base_url('upload/' . $img->ii_nama); ?>" class="card-img-top">
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <img src="<?= base_url('assets/img/noimg.png'); ?>" class="card-img-top">
+                    <?php endif; ?>
                 </div>
             </div>
+
+<!--            <div class="col-lg-6 col-md-6">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-3 col-md-3 col-sm-2">-->
+<!--                        <div class="c-img-side">-->
+<!--                            <ul class="c-ul-side ">-->
+<!--                                <li class="c-li-side">-->
+<!--                                    <img src="assets/img/detail_product1.jpg" alt="">-->
+<!--                                </li>-->
+<!--                                <li class="c-li-side">-->
+<!--                                    <img src="assets/img/detail_product2.jpg" alt="">-->
+<!--                                </li>-->
+<!--                                <li class="c-li-side">-->
+<!--                                    <img src="assets/img/detail_product3.jpg" alt="">-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-9 col-md-9 col-sm-10">-->
+<!--                        <div class="c-img-show">-->
+<!--                            <img src="assets/img/detail_product1.jpg" alt="">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>
+                </div -->
+
             <div class="col-lg-6 col-md-6">
                 <div class="c-detail-info">
                     <form action="add_to_cart" method="post">

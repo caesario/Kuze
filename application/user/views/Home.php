@@ -131,7 +131,7 @@ include "layout/Menu.php";
                         </div>
                     </a>
                     <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Adadas</h6>
+                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Kuze Collection</h6>
                         <i class="fa fa-star float-right c-star"></i>
                         <i class="fa fa-star float-right c-star"></i>
                         <i class="fa fa-star float-right c-star"></i>
