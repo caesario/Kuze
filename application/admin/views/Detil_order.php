@@ -56,7 +56,7 @@
         <div class="row mb-5">
             <div class="col">
                 <div class="text-success">Detail Item :</div>
-                <table class="table table-sm">
+                <table id="tables" class="table table-sm">
                     <thead>
                     <tr>
                         <th>Item</th>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="row">
-            <div class="col-5">
+            <div class="col-6">
                 <div class="row">
                     <div class="col text-bold">Sub total</div>
                     <div class="col">
@@ -104,6 +104,7 @@
     </div>
 </section>
 <script>
+
     // ------------------------------------------------------ //
     // Format Rupiah
     // ------------------------------------------------------ //

@@ -71,7 +71,7 @@ include "layout/Menu.php";
                                     <div class="row form-group">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="nama_penerima">Nama Lengkap</label>
-                                            <input type="number" name="nama_penerima" id="nama_penerima"
+                                            <input type="text" name="nama_penerima" id="nama_penerima"
                                                    class="form-control"
                                                    placeholder="Nama Lengkap Anda...">
                                         </div>
@@ -127,9 +127,36 @@ include "layout/Menu.php";
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col text-right">
-                                            <a class="btn c-login-btn c-edit" href="<?= site_url('Profil'); ?>" role="button">Simpan</a>
+                                        <div class="col">
+                                            <button type="submit" class="btn c-login-btn c-edit">Simpan
+                                            </button>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                                            <div class="col">
+                                                <div class="alert alert-danger alert-dismissible fade show"
+                                                     role="alert">
+                                                    <?php echo $_SESSION['gagal']; ?>
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                                            <div class="col">
+                                                <div class="alert alert-success alert-dismissible fade show"
+                                                     role="alert">
+                                                    <?php echo $_SESSION['berhasil']; ?>
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </form>
                             </div>
@@ -144,6 +171,162 @@ include "layout/Menu.php";
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#provinsi').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih provinsi',
+                ajax: {
+                    url: '<?= site_url('API/get_provinsi'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term
+                        };
+                    }
+                }
+            });
+            $('#kabupaten').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kabupaten',
+                ajax: {
+                    url: '<?= site_url('API/get_kabupaten'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            provinsi: $('#provinsi').val()
+                        };
+                    }
+                }
+            });
+            $('#kecamatan').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kecamatan',
+                ajax: {
+                    url: '<?= site_url('API/get_kecamatan'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                            kabupaten: $('#kabupaten').val()
+                        };
+                    }
+                }
+            });
+            $('#kelurahan').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kelurahan / desa',
+                ajax: {
+                    url: '<?= site_url('API/get_kelurahan'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            kecamatan: $('#kecamatan').val()
+                        };
+                    }
+                }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
+                    $('#kodepos').val(res);
+                })
+            });
+
+            $('#pilih_alamat').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih alamat',
+                ajax: {
+                    url: '<?= site_url('API/get_alamat'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term
+                        };
+                    }
+                }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                var alamat_kode = $('#alamat_kode');
+                var nama_alamat = $('#nama_alamat');
+                var nama_penerima = $('#nama_penerima');
+                var kontak_penerima = $('#kontak_penerima');
+                var nama_pengirim = $('#nama_pengirim');
+                var kontak_pengirim = $('#kontak_pengirim');
+                var alamat = $('#alamat');
+                var provinsi = $('#provinsi');
+                var kabupaten = $('#kabupaten');
+                var kecamatan = $('#kecamatan');
+                var kelurahan = $('#kelurahan');
+                $.ajax({
+                    dataType: 'json',
+                    url: '<?= site_url('API/get_full_alamat/'); ?>' + id
+                }).then(function (data) {
+                    console.log(data);
+                    $.when(
+                        $.getJSON('<?= site_url('API/get_provinsi/'); ?>' + data.alamat_provinsi, function (res) {
+                            provinsi.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            provinsi.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kabupaten/'); ?>' + data.alamat_kabupaten, function (res) {
+                            kabupaten.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kabupaten.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kecamatan/'); ?>' + data.alamat_kecamatan, function (res) {
+                            kecamatan.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kecamatan.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kelurahan/'); ?>' + data.alamat_desa, function (res) {
+                            kelurahan.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kelurahan.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        nama_alamat.val(data.a_nama),
+                        nama_penerima.val(data.pengguna_alamat_r_nama),
+                        kontak_penerima.val(data.pengguna_alamat_r_kontak),
+                        nama_pengirim.val(data.pengguna_alamat_s_nama),
+                        kontak_pengirim.val(data.pengguna_alamat_s_kontak),
+                        alamat.val(data.alamat_deskripsi),
+                        alamat_kode.val(data.alamat_kode)
+                    );
+
+                });
+            })
+        });
+    </script>
 <?php
 include "layout/Footer.php";
 ?>

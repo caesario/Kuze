@@ -36,6 +36,15 @@ include "layout/Menu.php";
 
 
             <div class="col-12 col-sm-12 col-md-2 col-lg-2">
+                <div class="dropdown btn-group">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        Action <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Foo</a></li>
+                        <li><a href="#">Bar</a></li>
+                    </ul>
+                </div>
 
                 <h5 class="card-title mb-0 text-left">Kategori</h5>
                 <hr>

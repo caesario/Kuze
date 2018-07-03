@@ -40,19 +40,25 @@ include "layout/Menu.php";
                     </tr>
                     </thead>
                     <tbody>
+                            <?php if ($resis != NULL): ?>
+                                <?php $counter = 0; ?>
+                                <?php foreach ($resis as $resi): ?>
                             <tr>
                                 <td>
-                                    dadasdasdasd
+                                    <?= $resi->artikel_judul; ?>
                                 </td>
                                 <td>
-                                    31/01/2018
+                                    <?= $resi->created_at; ?>
                                 </td>
                                 <td>
                                     <a class="btn c-login-btn c-edit"
-                                       href="">
+                                       href="<?= site_url('resi/' . $resi->artikel_url . '/detil'); ?>">
                                         Detail
                                     </a>
                                 </td>
+                            </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                     </tbody>
                 </table>
             </div>
