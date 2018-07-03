@@ -26,7 +26,7 @@
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="<?= base_url('assets/vendor/popper.js/umd/popper.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<!--    <script src="--><?//= base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?><!--"></script>-->
     <script src="<?= base_url('assets/vendor/fotorama/fotorama.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-ellipsis/jquery.ellipsis.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-emoji-rating/jquery.emojiRatings.min.js'); ?>"></script>

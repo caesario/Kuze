@@ -80,26 +80,38 @@
                 </div>
             </div>
             <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
+                <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                 <div class="row">
                     <div class="col-12 text-right">
-                        <p>Hallo, Caesario</p>
+                        <p class="mt-2">Hallo,  <?= $_SESSION['nama']; ?> !</p>
+                    </div>
+                    <div class="col-12 text-right">
+                        <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                        <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>
+
                     </div>
                 </div>
-                <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
+
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
-                    <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
-                    <?= $_SESSION['nama']; ?><a href="<?= site_url(''); ?>"  class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+<!--                    <a href="--><?//= site_url('Cart'); ?><!--"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>-->
+<!--                    <a href="--><?//= site_url(''); ?><!--"  class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>-->
+<!--                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                        <a class="dropdown-item" href="#">Action</a>-->
+<!--                        <a class="dropdown-item" href="#">Another action</a>-->
+<!--                        <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
 
 
                 <?php else: ?>
-<!--                    <a href="--><?//= site_url('Profil'); ?><!--"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
-                    <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
-                    <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <p class="mt-2" style="height:25px;"></p>
+                    </div>
+                    <div class="col-12 text-right">
+                        <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                        <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
+                    </div>
+                </div>
                 <?php endif; ?>
 
             </div>
