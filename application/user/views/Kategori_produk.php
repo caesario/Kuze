@@ -77,7 +77,7 @@ include "layout/Menu.php";
                                     <i class="fa fa-star float-right c-star"></i>
                                     <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                                     <h5 class="c-price">Rp100.000</h5>
-                                    <a href="" class="btn btn-csr c-cart c-cart-p">
+                                    <a href="" class="btn btn-csr c-cart c-cart-p">z
                                         <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                                     </a>
                                     <!--                        <a href="" class="btn btn-csr c-cart">-->
