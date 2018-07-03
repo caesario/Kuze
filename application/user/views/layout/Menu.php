@@ -34,45 +34,41 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url ('Kategori'); ?>">Kategori</a>
                                     <div class="c-dropdown-content" id="c-color-drop">
+
                                         <div class="row">
+
                                             <div class="col">
                                                 <h6>Catalog Produk</h6>
-                                                <a href="#">Man Cloth</a>
-                                                <a href="#">Dress Woman</a>
-                                                <a href="#">Slim Bag</a>
-                                                <a href="#">Aing Macan Loncat</a>
-                                                <a href="#">Catalog Layout</a>
+                                                <?php if ($menu_kategori != NULL): ?>
+                                                <?php foreach ($menu_kategori as $menukat): ?>
+                                                <a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
                                             </div>
-                                            <div class="col">
-                                                <h6>Product Featured</h6>
-                                                <a href="#"> Swatch Default</a>
-                                                <a href="#">Swatch Images</a>
-                                                <a href="#">Groups Product</a>
-                                                <a href="#">External/Affiliate Product</a>
-                                                <a href="#">On-sale schedule price</a>
-                                            </div>
+
                                         </div>
+
                                     </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Product Terbaru</a>
-                                    <div class="c-dropdown-content" id="c-color-drop">
-                                        <h6>Product</h6>
-                                        <a href="#">Full Width Layout</a>
-                                        <a href="#">With sidebar right</a>
-                                        <a href="#">Groups Product</a>
-                                    </div>
+<!--                                    <div class="c-dropdown-content" id="c-color-drop">-->
+<!--                                        <h6>Product</h6>-->
+<!--                                        <a href="#">Full Width Layout</a>-->
+<!--                                        <a href="#">With sidebar right</a>-->
+<!--                                        <a href="#">Groups Product</a>-->
+<!--                                    </div>-->
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Hot Item</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= site_url('Blog') ?>">Blog</a>
-                                    <div class="c-dropdown-content" id="c-color-drop">
+                                    <!--<div class="c-dropdown-content" id="c-color-drop">
                                         <a href="#">Update Product</a>
                                         <a href="#">News Site</a>
                                         <a href="#">Groups Join</a>
-                                    </div>
+                                    </div>-->
                                 </li>
 <!--                                <li class="nav-item">-->
 <!--                                    <a class="nav-link" href="#">Contact</a>-->
