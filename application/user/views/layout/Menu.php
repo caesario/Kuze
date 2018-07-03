@@ -84,6 +84,11 @@
                 </div>
             </div>
             <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <p>Hallo, Caesario</p>
+                    </div>
+                </div>
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
                     <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
