@@ -10,6 +10,7 @@ class Home extends MY_Controller
 
     public function index()
     {
+        $this->data->artikel = $this->artikel->limit(3)->get_all();
         $this->data->terbaru_items = function () {
             return $this->item
                 ->with_item_detil()

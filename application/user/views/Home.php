@@ -3,25 +3,17 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 
-    <!-- ======= Slider ======= -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide f-z-slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner c-slideshow">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="Third slide">
-            </div>
-        </div>
+    <!-- Slide Show -->
+<?php if ($img_promos != NULL): ?>
+    <div class="fotorama" data-fit="cover" data-autoplay="true">
+        <?php foreach ($img_promos as $promo): ?>
+            <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
+                 data-caption="<?= $promo->slide_promo_caption; ?>"
+                 alt="<?= $promo->slide_promo_img; ?>">
+        <?php endforeach; ?>
     </div>
+<?php endif; ?>
+    <!-- End Slide Show -->
 
 
     <!-- ======= Content ======= -->
@@ -177,14 +169,8 @@ include "layout/Menu.php";
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
-                <div class="content-wrapper-no border">
-                    <img src="assets/img/lon2.jpg" alt="">
-                    <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle text-muted mb-1 text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a>
-                        </h5>
-                        <h5 class="c-price text-center">Rp100.000</h5>
-                    </div>
+                <div class="content-wrapper">
+                    <img src="assets/img/lon1.jpg" alt="">
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
@@ -205,60 +191,30 @@ include "layout/Menu.php";
     <!-- ======= News Block ======= -->
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-wrapper">
-                    <div class="card">
-                        <a class="" href="<?= site_url('Artikel') ?>"><img class="card-img-top"
-                                                                           src="assets/img/blog1.jpg"
-                                                                           alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h5 class="card-title c-title-blog">Have you seen these stunning breakthroughs in 3D right
-                                now</h5>
-                            <ul class="c-ul-blog">
-                                <li>By <a href="" class="c-author">Author</a></li>
-                                <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
-                            </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
-                                quibusdam ...</p>
+            <?php foreach ($artikel as $artk): ?>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="content-wrapper">
+                        <div class="card">
+                            <a class="" href="<?= site_url('artikel/' . $artk->artikel_url) ?>"><img
+                                        class="card-img-top"
+                                        src="assets/img/blog1.jpg"
+                                        alt="Card image cap"></a>
+                            <div class="card-body">
+                                <h5 class="card-title c-title-blog"><?= $artk->artikel_url; ?></h5>
+                                <ul class="c-ul-blog">
+                                    <li>Created at <a href="" class="c-date"><?= $artk->created_at; ?></a></li>
+                                    <?php if ($artk->updated_at != NULL): ?>
+                                        <li>Updated at <a href="" class="c-date"><?= $artk->updated_at; ?></a></li>
+                                    <?php endif; ?>
+
+                                </ul>
+                                <p class="c-p-blog"><?= $artk->artikel_content; ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-wrapper">
-                    <div class="card">
-                        <a class="" href=""><img class="card-img-top" src="assets/img/blog2.jpg"
-                                                 alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h5 class="card-title c-title-blog">Famous people whose names you don’t know read more</h5>
-                            <ul class="c-ul-blog">
-                                <li>By <a href="" class="c-author">Author</a></li>
-                                <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
-                            </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
-                                quibusdam ...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="content-wrapper">
-                    <div class="card">
-                        <a class="" href=""><img class="card-img-top" src="assets/img/blog3.jpg"
-                                                 alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h5 class="card-title c-title-blog">How to determine which dress is right looking for
-                                you</h5>
-                            <ul class="c-ul-blog">
-                                <li>By <a href="" class="c-author">Author</a></li>
-                                <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
-                            </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
-                                quibusdam ...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <?php endforeach; ?>
         </div>
     </div>
 

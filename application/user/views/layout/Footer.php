@@ -11,8 +11,6 @@
                      src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                      alt="No Image">
             <?php endif; ?>
-            <p class="c-text-footer">This is easy to update text from footer widget area. Add information about your store.</p>
-            <p class="c-alamat-footer"><?= $alamat; ?></p>
             <p class="c-nomer-footer"><b>Instagram :</b> <?= $instagram; ?></p>
             <p class="c-email-footer"><b>Email :</b> <?= $email; ?></p>
         </div>
