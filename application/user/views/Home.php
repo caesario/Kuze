@@ -200,7 +200,7 @@ include "layout/Menu.php";
                                         src="assets/img/blog1.jpg"
                                         alt="Card image cap"></a>
                             <div class="card-body">
-                                <h5 class="card-title c-title-blog"><?= $artk->artikel_url; ?></h5>
+                                <h5 id="title" class="card-title c-title-blog"><?= $artk->artikel_url; ?></h5>
                                 <ul class="c-ul-blog">
                                     <li>Created at <a href="" class="c-date"><?= $artk->created_at; ?></a></li>
                                     <?php if ($artk->updated_at != NULL): ?>
@@ -208,7 +208,7 @@ include "layout/Menu.php";
                                     <?php endif; ?>
 
                                 </ul>
-                                <p class="c-p-blog"><?= $artk->artikel_content; ?></p>
+                                <p id="title" class="c-p-blog"><?= $artk->artikel_content; ?></p>
                             </div>
                         </div>
                     </div>

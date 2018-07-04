@@ -88,5 +88,8 @@
         $(this).html(hasil);
     });
 </script>
+<script>
+    $('[id="title"]').ellipsis();
+</script>
 </body>
 </html>
