@@ -129,7 +129,8 @@ include "layout/Menu.php";
                                              alt="No Image">
                                     <?php endif; ?>
                                     <div class="middle">
-                                        <a href="" class="c-view-text">Quick View</a>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
+                                           class="c-view-text">Quick View</a>
                                     </div>
                                 </a>
                                 <div class="card-body">

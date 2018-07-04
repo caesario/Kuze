@@ -2,42 +2,45 @@
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
         <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
-            <img src="assets/img/logo2.png" alt="">
+            <?php if ($logo != NULL): ?>
+                <img src="<?= base_url('upload/' . $logo); ?>" width="150" height="80"
+                     class="img-fluid mx-auto d-block"
+                     alt="">
+            <?php else: ?>
+                <img class="img-fluid mx-auto d-block" width="150" height="80"
+                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                     alt="No Image">
+            <?php endif; ?>
             <p class="c-text-footer">This is easy to update text from footer widget area. Add information about your store.</p>
-            <p class="c-alamat-footer">Cengkareng Tower, Jakarta</p>
-            <p class="c-nomer-footer"><b>Phone :</b> (021) 78854321</p>
-            <p class="c-email-footer"><b>Email :</b> info@eazydev.com</p>
+            <p class="c-alamat-footer"><?= $alamat; ?></p>
+            <p class="c-nomer-footer"><b>Instagram :</b> <?= $instagram; ?></p>
+            <p class="c-email-footer"><b>Email :</b> <?= $email; ?></p>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Category</h5>
             <ul class="c-ul-footer">
-                <li><a href="">Men Clothing</a></li>
-                <li><a href="">Women Clothing</a></li>
-                <li><a href="">Soft Denim</a></li>
-                <li><a href="">Multi Color</a></li>
-                <li><a href="">Accessories</a></li>
-                <li><a href="">Jackets</a></li>
+                <?php foreach ($menu_kategori as $menukat): ?>
+                    <li><a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
-            <h5 class="c-judul-footer">Top Links</h5>
+            <h5 class="c-judul-footer">Blog</h5>
             <ul class="c-ul-footer">
-                <li><a href="">Shop Location</a></li>
-                <li><a href="">Account Info</a></li>
-                <li><a href="">Order Tracking</a></li>
-                <li><a href="">Question</a></li>
-                <li><a href="">Help</a></li>
+                <?php if ($blogs != ''): ?>
+                    <?php foreach ($blogs as $blog): ?>
+                        <li><a href="<?= site_url('blog/' . $blog->artikel_url); ?>"><?= $blog->artikel_judul; ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
-                <li><a href="">My Account</a></li>
-                <li><a href="">Support Center</a></li>
-                <li><a href="">Exchange</a></li>
-                <li><a href="">Shapping</a></li>
-                <li><a href="">Reseller</a></li>
-                <li><a href="">Privacy Policy</a></li>
+                <li><a href="<?= site_url('resi'); ?>">Laporan Resi</a></li>
+                <li><a href="<?= site_url('pending'); ?>">Status Order</a></li>
+                <li><a href="<?= site_url('riwayat'); ?>">Riwayat Pesanan</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">

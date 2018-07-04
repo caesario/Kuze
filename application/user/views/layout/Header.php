@@ -30,6 +30,6 @@
 
 <!--    <link rel="shortcut icon" href="--><?//= base_url('upload/' . $icon); ?><!--">-->
 
-    <title>Xtocky - Dev2</title>
+    <title><?= $brandname; ?></title>
 </head>
 <body>

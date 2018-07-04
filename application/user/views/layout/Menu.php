@@ -3,9 +3,15 @@
     <div class="container-fluid c-padding-header">
         <div class="row">
             <div class="col-xl-2 col-lg-2">
-                <div class="logo">
-                    <img src="assets/img/logo.png" alt="">
-                </div>
+                <?php if ($logo != NULL): ?>
+                    <img src="<?= base_url('upload/' . $logo); ?>" width="150" height="80"
+                         class="img-fluid mx-auto d-block"
+                         alt="">
+                <?php else: ?>
+                    <img class="img-fluid mx-auto d-block" width="150" height="80"
+                         src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                         alt="No Image">
+                <?php endif; ?>
             </div>
             <div class="col-xl-8 col-lg-8 col-12">
                 <div class="row mt-lg-4 mt-0">
