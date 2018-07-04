@@ -36,28 +36,21 @@ include "layout/Menu.php";
 
 
             <div class="col-12 col-sm-12 col-md-2 col-lg-2">
-                <div class="dropdown btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        Action <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Foo</a></li>
-                        <li><a href="#">Bar</a></li>
-                    </ul>
-                </div>
+
 
                 <h5 class="card-title mb-0 text-left">Kategori</h5>
                 <hr>
 
                 <ul class="nav flex-column c-ul-footer">
-
+                <?php if ($menu_kategori != NULL): ?>
+                    <?php foreach ($menu_kategori as $menukat): ?>
                     <li class="nav-item mb-1 ml-1 ">
-                        <a class="" href="#">Baju</a>
+                        <a class="" href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
                     </li>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
 
-                    <li class="nav-item mb-1 ml-1 ">
-                        <a class="" href="#">Kemeja</a>
-                    </li>
+
 
 
                 </ul>
@@ -84,7 +77,7 @@ include "layout/Menu.php";
                                     <i class="fa fa-star float-right c-star"></i>
                                     <h5 class="card-title c-both c-title">Top In Oversized Boxy Fit River Island Skinny</h5>
                                     <h5 class="c-price">Rp100.000</h5>
-                                    <a href="" class="btn btn-csr c-cart c-cart-p">
+                                    <a href="" class="btn btn-csr c-cart c-cart-p">z
                                         <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                                     </a>
                                     <!--                        <a href="" class="btn btn-csr c-cart">-->
