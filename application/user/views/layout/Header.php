@@ -28,7 +28,7 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url('assets/vendor/fotorama/fotorama.js'); ?>"></script>
 
-<!--    <link rel="shortcut icon" href="--><?//= base_url('upload/' . $icon); ?><!--">-->
+    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
 
     <title><?= $brandname; ?></title>
 </head>
