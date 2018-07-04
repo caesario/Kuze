@@ -156,9 +156,14 @@ class MY_Controller extends CI_Controller
         $this->data->qty = function ($i_kode) {
             $hasil = 0;
             $stoks = $this->item_detil->where('i_kode', $i_kode)->with_item_qty()->get();
-            foreach ($stoks->item_qty as $stok) {
-                $hasil += $stok->iq_qty;
+            if (isset($stoks->item_qty)) {
+                foreach ($stoks->item_qty as $stok) {
+                    $hasil += $stok->iq_qty;
+                }
+            } else {
+                $hasil = 0;
             }
+
 
             return $hasil;
         };
