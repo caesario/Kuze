@@ -115,50 +115,50 @@ include "layout/Menu.php";
             <?php if ($terbaru_items() != NULL): ?>
                 <?php foreach ($terbaru_items() as $terbaru): ?>
                     <?php $stok = $qty($terbaru->i_kode); ?>
-                        <?php if ($stok >= 1): ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card">
-                    <a class="" href="<?= base_url ('Detil'); ?>">
-                        <?php if ($item_img($terbaru->i_kode) != NULL): ?>
-                        <img class="card-img-top" src="<?= base_url('upload/' . $item_img($terbaru->i_kode)->ii_nama); ?>" alt="<?= $item_img($terbaru->i_kode)->ii_nama; ?>">
-                        <?php else: ?>
-                            <img class="img-fluid mx-auto d-block"
-                                 src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
-                                 alt="No Image">
-                        <?php endif; ?>
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
+                    <?php if ($stok >= 1): ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="card">
+                                <a class="" href="<?= base_url('Detil'); ?>">
+                                    <?php if ($item_img($terbaru->i_kode) != NULL): ?>
+                                        <img class="card-img-top"
+                                             src="<?= base_url('upload/' . $item_img($terbaru->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($terbaru->i_kode)->ii_nama; ?>">
+                                    <?php else: ?>
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             alt="No Image">
+                                    <?php endif; ?>
+                                    <div class="middle">
+                                        <a href="" class="c-view-text">Quick View</a>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star"></i>
+                                    <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
+                                    <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
+                                        <h5 id="rupiah" class="c-price">Rp <?= $terbaru->i_hrg_vip; ?></h5>
+                                    <?php else: ?>
+                                        <h5 id="rupiah" class="c-price">Rp <?= $terbaru->i_hrg_vip; ?></h5>
+                                    <?php endif; ?>
+                                    <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
+                                       class="btn btn-csr c-cart c-cart-p">
+                                        <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
+                                    </a>
+                                    <!--                        <a href="" class="btn btn-csr c-cart">-->
+                                    <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
+                                    <!--                        </a>-->
+                                    <!--                        <a href="" class="btn btn-csr c-cart">-->
+                                    <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
+                                    <!--                        </a>-->
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted float-left c-subtitle">Kuze Collection</h6>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <i class="fa fa-star float-right c-star"></i>
-                        <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
-                            <p tooltip class="" title="<?= $terbaru->i_deskripsi; ?>"
-                               id="title"><?= $terbaru->i_deskripsi; ?></p>
-                        <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                        <h5 class="c-price">Rp <?= $terbaru->i_hrg_vip; ?></h5>
-                        <?php else: ?>
-                        <h5 class="c-price">Rp <?= $terbaru->i_hrg_vip; ?></h5>
-                        <?php endif; ?>
-                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>" class="btn btn-csr c-cart c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                        </a>
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-<!--                        </a>-->
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-<!--                        </a>-->
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
-            <?php endforeach; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             <?php else: ?>
                 <p class="col">Tidak ada item yang ditampilkan</p>
             <?php endif; ?>
@@ -180,7 +180,8 @@ include "layout/Menu.php";
                     <img src="assets/img/lon2.jpg" alt="">
                     <div class="card-body c-card-vis">
                         <h5 class="card-subtitle text-muted mb-1 text-center c-subtitle-second">Adadas</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a></h5>
+                        <h5 class="card-title text-center mb-2 c-title-second"><a href="">Top In Oversized lorel</a>
+                        </h5>
                         <h5 class="c-price text-center">Rp100.000</h5>
                     </div>
                 </div>
@@ -206,14 +207,18 @@ include "layout/Menu.php";
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-wrapper">
                     <div class="card">
-                        <a class="" href="<?= site_url('Artikel') ?>"><img class="card-img-top" src="assets/img/blog1.jpg" alt="Card image cap"></a>
+                        <a class="" href="<?= site_url('Artikel') ?>"><img class="card-img-top"
+                                                                           src="assets/img/blog1.jpg"
+                                                                           alt="Card image cap"></a>
                         <div class="card-body">
-                            <h5 class="card-title c-title-blog">Have you seen these stunning breakthroughs in 3D right now</h5>
+                            <h5 class="card-title c-title-blog">Have you seen these stunning breakthroughs in 3D right
+                                now</h5>
                             <ul class="c-ul-blog">
                                 <li>By <a href="" class="c-author">Author</a></li>
                                 <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
                             </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, quibusdam ...</p>
+                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
+                                quibusdam ...</p>
                         </div>
                     </div>
                 </div>
@@ -221,14 +226,16 @@ include "layout/Menu.php";
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-wrapper">
                     <div class="card">
-                        <a class="" href=""><img class="card-img-top" src="assets/img/blog2.jpg" alt="Card image cap"></a>
+                        <a class="" href=""><img class="card-img-top" src="assets/img/blog2.jpg"
+                                                 alt="Card image cap"></a>
                         <div class="card-body">
                             <h5 class="card-title c-title-blog">Famous people whose names you don’t know read more</h5>
                             <ul class="c-ul-blog">
                                 <li>By <a href="" class="c-author">Author</a></li>
                                 <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
                             </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, quibusdam ...</p>
+                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
+                                quibusdam ...</p>
                         </div>
                     </div>
                 </div>
@@ -236,14 +243,17 @@ include "layout/Menu.php";
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="content-wrapper">
                     <div class="card">
-                        <a class="" href=""><img class="card-img-top" src="assets/img/blog3.jpg" alt="Card image cap"></a>
+                        <a class="" href=""><img class="card-img-top" src="assets/img/blog3.jpg"
+                                                 alt="Card image cap"></a>
                         <div class="card-body">
-                            <h5 class="card-title c-title-blog">How to determine which dress is right looking for you</h5>
+                            <h5 class="card-title c-title-blog">How to determine which dress is right looking for
+                                you</h5>
                             <ul class="c-ul-blog">
                                 <li>By <a href="" class="c-author">Author</a></li>
                                 <li>On <a href="" class="c-date">Jan, 1 2018</a></li>
                             </ul>
-                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, quibusdam ...</p>
+                            <p class="c-p-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque,
+                                quibusdam ...</p>
                         </div>
                     </div>
                 </div>

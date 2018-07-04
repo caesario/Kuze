@@ -14,13 +14,6 @@
     <link rel="stylesheet" href="<?= site_url('assets/vendor/select2/select2-bootstrap4.min.css'); ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fotorama/fotorama.css'); ?>">
 
-
-    <!-- Copy Fashion-->
-<!--    <link rel="stylesheet" href="--><?//= base_url('assets/css/pricing.css'); ?><!--">-->
-
-    <!-- Icon -->
-<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/aMenu.phpll.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
