@@ -1,3 +1,14 @@
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cart"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
@@ -53,7 +64,6 @@
 </div>
 
 
-
 <!-- ======= Copyright by EazyDev Team ======= -->
 <div class="container-fluid c-padding-header text-center c-padding-footer">
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
@@ -90,6 +100,42 @@
 </script>
 <script>
     $('[id="title"]').ellipsis();
+</script>
+<script>
+    $('[tooltip]').tooltip();
+</script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+            container: 'body',
+            trigger: 'focus',
+            content: $('#pop_cart').html(),
+            html: true
+        })
+    })
+</script>
+<script>
+    $('#table').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+        }
+    });
+</script>
+<?php if (isset($_SESSION['modal'])): ?>
+    <script>
+        $('#cart').modal({
+            backdrop: 'static',
+            keyboard: false,
+            show: true
+        });
+        $('#cart > div > div > div.modal-body').load('<?= site_url('cart/modal_cart'); ?>');
+    </script>
+<?php endif; ?>
+<script>
+    $('div.image.mx-auto.d-block').click(function () {
+        var url = $(this).attr('data-url');
+        window.location.href = url;
+    })
 </script>
 </body>
 </html>

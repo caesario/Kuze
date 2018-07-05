@@ -110,7 +110,8 @@ include "layout/Menu.php";
                     <?php if ($stok >= 1): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-                                <a class="" href="<?= base_url('Detil'); ?>">
+                                <a class=""
+                                   href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>">
                                     <?php if ($item_img($terbaru->i_kode) != NULL): ?>
                                         <img class="card-img-top"
                                              src="<?= base_url('upload/' . $item_img($terbaru->i_kode)->ii_nama); ?>"
@@ -141,12 +142,6 @@ include "layout/Menu.php";
                                        class="btn btn-csr c-cart c-cart-p">
                                         <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
                                     </a>
-                                    <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                    <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-                                    <!--                        </a>-->
-                                    <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                    <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-                                    <!--                        </a>-->
                                 </div>
                             </div>
                         </div>
