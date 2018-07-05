@@ -63,6 +63,7 @@ $route['hot-item/item/(:any)/add_to_cart'] = 'cart/add/$1';
 $route['item/(:any)/detil'] = 'home/item/$1';
 $route['item/(:any)/add_to_cart'] = 'cart/add/$1';
 $route['kategori/(:any)'] = 'kategori/get_item/$1';
+$route['kategori/all/item/(:any)/detil'] = 'kategori/get_item_detil_all/$1';
 $route['kategori/(:any)/item/(:any)/detil'] = 'kategori/get_item_detil/$1/$2';
 $route['kategori/(:any)/item/(:any)/add_to_cart'] = 'cart/add';
 $route['cart/(:any)/delete'] = 'cart/delete/$1';
