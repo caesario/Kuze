@@ -56,9 +56,9 @@ class Home extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
-        $this->data->breadcumburl = 'Hot Item';
+        $this->data->breadcumburl = site_url('hot-item');
         $this->data->breadcumburl1 = site_url('hot-item/item/' . $i_url . '/detil');
-        $this->data->breadcumb = 'Produk Terbaru';
+        $this->data->breadcumb = 'Hot Item';
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
 
         $this->load->view('Detil', $this->data);
