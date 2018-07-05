@@ -115,7 +115,7 @@ include "layout/Menu.php";
                 <tbody>
                 <tr>
                     <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
-                    <td><span class="c-price-cart-3 pl-3">Rp <?= $cart_total($_SESSION['id']); ?></span></td>
+                    <td><span class="c-price-cart-3 pl-3">Rp</span></td>
                 </tr>
                 <!--                <tr>-->
                 <!--                    <th class="p-1 pl-4">Pengiriman</th>-->
@@ -127,11 +127,11 @@ include "layout/Menu.php";
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Total</th>
-                    <td><span class="c-price-cart-2 pl-3 c-l-hight">Rp <?= $cart_total($_SESSION['id']); ?></span></td>
+                    <td><span class="c-price-cart-2 pl-3 c-l-hight">Rp</span></td>
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">LANJUTKAN KE ALAMAT</a>
+            <a href="" class="btn btn-csr c-btn-cart mt-3 float-right">LANJUTKAN KE ALAMAT</a>
         </div>
     </div>
 
