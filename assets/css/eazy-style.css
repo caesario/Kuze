@@ -37,7 +37,14 @@ a {
         padding: 20px 0;
     }
 }
-
+.c-header {
+    height: 40px;
+    margin-bottom: 0px;
+    font-size: 0.8em;
+    background-color: #F06292;
+    line-height: 40px;
+    color: #fefefe;
+}
 .c-width-full{
     width: 70% !important;
 }
