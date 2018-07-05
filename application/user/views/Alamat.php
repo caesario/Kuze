@@ -48,7 +48,7 @@ include "layout/Menu.php";
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
                                     <label class="form-check-label" for="check_dropship">
-                                        Dropshipper
+                                        Dropshipperr
                                     </label>
                                 </div>
                             </div>

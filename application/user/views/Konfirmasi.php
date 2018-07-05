@@ -94,16 +94,16 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                                   required>
                        </div>
 
-                       <div class="form-group">
-                           <label for="bukti_pembayaran">Upload Bukti Pembayaran : </label>
-                           <br>
-                           <div class="r-upload-f-button-font-wrapper">
-                               <button class="r-btn"><i class="fa fa-upload" style="font-size: 18px;"></i>Unggah
-                                   Bukti
-                               </button>
-                               <input type="file" name="bukti_pembayaran">
-                           </div>
-                       </div>
+<!--                       <div class="form-group">-->
+<!--                           <label for="bukti_pembayaran">Upload Bukti Pembayaran : </label>-->
+<!--                           <br>-->
+<!--                           <div class="r-upload-f-button-font-wrapper">-->
+<!--                               <button class="r-btn"><i class="fa fa-upload" style="font-size: 18px;"></i>Unggah-->
+<!--                                   Bukti-->
+<!--                               </button>-->
+<!--                               <input type="file" name="bukti_pembayaran">-->
+<!--                           </div>-->
+<!--                       </div>-->
                    </form>
                    <a type="submit" href="<?= site_url('Detail_pesanan'); ?>" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</a>
                </div>
