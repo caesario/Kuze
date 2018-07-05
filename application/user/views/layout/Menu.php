@@ -11,7 +11,7 @@
                 </a>
             <?php endif; ?>
             <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                | Selamat Datang,<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
                     <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
                 </a>
             <?php endif; ?>

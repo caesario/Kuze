@@ -1,5 +1,5 @@
 <div class="row small">
-    <div class="col text-center">
+    <div class="col text-center c-modal-col">
         <p class="text-center r-pink f-size"><i class="fa fa-check-circle fa-5x"></i> <br> Berhasil menambah item kedalam keranjang</p>
     </div>
 </div>
@@ -10,7 +10,7 @@
         $p_kode = isset($_SESSION['id']) ? $_SESSION['id'] : '';
         $pop_carts = $this->cart->where_pengguna_kode($p_kode)->get_all();
         if ($pop_carts): ?>
-            <table class="table table-sm table-borderless">
+            <table class="table table-sm table-borderless c-table-col">
                 <thead>
                 <tr>
                     <th scope="col" colspan="2">Item</th>
@@ -75,10 +75,10 @@
 <hr>
 <div class="row small">
     <div class="col mb-1">
-        <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block">Lanjutkan Belanja</a>
+        <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block c-modal-clr">Lanjutkan Belanja</a>
     </div>
     <div class="col">
-        <a href="<?= site_url('cart'); ?>" class="btn btn-sm btn-block">Proses
+        <a href="<?= site_url('cart'); ?>" class="btn btn-sm  btn-block c-modal-clr">Proses
             Pembayaran</a>
     </div>
 </div>
