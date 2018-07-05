@@ -129,6 +129,9 @@ a.c-header-a:hover {
         margin-top: 5px;
         line-height: 20px;
         }
+    .c-cart-icon i {
+        margin-top: -130px;
+    }
 }
 
 
@@ -256,7 +259,7 @@ a.c-header-a:hover {
 .c-title{
     font-size: 17px;
     color: #444;
-    margin-top: 25px;
+    margin-top: 5px;
     margin-bottom: 7px;
 }
 .c-title:hover{
@@ -278,6 +281,7 @@ h5.c-price{
     margin-bottom: 10px;
     cursor: default;
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }
 
 

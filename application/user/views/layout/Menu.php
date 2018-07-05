@@ -15,6 +15,9 @@
                     | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
                         <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
                     </a>
+                    | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
+                        Log Out
+                    </a>
                 <?php endif; ?>
             </div>
         </div>
@@ -90,11 +93,10 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-12 text-center c-icon-media">
+            <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                <div class="col mt-2">
+                <div class="col mt-4 mt-lg-2">
                         <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
-                        <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out fa-2x c-icon-top"></i></a>
                 </div>
 
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
