@@ -20,8 +20,7 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Checkout ======= -->
     <div class="container-fluid c-padding-header mb-5">
-        <div class="row">
-            <!-- ======= Checkout Left ======= -->
+        <div class="row"><!-- ======= Checkout Left ======= -->
             <div class="col-lg-8 c-margin-auto">
                 <h5 class="mb-4">DETAIL ALAMAT</h5>
                 <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
