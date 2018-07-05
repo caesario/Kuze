@@ -29,7 +29,9 @@ $total = $biaya_subtotal + $biaya_pengiriman;
     <!-- Detail Konfirmasi Pembayaran -->
     <div class="container c-padding-header">
         <h5 class="text-center c-order-info mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
-
+    </div>
+<div class="row">
+    <div class="col-8 c-margin-auto">
         <div class="ml-1 row">
             <div class="col-md-6 col-sm-12">
                 <div class="c-order-info">
@@ -59,6 +61,9 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                 </div>
             </div>
         </div>
+    </div>
+
+
     </div>
 
         <div class="container-fluid c-padding-header mb-5">
