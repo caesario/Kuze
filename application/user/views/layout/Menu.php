@@ -1,11 +1,28 @@
 <!-- ======= Header ======= -->
+<div class="row">
+    <div class="c-padding-header c-header">
+        <div class="col-12 text-right px-0">
+            <?php if (isset($_SESSION['id'])): ?>
+                <a class="alert-link f-link c-header-a" href="<?= site_url('pending'); ?>">
+                    Status Order
+                </a>
+                | <a class="alert-link f-link c-header-a" href="<?= site_url('riwayat'); ?>">
+                    Riwayat Pesanan
+                </a>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
+                | Selamat Datang,<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                    <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
 <div class="header-wrapper">
     <div class="container-fluid c-padding-header">
-        <div class="row">
 
-        </div>
         <div class="row">
-            <div class="col-xl-2 col-lg-2">
+            <div class="col-xl-2 col-lg-2 c-head-min">
                 <?php if ($logo != NULL): ?>
                     <img src="<?= base_url('upload/' . $logo); ?>" width="130" height="80"
                          class="img-fluid mx-auto d-block"
@@ -17,7 +34,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-xl-8 col-lg-8 col-12">
-                <div class="row mt-lg-4 mt-0">
+                <div class="row mt-lg-1 mt-2">
                     <form class="form-inline my-2 my-lg-0 col-12 m-auto" action="<?= site_url('cari'); ?>" method="get">
                         <div class="input-group col-12 px-0">
                             <input class="form-control" type="text" placeholder="Cari Produk"
@@ -42,22 +59,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url ('Kategori'); ?>">Kategori</a>
-                                    <div class="c-dropdown-content" id="c-color-drop">
-
-                                        <div class="row">
-
-                                            <div class="col">
-                                                <h6>Catalog Produk</h6>
-                                                <?php if ($menu_kategori != NULL): ?>
-                                                <?php foreach ($menu_kategori as $menukat): ?>
-                                                <a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
-                                                    <?php endforeach; ?>
-                                                <?php endif; ?>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Product Terbaru</a>
@@ -90,15 +91,9 @@
             </div>
             <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <p class="mt-2">Hallo,  <?= $_SESSION['nama']; ?> !</p>
-                    </div>
-                    <div class="col-12 text-right">
-                        <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                <div class="col mt-4">
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
                         <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>
-
-                    </div>
                 </div>
 
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
@@ -112,14 +107,9 @@
 
 
                 <?php else: ?>
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <p class="mt-2" style="height:25px;"></p>
-                    </div>
-                    <div class="col-12 text-right">
-                        <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
-                        <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
-                    </div>
+                <div class="col mt-4">
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                        <a href="<?= site_url('login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
                 </div>
                 <?php endif; ?>
 
