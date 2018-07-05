@@ -20,182 +20,144 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Checkout ======= -->
     <div class="container-fluid c-padding-header mb-5">
-        <div class="row">
-            <!-- ======= Checkout Left ======= -->
-            <div class="col-lg-8 c-margin-auto">
-                <h5 class="mb-4">DETAIL ALAMAT</h5>
-                <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
-                <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-                <input type="hidden" name="alamat_simpan" id="alamat_simpan">
-                <div class="row form-group">
-                    <div class="col-lg-12 col-sm-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
-                            <label class="form-check-label" for="alamat_exist">
-                                <h5 class=""><i class="fa fa-address-book-o"></i> Pilih Alamat Yang Ada</h5>
-                            </label>
+
+
+
+
+        <div class="container-fluid f-padding">
+
+
+            <div class="row">
+                <div class="col-lg-9 col-md-9 c-margin-auto">
+                    <h5><i class="fa fa-car"></i> Alamat Pengiriman</h5>
+                    <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
+                        <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
+                        <input type="hidden" name="alamat_simpan" id="alamat_simpan">
+                        <div class="row form-group">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
+                                    <label class="form-check-label" for="alamat_exist">
+                                        Pilih dari alamat yang sudah ada
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
-                            <label class="form-check-label" for="check_dropship">
-                                <h5 class=""><i class="fa fa-address-card-o"></i> Dropship Pesanan</h5>
-                            </label>
+                        <div class="row form-group">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
+                                    <label class="form-check-label" for="check_dropship">
+                                        Dropshipper
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row form-group" id="row_nama_alamat" style="display: none;">
-                    <div class="col-lg-12 col-sm-12">
-<!--                    <select name="pilih_alamat" id="pilih_alamat" class="form-control"></select>-->
-                    <label class="col-form-label">Pilih Alamat<span class="c-form-star">*</span></label>
-                    <select class="form-control" name="pilih_alamat" id="pilih_alamat">
-                    </select>
-                    </div>
+                        <div class="row form-group" id="row_nama_alamat" style="display: none;">
+                            <div class="col-lg-6 col-sm-12"">
+                            <select name="pilih_alamat" id="pilih_alamat" class="form-control"></select>
+                        </div>
                 </div>
                 <div id="pengirim" style="display: none;">
-                    <div class="form-group">
-                        <label for="nama_pengirim" class="col-form-label">Nama Pengirim<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="nama_pengirim" placeholder="Abdul">
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="nama_pengirim">Nama Pengirim</label>
+                            <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control"
+                                   placeholder="Nama Pengirim">
+                        </div>
+                        <div class="col-lg-6 col-sm-12"">
+                        <label for="kontak_pengirim">Nomor Telp. Pengirim</label>
+                        <input type="number" name="kontak_pengirim" id="kontak_pengirim" class="form-control"
+                               placeholder="Kontak Pengirim">
                     </div>
-                    <div class="form-group">
-                        <label for="kontak_pengirim" class="col-form-label">Nomor Telpon Pengirim<span class="c-form-star">*</span></label>
-                        <input type="number" class="form-control" id="kontak_pengirim" placeholder="0821 **** ****">
-                    </div>
-                    <hr>
-                    </form>
                 </div>
-
-
-                <!-- ======= Alamat Tersimpan ======= -->
-<!--                <a class="c-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">-->
-<!--                    <h5 class="mt-4 mb-2"><i class="fa fa-address-book-o"></i> Pilih Alamat Yang Ada</h5>-->
-<!--                </a>-->
-<!--                <div class="collapse" id="collapseExample">-->
-<!--                    <form>-->
-<!--                        <div class="form-group">-->
-<!--                            <label class="col-form-label">Pilih Alamat<span class="c-form-star">*</span></label>-->
-<!--                            <select class="form-control" id="exampleFormControlSelect1">-->
-<!--                                <option>1</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-                <!-- ======= Dropship ======= -->
-<!--                <a class="c-collapse" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">-->
-<!--                    <h5 class="mt-4 mb-2"><i class="fa fa-address-card-o"></i> Dropship Pesanan</h5>-->
-<!--                </a>-->
-<!--                <div class="collapse" id="collapseExample2">-->
-<!--                    <form>-->
-<!--                        <div class="form-group">-->
-<!--                            <label class="col-form-label">Nama Pengirim<span class="c-form-star">*</span></label>-->
-<!--                            <input type="email" class="form-control" id="inputEmail" placeholder="Abdul">-->
-<!--                        </div>-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="inputAddress" class="col-form-label">Nomor Telpon Pengirim<span class="c-form-star">*</span></label>-->
-<!--                            <input type="text" class="form-control" id="inputAddress" placeholder="0821 **** ****">-->
-<!--                        </div>-->
-<!--                        <hr>-->
-<!--                    </form>-->
-<!--                </div>-->
-
-
-                <!-- ======= Alamat ======= -->
-                <form>
-                    <div class="form-group">
-                        <label class="col-form-label" for="nama_penerima">Nama Penerima<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" name="nama_penerima" id="nama_penerima" placeholder="Jhon">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Jhon.lincoln@kuze.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat" class="col-form-label">Address<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Medan Merdeka Street 7th, Central Jakarta">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="provinsi" class="col-form-label">Provinsi<span class="c-form-star">*</span></label>
-                            <select name="provinsi" id="provinsi" class="form-control provinsi">
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="kabupaten" class="col-form-label">Kota/Kabupaten<span class="c-form-star">*</span></label>
-                            <select name="kabupaten" id="kabupaten" class="form-control kabupaten">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="kecamatan" class="col-form-label">Kecamatan<span class="c-form-star">*</span></label>
-                            <select name="kecamatan" id="kecamatan" class="form-control kecamatan">
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="kelurahan" class="col-form-label">Kelurahan<span class="c-form-star">*</span></label>
-                            <select name="kelurahan" id="kelurahan" class="form-control kelurahan">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPhone" class="col-form-label">Phone*</label>
-                            <input type="text" class="form-control" id="inputPhone" placeholder="0812 **** ****">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="exampleFormControlTextarea1" class="col-form-label">Order notes</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-                        </div>
-                    </div>
-                </form>
-                <a href="<?= site_url('Metode_pengiriman'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">METODE PENGIRIMAN</a>
-                </form>
+                <hr class="mb-4 mt-4">
             </div>
 
-            <!-- ======= Checkout Right ======= -->
-<!--            <div class="col-lg-6">-->
-<!--                <h5 class="mb-4">KERANJANG ANDA</h5>-->
-<!--                <table class="table table-bordered">-->
-<!--                    <tbody>-->
-<!--                    <tr>-->
-<!--                        <th></th>-->
-<!--                        <th>Nama Produk</th>-->
-<!--                        <th class="text-center">Total</th>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><a href=""><img class="c-img-checkout" src="assets/img/product4.jpg" alt=""></a></td>-->
-<!--                        <td><p class="c-cart-productname"><a href="detail-item.html">Tank with V-Neck and Panel Detail x2</a></p></td>-->
-<!--                        <td><span class="c-price-cart-3 pl-3">Rp100.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><a href=""><img class="c-img-checkout" src="assets/img/product2.jpg" alt=""></a></td>-->
-<!--                        <td><p class="c-cart-productname"><a href="detail-item.html">Lavish Alice Deep Bandeau Asymmetric</a></p></td>-->
-<!--                        <td><span class="c-price-cart-3 pl-3">Rp125.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="c-table-cart-total p-1 pl-4">Subtotal</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">Rp225.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Pengiriman</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Lainnya</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Total</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-4 pl-3 c-l-hight">Rp250.000</span></td>-->
-<!--                    </tr>-->
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
+            <div class="row form-group">
+                <div class="col-lg-6 col-sm-12 mb-2">
+                    <label for="nama_penerima">Nama Penerima</label>
+                    <input type="text" name="nama_penerima" id="nama_penerima" class="form-control"
+                           placeholder="Nama Penerima">
+                </div>
+                <div class="col-lg-6 col-sm-12"">
+                <label for="kontak_penerima">Nomor Telp. Penerima</label>
+                <input type="text" name="kontak_penerima" id="kontak_penerima" class="form-control"
+                       placeholder="Kontak Penerima">
+            </div>
+
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <label for="provinsi">Provinsi</label>
+                <select name="provinsi" id="provinsi" class="provinsi form-control" required>
+                </select>
+            </div>
+            <div class="col">
+                <label for="kabupaten">Kabupaten / Kota</label>
+                <select name="kabupaten" id="kabupaten" class="kabupaten form-control" required>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col">
+                <label for="kecamatan">Kecamatan</label>
+                <select name="kecamatan" id="kecamatan" class="kecamatan form-control" required>
+                </select>
+            </div>
+            <div class="col">
+                <label for="kelurahan">Kelurahan / Desa</label>
+                <select name="kelurahan" id="kelurahan" class="kelurahan form-control" required>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-lg-3 col-sm-12">
+                <label for="kodepos">Kode Pos</label>
+                <input name="kodepos" id="kodepos" type="number"
+                       class="form-control" placeholder="Kode Pos" required>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <label class="f-test" for="alamat">Alamat Lengkap</label>
+                <textarea name="alamat" id="alamat" class="form-control"
+                          placeholder="Nama Gedung, Jalan, dan lainnya"
+                          required></textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <button id="lanjutbtn"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#lanjut"
+                        class="btn btn-csr c-btn-cart mt-3">Lanjutkan Metode Pembayaran
+                </button>
+                <br>
+                <button type="reset" class="btn btn-csr c-btn-cart mt-3">Reset</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    <hr>
+    </div>
+    <div class="modal fade" id="lanjut" tabindex="-1" role="dialog" aria-labelledby="lanjut" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5>Apakah ingin menyimpan alamat ini?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-primary r-btn-pink" onclick="simpan_iya()">Iya</button>
+                    <button class="btn btn-sm btn-danger r-btn-pink" onclick="simpan_tidak()">Tidak</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
         </div>
     </div>
