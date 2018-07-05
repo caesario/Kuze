@@ -9,11 +9,20 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 ?>
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart c-margin-bot-cart">
-        <h5 class="text-center c-title-cart">Konfirmasi Pembayaran</h5>
+        <h5 class="text-center c-title-cart">Detail Pesanan</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
-            <p>
+            <nav class="c-nav-breadcrumb c-bread-cart">
+                <a class="breadcrumb-item" href="<?= site_url('Home'); ?>">Home</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Keranjang'); ?>">Keranjang</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Alamat'); ?>">Alamat</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Metode_pengiriman'); ?>">Metode Pengiriman</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
 
-            </p>
+            </nav>
         </div>
     </div>
 
@@ -21,7 +30,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
     <div class="container c-padding-header">
         <h5 class="text-center c-order-info mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
 
-        <div class="row">
+        <div class="ml-1 row">
             <div class="col-md-6 col-sm-12">
                 <div class="c-order-info">
                     <p class="ml-5 mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
@@ -32,11 +41,11 @@ $total = $biaya_subtotal + $biaya_pengiriman;
             <div class="col-md-6 col-sm-12">
                 <div class="c-order-info">
                     <p class="ml-5 mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
-                    <p class="ml-5"><?= $metode_pembayaran(); ?></p>
+                    <p class="ml-5 mr-5"><?= $metode_pembayaran(); ?></p>
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="ml-1 row mt-3">
             <div class="col-md-6 col-sm-12">
                 <div class="c-order-info">
                     <p class=" ml-5 mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
@@ -46,7 +55,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
             <div class="col-md-6 col-sm-12">
                 <div class="c-order-info">
                     <p class="ml-5 mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
-                    <p class="ml-5 mr-4">  <?= $jasa(); ?></p>
+                    <p class="ml-5 mr-5">  <?= $jasa(); ?></p>
                 </div>
             </div>
         </div>
@@ -63,7 +72,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                            <input type="text"
                                   class="form-control"
                                   id="inputRekeningNama"
-                                  placeholder="Masukkan Nama Pemilik Rekening..."
+                                  placeholder="Masukkan Bank Asal Transfer..."
                                   name="bank"
                                   required>
                        </div>
@@ -72,7 +81,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                            <input type="text"
                                   class="form-control mt-1"
                                   id="inputNamaBank"
-                                  placeholder="Masukkan Nama Bank..."
+                                  placeholder="Masukkan Nama Pemilik Rekening.."
                                   name="rek_atasnama"
                                   required>
                        </div>
@@ -104,8 +113,13 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 <!--                               <input type="file" name="bukti_pembayaran">-->
 <!--                           </div>-->
 <!--                       </div>-->
+                       <div class="row">
+                           <div class="col-12 col-sm-12 col-md-12">
+                               <button type="submit" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</button>
+                           </div>
+                       </div>
                    </form>
-                   <a type="submit" href="<?= site_url('Detail_pesanan'); ?>" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</a>
+
                </div>
            </div>
     </div>
