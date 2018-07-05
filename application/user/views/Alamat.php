@@ -152,8 +152,8 @@ include "layout/Menu.php";
                     <h5>Apakah ingin menyimpan alamat ini?</h5>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-sm btn-primary r-btn-pink" onclick="simpan_iya()">Iya</button>
-                    <button class="btn btn-sm btn-danger r-btn-pink" onclick="simpan_tidak()">Tidak</button>
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_iya()">Iya</button>
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_tidak()">Tidak</button>
                 </div>
             </div>
         </div>
