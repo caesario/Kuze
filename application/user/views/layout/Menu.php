@@ -1,26 +1,27 @@
 <!-- ======= Header ======= -->
-<div class="row">
+
     <div class="c-padding-header c-header">
-        <div class="col-12 text-right px-0">
-            <?php if (isset($_SESSION['id'])): ?>
-                <a class="alert-link f-link c-header-a" href="<?= site_url('pending'); ?>">
-                    Status Order
-                </a>
-                | <a class="alert-link f-link c-header-a" href="<?= site_url('riwayat'); ?>">
-                    Riwayat Pesanan
-                </a>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
-                    <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
-                </a>
-            <?php endif; ?>
+        <div class="row">
+            <div class="col-12 text-right px-0">
+                <?php if (isset($_SESSION['id'])): ?>
+                    <a class="alert-link f-link c-header-a" href="<?= site_url('pending'); ?>">
+                        Status Order
+                    </a>
+                    | <a class="alert-link f-link c-header-a" href="<?= site_url('riwayat'); ?>">
+                        Riwayat Pesanan
+                    </a>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
+                    | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                        <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
-</div>
+
 <div class="header-wrapper">
     <div class="container-fluid c-padding-header">
-
         <div class="row">
             <div class="col-xl-2 col-lg-2 c-head-min">
                 <?php if ($logo != NULL): ?>
@@ -89,11 +90,11 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
+            <div class="col-xl-2 col-lg-2 col-12 text-center c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                <div class="col mt-4">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
-                        <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>
+                <div class="col mt-2">
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+                        <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out fa-2x c-icon-top"></i></a>
                 </div>
 
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
@@ -108,8 +109,8 @@
 
                 <?php else: ?>
                 <div class="col mt-4">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
-                        <a href="<?= site_url('login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+                        <a href="<?= site_url('login'); ?>"><i class="fa fa-lock fa-2x c-icon-top"></i></a>
                 </div>
                 <?php endif; ?>
 
