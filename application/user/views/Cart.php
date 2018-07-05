@@ -20,7 +20,7 @@ include "layout/Menu.php";
         <div class="row">
             <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
                 <div class="col">
-                    <div class="alert alert-danger alert-dismissible fade show c-alert"
+                    <div class="alert alert-danger alert-dismissible fade show"
                          role="alert">
                         <?php echo $_SESSION['gagal']; ?>
                         <button type="button" class="close" data-dismiss="alert"
@@ -32,7 +32,7 @@ include "layout/Menu.php";
             <?php endif; ?>
             <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
                 <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show c-alert"
+                    <div class="alert alert-success alert-dismissible fade show"
                          role="alert">
                         <?php echo $_SESSION['berhasil']; ?>
                         <button type="button" class="close" data-dismiss="alert"
@@ -84,7 +84,7 @@ include "layout/Menu.php";
                             <p class="c-cart-productname"><a href="detail-item.html">
                                     <?= $item_detil($cart->item_detil_kode)->item->i_nama; ?>
                                 </a></p>
-
+                            <p class="text-justify"><?= $item_detil($cart->item_detil_kode)->item->i_deskripsi; ?></p>
                         </td>
                         <!--                <td class="text-center"><p class="c-cart-productname">ACS-00</p></td>-->
                         <td class="text-center">
@@ -131,7 +131,7 @@ include "layout/Menu.php";
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('alamat'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">LANJUTKAN KE ALAMAT</a>
+            <a href="" class="btn btn-csr c-btn-cart mt-3 float-right">LANJUTKAN KE ALAMAT</a>
         </div>
     </div>
 

@@ -153,7 +153,7 @@ include "layout/Menu.php";
                         </div>
                     </div>
                 </form>
-                <a href="<?= site_url('Metode_pengiriman'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">METODE PENGIRIMAN test</a>
+                <a href="<?= site_url('Metode_pengiriman'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">METODE PENGIRIMAN</a>
                 </form>
             </div>
 
