@@ -1,43 +1,55 @@
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cart"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
         <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
-            <img src="assets/img/logo2.png" alt="">
-            <p class="c-text-footer">This is easy to update text from footer widget area. Add information about your store.</p>
-            <p class="c-alamat-footer">Cengkareng Tower, Jakarta</p>
-            <p class="c-nomer-footer"><b>Phone :</b> (021) 78854321</p>
-            <p class="c-email-footer"><b>Email :</b> info@eazydev.com</p>
+            <?php if ($logo != NULL): ?>
+                <img src="<?= base_url('upload/' . $logo); ?>" width="150" height="80"
+                     class="img-fluid mx-auto d-block"
+                     alt="">
+            <?php else: ?>
+                <img class="img-fluid mx-auto d-block" width="150" height="80"
+                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                     alt="No Image">
+            <?php endif; ?>
+            <p class="c-nomer-footer"><b>Instagram :</b> <?= $instagram; ?></p>
+            <p class="c-email-footer"><b>Email :</b> <?= $email; ?></p>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Category</h5>
             <ul class="c-ul-footer">
-                <li><a href="">Men Clothing</a></li>
-                <li><a href="">Women Clothing</a></li>
-                <li><a href="">Soft Denim</a></li>
-                <li><a href="">Multi Color</a></li>
-                <li><a href="">Accessories</a></li>
-                <li><a href="">Jackets</a></li>
+                <?php foreach ($menu_kategori as $menukat): ?>
+                    <li><a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
-            <h5 class="c-judul-footer">Top Links</h5>
+            <h5 class="c-judul-footer">Blog</h5>
             <ul class="c-ul-footer">
-                <li><a href="">Shop Location</a></li>
-                <li><a href="">Account Info</a></li>
-                <li><a href="">Order Tracking</a></li>
-                <li><a href="">Question</a></li>
-                <li><a href="">Help</a></li>
+                <?php if ($blogs != ''): ?>
+                    <?php foreach ($blogs as $blog): ?>
+                        <li><a href="<?= site_url('blog/' . $blog->artikel_url); ?>"><?= $blog->artikel_judul; ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
-                <li><a href="">My Account</a></li>
-                <li><a href="">Support Center</a></li>
-                <li><a href="">Exchange</a></li>
-                <li><a href="">Shapping</a></li>
-                <li><a href="">Reseller</a></li>
-                <li><a href="">Privacy Policy</a></li>
+                <li><a href="<?= site_url('resi'); ?>">Laporan Resi</a></li>
+                <li><a href="<?= site_url('pending'); ?>">Status Order</a></li>
+                <li><a href="<?= site_url('riwayat'); ?>">Riwayat Pesanan</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
@@ -52,31 +64,78 @@
 </div>
 
 
-
 <!-- ======= Copyright by EazyDev Team ======= -->
 <div class="container-fluid c-padding-header text-center c-padding-footer">
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
     <p class="c-footer-copy">Copyright  © All right reserved  EazyDev.</p>
-    <a href=""><i class="fa fa-instagram fa-2x"></i></a>
-    <a href=""><i class="fa fa-twitter fa-2x"></i></a>
-    <a href=""><i class="fa fa-facebook fa-2x"></i></a>
-    <a href=""><i class="fa fa-linkedin fa-2x"></i></a>
+    <a href="mailto:<?= $email; ?>"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
+    <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fa fa-instagram fa-2x"></i></a>
+    <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fa fa-whatsapp fa-2x"></i></a>
 </div>
 
-
-
-<!-- JavaScript -->
 <script>
     $('#myDropdown').on('show.bs.dropdown', function () {
         $('.dropdown-toggle').dropdown()
     })
 
 </script>
+<script>
+    // ------------------------------------------------------ //
+    // Format Rupiah
+    // ------------------------------------------------------ //
+    var moneyFormat = wNumb({
+        mark: ',',
+        decimals: 0,
+        thousand: '.',
+        prefix: 'Rp. ',
+        suffix: ''
+    });
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    $('[id="rupiah"]').each(function (index) {
+        var value = parseInt($(this).html()),
+            hasil = moneyFormat.to(value);
+
+        $(this).html(hasil);
+    });
+</script>
+<script>
+    $('[id="title"]').ellipsis();
+</script>
+<script>
+    $('[tooltip]').tooltip();
+</script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+            container: 'body',
+            trigger: 'focus',
+            content: $('#pop_cart').html(),
+            html: true
+        })
+    })
+</script>
+<script>
+    $('#table').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+        }
+    });
+</script>
+<?php if (isset($_SESSION['modal'])): ?>
+    <script>
+        $('#cart').modal({
+            backdrop: 'static',
+            keyboard: false,
+            show: true
+        });
+        $('#cart > div > div > div.modal-body').load('<?= site_url('cart/modal_cart'); ?>');
+    </script>
+<?php endif; ?>
+<script>
+    $('div.image.mx-auto.d-block').click(function () {
+        var url = $(this).attr('data-url');
+        window.location.href = url;
+    })
+</script>
 </body>
 </html>

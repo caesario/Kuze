@@ -156,9 +156,14 @@ class MY_Controller extends CI_Controller
         $this->data->qty = function ($i_kode) {
             $hasil = 0;
             $stoks = $this->item_detil->where('i_kode', $i_kode)->with_item_qty()->get();
-            foreach ($stoks->item_qty as $stok) {
-                $hasil += $stok->iq_qty;
+            if (isset($stoks->item_qty)) {
+                foreach ($stoks->item_qty as $stok) {
+                    $hasil += $stok->iq_qty;
+                }
+            } else {
+                $hasil = 0;
             }
+
 
             return $hasil;
         };
@@ -218,14 +223,16 @@ class MY_Controller extends CI_Controller
             $this->data->logo = $toko->t_logo;
             $this->data->icon = $toko->t_icon;
             $this->data->email = $toko->t_email;
+            $this->data->alamat = $toko->t_alamat;
         } else {
             $this->data->brandname = 'E-Commerce Brand';
-            $this->data->instagram = '';
-            $this->data->whatsapp = '';
+            $this->data->instagram = 'insta_ecom';
+            $this->data->whatsapp = 'Whatsapp';
             $this->data->line = '';
             $this->data->logo = '';
             $this->data->icon = '';
             $this->data->email = '';
+            $this->data->alamat = '';
         }
 
 
