@@ -126,7 +126,7 @@
                                                         <a class="dropdown-item small" data-toggle="modal"
                                                            data-backdrop="static" data-keyboard="false"
                                                            href="#"
-                                                           onclick="hapus_item($(this))" data-target="#crud"
+                                                           onclick="hapus_item($(this))" data-target="#modal_hapus"
                                                            data-id="<?= $item->i_kode; ?>"><i
                                                                     class="far fa-trash-alt mr-2"></i>Hapus Item</a>
                                                     <?php endif; ?>
