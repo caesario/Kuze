@@ -106,19 +106,6 @@
     $('[id="title"]').ellipsis();
 </script>
 <script>
-    $('[tooltip]').tooltip();
-</script>
-<script>
-    $(function () {
-        $('[data-toggle="popover"]').popover({
-            container: 'body',
-            trigger: 'focus',
-            content: $('#pop_cart').html(),
-            html: true
-        })
-    })
-</script>
-<script>
     $('#table').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
