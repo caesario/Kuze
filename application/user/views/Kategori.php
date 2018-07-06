@@ -41,23 +41,27 @@ include "layout/Menu.php";
                 <h5 class="card-title mb-0 text-left">Kategori</h5>
 
                 <hr>
-
+                <?php if ($menu_kategori != NULL): ?>
                 <ul class="nav flex-column c-ul-footer">
-                    <?php if ($menu_kategori != NULL): ?>
+
                         <?php foreach ($menu_kategori as $menukat): ?>
                             <li class="nav-item mb-1 ml-1 ">
                                 <a class=""
                                    href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
                             </li>
                         <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
 
+                </ul>
+                <?php else: ?>
+                    <p>Tidak ada kategori</p>
+                <?php endif; ?>
                 <hr>
 
             </div>
 
             <div class="col-12 col-sm-12 col-md-10 col-lg-10">
+                <h5 class="card-title mb-0 text-left">Item</h5>
+                <hr>
                 <div class="container-fluid c-padding-header mt-3">
                     <div class="row">
                         <?php if (isset($item_kategori) && $item_kategori != NULL): ?>
@@ -118,7 +122,7 @@ include "layout/Menu.php";
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
-                        <?php if (isset($items) && $item != NULL): ?>
+                        <?php if ($items != NULL): ?>
 
                             <?php foreach ($items as $item): ?>
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -172,6 +176,8 @@ include "layout/Menu.php";
                                 </div>
 
                             <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>Tidak ada item.</p>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -112,11 +112,11 @@ if ($submit == 'Ubah') {
             <?php endif; ?>
         </div>
         <?php if ($submit == 'Simpan' || $submit == 'Ubah'): ?>
-        <div class="form-group">
-            <label for="deskripsi">Deskripsi</label>
-            <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi Item"
-                      required><?= $deskripsi; ?></textarea>
-        </div>
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi Item"
+                ><?= $deskripsi; ?></textarea>
+            </div>
         <?php endif; ?>
 
         <?php if ($submit == 'Simpan' || $submit == 'Tambah Detail'): ?>
@@ -220,4 +220,25 @@ if ($submit == 'Ubah') {
             }
         }
     </script>
+
 <?php endif; ?>
+<script>
+    $(document).ready(function () {
+        tinymce.remove();
+        tinymce.init({
+            selector: 'textarea',
+            height: 200,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor textcolor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code help wordcount'
+            ],
+            toolbar: 'undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css']
+        });
+    })
+
+</script>

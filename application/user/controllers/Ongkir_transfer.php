@@ -53,7 +53,7 @@ class Ongkir_transfer extends MY_Controller
         $this->load->view('Ongkir_transfer', $this->data);
     }
 
-    private function get_biaya($orders_noid)
+    private function get_biaya($orders_noid, $kurir = 'jne')
     {
         $hasil = new stdClass();
         $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
@@ -79,7 +79,7 @@ class Ongkir_transfer extends MY_Controller
 
         }
 
-        $cost = $this->ongkir->cost($hasil->origin_id, $hasil->dst_id, $this->get_berat($orders_noid), "jne");
+        $cost = $this->ongkir->cost($hasil->origin_id, $hasil->dst_id, $this->get_berat($orders_noid), $kurir);
         echo '<script>console.log(' . $cost . ')</script>';
         return json_decode($cost);
     }
