@@ -1,3 +1,14 @@
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cart"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
@@ -14,14 +25,17 @@
             <p class="c-nomer-footer"><b>Instagram :</b> <?= $instagram; ?></p>
             <p class="c-email-footer"><b>Email :</b> <?= $email; ?></p>
         </div>
-        <div class="col-lg col-md-6 col-sm-6">
-            <h5 class="c-judul-footer">Category</h5>
-            <ul class="c-ul-footer">
-                <?php foreach ($menu_kategori as $menukat): ?>
-                    <li><a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+        <?php if ($menu_kategori != NULL): ?>
+            <div class="col-lg col-md-6 col-sm-6">
+                <h5 class="c-judul-footer">Category</h5>
+                <ul class="c-ul-footer">
+                    <?php foreach ($menu_kategori as $menukat): ?>
+                        <li><a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+        <?php if ($blogs != NULL): ?>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Blog</h5>
             <ul class="c-ul-footer">
@@ -33,6 +47,7 @@
                 <?php endif; ?>
             </ul>
         </div>
+        <?php endif; ?>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
@@ -53,11 +68,10 @@
 </div>
 
 
-
 <!-- ======= Copyright by EazyDev Team ======= -->
 <div class="container-fluid c-padding-header text-center c-padding-footer">
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
-    <p class="c-footer-copy">Copyright  © All right reserved  EazyDev.</p>
+    <p class="c-footer-copy">Copyright © All right reserved EazyDev.</p>
     <a href="mailto:<?= $email; ?>"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
     <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fa fa-instagram fa-2x"></i></a>
     <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fa fa-whatsapp fa-2x"></i></a>
@@ -90,6 +104,29 @@
 </script>
 <script>
     $('[id="title"]').ellipsis();
+</script>
+<script>
+    $('#table').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+        }
+    });
+</script>
+<?php if (isset($_SESSION['modal'])): ?>
+    <script>
+        $('#cart').modal({
+            backdrop: 'static',
+            keyboard: false,
+            show: true
+        });
+        $('#cart > div > div > div.modal-body').load('<?= site_url('cart/modal_cart'); ?>');
+    </script>
+<?php endif; ?>
+<script>
+    $('div.image.mx-auto.d-block').click(function () {
+        var url = $(this).attr('data-url');
+        window.location.href = url;
+    })
 </script>
 </body>
 </html>

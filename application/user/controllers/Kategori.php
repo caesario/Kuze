@@ -10,7 +10,18 @@ class Kategori extends MY_Controller
 
     public function index()
     {
-        redirect('/');
+        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->breadcumburl = site_url('kategori');
+        $this->data->breadcumb = 'Kategori';
+        $this->load->view('Kategori', $this->data);
+    }
+
+    public function get_item_all()
+    {
+        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->breadcumburl = site_url('kategori');
+        $this->data->breadcumb = 'Kategori';
+        $this->load->view('Kategori', $this->data);
     }
 
     public function get_item($k_url)
@@ -42,6 +53,20 @@ class Kategori extends MY_Controller
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
         $this->load->view('Detil', $this->data);
     }
+
+    public function get_item_detil_all($i_url)
+    {
+        $this->data->item = $this->item
+            ->with_item_detil()
+            ->where('i_url', $i_url)
+            ->get();
+        $this->data->breadcumburl = site_url('kategori/all');
+        $this->data->breadcumburl1 = site_url('kategori/all/item/' . $i_url . '/detil');
+        $this->data->breadcumb = 'All';
+        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+        $this->load->view('Detil', $this->data);
+    }
+
 }
 
 /* End of file Home.php */

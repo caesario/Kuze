@@ -14,7 +14,8 @@ include "layout/Menu.php";
                     <i class="fa fa-arrow-right"></i>
                     <a class="breadcrumb-item" href="<?= $breadcumburl; ?>"><?= $breadcumb; ?></a>
                     <i class="fa fa-arrow-right"></i>
-                    <span class="breadcrumb-item c-breadcrum-active"><a href="<?= $breadcumburl1; ?>"><?= $breadcumb1; ?></a></span>
+                    <span class="breadcrumb-item c-breadcrum-active"><a
+                                href="<?= $breadcumburl1; ?>"><?= $breadcumb1; ?></a></span>
                 </nav>
             </div>
         </div>
@@ -40,106 +41,73 @@ include "layout/Menu.php";
                             <img src="<?= base_url('upload/' . $img->ii_nama); ?>" class="card-img-top">
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <img src="<?= base_url('assets/img/noimg.png'); ?>" class="card-img-top">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                             class="card-img-top">
                     <?php endif; ?>
                 </div>
             </div>
-
-<!--            <div class="col-lg-6 col-md-6">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-3 col-md-3 col-sm-2">-->
-<!--                        <div class="c-img-side">-->
-<!--                            <ul class="c-ul-side ">-->
-<!--                                <li class="c-li-side">-->
-<!--                                    <img src="assets/img/detail_product1.jpg" alt="">-->
-<!--                                </li>-->
-<!--                                <li class="c-li-side">-->
-<!--                                    <img src="assets/img/detail_product2.jpg" alt="">-->
-<!--                                </li>-->
-<!--                                <li class="c-li-side">-->
-<!--                                    <img src="assets/img/detail_product3.jpg" alt="">-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-9 col-md-9 col-sm-10">-->
-<!--                        <div class="c-img-show">-->
-<!--                            <img src="assets/img/detail_product1.jpg" alt="">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                </div>
-                </div -->
 
             <div class="col-lg-6 col-md-6">
                 <div class="c-detail-info">
                     <form action="add_to_cart" method="post">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-                    <h5><?= $item->i_nama; ?></h5>
-                    <div class="row">
-                        <div class="col c-review">
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star-o c-star"></i>
-<!--                            <span>&nbsp | &nbsp</span><a href=""> (3 Customer Reviews)</a>-->
+                        <h2><?= $item->i_nama; ?></h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col c-review">
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star"></i>
+                            </div>
                         </div>
-                        <!--<div class="col c-review">-->
-                        <!--<a href="">(3 Customer Reviews)</a>-->
-                        <!--</div>-->
-                    </div>
-                    <div class="c-detail-price">
-                        <input type="hidden" name="harga" value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
-                        <p id="rupiah"
-                            class="">Rp <?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="c-detail-price">
+                                    <input type="hidden" name="harga"
+                                           value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
+                                    <h1 id="rupiah"
+                                        class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></h1>
+                                </div>
+                            </div>
+                        </div>
 
-                    </div>
-                    <div class="c-detail-p mb-5">
-                        <p>
-                            <?= $item->i_deskripsi; ?>
-                        </p>
-                    </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="wu">Color & Size</label>
+                                <select name="wu" id="wu" class="custom-select mr-sm-2 form-control" required>
+                                    <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
+                                        <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>"
+                                                value="<?= $id->item_detil_kode; ?>">
+                                            <?= $id->warna->w_nama; ?> -
+                                            <?= $id->ukuran->u_nama; ?>
+                                        </option>
+                                    <?php endforeach; ?>
 
-                    <div class="c-detail-number mb-3">
-                        <input type="number" name="qty" min="1" id="qty" value="1">
-                        <input type="text" id="stok" class="c-detail-stock ml-2" placeholder="4 pcs" disabled>
-                    </div>
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <label for="stok">Stok</label>
+                                <input class="form-control" type="number" name="stok" id="stok" disabled>
 
-                    <div class="c-detail-warna mb-5">
-                        <select name="wu" id="wu" class="custom-select mr-sm-2 form-control" required>
-                            <option data-qty="0" value="">Pilih Warna</option>
-                            <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
-                                <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>" value="<?= $id->item_detil_kode; ?>">
-                                    <?= $id->warna->w_nama; ?> -
-                                    <?= $id->ukuran->u_nama; ?>
-                                </option>
-                            <?php endforeach; ?>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label for="qty">QTY</label>
+                                    <input class="form-control" type="number" name="qty" id="qty" min="1" value="1">
 
-                        </select>
-                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="c-detail-btn">
-                        <button type="submit" href="" class="btn btn-csr c-cart-detail c-cart-p">
-                            <i class="fa fa-shopping-cart c-cart-i"></i> Buy Product
-                        </button>
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-<!--                        </a>-->
-<!--                        <a href="" class="btn btn-csr c-cart">-->
-<!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-<!--                        </a>-->
-                    </div>
-                    <div class="c-detail-category">
-                        <p>Category : <a href="">Jackets</a></p>
-                    </div>
-<!--                    <div class="c-share-sosmed">-->
-<!--                        <a href=""><i class="fa fa-facebook fa-2x"></i></a>-->
-<!--                        <a href=""><i class="fa fa-twitter fa-2x"></i></a>-->
-<!--                        <a href=""><i class="fa fa-google-plus fa-2x"></i></a>-->
-<!--                        <a href=""><i class="fa fa-pinterest fa-2x"></i></a>-->
-<!--                        <a href=""><i class="fa fa-linkedin fa-2x"></i></a>-->
-<!--                    </div>-->
+                        <div class="row">
+                            <div class="col-8">
+                                <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
+                                            class="fa fa-shopping-cart mr-2"></i>Buy
+                                </button>
+                            </div>
+                        </div>
                     </form>
                     <?php else: ?>
                         <div class="col">
@@ -169,43 +137,43 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header c-margin-related">
         <div class="row">
-            <?php foreach ($this->item->with_item_img('where:ii_default =1')->limit(5)->get_all() as $hot): ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="card border">
-                    <?php if ($item_img($hot->i_kode) != NULL): ?>
-                    <a class="" href=""><img class="card-img-top" src="<?= base_url('upload/' . $item_img($hot->i_kode)->ii_nama); ?>" alt="<?= $item_img($hot->i_kode)->ii_nama; ?>">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
+            <?php foreach ($this->item->with_item_img('where:ii_default =1')->limit(4)->get_all() as $hot): ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <a class="" href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>">
+                            <?php if ($item_img($hot->i_kode) != NULL): ?>
+                                <img class="card-img-top"
+                                     src="<?= base_url('upload/' . $item_img($hot->i_kode)->ii_nama); ?>"
+                                     alt="<?= $item_img($hot->i_kode)->ii_nama; ?>">
+                            <?php else: ?>
+                                <img class="img-fluid mx-auto d-block"
+                                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                     alt="No Image">
+                            <?php endif; ?>
+                            <div class="middle">
+                                <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
+                                   class="c-view-text">Quick View</a>
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <i class="fa fa-star c-star"></i>
+                            <i class="fa fa-star c-star"></i>
+                            <i class="fa fa-star c-star"></i>
+                            <i class="fa fa-star c-star"></i>
+                            <i class="fa fa-star c-star"></i>
+                            <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
+                            <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
+                                <h5 id="rupiah" class="c-price"><?= $hot->i_hrg_vip; ?></h5>
+                            <?php else: ?>
+                                <h5 id="rupiah" class="c-price"><?= $hot->i_hrg_vip; ?></h5>
+                            <?php endif; ?>
+                            <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
+                               class="btn btn-csr c-cart c-cart-p">
+                                <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
+                            </a>
                         </div>
-                    </a>
-                    <?php else: ?>
-                    <a class="" href="">
-                    <img class="img-fluid" src="<?= base_url('assets/img/noimg.png'); ?>" alt="No Image">
-                        <div class="middle">
-                            <a href="" class="c-view-text">Quick View</a>
-                        </div>
-                    </a>
-                    <?php endif; ?>
-                    <div class="card-body c-card-vis">
-                        <h5 class="card-subtitle mb-1 text-muted text-center c-subtitle-second">Kuze Product</h5>
-                        <h5 class="card-title text-center mb-2 c-title-second"><a href=""><?= $hot->i_nama; ?></a></h5>
-                        <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                        <h5 class="c-price text-center"><?= $hot->i_hrg_vip; ?></h5>
-                        <?php else: ?>
-                        <h5 class="c-price text-center"><?= $hot->i_hrg_vip; ?></h5>
-                        <?php endif; ?>
                     </div>
-                    <!--<div class="card-body text-center c-card-dis">-->
-                    <!--<h5 class="c-price">Rp100.000</h5>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-heart c-cart-i2"></i>-->
-                    <!--</a>-->
-                    <!--<a href="" class="btn btn-csr c-cart">-->
-                    <!--<i class="fa fa-refresh c-cart-i2""></i>-->
-                    <!--</a>-->
-                    <!--</div>-->
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
     </div>
@@ -234,6 +202,25 @@ include "layout/Menu.php";
                 $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').addClass('mt-3');
                 $('#check').hide();
             }
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            var options = $('#wu option');
+            var arr = options.map(function (_, o) {
+                return {t: $(o).text(), v: o.value, q: $(o).attr('data-qty')};
+            }).get();
+            arr.sort(function (o1, o2) {
+                var t1 = o1.t.toLowerCase(), t2 = o2.t.toLowerCase();
+
+                return t1 > t2 ? 1 : t1 < t2 ? -1 : 0;
+            });
+            options.each(function (i, o) {
+                o.value = arr[i].v;
+                $(o).text(arr[i].t);
+                $(o).attr('data-qty', arr[i].q);
+            });
+            $("#wu").prepend("<option value='' selected='selected'>Select Color & Size</option>");
         })
     </script>
 

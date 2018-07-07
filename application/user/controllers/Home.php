@@ -49,6 +49,20 @@ class Home extends MY_Controller
 
         $this->load->view('Detil', $this->data);
     }
+
+    public function hot($i_url)
+    {
+        $this->data->item = $this->item
+            ->with_item_detil()
+            ->where('i_url', $i_url)
+            ->get();
+        $this->data->breadcumburl = site_url('hot-item');
+        $this->data->breadcumburl1 = site_url('hot-item/item/' . $i_url . '/detil');
+        $this->data->breadcumb = 'Hot Item';
+        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+
+        $this->load->view('Detil', $this->data);
+    }
 }
 
 /* End of file Home.php */

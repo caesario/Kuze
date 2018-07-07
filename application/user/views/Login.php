@@ -50,8 +50,14 @@ include "layout/Header.php";
             </form>
         </div>
     </div>
-    <!-- End Login -->
 
-<?php
-include "layout/Footer.php";
-?>
+    <!-- End Login -->
+<div class="container-fluid c-padding-header text-center c-padding-footer c-footer">
+    <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
+    <p class="c-footer-copy">Copyright  © All right reserved  EazyDev.</p>
+    <a href="mailto:<?= $email; ?>"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
+    <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fa fa-instagram fa-2x"></i></a>
+    <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fa fa-whatsapp fa-2x"></i></a>
+</div>
+</body>
+</html>

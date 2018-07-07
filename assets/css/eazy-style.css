@@ -37,7 +37,24 @@ a {
         padding: 20px 0;
     }
 }
-
+.c-header {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 0px;
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    line-height: 40px;
+}
+.c-header a{
+    text-decoration: none;
+    color: #333;
+}
+a.c-header-a:hover {
+    color: #56cfe1;
+}
+.c-head-min {
+    margin-top: -30px;
+}
 .c-width-full{
     width: 70% !important;
 }
@@ -75,7 +92,10 @@ a {
         /*margin-top: -70px;*/
     }
     .c-icon-media {
-        margin-top: -85px;
+        margin-top: -65px;
+    }
+    .c-head-min {
+        margin-top: 0px;
     }
 }
 
@@ -88,7 +108,7 @@ a {
 
 .c-icon-top {
     color: #202020;
-    margin-top: 50px;
+    /*margin-top: 40px;*/
     margin-left: 30px;
 }
 @media screen and (max-width: 1160px) {
@@ -104,6 +124,13 @@ a {
 @media screen and (max-width: 450px) {
     .c-dis {
         display: none;
+    }
+    .c-header {
+        margin-top: 5px;
+        line-height: 20px;
+        }
+    .c-cart-icon i {
+        margin-top: -130px;
     }
 }
 
@@ -204,7 +231,7 @@ a {
     font-weight: 400;
     margin-top: 0;
     display: block;
-    font-family: "Times New Roman";
+    /*font-family: "Times New Roman";*/
 }
 
 
@@ -232,7 +259,7 @@ a {
 .c-title{
     font-size: 17px;
     color: #444;
-    margin-top: 25px;
+    margin-top: 5px;
     margin-bottom: 7px;
 }
 .c-title:hover{
@@ -254,6 +281,7 @@ h5.c-price{
     margin-bottom: 10px;
     cursor: default;
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }
 
 
@@ -448,7 +476,7 @@ a.c-icon-ig{
 .c-footer {
     background-color: #F1F1F1;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .c-margin-bot {
     margin-bottom: 20px;
@@ -793,7 +821,7 @@ th {
 img.c-img-cart {
     width: 150px;
     height: 200px;
-    margin: 0 10px;
+    margin: 0px 10px 0px 20px;
 }
 .c-table-line-height{
     /*line-height: 190px;*/
@@ -1083,4 +1111,30 @@ a.c-ubah-pass:hover {
     text-decoration: none;
     font-size: 20px;
 
+}
+
+
+/* ====================== Style #Modal ====================== */
+
+.c-modal-col {
+    color: #777;
+}
+a.c-modal-clr {
+    color: #777;
+}
+a.c-modal-clr:hover {
+    color: #56cfe1;
+}
+
+
+/* ====================== Style #Alert ====================== */
+
+.c-alert {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: #F1F1F1;
+    border-color: transparent;
+    color: #777;
+    margin-top: -30px;
 }

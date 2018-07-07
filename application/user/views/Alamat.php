@@ -12,7 +12,7 @@ include "layout/Menu.php";
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item" href="<?= site_url('Keranjang'); ?>">Keranjang</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Metode'); ?>">Metode Pengiriman</a>
+                <a class="breadcrumb-item" href="<?= site_url('Alamat'); ?>">Alamat</a>
             </nav>
         </div>
     </div>
@@ -20,146 +20,333 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Checkout ======= -->
     <div class="container-fluid c-padding-header mb-5">
-        <div class="row">
-            <!-- ======= Checkout Left ======= -->
-            <div class="col-lg-8 c-margin-auto">
-                <h5 class="mb-4">DETAIL ALAMAT</h5>
-                <!-- ======= Alamat Tersimpan ======= -->
-                <a class="c-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h5 class="mt-4 mb-2"><i class="fa fa-address-book-o"></i> Pilih Alamat Yang Ada</h5>
-                </a>
-                <div class="collapse" id="collapseExample">
-                    <form>
-                        <div class="form-group">
-                            <label class="col-form-label">Pilih Alamat<span class="c-form-star">*</span></label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <!-- ======= Dropship ======= -->
-                <a class="c-collapse" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                    <h5 class="mt-4 mb-2"><i class="fa fa-address-card-o"></i> Dropship Pesanan</h5>
-                </a>
-                <div class="collapse" id="collapseExample2">
-                    <form>
-                        <div class="form-group">
-                            <label class="col-form-label">Nama Pengirim<span class="c-form-star">*</span></label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Abdul">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress" class="col-form-label">Nomer Telpon Pengirim<span class="c-form-star">*</span></label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="0821 **** ****">
-                        </div>
-                        <hr>
-                    </form>
-                </div>
 
-                <!-- ======= Alamat ======= -->
-                <form>
-                    <div class="form-group">
-                        <label class="col-form-label">Nama Penerima<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputNama" placeholder="Jhon">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">E-mail<span class="c-form-star">*</span></label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Jhon.lincoln@kuze.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress" class="col-form-label">Address<span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Medan Merdeka Street 7th, Central Jakarta">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity" class="col-form-label">City<span class="c-form-star">*</span></label>
-                            <select id="inputCity" class="form-control">
-                                <option selected>Choose City ...</option>
-                                <option value="1">Jakarta</option>
-                                <option value="2">Bandung</option>
-                                <option value="3">Bogor</option>
-                                <option value="4">Depok</option>
-                                <option value="5">Tangerang</option>
-                                <option value="6">Banten</option>
-                            </select>
+
+
+
+        <div class="container-fluid f-padding">
+
+
+            <div class="row">
+                <div class="col-lg-9 col-md-9 c-margin-auto">
+                    <h5><i class="fa fa-car"></i> Alamat Pengiriman</h5>
+                    <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
+                        <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
+                        <input type="hidden" name="alamat_simpan" id="alamat_simpan">
+                        <div class="row form-group">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
+                                    <label class="form-check-label" for="alamat_exist">
+                                        Pilih dari alamat yang sudah ada
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputState" class="col-form-label">State<span class="c-form-star">*</span></label>
-                            <select id="inputState" class="form-control">
-                                <option value="1">...</option>
-                            </select>
+                        <div class="row form-group">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
+                                    <label class="form-check-label" for="check_dropship">
+                                        Dropshipperr
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row form-group" id="row_nama_alamat" style="display: none;">
+                            <div class="col-lg-6 col-sm-12"">
+                            <select name="pilih_alamat" id="pilih_alamat" class="form-control"></select>
+                        </div>
+                </div>
+                <div id="pengirim" style="display: none;">
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="nama_pengirim">Nama Pengirim</label>
+                            <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control"
+                                   placeholder="Nama Pengirim">
+                        </div>
+                        <div class="col-lg-6 col-sm-12"">
+                        <label for="kontak_pengirim">Nomor Telp. Pengirim</label>
+                        <input type="number" name="kontak_pengirim" id="kontak_pengirim" class="form-control"
+                               placeholder="Kontak Pengirim">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputSubdistric" class="col-form-label">Subdistric<span class="c-form-star">*</span></label>
-                            <select id="inputSubdistric" class="form-control">
-                                <option value="1">...</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputZip" class="col-form-label">Postcode</label>
-                            <input type="text" class="form-control" id="inputZip" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPhone" class="col-form-label">Phone*</label>
-                            <input type="text" class="form-control" id="inputPhone" placeholder="0812 **** ****">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="exampleFormControlTextarea1" class="col-form-label">Order notes</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-                        </div>
-                    </div>
-                </form>
-                <a href="<?= site_url('Metode_pengiriman'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">METODE PENGIRIMAN</a>
+                </div>
+                <hr class="mb-4 mt-4">
             </div>
 
-            <!-- ======= Checkout Right ======= -->
-<!--            <div class="col-lg-6">-->
-<!--                <h5 class="mb-4">KERANJANG ANDA</h5>-->
-<!--                <table class="table table-bordered">-->
-<!--                    <tbody>-->
-<!--                    <tr>-->
-<!--                        <th></th>-->
-<!--                        <th>Nama Produk</th>-->
-<!--                        <th class="text-center">Total</th>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><a href=""><img class="c-img-checkout" src="assets/img/product4.jpg" alt=""></a></td>-->
-<!--                        <td><p class="c-cart-productname"><a href="detail-item.html">Tank with V-Neck and Panel Detail x2</a></p></td>-->
-<!--                        <td><span class="c-price-cart-3 pl-3">Rp100.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><a href=""><img class="c-img-checkout" src="assets/img/product2.jpg" alt=""></a></td>-->
-<!--                        <td><p class="c-cart-productname"><a href="detail-item.html">Lavish Alice Deep Bandeau Asymmetric</a></p></td>-->
-<!--                        <td><span class="c-price-cart-3 pl-3">Rp125.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="c-table-cart-total p-1 pl-4">Subtotal</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">Rp225.000</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Pengiriman</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Lainnya</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-3 pl-3">-</span></td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <th class="p-1 pl-4">Total</th>-->
-<!--                        <td colspan="2" class="text-center"><span class="c-price-cart-4 pl-3 c-l-hight">Rp250.000</span></td>-->
-<!--                    </tr>-->
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
+            <div class="row form-group">
+                <div class="col-lg-6 col-sm-12 mb-2">
+                    <label for="nama_penerima">Nama Penerima</label>
+                    <input type="text" name="nama_penerima" id="nama_penerima" class="form-control"
+                           placeholder="Nama Penerima">
+                </div>
+                <div class="col-lg-6 col-sm-12"">
+                <label for="kontak_penerima">Nomor Telp. Penerima</label>
+                <input type="text" name="kontak_penerima" id="kontak_penerima" class="form-control"
+                       placeholder="Kontak Penerima">
+            </div>
+
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <label for="provinsi">Provinsi</label>
+                <select name="provinsi" id="provinsi" class="provinsi form-control" required>
+                </select>
+            </div>
+            <div class="col">
+                <label for="kabupaten">Kabupaten / Kota</label>
+                <select name="kabupaten" id="kabupaten" class="kabupaten form-control" required>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col">
+                <label for="kecamatan">Kecamatan</label>
+                <select name="kecamatan" id="kecamatan" class="kecamatan form-control" required>
+                </select>
+            </div>
+            <div class="col">
+                <label for="kelurahan">Kelurahan / Desa</label>
+                <select name="kelurahan" id="kelurahan" class="kelurahan form-control" required>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-lg-3 col-sm-12">
+                <label for="kodepos">Kode Pos</label>
+                <input name="kodepos" id="kodepos" type="number"
+                       class="form-control" placeholder="Kode Pos" required>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <label class="f-test" for="alamat">Alamat Lengkap</label>
+                <textarea name="alamat" id="alamat" class="form-control"
+                          placeholder="Nama Gedung, Jalan, dan lainnya"
+                          required></textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <button id="lanjutbtn"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#lanjut"
+                        class="btn btn-csr c-btn-cart mt-3">Lanjutkan Metode Pembayaran
+                </button>
+                <br>
+                <button type="reset" class="btn btn-csr c-btn-cart mt-3">Reset</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    <hr>
+    </div>
+    <div class="modal fade" id="lanjut" tabindex="-1" role="dialog" aria-labelledby="lanjut" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5>Apakah ingin menyimpan alamat ini?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_iya()">Iya</button>
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_tidak()">Tidak</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#provinsi').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih provinsi',
+                ajax: {
+                    url: '<?= site_url('API/get_provinsi'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term
+                        };
+                    }
+                }
+            });
+            $('#kabupaten').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kabupaten',
+                ajax: {
+                    url: '<?= site_url('API/get_kabupaten'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            provinsi: $('#provinsi').val()
+                        };
+                    }
+                }
+            });
+            $('#kecamatan').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kecamatan',
+                ajax: {
+                    url: '<?= site_url('API/get_kecamatan'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                            kabupaten: $('#kabupaten').val()
+                        };
+                    }
+                }
+            });
+            $('#kelurahan').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih kelurahan / desa',
+                ajax: {
+                    url: '<?= site_url('API/get_kelurahan'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            kecamatan: $('#kecamatan').val()
+                        };
+                    }
+                }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
+                    $('#kodepos').val(res);
+                })
+            });
+
+            $('#pilih_alamat').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Pilih alamat',
+                ajax: {
+                    url: '<?= site_url('API/get_alamat'); ?>',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term
+                        };
+                    }
+                }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                var nama_penerima = $('#nama_penerima');
+                var kontak_penerima = $('#kontak_penerima');
+                var nama_pengirim = $('#nama_pengirim');
+                var kontak_pengirim = $('#kontak_pengirim');
+                var alamat = $('#alamat');
+                var provinsi = $('#provinsi');
+                var kabupaten = $('#kabupaten');
+                var kecamatan = $('#kecamatan');
+                var kelurahan = $('#kelurahan');
+                $.ajax({
+                    dataType: 'json',
+                    url: '<?= site_url('API/get_full_alamat/'); ?>' + id
+                }).then(function (data) {
+                    console.log(data);
+                    $.when(
+                        $.getJSON('<?= site_url('API/get_provinsi/'); ?>' + data.alamat_provinsi, function (res) {
+                            provinsi.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            provinsi.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kabupaten/'); ?>' + data.alamat_kabupaten, function (res) {
+                            kabupaten.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kabupaten.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kecamatan/'); ?>' + data.alamat_kecamatan, function (res) {
+                            kecamatan.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kecamatan.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        $.getJSON('<?= site_url('API/get_kelurahan/'); ?>' + data.alamat_desa, function (res) {
+                            kelurahan.append(new Option(
+                                res.results[0].text, res.results[0].id, true, true
+                            )).trigger('change');
+                            kelurahan.trigger({
+                                type: 'select2:select',
+                                params: {
+                                    data: res
+                                }
+                            })
+                        }),
+                        nama_penerima.val(data.pengguna_alamat_r_nama),
+                        kontak_penerima.val(data.pengguna_alamat_r_kontak),
+                        nama_pengirim.val(data.pengguna_alamat_s_nama),
+                        kontak_pengirim.val(data.pengguna_alamat_s_kontak),
+                        alamat.val(data.alamat_deskripsi)
+                    );
+
+                });
+            })
+        });
+    </script>
+    <script>
+
+        $('#check_dropship').change(function () {
+            if (this.checked) {
+                $('[id=pengirim]').show();
+            } else {
+                $('[id=pengirim]').hide();
+            }
+        });
+
+        $('#alamat_exist').change(function () {
+            if (this.checked) {
+                $('#lanjutbtn').prop('type', 'submit').removeAttr("data-toggle").removeAttr("data-target");
+                $('#row_nama_alamat').show();
+            } else {
+                $('#lanjutbtn').prop('type', 'button').attr("data-toggle",'modal').attr("data-target",'#lanjut');
+                $('#row_nama_alamat').hide();
+            }
+        });
+
+        function simpan_iya() {
+            $('#form_alamat').find('input[name=alamat_simpan]')
+                .val(true);
+            $('#form_alamat').submit();
+        }
+
+        function simpan_tidak() {
+            $('#form_alamat').find('input[name=alamat_simpan]')
+                .val(false);
+            $('#form_alamat').submit();
+        }
+
+    </script>
 
 <?php
 include "layout/Footer.php";
