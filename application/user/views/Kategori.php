@@ -30,19 +30,12 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Kategori Pesanan ======= -->
     <div class="container-fluid c-padding-header">
-
-
         <div class="row">
-
-
             <div class="col-12 col-sm-12 col-md-2 col-lg-2">
-
-
                 <h5 class="card-title mb-0 text-left">Kategori</h5>
-
                 <hr>
                 <?php if ($menu_kategori != NULL): ?>
-                <ul class="nav flex-column c-ul-footer">
+                    <ul class="nav flex-column c-ul-footer">
 
                         <?php foreach ($menu_kategori as $menukat): ?>
                             <li class="nav-item mb-1 ml-1 ">
@@ -51,12 +44,11 @@ include "layout/Menu.php";
                             </li>
                         <?php endforeach; ?>
 
-                </ul>
+                    </ul>
                 <?php else: ?>
                     <p>Tidak ada kategori</p>
                 <?php endif; ?>
                 <hr>
-
             </div>
 
             <div class="col-12 col-sm-12 col-md-10 col-lg-10">
