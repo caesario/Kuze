@@ -122,8 +122,7 @@ include "layout/Menu.php";
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
-                        <?php if ($items != NULL): ?>
-
+                        <?php if (isset($items) && $items != NULL): ?>
                             <?php foreach ($items as $item): ?>
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div class="card">
@@ -177,7 +176,7 @@ include "layout/Menu.php";
 
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Tidak ada item.</p>
+
                         <?php endif; ?>
                     </div>
                 </div>
