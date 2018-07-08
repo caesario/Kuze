@@ -846,7 +846,8 @@
                                                         <tr>
                                                             <td class="esd-block-text es-p15t es-p10b" align="left">
                                                                 <p style="font-size: 16px; color: #777777;">Selamat
-                                                                    datang di Fashion Grosir, klik tautan dibawah ini
+                                                                    datang di <?= $brandname; ?>, klik tautan dibawah
+                                                                    ini
                                                                     untuk aktivasi akun anda.</p>
                                                             </td>
                                                         </tr>
