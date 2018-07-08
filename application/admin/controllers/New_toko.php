@@ -109,19 +109,4 @@ class New_toko extends MY_Controller
         return $hasil;
     }
 
-    private function gen_provinsi()
-    {
-
-    }
-
-    private function gen_kabupaten()
-    {
-
-    }
-
-    private function gen_kecamatan()
-    {
-
-    }
-
 }
