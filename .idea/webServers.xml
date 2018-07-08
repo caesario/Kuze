@@ -10,6 +10,14 @@
           <option name="port" value="2211" />
         </fileTransfer>
       </webServer>
+      <webServer id="ff0902d3-90ac-4113-938d-cbac96505558" name="Kuze Live" url="http://kuzeoriginal.com">
+        <fileTransfer host="kuzeoriginal.com" port="21" rootFolder="/public_html">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
