@@ -397,7 +397,7 @@
         }
 
         .es-header-body {
-            background-color: #F06292;
+            background-color: #e6f0ed;
         }
 
         .es-header-body p,
