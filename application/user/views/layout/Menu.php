@@ -100,7 +100,7 @@
 
 
                 <?php else: ?>
-                <div class="col mt-4">
+                <div class="col mt-4 mt-lg-2">
                         <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
                         <a href="<?= site_url('login'); ?>"><i class="fa fa-lock fa-2x c-icon-top"></i></a>
                 </div>
