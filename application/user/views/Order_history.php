@@ -44,10 +44,10 @@ include "layout/Menu.php";
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                 <tr>
-                                    <td class="align-middle" style="width: 250px">
+                                    <td class="align-middle">
                                         <?= $order->orders_noid; ?>
                                     </td>
-                                    <td class="align-middle" style="width: 450px;" >
+                                    <td class="align-middle">
                                         <b>Tanggal Order :</b><br>
                                         <?= $order->created_at; ?>
                                         <br>
