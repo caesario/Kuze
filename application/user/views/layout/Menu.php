@@ -18,6 +18,13 @@
                     | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
                         Log Out
                     </a>
+                <?php else: ?>
+                    <a class="alert-link f-link c-header-a" href="<?= site_url('login'); ?>">
+                        Login
+                    </a>
+                    | <a class="alert-link f-link c-header-a" href="<?= site_url('register'); ?>">
+                        Register
+                    </a>
                 <?php endif; ?>
             </div>
         </div>
@@ -83,10 +90,10 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
+            <div class="col-xl-2 col-lg-2 col-12 text-right text-md-left c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                 <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+                    <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
                 </div>
 
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
@@ -101,8 +108,8 @@
 
                 <?php else: ?>
                 <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
-                        <a href="<?= site_url('login'); ?>"><i class="fa fa-lock fa-2x c-icon-top"></i></a>
+                    <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+<!--                    <a href="--><?//= site_url('login'); ?><!--"><i class="fa fa-lock fa-2x c-icon-top"></i></a>-->
                 </div>
                 <?php endif; ?>
 
