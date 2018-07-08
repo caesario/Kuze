@@ -94,7 +94,7 @@ class Auth extends MY_Controller
         $this->email->initialize($config);
         $this->email->from('dont-reply@kuzeoriginal.com', $this->data->brandname);
         $this->email->to($this->data->email);
-        $this->email->subject('Testing');
+        $this->email->subject('Anda lupa password?, kami akan kembalikan akun anda.');
 
         $body = $this->load->view('email/forgot', $this->data);
 
