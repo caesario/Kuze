@@ -81,7 +81,7 @@ class Auth extends MY_Controller
 
         $config = Array(
             'protocol' => 'smtp',
-            'smtp_host' => 'ssl://mail.kuzeoriginal.com',
+            'smtp_host' => 'ssl://srv41.niagahoster.com',
             'smtp_port' => 465,
             'smtp_user' => 'dont-reply@kuzeoriginal.com',
             'smtp_pass' => 'p1nacate88',
@@ -127,7 +127,7 @@ class Auth extends MY_Controller
         if ($register) {
             $config = Array(
                 'protocol' => 'smtp',
-                'smtp_host' => 'ssl://mail.kuzeoriginal.com',
+                'smtp_host' => 'ssl://srv41.niagahoster.com',
                 'smtp_port' => 465,
                 'smtp_user' => 'dont-reply@kuzeoriginal.com',
                 'smtp_pass' => 'p1nacate88',
