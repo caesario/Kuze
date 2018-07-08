@@ -81,9 +81,9 @@ class Auth extends MY_Controller
 
         $config = Array(
             'protocol' => 'smtp',
-            'smtp_host' => 'ssl://mail.fashiongrosir-ind.com',
+            'smtp_host' => 'ssl://mail.kuzeoriginal.com',
             'smtp_port' => 465,
-            'smtp_user' => 'dont-reply@fashiongrosir-ind.com',
+            'smtp_user' => 'dont-reply@kuzeoriginal.com',
             'smtp_pass' => 'p1nacate88',
             'smtp_timeout' => '4',
             'mailtype' => 'html',
@@ -92,7 +92,7 @@ class Auth extends MY_Controller
             'validation' => TRUE
         );
         $this->email->initialize($config);
-        $this->email->from('dont-reply@fashiongrosir-ind.com', 'Fashion Grosir');
+        $this->email->from('dont-reply@kuzeoriginal.com', $this->data->brandname);
         $this->email->to($this->data->email);
         $this->email->subject('Testing');
 
@@ -127,9 +127,9 @@ class Auth extends MY_Controller
         if ($register) {
             $config = Array(
                 'protocol' => 'smtp',
-                'smtp_host' => 'ssl://mail.fashiongrosir-ind.com',
+                'smtp_host' => 'ssl://mail.kuzeoriginal.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'dont-reply@fashiongrosir-ind.com',
+                'smtp_user' => 'dont-reply@kuzeoriginal.com',
                 'smtp_pass' => 'p1nacate88',
                 'smtp_timeout' => '4',
                 'mailtype' => 'html',
@@ -138,11 +138,11 @@ class Auth extends MY_Controller
                 'validation' => TRUE
             );
             $this->email->initialize($config);
-            $this->email->from('dont-reply@fashiongrosir-ind.com', 'Fashion Grosir');
+            $this->email->from('dont-reply@kuzeoriginal.com', $this->data->brandname);
             $this->email->to($this->data->email);
-            $this->email->subject('Aktivasi Akun Pengguna Fashion Grosir');
+            $this->email->subject('Aktivasi Akun Pengguna ' . $this->data->brandname);
 
-//            $body = $this->load->view('email/new', $this->data, TRUE);
+            $body = $this->load->view('email/new', $this->data, TRUE);
 
             $this->email->message($body);
 
