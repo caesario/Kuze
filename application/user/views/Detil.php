@@ -51,8 +51,8 @@ include "layout/Menu.php";
                 <div class="c-detail-info">
                     <form action="add_to_cart" method="post">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-                        <h2><?= $item->i_nama; ?></h2>
-                        <hr>
+                        <h5 class="mb-2"><?= $item->i_nama; ?></h5>
+                        <hr class="mb-2">
                         <div class="row">
                             <div class="col c-review">
                                 <i class="fa fa-star c-star"></i>
@@ -67,15 +67,15 @@ include "layout/Menu.php";
                                 <div class="c-detail-price">
                                     <input type="hidden" name="harga"
                                            value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
-                                    <h1 id="rupiah"
-                                        class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></h1>
+                                    <p id="rupiah"
+                                        class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-4">
-                                <label for="wu">Color & Size</label>
+                            <div class="col-lg-4 col-md-12">
+                                <label for="wu" class="c-detil-add">Color & Size</label>
                                 <select name="wu" id="wu" class="custom-select mr-sm-2 form-control" required>
                                     <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
                                         <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>"
@@ -87,14 +87,14 @@ include "layout/Menu.php";
 
                                 </select>
                             </div>
-                            <div class="col-2">
-                                <label for="stok">Stok</label>
+                            <div class="col-lg-2 col-md-12">
+                                <label for="stok" class="c-detil-add">Stok</label>
                                 <input class="form-control" type="number" name="stok" id="stok" disabled>
 
                             </div>
-                            <div class="col-2">
+                            <div class="col-lg-2 col-md-12">
                                 <div class="form-group">
-                                    <label for="qty">QTY</label>
+                                    <label for="qty" class="c-detil-add">QTY</label>
                                     <input class="form-control" type="number" name="qty" id="qty" min="1" value="1">
 
                                 </div>
@@ -102,9 +102,9 @@ include "layout/Menu.php";
                         </div>
 
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-lg-8 col-md-12">
                                 <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
-                                            class="fa fa-shopping-cart mr-2"></i>Buy
+                                            class="fa fa-shopping-cart mr-2"></i>Buy Product
                                 </button>
                             </div>
                         </div>
@@ -112,7 +112,6 @@ include "layout/Menu.php";
                     <?php else: ?>
                         <div class="col">
                             <h2 class="text-center text-muted">Item tidak ditemukan</h2>
-
                         </div>
                     <?php endif; ?>
                 </div>
@@ -125,7 +124,7 @@ include "layout/Menu.php";
         <div class="c-tab-list">
             <h5>Description</h5>
             <hr>
-            <p class="c-detail-des"> <?= $item->i_deskripsi; ?></p>
+            <div class="c-detail-des"> <?= $item->i_deskripsi; ?></div>
         </div>
     </div>
 

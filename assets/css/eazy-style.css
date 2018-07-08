@@ -634,7 +634,7 @@ li.c-li-side {
     /*padding-right: 50px;*/
 }
 .c-detail-info h5 {
-    font-size: 19px;
+    font-size: 23px;
     margin-bottom: 15px;
     line-height: 1.2;
     font-family: 'Poppins', sans-serif;
@@ -755,7 +755,9 @@ input.c-detail-stock {
     -moz-border-radius: 0;
     border-radius: 0;
 }
-
+.c-detil-add {
+    color: #888888;
+}
 
 
 /* ====================== Style #cart ====================== */

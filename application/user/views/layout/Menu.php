@@ -90,7 +90,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-12 text-right text-md-left c-icon-media">
+            <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                 <div class="col mt-4 mt-lg-2">
                     <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
