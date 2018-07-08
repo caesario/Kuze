@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="1ebea5b3-bcd8-4c18-b743-8f4f9815f972" name="Kuze (project level)" url="http://dev.eazy-dev.xyz">
-        <fileTransfer host="dev.eazy-dev.xyz" port="2211" accessType="SFTP">
+      <webServer id="1ebea5b3-bcd8-4c18-b743-8f4f9815f972" name="Kuze" url="http://dev.eazy-dev.xyz">
+        <fileTransfer host="dev.eazy-dev.xyz" port="2211" rootFolder="/kuze" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
