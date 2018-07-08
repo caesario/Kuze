@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-12 text-right px-0">
                 <?php if (isset($_SESSION['id'])): ?>
-                    <a class="alert-link f-link c-header-a" href="<?= site_url('pending'); ?>">
+                    <a class="alert-link f-link c-header-a" href="<?= site_url('order_status'); ?>">
                         Status Order
                     </a>
-                    | <a class="alert-link f-link c-header-a" href="<?= site_url('riwayat'); ?>">
+                    | <a class="alert-link f-link c-header-a" href="<?= site_url('order_history'); ?>">
                         Riwayat Pesanan
                     </a>
                 <?php endif; ?>
@@ -52,7 +52,7 @@
                     </form>
                 </div>
                 <div class="row">
-                    <nav class="navbar navbar-expand-lg navbar-light main-menu m-lg-auto pl-lg-0 pl-3 my-2">
+                    <nav class="navbar navbar-expand-lg navbar-light main-menu pl-lg-0 pl-3 my-2">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -62,28 +62,18 @@
                                     <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url ('Kategori'); ?>">Kategori</a>
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Kategori</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Product Terbaru</a>
-<!--                                    <div class="c-dropdown-content" id="c-color-drop">-->
-<!--                                        <h6>Product</h6>-->
-<!--                                        <a href="#">Full Width Layout</a>-->
-<!--                                        <a href="#">With sidebar right</a>-->
-<!--                                        <a href="#">Groups Product</a>-->
-<!--                                    </div>-->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Hot Item</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= site_url('Blog') ?>">Blog</a>
-                                    <!--<div class="c-dropdown-content" id="c-color-drop">
-                                        <a href="#">Update Product</a>
-                                        <a href="#">News Site</a>
-                                        <a href="#">Groups Join</a>
-                                    </div>-->
-                                </li>
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link" href="#">Product Terbaru</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link" href="#">Hot Item</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link" href="-->
+                                <? //= site_url('Blog') ?><!--">Blog</a>-->
+                                <!--                                </li>-->
 <!--                                <li class="nav-item">-->
 <!--                                    <a class="nav-link" href="#">Contact</a>-->
 <!--                                </li>-->

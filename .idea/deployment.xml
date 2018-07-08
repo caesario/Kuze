@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="PublishConfigData" autoUpload="Always" serverName="Kuze">
+=======
+  <component name="PublishConfigData">
+>>>>>>> 69004560f4182638bab481a7e9f1d66259e96db2
     <serverData>
       <paths name="Kuze">
         <serverdata>
           <mappings>
+<<<<<<< HEAD
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+=======
+            <mapping local="$PROJECT_DIR$" web="/" />
+>>>>>>> 69004560f4182638bab481a7e9f1d66259e96db2
           </mappings>
         </serverdata>
       </paths>
     </serverData>
+<<<<<<< HEAD
     <option name="myAutoUpload" value="ALWAYS" />
+=======
+>>>>>>> 69004560f4182638bab481a7e9f1d66259e96db2
   </component>
 </project>

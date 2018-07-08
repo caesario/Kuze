@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $tokoid = $id;
     $namatoko = '';
     $singkatan = '';
-    $url = '';
+    $url = base_url();
     $provinsi = '';
     $kabupaten = '';
     $kecamatan = '';

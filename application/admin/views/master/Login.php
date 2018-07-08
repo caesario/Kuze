@@ -60,7 +60,7 @@
                 <?php endif; ?>
             </div>
             <div class="copyrights text-center">
-                <p><a href="https://fashiongrosir-ind.com" class="external"><?= $brandname; ?></a></p>
+                <p><a href="<?= base_url(); ?>" class="external"><?= $brandname; ?></a></p>
             </div>
         </div>
     </div>
