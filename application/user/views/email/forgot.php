@@ -704,8 +704,7 @@
                                                         <tr>
                                                             <td class="es-infoblock esd-block-text es-m-txt-c"
                                                                 align="left">
-                                                                <p style="font-family: arial, helvetica\ neue, helvetica, sans-serif;">
-                                                                    https://fashiongrosir-ind.com</p>
+                                                                <p style="font-family: arial, helvetica\ neue, helvetica, sans-serif;"><?= $brandname; ?></p>
                                                             </td>
                                                         </tr>
                                                         </tbody>
