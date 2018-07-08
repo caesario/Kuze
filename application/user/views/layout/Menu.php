@@ -62,7 +62,7 @@
                                     <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url ('Kategori'); ?>">Kategori</a>
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Kategori</a>
                                 </li>
                                 <!--                                <li class="nav-item">-->
                                 <!--                                    <a class="nav-link" href="#">Product Terbaru</a>-->
