@@ -20,16 +20,10 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Checkout ======= -->
     <div class="container-fluid c-padding-header mb-5">
-
-
-
-
         <div class="container-fluid f-padding">
-
-
             <div class="row">
                 <div class="col-lg-9 col-md-9 c-margin-auto">
-                    <h5><i class="fa fa-car"></i> Alamat Pengiriman</h5>
+                    <h5 class="mb-4">DETAIL ALAMAT</h5>
                     <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <input type="hidden" name="alamat_simpan" id="alamat_simpan">
@@ -38,7 +32,7 @@ include "layout/Menu.php";
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
                                     <label class="form-check-label" for="alamat_exist">
-                                        Pilih dari alamat yang sudah ada
+                                        <h5 class=""><i class="fa fa-address-book-o"></i> Pilih Alamat Yang Ada</h5>
                                     </label>
                                 </div>
                             </div>
@@ -48,13 +42,13 @@ include "layout/Menu.php";
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
                                     <label class="form-check-label" for="check_dropship">
-                                        Dropshipperr
+                                        <h5 class=""><i class="fa fa-address-card-o"></i> Dropship Pesanan</h5>
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="row form-group" id="row_nama_alamat" style="display: none;">
-                            <div class="col-lg-6 col-sm-12"">
+                            <div class="col-lg-12 col-sm-12"">
                             <select name="pilih_alamat" id="pilih_alamat" class="form-control"></select>
                         </div>
                 </div>
