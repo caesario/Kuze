@@ -54,7 +54,7 @@ include "layout/Menu.php";
                                          src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                          alt="No Image">
                                     <div class="middle">
-                                        <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
+                                        <a href="<?= site_url('produk-terbaru/item/' . $cari->i_url . '/detil'); ?>"
                                            class="c-view-kat-text">Quick View</a>
                                     </div>
                                 </a>
