@@ -46,15 +46,33 @@ include "layout/Menu.php";
             <div class="col-lg-9">
                 <div class="card bg-light">
                 <div class="container">
-                    <h5 class="text-center c-order-info mb-5 mt-4">DETAIL PESANAN : #<?= $orders_noid; ?></h5>
+                    <h5 class="text-center c-order-info mt-4">DETAIL PESANAN : #<?= $orders_noid; ?></h5>
+                    <p class="text-center c-order-info mt-2 mb-4">Status :
+                        <?php if ($orders->orders_status == 0): ?>
+                            BELUM MENGISI ALAMAT PENGIRIMAN
+                        <?php elseif ($orders->orders_status == 1): ?>
+                            BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
+                        <?php elseif ($orders->orders_status == 2): ?>
+                            PELANGGAN BELUM KONFIRMASI PEMBAYARAN
+                        <?php elseif ($orders->orders_status == 3): ?>
+                            ADMIN BELUM KONFIRMASI PEMBAYARAN
+                        <?php elseif ($orders->orders_status == 4): ?>
+                            ADMIN SEDANG MEMPROSES ORDER
+                        <?php elseif ($orders->orders_status == 5): ?>
+                            ADMIN BELUM KONFIRMASI PENGIRIMAN
+                        <?php elseif ($orders->orders_status == 6): ?>
+                            SUKSES (Telah dikirim)
+                        <?php elseif ($orders->orders_status == 7): ?>
+                            BATAL
+                        <?php endif; ?></p>
+
 
                     <?php if ($orders->orders_status > 2): ?>
                     <div class="row ml-3 mr-2 mt-2">
                         <div class="col-md-7 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
-                                <p class="ml-5 mb-0">Masih Static Fan</p>
-                                <p class="ml-5">gimana nih?</p>
+                                <p class="ml-5 mb-0"><?= $nama_nomor(); ?></p>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-12">

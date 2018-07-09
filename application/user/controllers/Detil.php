@@ -89,6 +89,14 @@ class Detil extends MY_Controller
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
             return (int)$ongkir->orders_ongkir_biaya;
         };
+        $this->data->nama_nomor = function () {
+            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $this->data->orders_noid)->get();
+            $hasil = new stdClass();
+            $hasil->nama = $order_pengiriman->orders_pengiriman_r_nama;
+            $hasil->kontak = $order_pengiriman->orders_pengiriman_r_kontak;
+
+            return $hasil->nama . '<br>' . $hasil->kontak;
+        };
 
         $this->data->breadcumurl1 = site_url($this->uri->segment(1));
         $this->data->breadcumurl2 = site_url($this->uri->segment(2));
