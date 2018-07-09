@@ -80,7 +80,8 @@ include "layout/Menu.php";
                                         </td>
                                         <td class="align-middle text-center">
                                             <a class="btn c-login-btn c-edit"
-                                               href="<?= site_url('Order_status/' . $order->orders_noid . '/Detil'); ?>"" role="button">Lihat Detail</a>
+                                               href="<?= site_url('order_status/' . $order->orders_noid . '/detil'); ?>""
+                                            role="button">Lihat Detail</a>
                                             <?php if ($order->orders_status == 0): ?>
                                                 <a class="btn btn-primary r-btn-pink"
                                                    href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
