@@ -23,50 +23,38 @@
         </button>
     </div>
 <?php endif; ?>
-<div class="table-responsive">
-    <table id="tables" class="table">
-        <thead>
-        <tr>
-            <th scope="col">Gambar</th>
-            <th scope="col" class="text-center">Default</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php if ($item_imgs != NULL): ?>
-            <?php foreach ($item_imgs as $img): ?>
-                <tr>
-                    <td class="align-middle">
-                        <div class="fotorama"
-                             data-nav="false"
-                             data-arrows="false"
-                             data-click="true"
-                             data-swipe="true"
-                             data-allowfullscreen="true"
-                             data-width="220"
-                             data-height="150">
-                            <img src="<?= base_url('upload/' . $img->ii_nama); ?>"
-                                 width="220" height="150">
+<section class="gallery-block cards-gallery">
+    <div class="container">
+        <div class="heading">
+            <h2>Gambar Item</h2>
+        </div>
+        <div class="row">
+            <?php if ($item_imgs != NULL): ?>
+                <?php foreach ($item_imgs as $img): ?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 transform-on-hover">
+                            <a class="lightbox" href="<?= base_url('upload/' . $img->ii_nama); ?>">
+                                <img src="<?= base_url('upload/' . $img->ii_nama); ?>" alt="Card Image"
+                                     class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <p class="text-muted card-text">
+                                    <a class="text-gray"
+                                       href="<?= site_url('item_img/set_default/' . $img->i_kode . '/' . $img->ii_kode); ?>"
+                                       onclick="utama($(this))" data-id="<?= $img->ii_kode; ?>">Set Default</a>
+                                    <br>
+                                    <a class="text-danger" href="<?= site_url('item_img/hapus/' . $img->ii_kode); ?>"
+                                       data-id="<?= $img->ii_kode; ?>">Hapus</a>
+                                </p>
+                            </div>
                         </div>
-                    </td>
-                    <td class="align-middle text-center"><?= $img->ii_default == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
-                    <td class="align-middle">
-                        <a class="btn btn-sm btn-primary"
-                           href="<?= site_url('item_img/set_default/' . $img->i_kode . '/' . $img->ii_kode); ?>"
-                           onclick="utama($(this))" data-id="<?= $img->ii_kode; ?>">
-                            Set Default
-                        </a>
-                        <a class="btn btn-sm btn-danger" href="<?= site_url('item_img/hapus/' . $img->ii_kode); ?>"
-                           data-id="<?= $img->ii_kode; ?>">
-                            Hapus
-                        </a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        </tbody>
-    </table>
-</div>
+                    </div>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
 <hr>
 <button class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
 <script>

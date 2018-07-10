@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.default.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/cards-gallery.css'); ?>">
 
     <style>
         .show > .btn-primary.dropdown-toggle:focus {
