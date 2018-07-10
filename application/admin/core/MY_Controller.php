@@ -199,6 +199,14 @@ class MY_Controller extends CI_Controller
         $this->data->bank_s = function () {
             return $this->bank->get_all();
         };
+
+
+        $this->data->base64_encode_image = function ($filename, $filetype) {
+            if ($filename) {
+                $imgbinary = fread(fopen($filename, "r"), filesize($filename));
+                return 'data:image/' . $filetype . ';base64,' . base64_encode($imgbinary);
+            }
+        };
     }
 
     private function load_pref()

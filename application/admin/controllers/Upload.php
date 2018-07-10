@@ -62,6 +62,7 @@ class Upload extends MY_Controller
                 'ii_nama'       => $files[$i]['file_name'],
                 'ii_url'       => $files[$i]['file_name'],
                 'ii_default' => $default,
+                'ii_type' => $files[$i]['image_type'],
                 'i_kode'        => $this->input->post('i_kode')
             );
 
@@ -73,6 +74,8 @@ class Upload extends MY_Controller
         $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
         redirect('item');
+
+//        echo json_encode($files);
     }
 
     public function multiple_image()
@@ -99,7 +102,7 @@ class Upload extends MY_Controller
             $files[] = $this->upload->data();
         }
 
-        echo json_encode($files);
+//        echo json_encode($files);
     }
 
     public function single_image()
@@ -116,7 +119,7 @@ class Upload extends MY_Controller
         $this->upload->do_upload('image');
         $hasil = $this->upload->data();
 
-        echo json_encode($hasil);
+//        echo json_encode($hasil);
     }
 
 

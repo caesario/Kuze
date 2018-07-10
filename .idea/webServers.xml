@@ -11,7 +11,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="ff0902d3-90ac-4113-938d-cbac96505558" name="Kuze Live" url="http://kuzeoriginal.com">
-        <fileTransfer host="kuzeoriginal.com" port="21" rootFolder="/public_html/demo">
+        <fileTransfer host="kuzeoriginal.com" port="21" rootFolder="/public_html">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
