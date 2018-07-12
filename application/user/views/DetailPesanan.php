@@ -2,7 +2,6 @@
 include "layout/Header.php";
 include "layout/Menu.php";
 ?>
-
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart c-margin-bot-cart">
         <h5 class="text-center c-title-cart">Detail Pesanan</h5>
@@ -15,21 +14,9 @@ include "layout/Menu.php";
 
     <!-- ======= Detail Order ======= -->
     <div class="container-fluid c-padding-header c-margin-bot-detail-order ">
-
         <div class="row">
-
-
             <div class="col-lg-3">
                 <div class="row">
-                    <!-- <div class="col-12">
-                        <div class="mb-4">
-                          <div class="">
-                            <h5 class="card-title mb-1">Jhon Doe Ponegoro</h5>
-                            <p class="card-text mb-1">Caesar Tower, 27th Cengkareng Raya Street, South Cengkareng Indonesia 12520</p>
-                            <p class="card-text"><small class="text-muted">Join 24 Sep 2018</small></p>
-                          </div>
-                        </div>
-                    </div> -->
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
@@ -122,8 +109,12 @@ include "layout/Menu.php";
                             <tr>
                                 <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detil'); ?>"><?= $item_detil($detil->item_detil_kode)->item->i_nama; ?></a></p></td>
                                 <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_qty; ?></span></td>
-                                <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_harga; ?></span></td>
-                                <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_tharga; ?></span></td>
+                                <td class="text-center"><span id="rupiah"
+                                                              class="c-price-cart-3"><?= $detil->orders_detil_harga; ?></span>
+                                </td>
+                                <td class="text-center"><span id="rupiah"
+                                                              class="c-price-cart-3"><?= $detil->orders_detil_tharga; ?></span>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -139,11 +130,12 @@ include "layout/Menu.php";
                             <tbody>
                             <tr>
                                 <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
-                                <td><span class="c-price-cart-3 pl-3"><?= $biaya_subtotal(); ?></span></td>
+                                <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $biaya_subtotal(); ?></span></td>
                             </tr>
                             <tr>
                                 <th class="p-1 pl-4">Pengiriman</th>
-                                <td><span class="c-price-cart-3 pl-3"> <?= $biaya_pengiriman(); ?></span></td>
+                                <td><span id="rupiah" class="c-price-cart-3 pl-3"> <?= $biaya_pengiriman(); ?></span>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="p-1 pl-4">Lain-lain</th>
@@ -151,7 +143,9 @@ include "layout/Menu.php";
                             </tr>
                             <tr>
                                 <th class="p-1 pl-4">Total</th>
-                                <td><span class="c-price-cart-2 pl-3 c-l-hight"> <?= $biaya_subtotal() + $biaya_pengiriman(); ?></span></td>
+                                <td><span id="rupiah"
+                                          class="c-price-cart-2 pl-3 c-l-hight"> <?= $biaya_subtotal() + $biaya_pengiriman(); ?></span>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -161,15 +155,6 @@ include "layout/Menu.php";
                 </div>
             </div>
         </div>
-<!--        <div class="c-order-info">-->
-<!--            <p>Thank you, Your order has been received</p>-->
-<!--            <ul>-->
-<!--                <li>Order number : <b>#421504</b></li>-->
-<!--                <li>Date : <b>19 May 2018</b></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-
-
     </div>
 
 <?php

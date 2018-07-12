@@ -1,34 +1,33 @@
 <!-- ======= Header ======= -->
-
-    <div class="c-padding-header c-header">
-        <div class="row">
-            <div class="col-12 text-right px-0">
-                <?php if (isset($_SESSION['id'])): ?>
-                    <a class="alert-link f-link c-header-a" href="<?= site_url('order_status'); ?>">
-                        Status Order
-                    </a>
-                    | <a class="alert-link f-link c-header-a" href="<?= site_url('order_history'); ?>">
-                        Riwayat Pesanan
-                    </a>
-                <?php endif; ?>
-                <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                    | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
-                        <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
-                    </a>
-                    | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
-                        Log Out
-                    </a>
-                <?php else: ?>
-                    <a class="alert-link f-link c-header-a" href="<?= site_url('login'); ?>">
-                        Login
-                    </a>
-                    | <a class="alert-link f-link c-header-a" href="<?= site_url('register'); ?>">
-                        Register
-                    </a>
-                <?php endif; ?>
-            </div>
+<div class="c-padding-header c-header">
+    <div class="row">
+        <div class="col-12 text-right px-0">
+            <?php if (isset($_SESSION['id'])): ?>
+                <a class="alert-link f-link c-header-a" href="<?= site_url('order_status'); ?>">
+                    Status Order
+                </a>
+                | <a class="alert-link f-link c-header-a" href="<?= site_url('order_history'); ?>">
+                    Riwayat Pesanan
+                </a>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
+                | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                    <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
+                </a>
+                | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
+                    Log Out
+                </a>
+            <?php else: ?>
+                <a class="alert-link f-link c-header-a" href="<?= site_url('login'); ?>">
+                    Login
+                </a>
+                | <a class="alert-link f-link c-header-a" href="<?= site_url('register'); ?>">
+                    Register
+                </a>
+            <?php endif; ?>
         </div>
     </div>
+</div>
 
 <div class="header-wrapper">
     <div class="container-fluid c-padding-header">
@@ -60,30 +59,18 @@
                 </div>
                 <div class="row">
                     <nav class="navbar navbar-expand-lg navbar-light main-menu pl-lg-0 pl-3 my-2">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse c-nav" id="navbarNav">
                             <ul class="navbar-nav c-margin-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link c-dropdown" href="<?= base_url (''); ?>">Home</a>
+                                    <a class="nav-link c-dropdown" href="<?= base_url(''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url('kategori'); ?>">Kategori</a>
                                 </li>
-                                <!--                                <li class="nav-item">-->
-                                <!--                                    <a class="nav-link" href="#">Product Terbaru</a>-->
-                                <!--                                </li>-->
-                                <!--                                <li class="nav-item">-->
-                                <!--                                    <a class="nav-link" href="#">Hot Item</a>-->
-                                <!--                                </li>-->
-                                <!--                                <li class="nav-item">-->
-                                <!--                                    <a class="nav-link" href="-->
-                                <? //= site_url('Blog') ?><!--">Blog</a>-->
-                                <!--                                </li>-->
-<!--                                <li class="nav-item">-->
-<!--                                    <a class="nav-link" href="#">Contact</a>-->
-<!--                                </li>-->
 
                             </ul>
                         </div>
@@ -92,27 +79,14 @@
             </div>
             <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                <div class="col mt-4 mt-lg-2">
-                    <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
-                </div>
-
-<!--                    <a href="--><?//= site_url('Profil'); ?><!--" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
-<!--                    <a href="--><?//= site_url('Cart'); ?><!--"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>-->
-<!--                    <a href="--><?//= site_url(''); ?><!--"  class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out fa-lg c-icon-top"></i></a>-->
-<!--                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-<!--                        <a class="dropdown-item" href="#">Action</a>-->
-<!--                        <a class="dropdown-item" href="#">Another action</a>-->
-<!--                        <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                    </div>-->
-
-
+                    <div class="col mt-4 mt-lg-2">
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+                    </div>
                 <?php else: ?>
-                <div class="col mt-4 mt-lg-2">
-                    <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
-<!--                    <a href="--><?//= site_url('login'); ?><!--"><i class="fa fa-lock fa-2x c-icon-top"></i></a>-->
-                </div>
+                    <div class="col mt-4 mt-lg-2">
+                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart fa-2x c-icon-top"></i></a>
+                    </div>
                 <?php endif; ?>
-
             </div>
         </div>
     </div>

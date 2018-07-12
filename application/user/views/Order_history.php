@@ -56,7 +56,7 @@ include "layout/Menu.php";
                                         <?= $order->created_at; ?>
                                         <br>
                                         <b>Total Harga :</b><br>
-                                        <?= $order->total; ?>
+                                        <div id="rupiah"><?= $order->total; ?></div>
                                         <br>
                                         <b>Status :</b><br>
                                         <?php if ($order->orders_status == 0): ?>
