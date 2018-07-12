@@ -87,7 +87,13 @@ class Detil extends MY_Controller
                 ->where('orders_noid', $this->data->orders_noid)
                 ->get()->orders_noid;
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
-            return (int)$ongkir->orders_ongkir_biaya;
+
+            if ($ongkir) {
+                return (int)$ongkir->orders_ongkir_biaya;
+            } else {
+                return 0;
+            }
+
         };
         $this->data->nama_nomor = function () {
             $order_pengiriman = $this->order_pengiriman->where('orders_noid', $this->data->orders_noid)->get();
