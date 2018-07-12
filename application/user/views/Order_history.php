@@ -22,6 +22,10 @@ include "layout/Menu.php";
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
                                class="list-group-item list-group-item-action ">Profil</a>
+                            <a href="<?= site_url('profil_password'); ?>"
+                               class="list-group-item list-group-item-action ">
+                                Ubah Password
+                            </a>
                             <a href="<?= site_url('alamat_profil'); ?>" class="list-group-item list-group-item-action ">Alamat</a>
                             <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action ">Transaksi
                                 Tertunda</a>
@@ -85,21 +89,22 @@ include "layout/Menu.php";
 
                                     <td class="align-middle">
                                         <a class="btn c-login-btn c-edit"
-                                           href="<?= site_url('pending/' . $order->orders_noid . '/detil'); ?>">
+                                           href="<?= site_url('order_history/' . $order->orders_noid . '/detil'); ?>"
+                                           role="button">
                                             Detail
                                         </a>
                                         <?php if ($order->orders_status == 0): ?>
-                                            <a class="btn btn-primary r-btn-pink"
+                                            <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
                                                 <i class="fas fa-sync mr-2"></i>Proses
                                             </a>
                                         <?php elseif ($order->orders_status == 1): ?>
-                                            <a class="btn btn-primary r-btn-pink"
+                                            <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/ongkir_transfer'); ?>">
                                                 <i class="fas fa-sync mr-2"></i>Proses
                                             </a>
                                         <?php elseif ($order->orders_status == 2): ?>
-                                            <a class="btn btn-primary r-btn-pink"
+                                            <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/konfirmasi_pembayaran'); ?>">
                                                 <i class="fas fa-sync mr-2"></i>Proses
                                             </a>

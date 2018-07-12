@@ -22,6 +22,10 @@ include "layout/Menu.php";
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
                                class="list-group-item list-group-item-action ">Profil</a>
+                            <a href="<?= site_url('profil_password'); ?>"
+                               class="list-group-item list-group-item-action ">
+                                Ubah Password
+                            </a>
                             <a href="<?= site_url('alamat_profil'); ?>"
                                class="list-group-item list-group-item-action c-profil-active">Alamat</a>
                             <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Transaksi

@@ -162,9 +162,9 @@ include "layout/Menu.php";
                             <i class="fa fa-star c-star"></i>
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                <h5 id="rupiah" class="c-price"><?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price">RP <?= $hot->i_hrg_vip; ?></h5>
                             <?php else: ?>
-                                <h5 id="rupiah" class="c-price"><?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price">RP <?= $hot->i_hrg_vip; ?></h5>
                             <?php endif; ?>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
