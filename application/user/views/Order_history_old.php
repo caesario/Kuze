@@ -20,9 +20,12 @@ include "layout/Menu.php";
                     </div> -->
                     <div class="col-12">
                         <div class="list-group mb-4">
-                            <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
-                            <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action c-profil-active">Riwayat Transaksi</a>
+                            <a href="<?= site_url('profil'); ?>"
+                               class="list-group-item list-group-item-action">Profil</a>
+                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Status
+                                Pesanan</a>
+                            <a href="<?= site_url('order_history'); ?>"
+                               class="list-group-item list-group-item-action c-profil-active">Riwayat Transaksi</a>
                             <a href="#" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
                         </div>
                     </div>

@@ -20,9 +20,12 @@
                     </div> -->
                     <div class="col-12">
                         <div class="list-group mb-4">
-                            <a href="<?= site_url('Profil'); ?>" class="list-group-item list-group-item-action c-profil-active">Profil</a>
-                            <a href="<?= site_url('Order_status'); ?>" class="list-group-item list-group-item-action">Status Pesanan</a>
-                            <a href="<?= site_url('Order_history'); ?>" class="list-group-item list-group-item-action">Riwayat Transaksi</a>
+                            <a href="<?= site_url('profil'); ?>"
+                               class="list-group-item list-group-item-action c-profil-active">Profil</a>
+                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Status
+                                Pesanan</a>
+                            <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action">Riwayat
+                                Transaksi</a>
                             <a href="<?= site_url(''); ?>" class="list-group-item list-group-item-action">Konfirmasi Pembayaran</a>
                         </div>
                     </div>
@@ -44,7 +47,7 @@
                     </div>
                 </form>
                 <button class="btn c-login-btn float-left ml-3 mb-5" type="submit">Save</button>
-                <a class="btn c-login-btn ml-3 mb-5 c-edit" href="<?= site_url('Profil'); ?>" role="button">Kembali</a>
+                <a class="btn c-login-btn ml-3 mb-5 c-edit" href="<?= site_url('profil'); ?>" role="button">Kembali</a>
             </div>
         </div>
     </div>
