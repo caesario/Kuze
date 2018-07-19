@@ -12,18 +12,18 @@
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
-        <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
-            <?php if ($logo != NULL): ?>
-                <img src="<?= base_url('upload/' . $logo); ?>" width="150" height="80"
-                     class="img-fluid mx-auto d-block"
-                     alt="">
-            <?php else: ?>
-                <img class="img-fluid mx-auto d-block" width="150" height="80"
-                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
-                     alt="No Image">
-            <?php endif; ?>
-            <p class="c-nomer-footer"><b>Instagram :</b> <?= $instagram; ?></p>
-            <p class="c-email-footer"><b>Email :</b> <?= $email; ?></p>
+        <div class="col-lg-5 col-md-6 col-sm-12 c-margin-bot">
+<!--            --><?php //if ($logo != NULL): ?>
+<!--                <img src="--><?//= base_url('upload/' . $logo); ?><!--" width="150" height="80"-->
+<!--                     class="img-fluid mx-auto d-block"-->
+<!--                     alt="">-->
+<!--            --><?php //else: ?>
+<!--                <img class="img-fluid mx-auto d-block" width="150" height="80"-->
+<!--                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"-->
+<!--                     alt="No Image">-->
+<!--            --><?php //endif; ?>
+<!--            <p class="c-nomer-footer"><b>Instagram :</b> --><?//= $instagram; ?><!--</p>-->
+<!--            <p class="c-email-footer"><b>Email :</b> --><?//= $email; ?><!--</p>-->
         </div>
         <?php if ($menu_kategori != NULL): ?>
             <div class="col-lg col-md-6 col-sm-6">
@@ -58,11 +58,11 @@
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <p class="c-text-payment">We are support gateway</p>
-            <img src="assets/img/payment.png" alt="">
-            <p class="c-text-secure">Secure Payment</p>
-            <i class="fa fa-lock c-lala-land fa-3x"></i>
-            <i class="fas fa-shield-alt fa-3x c-lala-land"></i>
-            <i class="fa fa-check fa-3x c-lala-land"></i>
+            <img style="width:120px;" src="assets/img/BCA-Kuze.png" alt="">
+<!--            <p class="c-text-secure">Secure Payment</p>-->
+<!--            <i class="fa fa-lock c-lala-land fa-3x"></i>-->
+<!--            <i class="fas fa-shield-alt fa-3x c-lala-land"></i>-->
+<!--            <i class="fa fa-check fa-3x c-lala-land"></i>-->
         </div>
     </div>
 </div>
@@ -72,9 +72,9 @@
 <div class="container-fluid c-padding-header text-center c-padding-footer">
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
     <p class="c-footer-copy">Copyright © All right reserved EazyDev.</p>
-    <a href="mailto:<?= $email; ?>"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
-    <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fab fa-instagram fa-2x"></i></a>
-    <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fab fa-whatsapp fa-2x"></i></a>
+    <a href="mailto:<?= $email; ?>" target="_blank"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
+    <a href="https://www.instagram.com/kuze.co<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+    <a href="https://wa.me/62<?= $whatsapp; ?>" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
 </div>
 
 <script>

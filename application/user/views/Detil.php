@@ -23,11 +23,11 @@ include "layout/Menu.php";
 
 
     <!-- ======= Detail Site ======= -->
-    <div class="container-flu c-padding-header">
-        <div class="row">
+    <div class="container-flu c-padding-header c-margin-100">
+        <div class="row justify-content-center">
             <?php if (isset($item) && $item != NULL): ?>
 
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-5 col-md-5">
                 <div class="fotorama"
                      data-fit="cover"
                      data-navposition="bottom"
@@ -53,13 +53,17 @@ include "layout/Menu.php";
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <h5 class="mb-2"><?= $item->i_nama; ?></h5>
                         <hr class="mb-2">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col c-review">
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
+                                <i class="fa fa-star c-star m-0"></i>
+                                <i class="fa fa-star c-star m-0"></i>
+                                <i class="fa fa-star c-star m-0"></i>
+                                <i class="fa fa-star c-star m-0"></i>
+                                <i class="fa fa-star c-star m-0"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col c-detail-des"> <?= $item->i_deskripsi; ?></div>
                             </div>
                         </div>
                         <div class="row">
@@ -117,17 +121,9 @@ include "layout/Menu.php";
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="container-fluid c-padding-header">
-        <div class="c-tab-list">
-            <h5>Description</h5>
-            <hr>
-            <div class="c-detail-des"> <?= $item->i_deskripsi; ?></div>
-        </div>
-    </div>
-
+    <hr>
+    <br>
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h3 class="">Hot Item</h3>
@@ -155,11 +151,11 @@ include "layout/Menu.php";
                             </div>
                         </a>
                         <div class="card-body">
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
+                            <i class="fa fa-star c-star m-0"></i>
+                            <i class="fa fa-star c-star m-0"></i>
+                            <i class="fa fa-star c-star m-0"></i>
+                            <i class="fa fa-star c-star m-0"></i>
+                            <i class="fa fa-star c-star m-0"></i>
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                 <h5 id="rupiah" class="c-price">RP <?= $hot->i_hrg_vip; ?></h5>

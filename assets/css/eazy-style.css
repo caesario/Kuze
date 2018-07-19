@@ -711,10 +711,11 @@ li.c-li-side {
 .c-tab-list {
     margin-top: 70px;
 }
-.c-detail-des {
+.c-detail-des p {
     font-family: 'Poppins', sans-serif;
     color: #888888;
-    margin-bottom: 100px;
+    font-size: 0.95rem;
+    /*margin-bottom: 100px;*/
 }
 
 h5.c-subtitle-second {
@@ -757,6 +758,10 @@ input.c-detail-stock {
 }
 .c-detil-add {
     color: #888888;
+}
+
+.c-margin-100{
+    margin-bottom: 100px;
 }
 
 

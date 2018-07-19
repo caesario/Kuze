@@ -127,11 +127,11 @@ include "layout/Menu.php";
                                     </div>
                                 </a>
                                 <div class="card-body">
-                                    <i class="fa fa-star c-star"></i>
-                                    <i class="fa fa-star c-star"></i>
-                                    <i class="fa fa-star c-star"></i>
-                                    <i class="fa fa-star c-star"></i>
-                                    <i class="fa fa-star c-star"></i>
+                                    <i class="fa fa-star c-star m-0"></i>
+                                    <i class="fa fa-star c-star m-0"></i>
+                                    <i class="fa fa-star c-star m-0"></i>
+                                    <i class="fa fa-star c-star m-0"></i>
+                                    <i class="fa fa-star c-star m-0"></i>
                                     <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
                                     <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                         <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
@@ -156,25 +156,25 @@ include "layout/Menu.php";
 
 
     <!-- ======= Long Product ======= -->
-    <div class="containter-fluid c-padding-header c-margin-lon">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="content-wrapper">
-                    <img src="assets/img/lon1.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="content-wrapper">
-                    <img src="assets/img/lon1.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="content-wrapper">
-                    <img src="assets/img/lon3.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="containter-fluid c-padding-header c-margin-lon">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-4 col-sm-12">-->
+<!--                <div class="content-wrapper">-->
+<!--                    <img src="assets/img/lon1.jpg" alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4 col-sm-12">-->
+<!--                <div class="content-wrapper">-->
+<!--                    <img src="assets/img/lon1.jpg" alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4 col-sm-12">-->
+<!--                <div class="content-wrapper">-->
+<!--                    <img src="assets/img/lon3.jpg" alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
@@ -219,7 +219,7 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h3 class=""># FOLLOW US ON INSTAGRAM</h3>
-        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>
+        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward @kuze.co</span>
     </div>
 
 
