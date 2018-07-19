@@ -29,20 +29,20 @@ include "layout/Menu.php";
                         <input type="hidden" name="alamat_simpan" id="alamat_simpan">
                         <div class="row form-group">
                             <div class="col-lg-12 col-sm-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
+                                <div class="form-check pl-0">
+                                    <input class="form-check-input d-none" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
                                     <label class="form-check-label" for="alamat_exist">
-                                        <h5 class=""><i class="fa fa-address-book-o"></i> Pilih Alamat Yang Ada</h5>
+                                        <h5 class=""><i class="fa fa-address-book text-center" style="width:30px;"></i> Pilih Alamat Yang Ada</h5>
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="true" id="check_dropship">
+                                <div class="form-check pl-0">
+                                    <input class="form-check-input d-none" type="checkbox" value="true" id="check_dropship">
                                     <label class="form-check-label" for="check_dropship">
-                                        <h5 class=""><i class="fa fa-address-card-o"></i> Dropship Pesanan</h5>
+                                        <h5 class=""><i class="fa fa-cart-arrow-down text-center" style="width:30px;"></i> Dropship Pesanan</h5>
                                     </label>
                                 </div>
                             </div>
