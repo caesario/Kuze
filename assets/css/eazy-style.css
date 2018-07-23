@@ -3,6 +3,7 @@
 
 
 
+
 a {
      -webkit-transition: all .3s;
      transition: all .3s;
@@ -889,6 +890,14 @@ h5.c-title-cart-total {
     font-style: normal;
     color: #333;
     margin-bottom: 30px;
+}
+
+a.btn-kupon {
+    font-family: 'Poppins', sans-serif;
+    font-weight:;
+    color: #777;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 a.c-btn-cart {
     padding: 10px 35px;

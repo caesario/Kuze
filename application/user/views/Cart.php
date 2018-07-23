@@ -107,6 +107,24 @@ include "layout/Menu.php";
     </div>
 
 
+    <div class="container-fluid c-padding-header c-margin-cart-total">
+        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 float-right">
+            <h5 class="c-title-cart-total">KODE PROMO</h5>
+            <div class="form-group">
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Masukkan Kode Voucher" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <a href="" class="btn btn-kupon btn-csr">Gunakan</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+
     <!-- ======= Total Cart ======= -->
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 float-right">
@@ -118,9 +136,14 @@ include "layout/Menu.php";
                     <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total($_SESSION['id']); ?></span></td>
                 </tr>
                 <tr>
+                    <th class="p-1 pl-4">Discount</th>
+                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                </tr>
+                <tr>
                     <th class="p-1 pl-4">Lain-lain</th>
                     <td><span class="c-price-cart-3 pl-3">-</span></td>
                 </tr>
+
                 <tr>
                     <th class="p-1 pl-4">Total</th>
                     <td><span id="rupiah"

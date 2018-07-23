@@ -177,10 +177,10 @@ include "layout/Menu.php";
 <!--    </div>-->
 
 
-    <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h3 class="">NEWS FROM BLOG</h3>
-        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>
-    </div>
+<!--    <div class="container-fluid c-padding-header text-center c-text-cons">-->
+<!--        <h3 class="">NEWS FROM BLOG</h3>-->
+<!--        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>-->
+<!--    </div>-->
 
 
     <!-- ======= News Block ======= -->
