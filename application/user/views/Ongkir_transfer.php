@@ -5,16 +5,22 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">METODE PENGIRIMAN</h5>
+        <h5 class="text-center c-title-cart">METODE PENGIRIMAN & Pembayaran</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
-                <a class="breadcrumb-item" href="<?= site_url('/'); ?>">Home</a>
+                <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('cart'); ?>">Keranjang</a>
+                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Keranjang</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('checkout/alamat_pengiriman'); ?>">Alamat Pengiriman</a>
+                <a class="breadcrumb-item " href="<?= site_url('Alamat'); ?>">Alamat</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('checkout/kirim_bayar'); ?>">Metode Pengiriman</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('Metode_pengiriman'); ?>">Metode Pengiriman</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="">Detail Pesanan</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
+                <i class="fa fa-arrow-right"></i>
+                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi_sukses'); ?>">Konfirmasi Sukses</a>
             </nav>
         </div>
     </div>

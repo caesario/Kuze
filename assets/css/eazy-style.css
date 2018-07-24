@@ -785,10 +785,12 @@ h5.c-title-cart {
     padding-top: 50px;
     margin-bottom: 0;
 }
-nav.c-bread-cart a:first-child{
+
+a.breadcrumb-item.active-bread {
     color: #333;
     font-weight: bold;
 }
+
 nav.c-bread-cart a {
     font-weight: bold;
 }
