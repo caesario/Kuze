@@ -21,19 +21,6 @@ class Auth extends MY_Controller
 
         if (!$toko && !$user) {
             redirect('new_toko');
-        } else {
-            $check = $this->pengguna->where('pengguna_kode', 0)->get();
-            if (!$check) {
-                $this->pengguna->insert(array(
-                    'pengguna_kode' => 0,
-                    'pengguna_nama' => 'Super User',
-                    'pengguna_username' => 'eazy',
-                    'pengguna_password' => 'eazy9090',
-                    'pengguna_email' => 'super@eazy-dev.xyz',
-                    'pengguna_ipaddr' => '1.1.1.1',
-                    'pengguna_isaktif' => 1
-                ));
-            }
         }
     }
 
