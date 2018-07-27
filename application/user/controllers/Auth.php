@@ -134,25 +134,26 @@ class Auth extends MY_Controller
         $body = $this->load->view('email/new', $this->data, TRUE);
 
         $this->email->message($body);
+        $sender = $this->email->send();
+        $pengguna_insert = $this->pengguna->insert(array(
+            'pengguna_kode' => $this->data->guid,
+            'pengguna_username' => $this->data->email,
+            'pengguna_nama' => $this->data->nama,
+            'pengguna_email' => $this->data->email,
+            'pengguna_password' => $this->data->pass,
+            'pengguna_tipe' => 2,
+            'pengguna_telp' => $this->data->telp,
+            'pengguna_token' => $this->data->token
+        ));
 
 
-        if ($this->email->send()) {
-            $this->pengguna->insert(array(
-                'pengguna_kode' => $this->data->guid,
-                'pengguna_username' => $this->data->email,
-                'pengguna_nama' => $this->data->nama,
-                'pengguna_email' => $this->data->email,
-                'pengguna_password' => $this->data->pass,
-                'pengguna_tipe' => 2,
-                'pengguna_telp' => $this->data->telp,
-                'pengguna_token' => $this->data->token
-            ));
-
-            $this->data->berhasil = 'Silahkan cek email untuk aktivasi akun anda.';
+        if ($sender OR $pengguna_insert) {
+            $this->data->berhasil = 'Silahkan cek email untuk aktivasi akun anda atau login.';
             $this->session->set_flashdata('berhasil', $this->data->berhasil);
         } else {
-            $this->data->gagal = 'E-mail anda tidak valid, silahkan ulangi pendaftaran.';
-            $this->session->set_flashdata('berhasil', $this->data->gagal);
+
+            $this->data->gagal = '';
+            $this->session->set_flashdata('gagal', $this->data->gagal);
         }
 
 
@@ -198,7 +199,7 @@ class Auth extends MY_Controller
                 'pengguna_password' => $password
             ))->get();
 
-            if (isset($user->pengguna_isaktif) && $user->pengguna_isaktif) {
+            if ($user) {
                 // Update IP Address
                 $this->pengguna->where(array(
                     'pengguna_email' => $email,
@@ -218,9 +219,6 @@ class Auth extends MY_Controller
 
 
                 redirect('/');
-            } elseif (isset($user->pengguna_isaktif) && !$user->pengguna_isaktif) {
-                $this->data->log = 'Silahkan cek email untuk aktivasi akun anda..';
-                $this->load->view('Login', $this->data);
             } else {
                 $this->data->log = 'Username atau Password salah.';
                 $this->load->view('Login', $this->data);
