@@ -30,7 +30,8 @@
                     </ul>
                 </li>
                 <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item</a></li>
-                <li><a href="<?= site_url('seri'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item Grosir</a></li>
+                <!--                <li><a href="-->
+                <? //= site_url('seri'); ?><!--"><i class="fas fa-shopping-cart mr-2"></i>Item Grosir</a></li>-->
                 <li><a href="#transaksi" aria-expanded="false" data-toggle="collapse"><i
                                 class="fas fa-exchange-alt mr-2"></i>Transaksi</a>
                     <ul id="transaksi" class="collapse list-unstyled">
@@ -76,7 +77,8 @@
                 </li>
                 <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
                 <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
-                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide</a></li>
+                <!--                <li><a href="-->
+                <? //= site_url('slide'); ?><!--"><i class="fas fa-images mr-2"></i>Slide</a></li>-->
             </ul>
         </div>
     </div>

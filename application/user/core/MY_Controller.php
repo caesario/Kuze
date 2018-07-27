@@ -45,7 +45,6 @@ class MY_Controller extends CI_Controller
         $this->load->model('Order_resi_m', 'order_resi');
         $this->load->model('Seri_m', 'seri');
         $this->load->model('Toko_m', 'toko');
-        $this->load->model('Ukuran_m', 'ukuran');
         $this->load->model('Warna_m', 'warna');
         $this->load->model('Promo_m', 'promo');
         $this->load->model('Bank_m', 'bank');
