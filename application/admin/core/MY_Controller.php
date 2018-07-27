@@ -30,7 +30,6 @@ class MY_Controller extends CI_Controller
         $this->load->model('Item_img_m', 'item_img');
         $this->load->model('Item_kategori_m', 'item_kategori');
         $this->load->model('Item_qty_m', 'item_qty');
-        $this->load->model('Item_seri_m', 'item_seri');
         $this->load->model('Item_ukuran_m', 'item_ukuran');
         $this->load->model('Item_warna_m', 'item_warna');
         $this->load->model('Item_m', 'item');
@@ -45,9 +44,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('Order_resi_m', 'order_resi');
         $this->load->model('Seri_m', 'seri');
         $this->load->model('Toko_m', 'toko');
-        $this->load->model('Ukuran_m', 'ukuran');
         $this->load->model('Warna_m', 'warna');
-        $this->load->model('Promo_m', 'promo');
         $this->load->model('Bank_m', 'bank');
         $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Provinsi_m', 'provinsi');

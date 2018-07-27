@@ -146,7 +146,6 @@
                                                     <tr>
                                                         <th>Warna</th>
                                                         <th>Ukuran</th>
-                                                        <th>Seri</th>
                                                         <th>QTY</th>
                                                         <th></th>
                                                     </tr>
@@ -161,16 +160,7 @@
                                                                 <?php endif; ?>
                                                             </td>
                                                             <td class="align-middle">
-                                                                <?php if (isset($ukuran($detil->item_detil_kode, $detil->u_kode)->u_nama)): ?>
-                                                                    <?= $ukuran($detil->item_detil_kode, $detil->u_kode)->u_nama; ?>
-
-                                                                <?php endif; ?>
-                                                            </td>
-                                                            <td class="align-middle">
-                                                                <?php if (isset($seri($detil->item_detil_kode, $detil->s_kode)->s_nama)): ?>
-                                                                    <?= $seri($detil->item_detil_kode, $detil->s_kode)->s_nama; ?>
-
-                                                                <?php endif; ?>
+                                                                <?= $detil->item_detil_ukuran; ?>
                                                             </td>
                                                             <td class="align-middle">
                                                                 <?= $qty($detil->item_detil_kode); ?>
@@ -455,7 +445,7 @@
     </div>
 </div>
 <div class="modal fade" id="crudfoto" tabindex="-1" role="dialog" aria-labelledby="crudfoto" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
             </div>

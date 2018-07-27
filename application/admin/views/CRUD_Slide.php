@@ -21,8 +21,7 @@ if ($submit == 'Ubah') {
         <label for="file">Gambar</label>
         <img class="img-fluid mx-auto d-block mb-2" height="300" width="300" src="" id="filename"
              style="display: none;">
-        <div class="custom-file"
-        ">
+        <div class="custom-file">
         <input class="custom-file-input " id="imageupload" type="file" name="image"
                data-url="<?= site_url('upload/single_image'); ?>">
         <label class="custom-file-label" for="customFile">Pilih gambar</label>
@@ -32,9 +31,6 @@ if ($submit == 'Ubah') {
              aria-valuemin="0" aria-valuemax="100">25%
         </div>
     </div>
-
-    </div>
-
 
     <div class="form-group">
         <label for="caption">Tulisan Promo</label>

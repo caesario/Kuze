@@ -19,21 +19,10 @@ class Auth extends MY_Controller
         $toko = $this->toko->get();
         $user = $this->pengguna->get();
 
-        if (!$toko && !$user) {
+        if (!$toko) {
             redirect('new_toko');
-        } else {
-            $check = $this->pengguna->where('pengguna_kode', 0)->get();
-            if (!$check) {
-                $this->pengguna->insert(array(
-                    'pengguna_kode' => 0,
-                    'pengguna_nama' => 'Super User',
-                    'pengguna_username' => 'eazy',
-                    'pengguna_password' => 'eazy9090',
-                    'pengguna_email' => 'super@eazy-dev.xyz',
-                    'pengguna_ipaddr' => '1.1.1.1',
-                    'pengguna_isaktif' => 1
-                ));
-            }
+        } elseif (!$user) {
+            redirect('new_user');
         }
     }
 
@@ -86,7 +75,7 @@ class Auth extends MY_Controller
                 'pengguna_password'  => $password
             ))->get();
 
-            if ($user->pengguna_tipe == 0)
+            if ($user && $user->pengguna_tipe == 0)
             {
                 // Update IP Address
                 $this->pengguna->where(array(

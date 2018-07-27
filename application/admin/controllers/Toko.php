@@ -54,7 +54,7 @@ class Toko extends MY_Controller
             't_kodepos' => $this->input->post('kodepos'),
             't_alamat' => $this->input->post('alamat'),
             't_email' => $this->input->post('email'),
-            't_line' => $this->input->post('facebook'),
+            't_line' => $this->input->post('line'),
             't_insta' => $this->input->post('instagram'),
             't_wa' => $this->input->post('whatsapp'),
             't_logo' => $logo['file_name'],

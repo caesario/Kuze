@@ -41,6 +41,29 @@ class Seri extends MY_Controller
         $this->data->title = $this->data->brandname . ' | Nomor Seri > Tambah';
         $this->data->submit = 'Simpan';
         $this->data->kode = $this->seri->guid();
+
+        $this->data->items = $this->item->with_item_detil()->with_item_kategori()->get_all();
+        $this->data->warna = function ($ide_kode, $w_kode) {
+            return $this->warna->fields('w_nama')->with_item_detil('where:item_detil_kode = \'' . $ide_kode . '\'')->where('w_kode', $w_kode)->get();
+        };
+
+//        $this->data->ukuran = function ($ide_kode, $u_kode) {
+//            return $this->ukuran->fields('u_nama')->with_item_detil('where:item_detil_kode = \'' . $ide_kode . '\'')->where('u_kode', $u_kode)->get();
+//        };
+
+        $this->data->seri = function ($ide_kode, $s_kode) {
+            return $this->seri->fields('s_nama')->with_item_detil('where:item_detil_kode = \'' . $ide_kode . '\'')->where('s_kode', $s_kode)->get();
+        };
+
+        $this->data->qty = function ($ide_kode) {
+            $hasil = 0;
+            $stoks = $this->item_detil->where('item_detil_kode', $ide_kode)->with_item_qty()->get();
+            foreach ($stoks->item_qty as $stok) {
+                $hasil += $stok->iq_qty;
+            }
+
+            return $hasil;
+        };
         $this->load->view('CRUD_Seri', $this->data);
     }
 
@@ -67,8 +90,10 @@ class Seri extends MY_Controller
         $seri_array = array(
             's_kode' => $id,
             's_nama' => $seri_nama,
-            's_url' => $this->slug->create_uri(array('title' => $this->input->post('nama')))
+            's_url' => $this->slug->create_uri(array('title' => $this->input->post('nama'))),
+            's_image' => $this->input->post('image')
         );
+
 
         if ($seri) {
 
@@ -161,5 +186,22 @@ class Seri extends MY_Controller
     {
         $this->data->members = $this->seri->many_to_many_where($item);
         $this->load->view('Tabel_detil', $this->data);
+    }
+
+    protected function upload_img()
+    {
+        //upload an image options
+        $config = array();
+        $config['upload_path'] = './upload';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '0';
+        $config['overwrite'] = TRUE;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('s_image');
+        $hasil = $this->upload->data();
+
+        return $hasil;
     }
 }

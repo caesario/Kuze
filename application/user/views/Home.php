@@ -17,8 +17,9 @@ include "layout/Menu.php";
 
 
     <!-- ======= Content ======= -->
-    <dic class="container-fluid">
+    <div class="container-fluid">
         <div class="row c-padding-header">
+            <?php if ($rand_image): ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
                     <div class="col-12">
@@ -68,7 +69,8 @@ include "layout/Menu.php";
                 </div>
             </div>
         </div>
-    </dic>
+        <?php endif; ?>
+    </div>
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
@@ -158,31 +160,31 @@ include "layout/Menu.php";
 
 
     <!-- ======= Long Product ======= -->
-<!--    <div class="containter-fluid c-padding-header c-margin-lon">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-4 col-sm-12">-->
-<!--                <div class="content-wrapper">-->
-<!--                    <img src="assets/img/lon1.jpg" alt="">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-4 col-sm-12">-->
-<!--                <div class="content-wrapper">-->
-<!--                    <img src="assets/img/lon1.jpg" alt="">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-4 col-sm-12">-->
-<!--                <div class="content-wrapper">-->
-<!--                    <img src="assets/img/lon3.jpg" alt="">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div class="containter-fluid c-padding-header c-margin-lon">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-md-4 col-sm-12">-->
+    <!--                <div class="content-wrapper">-->
+    <!--                    <img src="assets/img/lon1.jpg" alt="">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md-4 col-sm-12">-->
+    <!--                <div class="content-wrapper">-->
+    <!--                    <img src="assets/img/lon1.jpg" alt="">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md-4 col-sm-12">-->
+    <!--                <div class="content-wrapper">-->
+    <!--                    <img src="assets/img/lon3.jpg" alt="">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 
 
-<!--    <div class="container-fluid c-padding-header text-center c-text-cons">-->
-<!--        <h3 class="">NEWS FROM BLOG</h3>-->
-<!--        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>-->
-<!--    </div>-->
+    <!--    <div class="container-fluid c-padding-header text-center c-text-cons">-->
+    <!--        <h3 class="">NEWS FROM BLOG</h3>-->
+    <!--        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>-->
+    <!--    </div>-->
 
 
     <!-- ======= News Block ======= -->

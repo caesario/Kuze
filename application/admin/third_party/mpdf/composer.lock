@@ -1,5 +1,6 @@
 {
-<<<<<<< HEAD
+  <<<<<<<
+  HEAD
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
@@ -277,7 +278,7 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
-=======
+  =======
   "_readme": [
     "This file locks the dependencies of your project to a known state",
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
@@ -555,5 +556,6 @@
   "prefer-lowest": false,
   "platform": [],
   "platform-dev": []
->>>>>>> 69004560f4182638bab481a7e9f1d66259e96db2
+  >>>>>>>
+  69004560f4182638bab481a7e9f1d66259e96db2
 }
