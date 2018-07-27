@@ -23,21 +23,14 @@ include "layout/Menu.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="content-wrapper">
-                            <!--<div class="c-box-info">-->
-                            <!--<h5>-->
-                            <!--<span>Printed Dress</span><br>-->
-                            <!--SUMMER <br> 2017-->
-                            <!--</h5>-->    <!-- Tergantung Content Mas, diperlukan atau tidak nanti -->
-                            <!--<a href="" class="btn btn-content">-->
-                            <!--Shop Now-->
-                            <!--</a>-->
-                            <!--</div>-->
-                            <img src="assets/img/con1.jpg" alt="">
+                            <img src="<?= base_url('upload/' . $rand_image[0]->ii_url); ?>"
+                                 alt="<?= $rand_image[0]->ii_url; ?>">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="content-wrapper">
-                            <img src="assets/img/con2.jpg" alt="">
+                            <img src="<?= base_url('upload/' . $rand_image[1]->ii_url); ?>"
+                                 alt="<?= $rand_image[1]->ii_url; ?>">
                         </div>
                     </div>
                 </div>
@@ -46,7 +39,8 @@ include "layout/Menu.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="content-wrapper">
-                            <img src="assets/img/con-3.jpg" alt="">
+                            <img src="<?= base_url('upload/' . $rand_image[2]->ii_url); ?>"
+                                 alt="<?= $rand_image[2]->ii_url; ?>">
                         </div>
                     </div>
                 </div>
@@ -55,12 +49,14 @@ include "layout/Menu.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="content-wrapper">
-                            <img src="assets/img/con4.jpg" alt="">
+                            <img src="<?= base_url('upload/' . $rand_image[3]->ii_url); ?>"
+                                 alt="<?= $rand_image[3]->ii_url; ?>">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="content-wrapper">
-                            <img src="assets/img/con5.jpg" alt="">
+                            <img src="<?= base_url('upload/' . $rand_image[4]->ii_url); ?>"
+                                 alt="<?= $rand_image[4]->ii_url; ?>">
                         </div>
                     </div>
                 </div>

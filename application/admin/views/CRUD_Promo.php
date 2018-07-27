@@ -1,36 +1,34 @@
 <?php
 $url = site_url('bank/simpan');
 if ($submit == 'Ubah') {
-    $id = $bank->bank_kode;
-    $penerbit = $bank->bank_penerbit;
-    $nama = $bank->bank_nama;
-    $rekening = $bank->bank_rek;
-    $isaktif = $bank->bank_isaktif;
+    $promo_kode = $promo->promo_kode;
+    $promo_pot_rp = $promo->promo_pot_rp;
+    $promo_pot_persen = $promo->promo_pot_persen;
+    $isaktif = $promo->promo_aktif;
 } else if ($submit == 'Simpan') {
-    $id = $kode;
-    $penerbit = '';
-    $nama = '';
-    $rekening = '';
-    $isaktif = 0;
+    $promo_kode = '';
+    $promo_pot_rp = '';
+    $promo_pot_persen = '';
+    $isaktif = 1;
 }
 ?>
 
 <form action="<?= $url; ?>" method="post">
     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-    <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="form-group">
-        <label for="penerbit">Bank</label>
-        <input type="text" class="form-control" name="penerbit" id="penerbit" value="<?= $penerbit; ?>"
-               placeholder="Input Bank (BCA, BNI, BRI)">
+        <label for="promo_kode">Kode Promo</label>
+        <input type="text" class="form-control" name="promo_kode" id="promo_kode" value="<?= $promo_kode; ?>"
+               placeholder="Input Kode Promo)">
     </div>
     <div class="form-group">
-        <label for="nama">Nama Pemilik Rek</label>
-        <input type="text" class="form-control" name="nama" id="nama" value="<?= $nama; ?>"
-               placeholder="Input Nama Pemilik Rekening">
+        <label for="promo_pot_rp">Potongan Nominal (Rp)</label>
+        <input type="number" class="form-control" name="promo_pot_rp" id="promo_pot_rp" value="<?= $promo_pot_rp; ?>"
+               placeholder="Input Potongan dalam bentuk nominal">
     </div>
     <div class="form-group">
-        <label for="rekening">Nomor Rekening</label>
-        <input type="text" class="form-control" name="rekening" id="rekening" value="<?= $rekening; ?>"
+        <label for="promo_pot_persen">Potongan Persen (%)</label>
+        <input type="number" class="form-control" name="promo_pot_persen" id="promo_pot_persen"
+               value="<?= $promo_pot_persen; ?>"
                placeholder="Input Nomor Rekening">
     </div>
     <div class="form-group">

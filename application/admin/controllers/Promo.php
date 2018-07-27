@@ -18,14 +18,6 @@ class Promo extends MY_Controller
                 $this->session->set_userdata('redirect', current_url());
             }
         }
-
-        $config = array(
-            'field' => 'promo_nama',
-            'title' => 'title',
-            'table' => 'promo',
-            'id' => 'promo_id',
-        );
-        $this->load->library('slug', $config);
     }
 
     public function index()
@@ -41,49 +33,46 @@ class Promo extends MY_Controller
     {
         $this->data->title = $this->data->brandname . ' | Promo > Tambah';
         $this->data->submit = 'Simpan';
-        $this->data->kode = $this->promo->guid();
-        $this->data->promos = $this->promo->get_all();
+        $this->data->kode = '';
         $this->load->view('CRUD_Promo', $this->data);
     }
 
-    public function ubah($id)
+    public function ubah($promo_kode)
     {
         $this->data->title = $this->data->brandname . ' | Promo > Ubah';
         $this->data->submit = 'Ubah';
-        $this->data->kode = $id;
-        $this->data->promo = $this->promo->where('promo_kode', $id)->get();
-        $this->data->promos = $this->promo->get_all();
+        $this->data->kode = $promo_kode;
+        $this->data->promo = $this->promo->where('promo_kode', $promo_kode)->get();
         $this->load->view('CRUD_Promo', $this->data);
     }
 
     public function simpan()
     {
-        $this->form_validation->set_rules('rekening', 'Nomor Rek', 'is_unique[promo.promo_rek]', array('is_unique' => 'Terdapat nomor rekening yang sama. Silahkan coba lagi.'));
+        $this->form_validation->set_rules('promo_kode', 'Kode Promo', 'is_unique[promo.promo_kode]', array('is_unique' => 'Terdapat kode promo yang sama. Silahkan coba lagi.'));
 
         // get guid form post
-        $id = $this->input->post('id');
+        $promo_kode = $this->input->post('promo_kode');
 
         // get user from database where guid
-        $promo = $this->promo->where_promo_kode($id)->get();
-        $promo_rek = $this->input->post('rekening');
+        $promo = $this->promo->where_promo_kode($promo_kode)->get();
 
         $promo_array = array(
-            'promo_kode' => $id,
-            'promo_penerbit' => $this->input->post('penerbit'),
-            'promo_nama' => $this->input->post('nama'),
-            'promo_rek' => $promo_rek,
-            'promo_isaktif' => $this->input->post('aktif')
+            'promo_kode' => $promo_kode,
+            'promo_pot_rp' => $this->input->post('promo_pot_rp'),
+            'promo_pot_persen' => $this->input->post('promo_po_persen'),
+            'promo_aktif' => $this->input->post('promo_aktif')
         );
 
         if ($promo) {
 
             // cek validasi
-            if ($this->form_validation->run() === FALSE && $promo->promo_rek != $promo_rek) {
+            if ($this->form_validation->run() === FALSE) {
                 $this->data->gagal = validation_errors();
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('promo');
             }
+            // end validasi
 
             // update
             $promo_update = $this->promo->update($promo_array, 'promo_kode');
@@ -99,6 +88,7 @@ class Promo extends MY_Controller
 
                 redirect('promo');
             }
+            // end update
         } else {
 
             // cek validasi
@@ -108,6 +98,7 @@ class Promo extends MY_Controller
 
                 redirect('promo');
             }
+            // end cek validasi
 
             // insert
             $promo_insert = $this->promo->insert($promo_array);
@@ -123,13 +114,14 @@ class Promo extends MY_Controller
 
                 redirect('promo');
             }
+            // end insert
         }
     }
 
-    public function hapus($id)
+    public function hapus($promo_kode)
     {
 
-        $promo_hapus = $this->promo->where('promo_kode', $id)->delete();
+        $promo_hapus = $this->promo->where('promo_kode', $promo_kode)->delete();
         if ($promo_hapus) {
             $this->data->berhasil = 'Data Promo berhasil dihapus';
             $this->session->set_flashdata('berhasil', $this->data->berhasil);

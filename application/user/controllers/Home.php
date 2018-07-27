@@ -18,6 +18,9 @@ class Home extends MY_Controller
                 ->limit(8)
                 ->get_all();
         };
+
+        $this->data->rand_image = $this->item_img->select_random();
+
         $this->data->img_promos = $this->slide_promo->get_all();
         $this->load->view('Home', $this->data);
     }

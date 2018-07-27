@@ -32,4 +32,15 @@ class Item_img_m extends MY_Model {
         $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
+
+    public function select_random($limit = 5)
+    {
+        $hasil = array();
+        $query = $this->db->query("SELECT * FROM item_img WHERE RAND() LIMIT $limit");
+
+        foreach ($query->result() as $h) {
+            array_push($hasil, $h);
+        }
+        return $hasil;
+    }
 }
