@@ -19,8 +19,10 @@ class Auth extends MY_Controller
         $toko = $this->toko->get();
         $user = $this->pengguna->get();
 
-        if (!$toko && !$user) {
+        if (!$toko) {
             redirect('new_toko');
+        } elseif (!$user) {
+            redirect('new_user');
         }
     }
 
