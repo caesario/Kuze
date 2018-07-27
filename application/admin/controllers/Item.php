@@ -28,7 +28,6 @@ class Item extends MY_Controller
         $this->load->library('slug', $config);
 
         $this->data->warna_all = $this->warna->get_all();
-        $this->data->ukuran_all = $this->ukuran->get_all();
         $this->data->kategori_all = $this->kategori->get_all();
     }
 
@@ -186,8 +185,7 @@ class Item extends MY_Controller
                     'item_detil_kode' => $id_detil,
                     'i_kode' => $this->input->post('id'),
                     'w_kode' => $_POST['warna'][$i],
-                    's_kode' => $_POST['seri'][$i],
-                    'u_kode' => $_POST['ukuran'][$i],
+                    'item_detil_ukuran' => $_POST['ukuran'][$i],
                 ));
 
                 $item_qty = $this->item_qty->insert(array(

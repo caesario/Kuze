@@ -18,7 +18,8 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.default.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/cards-gallery.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendor/croppie/croppie.css'); ?>">
+
 
     <style>
         .show > .btn-primary.dropdown-toggle:focus {
@@ -66,6 +67,7 @@
     <script src="<?= base_url('assets/vendor/wnumb/wNumb.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-fileupload/js/vendor/jquery.ui.widget.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-fileupload/js/jquery.fileupload.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/croppie/croppie.min.js'); ?>"></script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=omulajpwx33earwq4t3xfgo7zbqaoey3a7cd3zipl90xlzbu"></script>
 
     <!-- Main File-->

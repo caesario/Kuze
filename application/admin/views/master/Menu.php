@@ -26,13 +26,11 @@
                     <ul id="misc" class="collapse list-unstyled ">
                         <li><a href="<?= site_url('kategori'); ?>"><i class="fas fa-angle-right mr-2"></i>Kategori </a>
                         </li>
-                        <li><a href="<?= site_url('ukuran'); ?>"><i class="fas fa-angle-right mr-2"></i>Ukuran </a></li>
-                        <li><a href="<?= site_url('seri'); ?>"><i class="fas fa-angle-right mr-2"></i>Seri </a></li>
                         <li><a href="<?= site_url('warna'); ?>"><i class="fas fa-angle-right mr-2"></i>Warna </a></li>
                     </ul>
                 </li>
                 <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item</a></li>
-                <li><a href="<?= site_url('promo'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Promo</a></li>
+                <li><a href="<?= site_url('seri'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item Grosir</a></li>
                 <li><a href="#transaksi" aria-expanded="false" data-toggle="collapse"><i
                                 class="fas fa-exchange-alt mr-2"></i>Transaksi</a>
                     <ul id="transaksi" class="collapse list-unstyled">
@@ -78,7 +76,7 @@
                 </li>
                 <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
                 <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
-                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide Promo</a></li>
+                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide</a></li>
             </ul>
         </div>
     </div>
@@ -141,7 +139,7 @@
 
         // MENU TRANSAKSI
         var c_transaksi = $.cookie('transaksi_menu');
-        var $menu_transaksi = $('#side-main-menu > li:nth-child(4) > a');
+        var $menu_transaksi = $('#side-main-menu > li:nth-child(5) > a');
         var $ul_transaksi = $('#transaksi');
 
         if (c_transaksi == 'expanded') {
@@ -165,7 +163,7 @@
 
         // MENU PELANGGAN
         var c_pelanggan = $.cookie('pelanggan_menu');
-        var $menu_pelanggan = $('#side-main-menu > li:nth-child(5) > a');
+        var $menu_pelanggan = $('#side-main-menu > li:nth-child(6) > a');
         var $ul_pelanggan = $('#pelanggan');
 
         if (c_pelanggan == 'expanded') {
