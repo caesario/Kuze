@@ -12,16 +12,6 @@ include "layout/Menu.php";
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Keranjang</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Alamat'); ?>">Alamat</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Metode_pengiriman'); ?>">Metode Pengiriman</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="">Detail Pesanan</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi_sukses'); ?>">Konfirmasi Sukses</a>
             </nav>
         </div>
     </div>
@@ -94,7 +84,6 @@ include "layout/Menu.php";
                             <p class="c-cart-productname"><a href="detail-item.html">
                                     <?= $item_detil($cart->item_detil_kode)->item->i_nama; ?>
                                 </a></p>
-                            <p class="text-justify"><?= $item_detil($cart->item_detil_kode)->item->i_deskripsi; ?></p>
                         </td>
                         <!--                <td class="text-center"><p class="c-cart-productname">ACS-00</p></td>-->
                         <td class="text-center">
@@ -118,7 +107,7 @@ include "layout/Menu.php";
 
 
     <div class="container-fluid c-padding-header c-margin-cart-total">
-        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 float-right">
+        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">KODE PROMO</h5>
             <div class="form-group">
 
@@ -137,7 +126,7 @@ include "layout/Menu.php";
 
     <!-- ======= Total Cart ======= -->
     <div class="container-fluid c-padding-header c-margin-cart-total">
-        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 float-right">
+        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">CART TOTALS</h5>
             <table class="table table-bordered">
                 <tbody>

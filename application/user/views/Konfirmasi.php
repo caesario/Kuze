@@ -32,48 +32,75 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 
     <!-- Detail Konfirmasi Pembayaran -->
     <div class="container c-padding-header">
-        <h5 class="text-center c-order-info mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
+        <h5 class="text-center mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
     </div>
-<div class="row">
-    <div class="col-8 c-margin-auto">
+<div class="row c-color-444">
+    <div class="col-md-8 col-12 m-auto">
         <div class="ml-1 row">
             <div class="col-md-6 col-sm-12">
-                <div class="c-order-info">
-                    <p class="ml-5 mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
-                    <p class="ml-5 mb-0"><?= $nama_nomor(); ?></p>
+                <div class="">
+                    <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
+                    <p class="mb-0"><?= $nama_nomor(); ?></p>
 
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
-                <div class="c-order-info">
-                    <p class="ml-5 mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
-                    <p class="ml-5 mr-5"><?= $metode_pembayaran(); ?></p>
+                <div class="">
+                    <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
+                    <p class="mr-5"><?= $metode_pembayaran(); ?></p>
                 </div>
             </div>
         </div>
-        <div class="ml-1 row mt-3">
+        <div class="ml-1 row">
             <div class="col-md-6 col-sm-12">
-                <div class="c-order-info">
-                    <p class=" ml-5 mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
-                    <p class=" ml-5 mr-4">    <?= $pengiriman(); ?></p>
+                <div class="">
+                    <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
+                    <p class="mr-4"><?= $pengiriman(); ?></p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
-                <div class="c-order-info">
-                    <p class="ml-5 mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
-                    <p class="ml-5 mr-5">  <?= $jasa(); ?></p>
+                <div class="">
+                    <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
+                    <p class="mr-5">  <?= $jasa(); ?></p>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="col-md-8 col-12 c-margin-auto">
+        <div class="col-lg-12">
+            <h5 class="mb-4 mt-4 c-color-333">PESANAN ANDA</h5>
+            <table class="table table-bordered table-responsive-md">
+                <tbody>
+                <tr>
+                    <th class="c-order-table-konfirmasi pl-4">Nama Produk</th>
+                    <th class="text-center">Qty</th>
+                    <th class="text-center">Harga Satuan</th>
+                    <th class="text-center">Total Harga</th>
+                </tr>
 
+                <?php foreach ($orders->order_detil as $detil): ?>
+                    <tr>
+                        <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detil'); ?>"><?= $item_detil($detil->item_detil_kode)->item->i_nama; ?></a></p></td>
+                        <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_qty; ?></span></td>
+                        <td class="text-center"><span id="rupiah"
+                                                      class="c-price-cart-3"><?= $detil->orders_detil_harga; ?></span>
+                        </td>
+                        <td class="text-center"><span id="rupiah"
+                                                      class="c-price-cart-3"><?= $detil->orders_detil_tharga; ?></span>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
+    </div>
         <div class="container-fluid c-padding-header mb-5">
            <div class="row">
-               <div class="col-8 c-margin-auto">
-                   <h5><i class="fa fa-money mr-2 mt-4 mb-2 "></i>Form Konfirmasi Pembayaran</h5>
+               <div class="col-md-8 col-12 c-margin-auto">
+                   <h5 class="c-color-333"><i class="fa fa-money mr-2 mt-4 mb-2"></i>Form Konfirmasi Pembayaran</h5>
                    <form action="konfirmasi_pembayaran/simpan" method="post" enctype="multipart/form-data">
                        <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                        <div class="form-group">

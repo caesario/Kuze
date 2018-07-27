@@ -984,6 +984,9 @@ a.c-collapse {
 .c-order-table {
     width: 70%;
 }
+.c-order-table-konfirmasi {
+    width: 60%;
+}
 .c-margin-bot-detail-order {
     margin-bottom: 100px;
 }
@@ -1155,4 +1158,13 @@ a.c-modal-clr:hover {
     border-color: transparent;
     color: #777;
     margin-top: -30px;
+}
+
+
+/* ====================== Style #Lain-lain ====================== */
+.c-color-333 {
+    color: #333;
+}
+.c-col-444 {
+    color: #444;
 }
