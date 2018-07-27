@@ -73,7 +73,7 @@ class Auth extends MY_Controller
                 'pengguna_password'  => $password
             ))->get();
 
-            if ($user->pengguna_tipe == 0)
+            if ($user && $user->pengguna_tipe == 0)
             {
                 // Update IP Address
                 $this->pengguna->where(array(
