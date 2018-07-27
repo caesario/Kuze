@@ -10,7 +10,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart c-margin-bot-cart">
         <h5 class="text-center c-title-cart">Detail Pesanan</h5>
-        <div class="c-breadcrumb text-center c-bread-padding">
+        <div class="c-breadcrumb text-center c-bread-padding px-2">
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
@@ -23,9 +23,6 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                 <a class="breadcrumb-item" href="">Detail Pesanan</a>
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item active-bread" href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
-                <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item" href="<?= site_url('Konfirmasi_sukses'); ?>">Konfirmasi Sukses</a>
-
             </nav>
         </div>
     </div>
@@ -37,7 +34,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 <div class="row c-color-444">
     <div class="col-md-8 col-12 m-auto">
         <div class="ml-1 row">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12 mb-2">
                 <div class="">
                     <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
                     <p class="mb-0"><?= $nama_nomor(); ?></p>

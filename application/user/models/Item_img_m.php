@@ -33,7 +33,7 @@ class Item_img_m extends MY_Model {
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
 
-    public function select_random($limit = 5)
+    public function select_random($limit = 6)
     {
         $hasil = array();
         $query = $this->db->query("SELECT * FROM item_img WHERE RAND() LIMIT $limit");

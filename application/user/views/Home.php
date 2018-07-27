@@ -43,20 +43,26 @@ include "layout/Menu.php";
                                  alt="<?= $rand_image[2]->ii_url; ?>">
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-12">
-                <div class="row">
                     <div class="col-12">
                         <div class="content-wrapper">
                             <img src="<?= base_url('upload/' . $rand_image[3]->ii_url); ?>"
                                  alt="<?= $rand_image[3]->ii_url; ?>">
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                <div class="row">
                     <div class="col-12">
                         <div class="content-wrapper">
                             <img src="<?= base_url('upload/' . $rand_image[4]->ii_url); ?>"
                                  alt="<?= $rand_image[4]->ii_url; ?>">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="content-wrapper">
+                            <img src="<?= base_url('upload/' . $rand_image[5]->ii_url); ?>"
+                                 alt="<?= $rand_image[5]->ii_url; ?>">
                         </div>
                     </div>
                 </div>

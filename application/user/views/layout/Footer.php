@@ -9,6 +9,7 @@
         </div>
     </div>
 </div>
+
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
