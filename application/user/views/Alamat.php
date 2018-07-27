@@ -74,7 +74,7 @@ include "layout/Menu.php";
                     <input type="text" name="nama_penerima" id="nama_penerima" class="form-control"
                            placeholder="Nama Penerima">
                 </div>
-                <div class="col-lg-6 col-sm-12"">
+                <div class="col-lg-6 col-sm-12">
                 <label for="kontak_penerima">Nomor Telp. Penerima</label>
                 <input type="text" name="kontak_penerima" id="kontak_penerima" class="form-control"
                        placeholder="Kontak Penerima">
@@ -82,12 +82,12 @@ include "layout/Menu.php";
 
         </div>
         <div class="row form-group">
-            <div class="col">
+            <div class="col-lg-6 col-sm-12">
                 <label for="provinsi">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="provinsi form-control" required>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-sm-12">
                 <label for="kabupaten">Kabupaten / Kota</label>
                 <select name="kabupaten" id="kabupaten" class="kabupaten form-control" required>
                 </select>
@@ -95,12 +95,12 @@ include "layout/Menu.php";
         </div>
 
         <div class="row form-group">
-            <div class="col">
+            <div class="col-lg-6 col-sm-12">
                 <label for="kecamatan">Kecamatan</label>
                 <select name="kecamatan" id="kecamatan" class="kecamatan form-control" required>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-sm-12">
                 <label for="kelurahan">Kelurahan / Desa</label>
                 <select name="kelurahan" id="kelurahan" class="kelurahan form-control" required>
                 </select>
