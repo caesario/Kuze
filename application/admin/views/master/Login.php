@@ -38,7 +38,7 @@
                 <form id="loginForm" name="loginForm" method="post" action="<?= site_url('auth/login'); ?>">
                     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <div class="form-group-material">
-                        <input id="login-username" type="text" name="username" class="input-material"
+                        <input id="login-username" type="text" name="username" class="input-material" autocomplete="off"
                                required>
                         <label for="login-username" class="label-material">Username</label>
                         <div class="text-left invalid-feedback">
@@ -47,6 +47,7 @@
                     </div>
                     <div class="form-group-material">
                         <input id="login-password" type="password" name="password" class="input-material"
+                               autocomplete="off"
                                required>
                         <label for="login-password" class="label-material">Password</label>
                         <div class="text-left invalid-feedback">
