@@ -16,20 +16,20 @@
 .select2-container--bootstrap4 .select2-selection {
     background-color: #fff;
     border: 1px solid #ced4da;
-    border-radius: 0.25rem;
+    /*border-radius: 0.25rem;*/
     color: #495057;
     font-size: 1rem;
     outline: 0;
 }
 
 .select2-container--bootstrap4 .select2-selection.form-control {
-    border-radius: 0.25rem;
+    /*border-radius: 0.25rem;*/
 }
 
 .select2-container--bootstrap4 .select2-search--dropdown .select2-search__field {
     background-color: #fff;
     border: 1px solid #ced4da;
-    border-radius: 0.25rem;
+    /*border-radius: 0.25rem;*/
     color: #495057;
     font-size: 1rem;
 }

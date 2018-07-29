@@ -29,112 +29,112 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 
     <!-- Detail Konfirmasi Pembayaran -->
     <div class="container c-padding-header">
-        <h5 class="text-center mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
+        <h5 class="text-center c-color-444 mb-5">DETAIL PESANAN : #<?= $nomor_order; ?></h5>
     </div>
-<div class="row c-color-444">
-    <div class="col-md-8 col-12 m-auto">
-        <div class="ml-1 row">
-            <div class="col-md-6 col-sm-12 mb-2">
-                <div class="">
-                    <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
-                    <p class="mb-0"><?= $nama_nomor(); ?></p>
+    <div class="row c-color-444">
+        <div class="col-md-8 col-12 m-auto">
+            <div class="ml-1 row">
+                <div class="col-md-6 col-sm-12 mb-2">
+                    <div class="">
+                        <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Nama Penerima</b></p>
+                        <p class="mb-0"><?= $nama_nomor(); ?></p>
 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="">
+                        <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
+                        <p class="mr-5"><?= $metode_pembayaran(); ?></p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="">
-                    <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Rekening Transfer</b></p>
-                    <p class="mr-5"><?= $metode_pembayaran(); ?></p>
+            <div class="ml-1 row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="">
+                        <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
+                        <p class="mr-4"><?= $pengiriman(); ?></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="">
+                        <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
+                        <p class="mr-5">  <?= $jasa(); ?></p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="ml-1 row">
-            <div class="col-md-6 col-sm-12">
-                <div class="">
-                    <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Alamat Pengiriman</b></p>
-                    <p class="mr-4"><?= $pengiriman(); ?></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="">
-                    <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Metode Pengiriman</b></p>
-                    <p class="mr-5">  <?= $jasa(); ?></p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="col-md-8 col-12 c-margin-auto">
-        <div class="col-lg-12">
-            <h5 class="mb-4 mt-4 c-color-333">PESANAN ANDA</h5>
-            <table class="table table-bordered table-responsive-md">
-                <tbody>
-                <tr>
-                    <th class="c-order-table-konfirmasi pl-4">Nama Produk</th>
-                    <th class="text-center">Qty</th>
-                    <th class="text-center">Harga Satuan</th>
-                    <th class="text-center">Total Harga</th>
-                </tr>
-
-                <?php foreach ($orders->order_detil as $detil): ?>
+        <div class="col-md-8 col-12 c-margin-auto">
+            <div class="col-lg-12">
+                <h5 class="mb-4 mt-4 c-color-333">PESANAN ANDA</h5>
+                <table class="table table-bordered table-responsive-md">
+                    <tbody>
                     <tr>
-                        <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detil'); ?>"><?= $item_detil($detil->item_detil_kode)->item->i_nama; ?></a></p></td>
-                        <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_qty; ?></span></td>
-                        <td class="text-center"><span id="rupiah"
-                                                      class="c-price-cart-3"><?= $detil->orders_detil_harga; ?></span>
-                        </td>
-                        <td class="text-center"><span id="rupiah"
-                                                      class="c-price-cart-3"><?= $detil->orders_detil_tharga; ?></span>
-                        </td>
+                        <th class="c-order-table-konfirmasi pl-4">Nama Produk</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-center">Harga Satuan</th>
+                        <th class="text-center">Total Harga</th>
                     </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+
+                    <?php foreach ($orders->order_detil as $detil): ?>
+                        <tr>
+                            <td><p class="c-cart-productname ml-5"><a href="<?= base_url('Detil'); ?>"><?= $item_detil($detil->item_detil_kode)->item->i_nama; ?></a></p></td>
+                            <td class="text-center"><span class="c-price-cart-3"><?= $detil->orders_detil_qty; ?></span></td>
+                            <td class="text-center"><span id="rupiah"
+                                                          class="c-price-cart-3"><?= $detil->orders_detil_harga; ?></span>
+                            </td>
+                            <td class="text-center"><span id="rupiah"
+                                                          class="c-price-cart-3"><?= $detil->orders_detil_tharga; ?></span>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    </div>
-        <div class="container-fluid c-padding-header mb-5">
-           <div class="row">
-               <div class="col-md-8 col-12 c-margin-auto">
-                   <h5 class="c-color-333"><i class="fa fa-money mr-2 mt-4 mb-2"></i>Form Konfirmasi Pembayaran</h5>
-                   <form action="konfirmasi_pembayaran/simpan" method="post" enctype="multipart/form-data">
-                       <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-                       <div class="form-group">
-                           <label class="col-form-label">Pembayaran Dari Bank   <span class="c-form-star">*</span></label>
-                           <input type="text"
-                                  class="form-control"
-                                  id="inputRekeningNama"
-                                  placeholder="Masukkan Bank Asal Transfer..."
-                                  name="bank"
-                                  required>
-                       </div>
-                       <div class="form-group">
-                           <label class="col-form-label mt-1">Rekening Atas Nama <span class="c-form-star ">*</span></label>
-                           <input type="text"
-                                  class="form-control mt-1"
-                                  id="inputNamaBank"
-                                  placeholder="Masukkan Nama Pemilik Rekening.."
-                                  name="rek_atasnama"
-                                  required>
-                       </div>
-                       <div class="form-group">
-                           <label for="example-date-input" class="col-form-label">Nominal Transfer<span class="c-form-star">*</span></label>
-                           <input class="form-control"
-                                  type="number"
-                                  id="inputNominalTransfer"
-                                  placeholder="Masukkan Nominal Transfer"
-                                  name="nomor_rekening"
-                                  required>
-                       </div>
-                       <div class="form-group">
-                           <label for="total_pembayaran">Total Pembayan : *</label>
-                           <input type="number" class="form-control" min="<?= $total; ?>"
-                                  max="<?= $total; ?>"
-                                  name="total_pembayaran" placeholder="Input Total Pembayaran"
-                                  value="<?= $total; ?>"
-                                  required>
-                       </div>
+    <div class="container-fluid c-padding-header mb-5">
+       <div class="row">
+           <div class="col-md-8 col-12 c-margin-auto">
+               <h5 class="c-color-444"><i class="fa fa-money mr-2 mt-4 mb-2"></i>Form Konfirmasi Pembayaran</h5>
+               <form action="konfirmasi_pembayaran/simpan" method="post" enctype="multipart/form-data">
+                   <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
+                   <div class="form-group">
+                       <label class="col-form-label">Pembayaran Dari Bank   <span class="c-form-star">*</span></label>
+                       <input type="text"
+                              class="form-control"
+                              id="inputRekeningNama"
+                              placeholder="Masukkan Bank Asal Transfer..."
+                              name="bank"
+                              required>
+                   </div>
+                   <div class="form-group">
+                       <label class="col-form-label mt-1">Rekening Atas Nama <span class="c-form-star ">*</span></label>
+                       <input type="text"
+                              class="form-control mt-1"
+                              id="inputNamaBank"
+                              placeholder="Masukkan Nama Pemilik Rekening.."
+                              name="rek_atasnama"
+                              required>
+                   </div>
+                   <div class="form-group">
+                       <label for="example-date-input" class="col-form-label">Nominal Transfer<span class="c-form-star">*</span></label>
+                       <input class="form-control"
+                              type="number"
+                              id="inputNominalTransfer"
+                              placeholder="Masukkan Nominal Transfer"
+                              name="nomor_rekening"
+                              required>
+                   </div>
+                   <div class="form-group">
+                       <label for="total_pembayaran">Total Pembayan : *</label>
+                       <input type="number" class="form-control" min="<?= $total; ?>"
+                              max="<?= $total; ?>"
+                              name="total_pembayaran" placeholder="Input Total Pembayaran"
+                              value="<?= $total; ?>"
+                              required>
+                   </div>
 
 <!--                       <div class="form-group">-->
 <!--                           <label for="bukti_pembayaran">Upload Bukti Pembayaran : </label>-->
@@ -146,15 +146,15 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 <!--                               <input type="file" name="bukti_pembayaran">-->
 <!--                           </div>-->
 <!--                       </div>-->
-                       <div class="row">
-                           <div class="col-12 col-sm-12 col-md-12">
-                               <button type="submit" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</button>
-                           </div>
+                   <div class="row">
+                       <div class="col-12 col-sm-12 col-md-12">
+                           <button type="submit" class="btn btn-csr c-btn-cart mt-3 mb-5 float-right">KONFIRMASI PEMBAYARAN</button>
                        </div>
-                   </form>
+                   </div>
+               </form>
 
-               </div>
            </div>
+       </div>
     </div>
 
 <?php

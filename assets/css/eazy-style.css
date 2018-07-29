@@ -293,6 +293,10 @@ h5.c-price{
     background-color: transparent;
     border: 1px solid #c2c2c2;
 }
+
+.btn-csr{
+    color: #444;
+}
 .btn-csr:hover {
     color: #fff;
     background-color: #56cfe1;
@@ -1165,6 +1169,6 @@ a.c-modal-clr:hover {
 .c-color-333 {
     color: #333;
 }
-.c-col-444 {
+.c-color-444 {
     color: #444;
 }
