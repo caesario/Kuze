@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/custom.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.default.css'); ?>">
 
-    <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.ico'); ?>">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script>
         var base_url = '<?= base_url(); ?>';
         var hashing = '<?= $this->security->get_csrf_hash(); ?>';
     </script>
+    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
+
 </head>
 <body>
 <div class="page login-page">
