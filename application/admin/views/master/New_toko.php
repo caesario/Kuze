@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Selajutnya</button>
+                    <button type="submit" class="btn btn-primary">Selanjutnya</button>
                 </div>
             </form>
         </div>

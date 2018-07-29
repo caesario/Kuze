@@ -6,6 +6,11 @@ class New_user extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $toko = $this->toko->get();
+
+        if (!$toko) {
+            redirect('new_toko');
+        }
     }
 
     public function index()
