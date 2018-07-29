@@ -1314,7 +1314,7 @@ input.input-material ~ label.error {
 
 input.input-material ~ label.active {
     font-size: 0.8em;
-    top: -10px;
+    top: -15px;
     color: #33b35a;
 }
 
