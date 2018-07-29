@@ -346,7 +346,11 @@
             $('#tables').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
-                }
+                },
+                "columnDefs": [{
+                    "targets": [0, 5],
+                    "orderable": false
+                }]
             });
 
             // ------------------------------------------------------ //
