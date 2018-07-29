@@ -54,8 +54,6 @@
         }
     </style>
     <link rel="stylesheet" href="<?= base_url('assets/vendor/datatable/css/dataTables.bootstrap4.min.css'); ?>">
-    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
-
     <!-- Javascript files-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
@@ -78,4 +76,6 @@
 
     <!-- Main File-->
     <script src="<?= base_url('assets/js/front.js'); ?>"></script>
+    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
+
 </head>
