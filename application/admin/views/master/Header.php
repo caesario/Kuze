@@ -46,6 +46,12 @@
         .custom-file-input:focus ~ .custom-file-label {
             border-color: #258141;
             box-shadow: none;
+        }
+
+        #tables_wrapper {
+            padding-right: 0;
+            padding-left: 0;
+        }
     </style>
     <link rel="stylesheet" href="<?= base_url('assets/vendor/datatable/css/dataTables.bootstrap4.min.css'); ?>">
     <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
