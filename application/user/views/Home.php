@@ -150,7 +150,7 @@ include "layout/Menu.php";
                                     <?php endif; ?>
                                     <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
                                        class="btn btn-csr c-cart c-cart-p">
-                                        <i class="fa fa-shopping-cart c-cart-i mr-1"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
+                                        <i class="fa fa-shopping-cart c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
                                     </a>
                                 </div>
                             </div>

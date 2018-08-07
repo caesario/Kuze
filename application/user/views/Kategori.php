@@ -64,15 +64,10 @@ include "layout/Menu.php";
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                         <div class="card">
                                             <?php if ($item_img($kat->item->i_kode) != NULL): ?>
-
-                                                <a class="" href="<?= base_url('Detil'); ?>">
+                                                <a class="" href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>">
                                                     <img class="card-img-top"
                                                          src="<?= base_url('upload/' . $item_img($kat->item->i_kode)->ii_nama); ?>"
                                                          alt="<?= $item_img($kat->item->i_kode)->ii_nama; ?>">
-                                                    <div class="middle">
-                                                        <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
-                                                           class="c-view-kat-text">Quick View</a>
-                                                    </div>
                                                 </a>
                                             <?php else: ?>
                                                 <a class="" href="<?= base_url('Detil'); ?>">
@@ -81,16 +76,16 @@ include "layout/Menu.php";
                                                          alt="No Image">
                                                     <div class="middle">
                                                         <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
-                                                           class="c-view-kat-text">Quick View</a>
+                                                           class="c-view-kat-text">Quick Viewo</a>
                                                     </div>
                                                 </a>
                                             <?php endif; ?>
                                             <div class="card-body">
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
+<!--                                                <i class="fa fa-star c-star"></i>-->
+<!--                                                <i class="fa fa-star c-star"></i>-->
+<!--                                                <i class="fa fa-star c-star"></i>-->
+<!--                                                <i class="fa fa-star c-star"></i>-->
+<!--                                                <i class="fa fa-star c-star"></i>-->
                                                 <h5 class="card-title c-both c-title"><?= $kat->item->i_nama; ?></h5>
                                                 <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                                     <h5 id="rupiah" class="c-price"><?= $kat->item->i_hrg_vip; ?></h5>

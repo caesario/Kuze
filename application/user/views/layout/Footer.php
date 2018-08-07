@@ -58,8 +58,8 @@
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
                 <li><a href="<?= site_url('resi'); ?>">Laporan Resi</a></li>
-                <li><a href="<?= site_url('pending'); ?>">Status Order</a></li>
-                <li><a href="<?= site_url('riwayat'); ?>">Riwayat Pesanan</a></li>
+                <li><a href="<?= site_url('pending'); ?>">Order Status</a></li>
+                <li><a href="<?= site_url('riwayat'); ?>">Order History</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
