@@ -106,7 +106,7 @@
         mark: ',',
         decimals: 0,
         thousand: '.',
-        prefix: 'Rp. ',
+        prefix: 'IDR ',
         suffix: ''
     });
 

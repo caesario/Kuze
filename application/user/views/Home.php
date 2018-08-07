@@ -28,50 +28,62 @@ include "layout/Menu.php";
             <?php if ($rand_image): ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[0]->ii_url); ?>"
-                                 alt="<?= $rand_image[0]->ii_url; ?>">
+                    <?php if (isset($rand_image[0])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[0]->ii_url); ?>"
+                                     alt="<?= $rand_image[0]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[1]->ii_url); ?>"
-                                 alt="<?= $rand_image[1]->ii_url; ?>">
+                    <?php endif; ?>
+                    <?php if (isset($rand_image[1])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[1]->ii_url); ?>"
+                                     alt="<?= $rand_image[1]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[2]->ii_url); ?>"
-                                 alt="<?= $rand_image[2]->ii_url; ?>">
+                    <?php if (isset($rand_image[2])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[2]->ii_url); ?>"
+                                     alt="<?= $rand_image[2]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[3]->ii_url); ?>"
-                                 alt="<?= $rand_image[3]->ii_url; ?>">
+                    <?php endif; ?>
+                    <?php if (isset($rand_image[3])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[3]->ii_url); ?>"
+                                     alt="<?= $rand_image[3]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[4]->ii_url); ?>"
-                                 alt="<?= $rand_image[4]->ii_url; ?>">
+                    <?php if (isset($rand_image[4])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[4]->ii_url); ?>"
+                                     alt="<?= $rand_image[4]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="content-wrapper">
-                            <img src="<?= base_url('upload/' . $rand_image[5]->ii_url); ?>"
-                                 alt="<?= $rand_image[5]->ii_url; ?>">
+                    <?php endif; ?>
+                    <?php if (isset($rand_image[5])): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="<?= base_url('upload/' . $rand_image[5]->ii_url); ?>"
+                                     alt="<?= $rand_image[5]->ii_url; ?>">
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

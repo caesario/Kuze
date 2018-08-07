@@ -26,7 +26,9 @@
                     <ul id="misc" class="collapse list-unstyled ">
                         <li><a href="<?= site_url('kategori'); ?>"><i class="fas fa-angle-right mr-2"></i>Kategori </a>
                         </li>
-                        <li><a href="<?= site_url('warna'); ?>"><i class="fas fa-angle-right mr-2"></i>Warna </a></li>
+                        <!--                        <li><a href="-->
+                        <? //= site_url('warna'); ?><!--"><i class="fas fa-angle-right mr-2"></i>Warna </a></li>-->
+                        <li><a href="<?= site_url('ukuran'); ?>"><i class="fas fa-angle-right mr-2"></i>Ukuran </a></li>
                     </ul>
                 </li>
                 <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item</a></li>
@@ -77,8 +79,8 @@
                 </li>
                 <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
                 <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
-                <!--                <li><a href="-->
-                <? //= site_url('slide'); ?><!--"><i class="fas fa-images mr-2"></i>Slide</a></li>-->
+                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide</a></li>
+                <li><a href="<?= site_url('instagram'); ?>"><i class="fas fa-images mr-2"></i>Instagram</a></li>
             </ul>
         </div>
     </div>

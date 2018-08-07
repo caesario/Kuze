@@ -9,8 +9,7 @@ class Cart extends MY_Controller
         if (!$this->session->isonline) {
             redirect('login');
         } else {
-            if ($_SERVER['REQUEST_METHOD'] == 'GET')
-            {
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $this->session->set_userdata('redirect', current_url());
             }
         }
@@ -18,6 +17,18 @@ class Cart extends MY_Controller
 
     public function index()
     {
+        if (isset($_GET['kode_promo'])) {
+            $kode_promo = $_GET['kode_promo'];
+        } else {
+            $kode_promo = '';
+        }
+        $hasil = $this->promo->where_promo_kode($kode_promo)->get();
+        if (isset($hasil->promo_pot_rp)) {
+            $this->data->promo_pot_rp = $hasil->promo_pot_rp;
+        } elseif (isset($hasil->promo_pot_persen)) {
+            $this->data->promo_pot_persen = $hasil->promo_pot_persen;
+        }
+
         $this->load->view('Cart', $this->data);
 
     }
@@ -145,6 +156,12 @@ class Cart extends MY_Controller
             }
         }
 
+    }
+
+    public function promo()
+    {
+
+        $this->load->view('Cart', $this->data);
     }
 
 }
