@@ -31,7 +31,7 @@ $CI->load->helper('url');
         <div class="col-2"></div>
         <div class="col text-center">
             <img class="img-fluid" src="<?= base_url('assets/img/error-404.png'); ?>" alt="404">
-            <a class="btn btn-primary r-btn-pink" href="<?= site_url('/'); ?>">Kembali ke halaman utama</a>
+            <a class="btn btn-csr c-btn-cart" href="<?= site_url('/'); ?>">Kembali ke halaman utama</a>
         </div>
         <div class="col-2"></div>
     </div>
