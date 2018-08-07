@@ -5,7 +5,7 @@ include "layout/Menu.php";
 
     <!-- Slide Show -->
 <?php if ($img_promos != NULL): ?>
-    <div class="fotorama" data-fit="cover" data-autoplay="true">
+    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
         <?php foreach ($img_promos as $promo): ?>
             <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
                  data-caption="<?= $promo->slide_promo_caption; ?>"
@@ -17,7 +17,13 @@ include "layout/Menu.php";
 
 
     <!-- ======= Content ======= -->
-    <div class="container-fluid">
+
+    <div class="container-fluid c-padding-header text-center c-text-cons">
+        <h2 class="">New Arrival</h2>
+        <span class="text-muted c-sub-cons">New Arrival This Week</span>
+    </div>
+
+    <div class="container-fluid mb-3">
         <div class="row c-padding-header">
             <?php if ($rand_image): ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
@@ -74,8 +80,8 @@ include "layout/Menu.php";
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h2 class="">Produk Terbaru</h2>
-        <span class="text-muted c-sub-cons">Produk terbaru kami minggu ini</span>
+        <h2 class="">Best Seller</h2>
+        <span class="text-muted c-sub-cons">Best Seller on This Month</span>
     </div>
 
 
@@ -125,17 +131,17 @@ include "layout/Menu.php";
                                              src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                              alt="No Image">
                                     <?php endif; ?>
-                                    <div class="middle">
-                                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
-                                           class="c-view-text">Quick View</a>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <i class="fa fa-star c-star m-0"></i>
-                                    <i class="fa fa-star c-star m-0"></i>
-                                    <i class="fa fa-star c-star m-0"></i>
-                                    <i class="fa fa-star c-star m-0"></i>
-                                    <i class="fa fa-star c-star m-0"></i>
+<!--                                    <div class="middle">-->
+<!--                                        <a href=""-->
+<!--                                           class="c-view-text">Quick View</a>-->
+<!--                                    </div>-->
+
+                                <div class="card-body text-center">
+<!--                                    <i class="fa fa-star c-star m-0"></i>-->
+<!--                                    <i class="fa fa-star c-star m-0"></i>-->
+<!--                                    <i class="fa fa-star c-star m-0"></i>-->
+<!--                                    <i class="fa fa-star c-star m-0"></i>-->
+<!--                                    <i class="fa fa-star c-star m-0"></i>-->
                                     <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
                                     <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                         <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
@@ -144,10 +150,11 @@ include "layout/Menu.php";
                                     <?php endif; ?>
                                     <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
                                        class="btn btn-csr c-cart c-cart-p">
-                                        <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
+                                        <i class="fa fa-shopping-cart c-cart-i mr-1"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
                                     </a>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
@@ -223,7 +230,8 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h3 class=""># FOLLOW US ON INSTAGRAM</h3>
-        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward @kuze.co</span>
+        <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x c-ig-color"></i></a>
+        <span class="text-muted c-sub-cons">@kuze.co</span>
     </div>
 
 
@@ -302,15 +310,15 @@ include "layout/Menu.php";
 
     <!-- ======= Store Info ======= -->
     <div class="container-fluid c-padding-media ">
-        <div class="row">
+        <div class="row ">
             <div class="col-lg-3 col-md-12">
-                <div class="media">
-                    <div class="fa fa-plane c-icon-bot"></div>
-                    <div class="media-body c-padding-media-body">
-                        <h5 class="mt-0">FREE SHIPING</h5>
-                        <p>Free shipping on all Local Area order above $100</p>
-                    </div>
-                </div>
+<!--                <div class="media">-->
+<!--                    <div class="fa fa-plane c-icon-bot"></div>-->
+<!--                    <div class="media-body c-padding-media-body">-->
+<!--                        <h5 class="mt-0">FREE SHIPING</h5>-->
+<!--                        <p>Free shipping on all Local Area order above $100</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
                 <div class="media">
@@ -325,19 +333,19 @@ include "layout/Menu.php";
                 <div class="media">
                     <div class="fa fa-refresh c-icon-bot"></div>
                     <div class="media-body c-padding-media-body">
-                        <h5 class="mt-0">45 DAYS RETURN</h5>
-                        <p>Product any fault within 45 days for an exchange</p>
+                        <h5 class="mt-0">7 DAYS RETURN</h5>
+                        <p>Product any fault within 7 days for an exchange</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-12">
-                <div class="media">
-                    <div class="fa fa-money c-icon-bot"></div>
-                    <div class="media-body c-padding-media-body">
-                        <h5 class="mt-0">PAYMENT SECURE</h5>
-                        <p>We ensure 100% secure payment with SecurionPay</p>
-                    </div>
-                </div>
+<!--                <div class="media">-->
+<!--                    <div class="fa fa-money c-icon-bot"></div>-->
+<!--                    <div class="media-body c-padding-media-body">-->
+<!--                        <h5 class="mt-0">PAYMENT SECURE</h5>-->
+<!--                        <p>We ensure 100% secure payment with SecurionPay</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

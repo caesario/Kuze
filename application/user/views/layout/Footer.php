@@ -13,7 +13,12 @@
 <!-- ======= Footer ======= -->
 <div class="container-fluid c-padding-header c-footer c-both">
     <div class="row">
-        <div class="col-lg-5 col-md-6 col-sm-12 c-margin-bot">
+        <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
+            <h5 class="c-judul-footer">Kuze Original</h5>
+                <ul class="c-ul-footer">
+                    <li><a href="<?= site_url(''); ?>">About Us</a></li>
+                    <li><a href="<?= site_url(''); ?>">Contact </a></li>
+                </ul>
 <!--            --><?php //if ($logo != NULL): ?>
 <!--                <img src="--><?//= base_url('upload/' . $logo); ?><!--" width="150" height="80"-->
 <!--                     class="img-fluid mx-auto d-block"-->
@@ -58,6 +63,15 @@
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
+            <h5 class="c-judul-footer">Help</h5>
+            <ul class="c-ul-footer">
+                <li><a href="<?= site_url(''); ?>">Shipping Information</a></li>
+                <li><a href="<?= site_url(''); ?>">How to Order</a></li>
+                <li><a href="<?= site_url(''); ?>">Lookbook</a></li>
+                <li><a href="<?= site_url(''); ?>">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="col-lg col-md-6 col-sm-6">
             <p class="c-text-payment">We are support gateway</p>
             <img style="width:120px;" src="assets/img/BCA-Kuze.png" alt="">
 <!--            <p class="c-text-secure">Secure Payment</p>-->
@@ -74,7 +88,7 @@
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
     <p class="c-footer-copy">Copyright © All right reserved EazyDev.</p>
     <a href="mailto:<?= $email; ?>" target="_blank"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
-    <a href="https://www.instagram.com/kuze.co<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+    <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
     <a href="https://wa.me/62<?= $whatsapp; ?>" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
 </div>
 

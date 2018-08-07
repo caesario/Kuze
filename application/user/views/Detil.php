@@ -62,24 +62,26 @@ include "layout/Menu.php";
                                 <i class="fa fa-star c-star m-0"></i>
                             </div>
                         </div>
-                        <div class="row">
-                                <div class="col c-detail-des"> <?= $item->i_deskripsi; ?></div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col">
                                 <div class="c-detail-price">
                                     <input type="hidden" name="harga"
                                            value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
                                     <p id="rupiah"
-                                        class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
+                                       class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
+                                <div class="col c-detail-des"> <?= $item->i_deskripsi; ?></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-lg-4 col-md-12">
-                                <label for="wu" class="c-detil-add">Color & Size</label>
+                                <label for="wu" class="c-detil-add">Size</label>
                                 <select name="wu" id="wu" class="custom-select mr-sm-2 form-control" required>
                                     <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
                                         <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>"
@@ -91,11 +93,10 @@ include "layout/Menu.php";
 
                                 </select>
                             </div>
-                            <div class="col-lg-2 col-md-12">
-                                <label for="stok" class="c-detil-add">Stok</label>
-                                <input class="form-control" type="number" name="stok" id="stok" disabled>
-
-                            </div>
+<!--                            <div class="col-lg-2 col-md-12">-->
+<!--                                <label for="stok" class="c-detil-add">Stok</label>-->
+<!--                                <input class="form-control" type="number" name="stok" id="stok" disabled>-->
+<!--                            </div>-->
                             <div class="col-lg-2 col-md-12">
                                 <div class="form-group">
                                     <label for="qty" class="c-detil-add">QTY</label>
@@ -106,7 +107,7 @@ include "layout/Menu.php";
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-8 col-md-12">
+                            <div class="col-lg-6 col-md-12">
                                 <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
                                             class="fa fa-shopping-cart mr-2"></i>Buy Product
                                 </button>
@@ -158,9 +159,9 @@ include "layout/Menu.php";
                             <i class="fa fa-star c-star m-0"></i>
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                <h5 id="rupiah" class="c-price">RP <?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_vip; ?></h5>
                             <?php else: ?>
-                                <h5 id="rupiah" class="c-price">RP <?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_vip; ?></h5>
                             <?php endif; ?>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">

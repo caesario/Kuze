@@ -71,7 +71,21 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url('kategori'); ?>">Kategori</a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">New Arrival</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Best Seller</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Sale Item</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('blog'); ?>">Event</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">How to Order</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
