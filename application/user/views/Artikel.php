@@ -56,7 +56,7 @@ include "layout/Menu.php";
 
             <!-- ======= Side Kanan ======= -->
             <div class="col-lg-8 col-sm-12 ml-lg-5">
-                <div class="card mb-4">
+                <div class="card border-0 mb-4">
                     <div class="card-body pt-1">
                         <h4 class="card-title mb-2">Special title treatment</h4>
                         <p class="c-text-footer m-0">December 1, 2018</p>
