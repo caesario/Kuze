@@ -21,31 +21,29 @@ include "layout/Menu.php";
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
-                               class="list-group-item list-group-item-action ">Profil</a>
+                               class="list-group-item list-group-item-action ">My Profile</a>
                             <a href="<?= site_url('profil_password'); ?>"
                                class="list-group-item list-group-item-action ">
-                                Ubah Password
+                                Change Password
                             </a>
-                            <a href="<?= site_url('alamat_profil'); ?>" class="list-group-item list-group-item-action ">Alamat</a>
-                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action ">Transaksi
-                                Tertunda</a>
-                            <a href="<?= site_url('order_history'); ?>"
-                               class="list-group-item list-group-item-action c-profil-active">Riwayat Transaksi</a>
-                            <a href="<?= site_url('resi'); ?>" class="list-group-item list-group-item-action">Laporan
-                                Resi</a>
+                            <a href="<?= site_url('alamat_profil'); ?>"
+                               class="list-group-item list-group-item-action ">Address</a>
+                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Pending Orders</a>
+                            <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action  c-profil-active">Order History</a>
+                            <a href="<?= site_url('resi'); ?>" class="list-group-item list-group-item-action">Airwaybill Report</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9">
-                <h5>Riwayat Pesanan</h5>
+                <h5>Order History</h5>
                 <div class="table-responsive mt-2">
                     <table class="table table-sm table-borderless" id="table">
                         <thead>
                         <tr>
-                            <th>ID Pesanan</th>
-                            <th>Detail Pesanan</th>
-                            <th>Aksi</th>
+                            <th>Order ID</th>
+                            <th>Order Detail</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,31 +54,31 @@ include "layout/Menu.php";
                                         <?= $order->orders_noid; ?>
                                     </td>
                                     <td class="align-middle">
-                                        <b>Tanggal Order :</b><br>
+                                        <b>Date :</b><br>
                                         <?= $order->created_at; ?>
                                         <br>
-                                        <b>Total Harga :</b><br>
+                                        <b>Total Price :</b><br>
                                         <div id="rupiah"><?= $order->total; ?></div>
                                         <br>
                                         <b>Status :</b><br>
                                         <?php if ($order->orders_status == 0): ?>
-                                            <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
+                                            <div class="text-warning">YOU NEED TO FILL THE ADDRESS</div>
                                         <?php elseif ($order->orders_status == 1): ?>
-                                            <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN</div>
+                                            <div class="text-warning">YOU NEED TO FILL SHIPPING & PAYMENT METHOD</div>
                                         <?php elseif ($order->orders_status == 2): ?>
-                                            <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN</div>
+                                            <div class="text-success">YOU NEED TO CONFIRM YOUR PAYMENT</div>
                                         <?php elseif ($order->orders_status == 3): ?>
-                                            <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
+                                            <div class="text-success">ON PROCESS</div>
                                         <?php elseif ($order->orders_status == 4): ?>
-                                            <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
+                                            <div class="text-success">ON PROCESS</div>
                                         <?php elseif ($order->orders_status == 5): ?>
-                                            <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
+                                            <div class="text-success">ON PROCESS</div>
                                         <?php elseif ($order->orders_status == 6): ?>
-                                            <div class="text-success">SUKSES (Telah dikirim)</div>
+                                            <div class="text-success">SUCCESS (Telah dikirim)</div>
                                         <?php elseif ($order->orders_status == 7): ?>
-                                            <div class="text-danger">BATAL</div>
+                                            <div class="text-danger">CANCEL</div>
                                         <?php endif; ?>
-                                        <b>Deskripsi :</b><br>
+                                        <b>Description :</b><br>
                                         <div class="text-danger">
                                             <?= $order->orders_deskripsi; ?>
                                         </div>
@@ -96,17 +94,17 @@ include "layout/Menu.php";
                                         <?php if ($order->orders_status == 0): ?>
                                             <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Proses
+                                                <i class="fas fa-sync mr-2"></i>Process
                                             </a>
                                         <?php elseif ($order->orders_status == 1): ?>
                                             <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/ongkir_transfer'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Proses
+                                                <i class="fas fa-sync mr-2"></i>Process
                                             </a>
                                         <?php elseif ($order->orders_status == 2): ?>
                                             <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('checkout/' . $order->orders_noid . '/konfirmasi_pembayaran'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Proses
+                                                <i class="fas fa-sync mr-2"></i>Process
                                             </a>
                                         <?php else: ?>
                                             <i></i>

@@ -148,7 +148,7 @@ class Auth extends MY_Controller
 
 
         if ($sender OR $pengguna_insert) {
-            $this->data->berhasil = 'Silahkan cek email untuk aktivasi akun anda atau login.';
+            $this->data->berhasil = 'Your account has been successfully created.';
             $this->session->set_flashdata('berhasil', $this->data->berhasil);
         } else {
 
@@ -220,7 +220,7 @@ class Auth extends MY_Controller
 
                 redirect('/');
             } else {
-                $this->data->log = 'Username atau Password salah.';
+                $this->data->log = 'Incorrect username or password.';
                 $this->load->view('Login', $this->data);
             }
         }

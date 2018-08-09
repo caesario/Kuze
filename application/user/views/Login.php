@@ -3,7 +3,7 @@ include "layout/Header.php";
 ?>
 
     <div class="-fluid c-head-login">
-        <a href="<?= site_url('/') ?>" class="c-kembali ml-2"><i class="fa fa-arrow-left"></i> Kembali</a>
+        <a href="<?= site_url('/') ?>" class="c-kembali ml-2"><i class="fa fa-arrow-left"></i> Back To Home Page</a>
     </div>
 <?php if (isset($log) && $log != ""): ?>
     <p class="text-danger text-center"><?= $log; ?></p>
@@ -56,8 +56,8 @@ include "layout/Header.php";
     <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
     <p class="c-footer-copy">Copyright  © All right reserved  EazyDev.</p>
     <a href="mailto:<?= $email; ?>"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
-    <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fa fa-instagram fa-2x"></i></a>
-    <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fa fa-whatsapp fa-2x"></i></a>
+    <a href="https://www.instagram.com/<?= $instagram; ?>"><i class="fab fa-instagram fa-2x"></i></a>
+    <a href="https://wa.me/62<?= $whatsapp; ?>"><i class="fab fa-whatsapp fa-2x"></i></a>
 </div>
 </body>
 </html>
