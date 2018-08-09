@@ -22,7 +22,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item" href="">Order Detail</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('Konfirmasi'); ?>">Confirmation</a>
             </nav>
         </div>
     </div>

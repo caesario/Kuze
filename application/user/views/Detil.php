@@ -116,7 +116,7 @@ include "layout/Menu.php";
                     </form>
                     <?php else: ?>
                         <div class="col">
-                            <h2 class="text-center text-muted">Item tidak ditemukan</h2>
+                            <h2 class="text-center text-muted">No Item found</h2>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -155,9 +155,9 @@ include "layout/Menu.php";
 <!--                            <i class="fa fa-star c-star m-0"></i>-->
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_vip; ?></h5>
                             <?php else: ?>
-                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_reseller; ?></h5>
+                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_reseller; ?></h5>
                             <?php endif; ?>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
@@ -212,7 +212,7 @@ include "layout/Menu.php";
                 $(o).text(arr[i].t);
                 $(o).attr('data-qty', arr[i].q);
             });
-            $("#wu").prepend("<option value='' selected='selected'>Select Color & Size</option>");
+            $("#wu").prepend("<option value='' selected='selected'>Select Size</option>");
         })
     </script>
 

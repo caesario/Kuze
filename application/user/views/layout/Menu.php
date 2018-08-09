@@ -69,22 +69,22 @@
                                     <a class="nav-link c-dropdown" href="<?= base_url(''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Categori</a>
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">New Arrival</a>
+                                    <a class="nav-link" href="<?= base_url('new_arrival'); ?>">New Arrival</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Best Seller</a>
+                                    <a class="nav-link" href="<?= base_url('best_seller'); ?>">Best Seller</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Sale Item</a>
+                                    <a class="nav-link" href="<?= base_url('sale_item'); ?>">Sale Item</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url('blog'); ?>">Event</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">How to Order</a>
+                                    <a class="nav-link" href="<?= base_url('hot_to_order'); ?>">How to Order</a>
                                 </li>
                             </ul>
                         </div>

@@ -57,7 +57,7 @@
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
-                <li><a href="<?= site_url('resi'); ?>">Laporan Resi</a></li>
+                <li><a href="<?= site_url('resi'); ?>">Airway Bill Report</a></li>
                 <li><a href="<?= site_url('pending'); ?>">Order Status</a></li>
                 <li><a href="<?= site_url('riwayat'); ?>">Order History</a></li>
             </ul>
@@ -85,8 +85,8 @@
 
 <!-- ======= Copyright by EazyDev Team ======= -->
 <div class="container-fluid c-padding-header text-center c-padding-footer">
-    <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT WITH UPS</h6>
-    <p class="c-footer-copy">Copyright © All right reserved EazyDev.</p>
+    <h6 class="f-footer-bot">TRUSTED AND SECURE PAYMENT</h6>
+    <p class="c-footer-copy">Copyright © 2018 KuzeOriginal | Dev by EazyDev.</p>
     <a href="mailto:<?= $email; ?>" target="_blank"><i class="fab fa-line fa-2x f-sosmed mr-2"></i></a>
     <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
     <a href="https://wa.me/62<?= $whatsapp; ?>" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
@@ -121,11 +121,7 @@
     $('[id="title"]').ellipsis();
 </script>
 <script>
-    $('#table').DataTable({
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
-        }
-    });
+    $('#table').DataTable();
 </script>
 <?php if (isset($_SESSION['modal'])): ?>
     <script>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kategori extends MY_Controller
+class Sale_item extends MY_Controller
 {
     public function __construct()
     {
@@ -11,9 +11,9 @@ class Kategori extends MY_Controller
     public function index()
     {
         $this->data->items = $this->item->limit(10)->get_all();
-        $this->data->breadcumburl = site_url('kategori');
-        $this->data->breadcumb = 'Category';
-        $this->load->view('Kategori', $this->data);
+        $this->data->breadcumburl = site_url('Sale_item');
+        $this->data->breadcumb = 'Sale Item';
+        $this->load->view('Sale_item', $this->data);
     }
 
     public function get_item_all()

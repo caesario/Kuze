@@ -5,7 +5,7 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Kategori Pesanan ======= -->
     <div class="wrapper-cart mb-0">
-        <h5 class="text-center c-title-cart">Category</h5>
+        <h5 class="text-center c-title-cart">Sale Item</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <p>
 
