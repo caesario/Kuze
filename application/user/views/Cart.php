@@ -109,16 +109,17 @@ include "layout/Menu.php";
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">KODE PROMO</h5>
-            <div class="form-group">
+            <form action="<?= site_url('cart'); ?>" method="get" class="form-group">
 
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Masukkan Kode Voucher" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <a href="" class="btn btn-kupon btn-csr">Gunakan</a>
-                        </div>
+                <div class="input-group mb-3">
+                    <input name="kode_promo" type="text" class="form-control" placeholder="Masukan Kode Voucher"
+                           aria-label="Masukan Kode Voucher" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-kupon btn-csr">Gunakan</button>
                     </div>
+                </div>
 
-            </div>
+            </form>
         </div>
     </div>
     <br>

@@ -76,21 +76,21 @@ if ($submit == 'Ubah') {
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="hrg_reseller">Harga Reseller</label>
+                                <label for="hrg_reseller">Harga</label>
                                 <input type="number" class="form-control" min="1000" name="hrg_reseller"
                                        placeholder="Input Hrg Reseller"
                                        value="<?= $hrg_reseller; ?>" required>
                             </div>
                         </div>
 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="hrg_vip">Harga VIP</label>
-                                <input type="number" class="form-control" min="1000" name="hrg_vip"
-                                       placeholder="Input Hrg VIP"
-                                       value="<?= $hrg_vip; ?>" required>
-                            </div>
-                        </div>
+                        <!--                        <div class="col-12">-->
+                        <!--                            <div class="form-group">-->
+                        <!--                                <label for="hrg_vip">Harga VIP</label>-->
+                        <!--                                <input type="number" class="form-control" min="1000" name="hrg_vip"-->
+                        <!--                                       placeholder="Input Hrg VIP"-->
+                        <!--                                       value="--><? //= $hrg_vip; ?><!--" required>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
 
                         <div class="col-12">
                             <div class="form-group">
@@ -117,7 +117,6 @@ if ($submit == 'Ubah') {
                 <table class="table table-sm" id="tabel">
                     <thead>
                     <tr>
-                        <th scope="col">Warna</th>
                         <th scope="col">Ukuran</th>
                         <th scope="col">QTY</th>
                         <th scope="col"></th>
@@ -125,13 +124,6 @@ if ($submit == 'Ubah') {
                     </thead>
                     <tbody>
                     <tr>
-                        <td>
-                            <select name="warna[]" id="warna" class="form-control small" required>
-                                <?php foreach ($this->warna->get_all() as $katwarna): ?>
-                                    <option value="<?= $katwarna->w_kode; ?>"><?= $katwarna->w_nama; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
                         <td>
                             <select name="ukuran[]" id="ukuran" class="form-control small" required>
                                 <option value="S">S</option>

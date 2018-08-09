@@ -4,14 +4,14 @@
         <div class="col-12 text-right px-0">
             <?php if (isset($_SESSION['id'])): ?>
                 <a class="alert-link f-link c-header-a" href="<?= site_url('order_status'); ?>">
-                    Status Order
+                    Order Status
                 </a>
                 | <a class="alert-link f-link c-header-a" href="<?= site_url('order_history'); ?>">
-                    Riwayat Pesanan
+                    Order History
                 </a>
             <?php endif; ?>
             <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                | Hallo<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                | Hello<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
                     <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
                 </a>
                 | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
@@ -47,7 +47,7 @@
                 <div class="row mt-lg-1 mt-2">
                     <form class="form-inline my-2 my-lg-0 col-12 m-auto" action="<?= site_url('cari'); ?>" method="get">
                         <div class="input-group col-12 px-0">
-                            <input class="form-control" type="text" placeholder="Cari Produk"
+                            <input class="form-control" type="text" placeholder="Search"
                                    aria-label="Search" id="cari" name="cari" autocomplete="off">
                             <div class="input-group-addon">
                                 <button class="btn btn-search-color f-btn-search" type="submit" style=""
@@ -69,9 +69,23 @@
                                     <a class="nav-link c-dropdown" href="<?= base_url(''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Kategori</a>
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Categori</a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">New Arrival</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Best Seller</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">Sale Item</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('blog'); ?>">Event</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('kategori'); ?>">How to Order</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
