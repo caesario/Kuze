@@ -5,16 +5,16 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">METODE PENGIRIMAN & Pembayaran</h5>
+        <h5 class="text-center c-title-cart">Payment & Shipping Method</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Keranjang</a>
+                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Cart</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('Alamat'); ?>">Alamat</a>
+                <a class="breadcrumb-item " href="<?= site_url('Alamat'); ?>">Address</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('Metode_pengiriman'); ?>">Metode Pengiriman</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('Metode_pengiriman'); ?>">Method</a>
             </nav>
         </div>
     </div>
@@ -29,7 +29,7 @@ include "layout/Menu.php";
                     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <input type="hidden" name="orders_noid" value="<?= $orders->orders_noid; ?>">
                     <input type="hidden" name="nomor_order" value="<?= $this->uri->segment(2); ?>">
-                    <h6>Pilih Metode Pengiriman</h6>
+                    <h6>Shipping Method</h6>
                     <?php foreach ($pengiriman as $k1): ?>
                         <?php $nama = $k1->name; ?>
                         <?php foreach ($k1->costs as $k2): ?>
@@ -56,7 +56,7 @@ include "layout/Menu.php";
                     <br>
 
 
-                    <h6>Pilih Metode Pembayaran</h6>
+                    <h6>Payment Method</h6>
                     <?php if ($bank_opsi() === true): ?>
                         <?php if ($bank_s() != NULL): ?>
                             <?php foreach ($bank_s() as $bank): ?>
@@ -73,7 +73,7 @@ include "layout/Menu.php";
                             <?php endforeach; ?>
                         <?php endif; ?>
                     <?php else: ?>
-                        <p class="text-danger">Admin belum menentukan metode pembayaran.</p>
+                        <p class="text-danger">Admin has not determined the payment method.</p>
                     <?php endif; ?>
                     <br>
                     <input type="hidden" name="bank_id" id="bank_id">

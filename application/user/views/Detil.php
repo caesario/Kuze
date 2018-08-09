@@ -127,7 +127,7 @@ include "layout/Menu.php";
     <br>
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h3 class="">Hot Item</h3>
+        <h3 class="">- Hot Item -</h3>
     </div>
 
 
@@ -146,26 +146,22 @@ include "layout/Menu.php";
                                      src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                      alt="No Image">
                             <?php endif; ?>
-                            <div class="middle">
-                                <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
-                                   class="c-view-text">Quick View</a>
-                            </div>
                         </a>
-                        <div class="card-body">
-                            <i class="fa fa-star c-star m-0"></i>
-                            <i class="fa fa-star c-star m-0"></i>
-                            <i class="fa fa-star c-star m-0"></i>
-                            <i class="fa fa-star c-star m-0"></i>
-                            <i class="fa fa-star c-star m-0"></i>
+                        <div class="card-body text-center">
+<!--                            <i class="fa fa-star c-star m-0"></i>-->
+<!--                            <i class="fa fa-star c-star m-0"></i>-->
+<!--                            <i class="fa fa-star c-star m-0"></i>-->
+<!--                            <i class="fa fa-star c-star m-0"></i>-->
+<!--                            <i class="fa fa-star c-star m-0"></i>-->
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                 <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_vip; ?></h5>
                             <?php else: ?>
-                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_vip; ?></h5>
+                                <h5 id="rupiah" class="c-price">IDR <?= $hot->i_hrg_reseller; ?></h5>
                             <?php endif; ?>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
-                                <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
+                                <i class="fa fa-plus c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
                             </a>
                         </div>
                     </div>

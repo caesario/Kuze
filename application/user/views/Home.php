@@ -158,7 +158,7 @@ include "layout/Menu.php";
                                     <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                         <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
                                     <?php else: ?>
-                                        <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg_vip; ?></h5>
+                                        <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg_resseler; ?></h5>
                                     <?php endif; ?>
                                     <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
                                        class="btn btn-csr c-cart c-cart-p">

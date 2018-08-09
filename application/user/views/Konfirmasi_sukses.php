@@ -18,7 +18,7 @@ include "layout/Menu.php";
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item" href="">Detail Pesanan</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('Konfirmasi'); ?>">Konfirmasi</a>
+                <a class="breadcrumb-item " href="<?= site_url('Konfirmasi'); ?>">Confirmation</a>
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item active-bread" href="<?= site_url('Konfirmasi_sukses'); ?>">Konfirmasi Sukses</a>
             </nav>

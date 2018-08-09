@@ -1,6 +1,6 @@
 <div class="row small">
     <div class="col text-center c-modal-col">
-        <p class="text-center r-pink f-size"><i class="fa fa-check-circle fa-5x"></i> <br> Berhasil menambah item kedalam keranjang</p>
+        <p class="text-center r-pink f-size"><i class="fa fa-check-circle fa-5x"></i> <br> Successfully Add Items to Cart</p>
     </div>
 </div>
 <hr style="padding: 0; margin: 0">
@@ -75,10 +75,9 @@
 <hr>
 <div class="row small">
     <div class="col mb-1">
-        <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block c-modal-clr">Lanjutkan Belanja</a>
+        <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block c-modal-clr">Countinue Shopping</a>
     </div>
     <div class="col">
-        <a href="<?= site_url('cart'); ?>" class="btn btn-sm  btn-block c-modal-clr">Proses
-            Pembayaran</a>
+        <a href="<?= site_url('cart'); ?>" class="btn btn-sm  btn-block c-modal-clr">Checkout</a>
     </div>
 </div>

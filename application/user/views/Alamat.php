@@ -5,14 +5,14 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Checkout ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">ALAMAT PENGIRIMAN</h5>
+        <h5 class="text-center c-title-cart">ADDRESS SHIPPING</h5>
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Keranjang</a>
+                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Cart</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('Alamat'); ?>">Alamat</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('Alamat'); ?>">Address</a>
             </nav>
         </div>
     </div>
@@ -23,7 +23,7 @@ include "layout/Menu.php";
         <div class="container-fluid f-padding">
             <div class="row">
                 <div class="col-lg-9 col-md-9 c-margin-auto">
-                    <h5 class="mb-4">DETAIL ALAMAT</h5>
+                    <h5 class="mb-4">ADDRESS DETAIL</h5>
                     <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <input type="hidden" name="alamat_simpan" id="alamat_simpan">
@@ -32,7 +32,7 @@ include "layout/Menu.php";
                                 <div class="form-check pl-0">
                                     <input class="form-check-input d-none" type="checkbox" name="alamat_exist" value="true" id="alamat_exist">
                                     <label class="form-check-label" for="alamat_exist">
-                                        <h5 class=""><i class="fa fa-address-book text-center" style="width:30px;"></i> Pilih Alamat Yang Ada</h5>
+                                        <h5 class=""><i class="fa fa-address-book text-center" style="width:30px;"></i> Choose an existing address</h5>
                                     </label>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ include "layout/Menu.php";
                                 <div class="form-check pl-0">
                                     <input class="form-check-input d-none" type="checkbox" value="true" id="check_dropship">
                                     <label class="form-check-label" for="check_dropship">
-                                        <h5 class=""><i class="fa fa-cart-arrow-down text-center" style="width:30px;"></i> Dropship Pesanan</h5>
+                                        <h5 class=""><i class="fa fa-cart-arrow-down text-center" style="width:30px;"></i> Dropship Order</h5>
                                     </label>
                                 </div>
                             </div>
@@ -55,14 +55,14 @@ include "layout/Menu.php";
                 <div id="pengirim" style="display: none;">
                     <div class="row form-group">
                         <div class="col">
-                            <label for="nama_pengirim">Nama Pengirim</label>
+                            <label for="nama_pengirim">Shipper</label>
                             <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control"
-                                   placeholder="Nama Pengirim">
+                                   placeholder="Shipper Name">
                         </div>
                         <div class="col-lg-6 col-sm-12"">
-                        <label for="kontak_pengirim">Nomor Telp. Pengirim</label>
+                        <label for="kontak_pengirim">Phone</label>
                         <input type="number" name="kontak_pengirim" id="kontak_pengirim" class="form-control"
-                               placeholder="Kontak Pengirim">
+                               placeholder="Shipper Phone">
                     </div>
                 </div>
                 <hr class="mb-4 mt-4">
@@ -70,25 +70,25 @@ include "layout/Menu.php";
 
             <div class="row form-group">
                 <div class="col-lg-6 col-sm-12 mb-2">
-                    <label for="nama_penerima">Nama Penerima</label>
+                    <label for="nama_penerima">Recipient</label>
                     <input type="text" name="nama_penerima" id="nama_penerima" class="form-control"
-                           placeholder="Nama Penerima">
+                           placeholder="Recipient Name">
                 </div>
                 <div class="col-lg-6 col-sm-12">
-                <label for="kontak_penerima">Nomor Telp. Penerima</label>
+                <label for="kontak_penerima">Phone</label>
                 <input type="text" name="kontak_penerima" id="kontak_penerima" class="form-control"
-                       placeholder="Kontak Penerima">
+                       placeholder="Recipient Phone">
             </div>
 
         </div>
         <div class="row form-group">
             <div class="col-lg-6 col-sm-12">
-                <label for="provinsi">Provinsi</label>
+                <label for="provinsi">Province</label>
                 <select name="provinsi" id="provinsi" class="provinsi form-control" required>
                 </select>
             </div>
             <div class="col-lg-6 col-sm-12">
-                <label for="kabupaten">Kabupaten / Kota</label>
+                <label for="kabupaten">City</label>
                 <select name="kabupaten" id="kabupaten" class="kabupaten form-control" required>
                 </select>
             </div>
@@ -96,12 +96,12 @@ include "layout/Menu.php";
 
         <div class="row form-group">
             <div class="col-lg-6 col-sm-12">
-                <label for="kecamatan">Kecamatan</label>
+                <label for="kecamatan">District</label>
                 <select name="kecamatan" id="kecamatan" class="kecamatan form-control" required>
                 </select>
             </div>
             <div class="col-lg-6 col-sm-12">
-                <label for="kelurahan">Kelurahan / Desa</label>
+                <label for="kelurahan">Village</label>
                 <select name="kelurahan" id="kelurahan" class="kelurahan form-control" required>
                 </select>
             </div>
@@ -109,16 +109,16 @@ include "layout/Menu.php";
 
         <div class="row form-group">
             <div class="col-lg-3 col-sm-12">
-                <label for="kodepos">Kode Pos</label>
+                <label for="kodepos">Pos Code</label>
                 <input name="kodepos" id="kodepos" type="number"
-                       class="form-control" placeholder="Kode Pos" required>
+                       class="form-control" placeholder="Pos Code" required>
             </div>
         </div>
         <div class="row form-group">
             <div class="col">
-                <label class="f-test" for="alamat">Alamat Lengkap</label>
+                <label class="f-test" for="alamat">Address</label>
                 <textarea name="alamat" id="alamat" class="form-control"
-                          placeholder="Nama Gedung, Jalan, dan lainnya"
+                          placeholder="Building, Street, ect."
                           required></textarea>
             </div>
         </div>
@@ -128,7 +128,7 @@ include "layout/Menu.php";
                         type="button"
                         data-toggle="modal"
                         data-target="#lanjut"
-                        class="btn btn-csr c-btn-cart mt-3">Lanjutkan Metode Pembayaran
+                        class="btn btn-csr c-btn-cart mt-3">Payment Method
                 </button>
                 <br>
                 <button type="reset" class="btn btn-csr c-btn-cart mt-3">Reset</button>
@@ -143,11 +143,11 @@ include "layout/Menu.php";
         <div class="modal-dialog modal-dialog-centered " role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h5>Apakah ingin menyimpan alamat ini?</h5>
+                    <h5>Do you want to save this address?</h5>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-csr c-btn-cart" onclick="simpan_iya()">Iya</button>
-                    <button class="btn btn-csr c-btn-cart" onclick="simpan_tidak()">Tidak</button>
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_iya()">Yes</button>
+                    <button class="btn btn-csr c-btn-cart" onclick="simpan_tidak()">No</button>
                 </div>
             </div>
         </div>
@@ -160,7 +160,7 @@ include "layout/Menu.php";
         $(document).ready(function () {
             $('#provinsi').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih provinsi',
+                placeholder: 'Choose Province',
                 ajax: {
                     url: '<?= site_url('API/get_provinsi'); ?>',
                     dataType: 'json',
@@ -174,7 +174,7 @@ include "layout/Menu.php";
             });
             $('#kabupaten').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kabupaten',
+                placeholder: 'Choose City',
                 ajax: {
                     url: '<?= site_url('API/get_kabupaten'); ?>',
                     dataType: 'json',
@@ -189,7 +189,7 @@ include "layout/Menu.php";
             });
             $('#kecamatan').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kecamatan',
+                placeholder: 'Choose Distric',
                 ajax: {
                     url: '<?= site_url('API/get_kecamatan'); ?>',
                     dataType: 'json',
@@ -204,7 +204,7 @@ include "layout/Menu.php";
             });
             $('#kelurahan').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kelurahan / desa',
+                placeholder: 'Choose Village',
                 ajax: {
                     url: '<?= site_url('API/get_kelurahan'); ?>',
                     dataType: 'json',
@@ -225,7 +225,7 @@ include "layout/Menu.php";
 
             $('#pilih_alamat').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih alamat',
+                placeholder: 'Choose Address',
                 ajax: {
                     url: '<?= site_url('API/get_alamat'); ?>',
                     dataType: 'json',

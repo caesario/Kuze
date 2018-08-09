@@ -5,13 +5,13 @@ include "layout/Menu.php";
 
     <!-- ======= Banner Cart ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">KERANJANG</h5>
+        <h5 class="text-center c-title-cart">Cart</h5>
 
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Keranjang</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Cart</a>
             </nav>
         </div>
     </div>
@@ -53,10 +53,10 @@ include "layout/Menu.php";
         <table class="table table-responsive-md table-bordered c-table-vertical">
             <tr>
                 <th class="c-table-thumbnail"></th>
-                <th class="c-table-name">Nama Produk</th>
+                <th class="c-table-name">Product Name</th>
                 <!--                <th class="c-table-code text-center">Code</th>-->
-                <th class="c-table-price text-center">Harga</th>
-                <th class="c-table-quantity text-center">Jumlah</th>
+                <th class="c-table-price text-center">Price</th>
+                <th class="c-table-quantity text-center">Quantity</th>
                 <th class="c-table-total text-center">Total</th>
                 <td class="c-table-del text-center"><i class="fa fa-times"></i></td>
             </tr>
@@ -108,14 +108,14 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
-            <h5 class="c-title-cart-total">KODE PROMO</h5>
+            <h5 class="c-title-cart-total">Promo Code</h5>
             <form action="<?= site_url('cart'); ?>" method="get" class="form-group">
 
                 <div class="input-group mb-3">
-                    <input name="kode_promo" type="text" class="form-control" placeholder="Masukan Kode Voucher"
+                    <input name="kode_promo" type="text" class="form-control" placeholder="Enter Promo Code"
                            aria-label="Masukan Kode Voucher" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-kupon btn-csr">Gunakan</button>
+                        <button type="submit" class="btn btn-kupon btn-csr">Use Code</button>
                     </div>
                 </div>
 
@@ -128,11 +128,11 @@ include "layout/Menu.php";
     <!-- ======= Total Cart ======= -->
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
-            <h5 class="c-title-cart-total">CART TOTALS</h5>
+            <h5 class="c-title-cart-total">Shopping Summary</h5>
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th class="c-table-cart-total p-1 pl-4">Subtotal</th>
+                    <th class="c-table-cart-total p-1 pl-4">Total Price</th>
                     <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total($_SESSION['id']); ?></span></td>
                 </tr>
                 <tr>
@@ -140,7 +140,7 @@ include "layout/Menu.php";
                     <td><span class="c-price-cart-3 pl-3">-</span></td>
                 </tr>
                 <tr>
-                    <th class="p-1 pl-4">Lain-lain</th>
+                    <th class="p-1 pl-4">Other</th>
                     <td><span class="c-price-cart-3 pl-3">-</span></td>
                 </tr>
 
@@ -151,8 +151,7 @@ include "layout/Menu.php";
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">LANJUTKAN KE
-                ALAMAT</a>
+            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address Shipping</a>
         </div>
     </div>
 
