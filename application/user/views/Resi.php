@@ -19,31 +19,30 @@ include "layout/Menu.php";
                 </div> -->
                 <div class="col-12">
                     <div class="list-group mb-4">
-                        <a href="<?= site_url('profil'); ?>" class="list-group-item list-group-item-action ">Profil</a>
+                        <a href="<?= site_url('profil'); ?>"
+                           class="list-group-item list-group-item-action ">My Profile</a>
                         <a href="<?= site_url('profil_password'); ?>"
                            class="list-group-item list-group-item-action ">
-                            Ubah Password
+                            Change Password
                         </a>
-                        <a href="<?= site_url('alamat_profil'); ?>" class="list-group-item list-group-item-action ">Alamat</a>
-                        <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action ">Transaksi
-                            Tertunda</a>
-                        <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action">Riwayat
-                            Transaksi</a>
-                        <a href="<?= site_url('resi'); ?>"
-                           class="list-group-item list-group-item-action c-profil-active">Laporan Resi</a>
+                        <a href="<?= site_url('alamat_profil'); ?>"
+                           class="list-group-item list-group-item-action ">Address</a>
+                        <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Pending Orders</a>
+                        <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action  ">Order History</a>
+                        <a href="<?= site_url('resi'); ?>" class="list-group-item list-group-item-action c-profil-active">Airwaybill Report</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-9 c-color-profil">
-            <h5>Laporan Resi</h5>
+            <h5>Airwaybill Report</h5>
             <div class="table-responsive mt-2">
                 <table class="table table-sm table-borderless" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">Laporan</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">ID Report</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>

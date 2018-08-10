@@ -21,7 +21,7 @@
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
-                               class="list-group-item list-group-item-action c-profil-active">Profil</a>
+                               class="list-group-item list-group-item-action c-profil-active">My Profile</a>
                             <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Status
                                 Pesanan</a>
                             <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action">Riwayat

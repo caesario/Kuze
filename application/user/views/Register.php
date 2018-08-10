@@ -7,7 +7,7 @@ include "layout/Header.php";
     <?php endif; ?>
 
     <div class="-fluid c-head-login">
-        <a href="<?= site_url('/') ?>" class="c-kembali ml-2"><i class="fa fa-arrow-left"></i> Kembali</a>
+        <a href="<?= site_url('/') ?>" class="c-kembali ml-2"><i class="fa fa-arrow-left"></i> Back To Home Page</a>
     </div>
 
     <!-- Register -->
@@ -44,7 +44,7 @@ include "layout/Header.php";
 
                 <div class="form-group">
                     <label for="nama" class="sr-only">Nama Lengkap</label>
-                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap"
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Full Name"
                            value="<?= set_value('nama'); ?>" required>
                     <p><?= form_error('nama'); ?></p>
                 </div>
@@ -58,7 +58,7 @@ include "layout/Header.php";
 
                 <div class="form-group">
                     <label for="notelp" class="sr-only">Nomor Telp</label>
-                    <input type="text" id="notelp" name="notelp" class="form-control" placeholder="Nomor Telepon"
+                    <input type="text" id="notelp" name="notelp" class="form-control" placeholder="Phone Number"
                            value="<?= set_value('notelp'); ?>" required>
                     <p><?= form_error('nama'); ?></p>
                 </div>
@@ -75,7 +75,7 @@ include "layout/Header.php";
                         <input type="checkbox" value="remember-me"> Required Check
                     </label>
                 </div>
-                <button class="btn btn-lg btn-block c-login-btn" type="submit">Buat Akun</button>
+                <button class="btn btn-lg btn-block c-login-btn" type="submit">Create Account</button>
                 <!--<p class="text-center"><a class="c-link-color" href="">Forgot your password?</a></p>-->
                 <hr>
                 <p class="text-center">Alredy have an account? <a class="c-link-color" href="<?= base_url ('login'); ?>">Sign In</a></p>

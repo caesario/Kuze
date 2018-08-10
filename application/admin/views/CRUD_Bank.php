@@ -20,17 +20,17 @@ if ($submit == 'Ubah') {
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="form-group">
         <label for="penerbit">Bank</label>
-        <input type="text" class="form-control" name="penerbit" id="penerbit" value="<?= $penerbit; ?>"
+        <input type="text" class="form-control" name="penerbit" id="penerbit" value="<?= $penerbit; ?>" required
                placeholder="Input Bank (BCA, BNI, BRI)">
     </div>
     <div class="form-group">
         <label for="nama">Nama Pemilik Rek</label>
-        <input type="text" class="form-control" name="nama" id="nama" value="<?= $nama; ?>"
+        <input type="text" class="form-control" name="nama" id="nama" value="<?= $nama; ?>" required
                placeholder="Input Nama Pemilik Rekening">
     </div>
     <div class="form-group">
         <label for="rekening">Nomor Rekening</label>
-        <input type="text" class="form-control" name="rekening" id="rekening" value="<?= $rekening; ?>"
+        <input type="number" class="form-control" name="rekening" id="rekening" value="<?= $rekening; ?>" required
                placeholder="Input Nomor Rekening">
     </div>
     <div class="form-group">

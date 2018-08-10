@@ -21,29 +21,28 @@ include "layout/Menu.php";
                     <div class="col-12">
                         <div class="list-group mb-4">
                             <a href="<?= site_url('profil'); ?>"
-                               class="list-group-item list-group-item-action ">Profil</a>
+                               class="list-group-item list-group-item-action ">My Profile</a>
                             <a href="<?= site_url('profil_password'); ?>"
                                class="list-group-item list-group-item-action ">
-                                Ubah Password
+                                Change Password
                             </a>
                             <a href="<?= site_url('alamat_profil'); ?>"
-                               class="list-group-item list-group-item-action c-profil-active">Alamat</a>
-                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Transaksi
-                                Tertunda</a>
-                            <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action">Riwayat
-                                Transaksi</a>
-                            <a href="<?= site_url('resi'); ?>" class="list-group-item list-group-item-action">Laporan
-                                Resi</a>
+                               class="list-group-item list-group-item-action c-profil-active">Address</a>
+                            <a href="<?= site_url('order_status'); ?>" class="list-group-item list-group-item-action">Pending Orders</a>
+                            <a href="<?= site_url('order_history'); ?>" class="list-group-item list-group-item-action">Order History</a>
+                            <a href="<?= site_url('resi'); ?>" class="list-group-item list-group-item-action">Airwaybill Report</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9 c-color-profil">
-                <h5>Alamat Saya</h5>
-                <div class="card">
+                <h5 class="mb-2">Address</h5>
+                <div class="">
                     <div class="card-body pt-0">
-                        <div class="row">
+                        <div class="row container-fluid mt-3">
+
                             <div class="col-lg-12 col-md-12">
+
                                 <form action="profil_alamat/simpan" method="post">
                                     <input type="hidden" name="ecommerce_eazy"
                                            value="<?= $this->security->get_csrf_hash(); ?>">
@@ -55,89 +54,94 @@ include "layout/Menu.php";
                                     </div>
                                     <div class="row form-group" id="row_judul_alamat" style="display: none;">
                                         <div class="col">
-                                            <label for="nama_alamat">Judul</label>
+                                            <label for="nama_alamat">Address Title</label>
                                             <input type="text" name="nama_alamat" id="nama_alamat" class="form-control"
-                                                   placeholder="Judul Alamat" required>
+                                                   placeholder="Address Title" required>
                                         </div>
                                     </div>
+                                    <h6 class="mb-2">Shipper</h6>
                                     <div id="pengirim">
                                         <div class="row form-group">
                                             <div class="col">
-                                                <label for="nama_pengirim">Nama Pengirim</label>
+                                                <label for="nama_pengirim">Sender Name</label>
                                                 <input type="text" name="nama_pengirim" id="nama_pengirim"
                                                        class="form-control"
-                                                       placeholder="Nama Pengirim">
+                                                       placeholder="Sender Name">
+
                                             </div>
                                             <div class="col">
-                                                <label for="kontak_pengirim">Nomor Telp. Pengirim</label>
+                                                <label for="kontak_pengirim">Phone Number </label>
                                                 <input type="text" name="kontak_pengirim" id="kontak_pengirim"
                                                        class="form-control"
-                                                       placeholder="Kontak Pengirim">
+                                                       placeholder="Sender Phone Number">
                                             </div>
                                         </div>
                                         <hr>
+                                        <h6 class="mb-2">Recipient</h6>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="nama_penerima">Nama Lengkap</label>
+                                            <label for="nama_penerima">Full Name</label>
                                             <input type="text" name="nama_penerima" id="nama_penerima"
                                                    class="form-control"
-                                                   placeholder="Nama Lengkap Anda...">
+                                                   placeholder="Full Name...">
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="kontak_penerima">Nomor Telepon</label>
+                                            <label for="kontak_penerima">Phone Number</label>
                                             <input type="text" name="kontak_penerima" id="kontak_penerima"
                                                    class="form-control"
-                                                   placeholder="Nomor Telepon Anda..">
+                                                   placeholder="Phone Number...">
                                         </div>
 
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="provinsi">Provinsi</label>
+                                            <label for="provinsi">Province</label>
                                             <select name="provinsi" id="provinsi" class="provinsi form-control"
                                                     required>
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="kabupaten">Kabupaten / Kota</label>
+                                            <label for="kabupaten">City</label>
                                             <select name="kabupaten" id="kabupaten" class="kabupaten form-control"
                                                     required>
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
+                                    <div class="row form-group mt-2">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="kecamatan">Kecamatan</label>
+                                            <label for="kecamatan">
+                                                Districts</label>
                                             <select name="kecamatan" id="kecamatan" class="kecamatan form-control"
                                                     required>
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="kelurahan">Kelurahan / Desa</label>
+                                            <label for="kelurahan">
+                                                Village</label>
                                             <select name="kelurahan" id="kelurahan" class="kelurahan form-control"
                                                     required>
                                             </select>
                                         </div>
 
-                                        <div class="col">
-                                            <label for="kodepos">Kode Pos</label>
+                                        <div class="col mt-2">
+                                            <label for="kodepos">Post Code</label>
                                             <input name="kodepos" id="kodepos" type="number"
                                                    class="form-control" placeholder="Kode Pos" required>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col">
-                                            <label class="f-test" for="alamat">Alamat Lengkap</label>
+                                            <label class="f-test" for="alamat">Full Address</label>
                                             <textarea name="alamat" id="alamat" class="form-control"
-                                                      placeholder="Nama Gedung, Jalan, dan lainnya"
+                                                      placeholder="Street, Building, or etc"
                                                       required></textarea>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col">
-                                            <button type="submit" class="btn c-login-btn c-edit">Simpan
+                                            <button type="submit" class="btn c-login-btn c-edit">Save
                                             </button>
                                         </div>
                                     </div>
@@ -184,7 +188,7 @@ include "layout/Menu.php";
         $(document).ready(function () {
             $('#provinsi').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih provinsi',
+                placeholder: 'Select Province',
                 ajax: {
                     url: '<?= site_url('API/get_provinsi'); ?>',
                     dataType: 'json',
@@ -198,7 +202,7 @@ include "layout/Menu.php";
             });
             $('#kabupaten').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kabupaten',
+                placeholder: 'Select City',
                 ajax: {
                     url: '<?= site_url('API/get_kabupaten'); ?>',
                     dataType: 'json',
@@ -213,7 +217,7 @@ include "layout/Menu.php";
             });
             $('#kecamatan').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kecamatan',
+                placeholder: 'Select District',
                 ajax: {
                     url: '<?= site_url('API/get_kecamatan'); ?>',
                     dataType: 'json',
@@ -228,7 +232,7 @@ include "layout/Menu.php";
             });
             $('#kelurahan').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih kelurahan / desa',
+                placeholder: 'Select Village',
                 ajax: {
                     url: '<?= site_url('API/get_kelurahan'); ?>',
                     dataType: 'json',
@@ -249,7 +253,7 @@ include "layout/Menu.php";
 
             $('#pilih_alamat').select2({
                 theme: 'bootstrap4',
-                placeholder: 'Pilih alamat',
+                placeholder: 'Select Address',
                 ajax: {
                     url: '<?= site_url('API/get_alamat'); ?>',
                     dataType: 'json',
