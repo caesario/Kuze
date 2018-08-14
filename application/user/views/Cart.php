@@ -54,7 +54,7 @@ include "layout/Menu.php";
             <tr>
                 <th class="c-table-thumbnail"></th>
                 <th class="c-table-name">Product Name</th>
-                <!--                <th class="c-table-code text-center">Code</th>-->
+                <th class="c-table-price text-center">Size</th>
                 <th class="c-table-price text-center">Price</th>
                 <th class="c-table-quantity text-center">Quantity</th>
                 <th class="c-table-total text-center">Total</th>
@@ -81,16 +81,22 @@ include "layout/Menu.php";
                             <?php endif; ?>
                         </td>
                         <td>
-                            <p class="c-cart-productname"><a href="detail-item.html">
-                                    <?= $item_detil($cart->item_detil_kode)->item->i_nama; ?>
-                                </a></p>
+                            <p class="c-cart-productname">
+                                <a href="#"><?= $item_detil($cart->item_detil_kode)->item->i_nama; ?></a>
+                            </p>
                         </td>
-                        <!--                <td class="text-center"><p class="c-cart-productname">ACS-00</p></td>-->
+                        <td class="text-center">
+                            <p class="c-cart-productname">
+                                <?= $item_detil($cart->item_detil_kode)->ukuran->u_nama; ?>
+                            </p>
+                        </td>
                         <td class="text-center">
                             <span id="rupiah" class="c-price-cart c-price-cart"><?= $cart->ca_harga; ?></span>
                         </td>
                         <td class="text-center">
-                            <?= $cart->ca_qty; ?>
+                            <p class="c-cart-productname">
+                                <?= $cart->ca_qty; ?>
+                            </p>
                         </td>
                         <td class="text-center">
                             <span id="rupiah" class="c-price-cart-2"><?= $cart->ca_tharga; ?></span>
@@ -151,7 +157,8 @@ include "layout/Menu.php";
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address Shipping</a>
+            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
+                Shipping</a>
         </div>
     </div>
 
