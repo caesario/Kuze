@@ -67,9 +67,9 @@ include "layout/Menu.php";
                             <div class="col">
                                 <div class="c-detail-price">
                                     <input type="hidden" name="harga"
-                                           value="<?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?>">
+                                           value="<?= $item->i_hrg; ?>">
                                     <p id="rupiah"
-                                       class=""><?= isset($_SESSION['tipe']) && $_SESSION['tipe'] == 1 ? $item->i_hrg_vip : $item->i_hrg_reseller; ?></p>
+                                       class=""><?= $item->i_hrg; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +86,7 @@ include "layout/Menu.php";
                                     <?php foreach ($item_detil_with_item_all($item->i_kode) as $id): ?>
                                         <option data-qty="<?= $qty_detil($id->item_detil_kode); ?>"
                                                 value="<?= $id->item_detil_kode; ?>">
-                                            <?= $id->warna->w_nama; ?> -
-                                            <?= $id->item_detil_ukuran; ?>
+                                            <?= $id->ukuran->u_nama; ?>
                                         </option>
                                     <?php endforeach; ?>
 
@@ -154,11 +153,7 @@ include "layout/Menu.php";
 <!--                            <i class="fa fa-star c-star m-0"></i>-->
 <!--                            <i class="fa fa-star c-star m-0"></i>-->
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
-                            <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_vip; ?></h5>
-                            <?php else: ?>
-                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_reseller; ?></h5>
-                            <?php endif; ?>
+                            <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
                                 <i class="fa fa-plus c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>

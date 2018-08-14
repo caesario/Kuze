@@ -77,9 +77,8 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col">Kode Item</th>
-                                <th scope="col">Hrg Reseller</th>
-                                <th scope="col">Hrg VIP</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col">Berat (Gram)</th>
                                 <th scope="col">Detail</th>
                             </tr>
@@ -135,16 +134,13 @@
                                             </div>
                                         </td>
                                         <td scope="row" class="align-middle"><?= $item->i_nama; ?></td>
-                                        <td scope="row" class="align-middle"
-                                            id="rupiah"><?= $item->i_hrg_reseller; ?></td>
-                                        <td scope="row" class="align-middle" id="rupiah"><?= $item->i_hrg_vip; ?></td>
+                                        <td scope="row" class="align-middle" id="rupiah"><?= $item->i_hrg; ?></td>
                                         <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
                                         <td>
                                             <?php if (isset($item->item_detil)): ?>
                                                 <table class="table table-sm table-borderless">
                                                     <thead>
                                                     <tr>
-                                                        <th>Warna</th>
                                                         <th>Ukuran</th>
                                                         <th>QTY</th>
                                                         <th></th>
@@ -154,13 +150,7 @@
                                                     <?php foreach ($item->item_detil as $detil): ?>
                                                         <tr>
                                                             <td class="align-middle">
-                                                                <?php if (isset($warna($detil->item_detil_kode, $detil->w_kode)->w_nama)): ?>
-                                                                    <?= $warna($detil->item_detil_kode, $detil->w_kode)->w_nama; ?>
-
-                                                                <?php endif; ?>
-                                                            </td>
-                                                            <td class="align-middle">
-                                                                <?= $detil->item_detil_ukuran; ?>
+                                                                <?= $ukuran($detil->item_detil_kode, $detil->u_kode)->u_nama; ?>
                                                             </td>
                                                             <td class="align-middle">
                                                                 <?= $qty($detil->item_detil_kode); ?>
@@ -192,7 +182,7 @@
                                                                            data-backdrop="static" data-keyboard="false"
                                                                            data-id="<?= $detil->item_detil_kode; ?>"><i
                                                                                     class="fas fa-cart-plus mr-2"></i>
-                                                                            Tambaht
+                                                                            Tambah t
                                                                             QTY</a>
                                                                         <div class="dropdown-divider"></div>
                                                                         <a class="dropdown-item small"

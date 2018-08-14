@@ -102,8 +102,7 @@ class Item extends MY_Controller
         $item_array = array(
             'i_kode' => $id,
             'i_nama' => $item_nama,
-            'i_hrg_vip' => $this->input->post('hrg_vip'),
-            'i_hrg_reseller' => $this->input->post('hrg_reseller'),
+            'i_hrg' => $this->input->post('hrg'),
             'i_berat' => $this->input->post('berat'),
             'i_deskripsi' => $this->input->post('deskripsi'),
             'i_url' => $this->slug->create_uri(array('title' => $this->input->post('nama')))
@@ -184,8 +183,7 @@ class Item extends MY_Controller
                 $item_detil = $this->item_detil->insert(array(
                     'item_detil_kode' => $id_detil,
                     'i_kode' => $this->input->post('id'),
-                    'w_kode' => $_POST['warna'][$i],
-                    'item_detil_ukuran' => $_POST['ukuran'][$i],
+                    'u_kode' => $_POST['ukuran'][$i],
                 ));
 
                 $item_qty = $this->item_qty->insert(array(
@@ -304,7 +302,6 @@ class Item extends MY_Controller
             ->update(array(
                 'w_kode' => $this->input->post('warna'),
                 'u_kode' => $this->input->post('ukuran'),
-                's_kode' => $this->input->post('seri')
             ));
 
         if ($item_detil) {
@@ -331,7 +328,6 @@ class Item extends MY_Controller
                 'item_detil_kode' => $id_detil,
                 'i_kode' => $id,
                 'w_kode' => $_POST['warna'][$i],
-                's_kode' => $_POST['seri'][$i],
                 'u_kode' => $_POST['ukuran'][$i],
             ));
 

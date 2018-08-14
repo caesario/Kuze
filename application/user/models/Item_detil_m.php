@@ -23,6 +23,11 @@ class Item_detil_m extends MY_Model
             'foreign_table'=>'warna',
             'foreign_key'=>'w_kode',
             'local_key'=>'w_kode');
+        $this->has_one['ukuran'] = array(
+            'foreign_model' => 'Ukuran_m',
+            'foreign_table' => 'ukuran',
+            'foreign_key' => 'u_kode',
+            'local_key' => 'u_kode');
         $this->has_many['item_qty'] = array(
             'foreign_model'=>'Item_qty_m',
             'foreign_table'=>'item_qty',

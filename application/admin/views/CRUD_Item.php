@@ -4,16 +4,14 @@ if ($submit == 'Ubah') {
     $url = site_url('item/simpan');
     $id = $items->i_kode;
     $nama = $items->i_nama;
-    $hrg_vip = $items->i_hrg_vip;
-    $hrg_reseller = $items->i_hrg_reseller;
+    $hrg = $items->i_hrg;
     $deskripsi = $items->i_deskripsi;
     $berat = $items->i_berat;
 } else if ($submit == 'Simpan') {
     $url = site_url('item/simpan');
     $id = $kode;
     $nama = '';
-    $hrg_vip = '';
-    $hrg_reseller = '';
+    $hrg = '';
     $deskripsi = '';
     $berat = '';
 
@@ -77,9 +75,9 @@ if ($submit == 'Ubah') {
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="hrg_reseller">Harga</label>
-                                <input type="number" class="form-control" min="1000" name="hrg_reseller"
-                                       placeholder="Input Hrg Reseller"
-                                       value="<?= $hrg_reseller; ?>" required>
+                                <input type="number" class="form-control" min="1000" name="hrg"
+                                       placeholder="Input Hrg"
+                                       value="<?= $hrg; ?>" required>
                             </div>
                         </div>
 
@@ -126,11 +124,9 @@ if ($submit == 'Ubah') {
                     <tr>
                         <td>
                             <select name="ukuran[]" id="ukuran" class="form-control small" required>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
+                                <?php foreach ($this->ukuran->get_all() as $ukuran): ?>
+                                    <option value="<?= $ukuran->u_kode; ?>"><?= $ukuran->u_nama; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </td>
                         <td><input name="qty[]" id="qty" type="number" class="form-control" value="0" min="0"></td>
