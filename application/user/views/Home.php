@@ -143,10 +143,12 @@ include "layout/Menu.php";
                                              src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                              alt="No Image">
                                     <?php endif; ?>
-<!--                                    <div class="middle">-->
-<!--                                        <a href=""-->
-<!--                                           class="c-view-text">Quick View</a>-->
-<!--                                    </div>-->
+                                    <div class="c-ribbon c-ribbon2">  <!-- ======= Warna Hijau ======= -->
+                                        <span>New Arrival</span>
+                                    </div>
+                                    <div class="c-ribbon">
+                                        <span>Best Seller</span>   <!-- ======= Warna Merah ======= -->
+                                    </div>
 
                                 <div class="card-body text-center">
 <!--                                    <i class="fa fa-star c-star m-0"></i>-->
