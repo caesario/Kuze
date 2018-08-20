@@ -132,6 +132,18 @@ include "layout/Menu.php";
                     <?php if ($stok >= 1): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
+
+                                <div class="row">
+                                    <div class="c-ribbon c-ribbon2">
+                                        <span>New Arrival</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="c-ribbon c-ribbon1">
+                                        <span>Best Seller</span>
+                                    </div>
+                                </div>
+
                                 <a class=""
                                    href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>">
                                     <?php if ($item_img($terbaru->i_kode) != NULL): ?>
@@ -143,26 +155,23 @@ include "layout/Menu.php";
                                              src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                              alt="No Image">
                                     <?php endif; ?>
-                                    <div class="c-ribbon c-ribbon2">  <!-- ======= Warna Hijau ======= -->
-                                        <span>New Arrival</span>
-                                    </div>
-                                    <div class="c-ribbon">
-                                        <span>Best Seller</span>   <!-- ======= Warna Merah ======= -->
-                                    </div>
 
-                                <div class="card-body text-center">
-<!--                                    <i class="fa fa-star c-star m-0"></i>-->
-<!--                                    <i class="fa fa-star c-star m-0"></i>-->
-<!--                                    <i class="fa fa-star c-star m-0"></i>-->
-<!--                                    <i class="fa fa-star c-star m-0"></i>-->
-<!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                    <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
-                                    <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg; ?></h5>
-                                    <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
-                                       class="btn btn-csr c-cart c-cart-p">
-                                        <i class="fa fa-shopping-cart c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
-                                    </a>
-                                </div>
+
+
+
+                                    <div class="card-body text-center">
+                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
+                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
+                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
+                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
+                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
+                                        <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
+                                        <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg; ?></h5>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
+                                           class="btn btn-csr c-cart c-cart-p">
+                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
+                                        </a>
+                                    </div>
                             </div>
                             </a>
                         </div>
@@ -322,13 +331,13 @@ include "layout/Menu.php";
     <div class="container-fluid c-padding-media ">
         <div class="row ">
             <div class="col-lg-3 col-md-12">
-<!--                <div class="media">-->
-<!--                    <div class="fa fa-plane c-icon-bot"></div>-->
-<!--                    <div class="media-body c-padding-media-body">-->
-<!--                        <h5 class="mt-0">FREE SHIPING</h5>-->
-<!--                        <p>Free shipping on all Local Area order above $100</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="media">-->
+                <!--                    <div class="fa fa-plane c-icon-bot"></div>-->
+                <!--                    <div class="media-body c-padding-media-body">-->
+                <!--                        <h5 class="mt-0">FREE SHIPING</h5>-->
+                <!--                        <p>Free shipping on all Local Area order above $100</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
                 <div class="media">
@@ -349,13 +358,13 @@ include "layout/Menu.php";
                 </div>
             </div>
             <div class="col-lg-3 col-md-12">
-<!--                <div class="media">-->
-<!--                    <div class="fa fa-money c-icon-bot"></div>-->
-<!--                    <div class="media-body c-padding-media-body">-->
-<!--                        <h5 class="mt-0">PAYMENT SECURE</h5>-->
-<!--                        <p>We ensure 100% secure payment with SecurionPay</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="media">-->
+                <!--                    <div class="fa fa-money c-icon-bot"></div>-->
+                <!--                    <div class="media-body c-padding-media-body">-->
+                <!--                        <h5 class="mt-0">PAYMENT SECURE</h5>-->
+                <!--                        <p>We ensure 100% secure payment with SecurionPay</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>

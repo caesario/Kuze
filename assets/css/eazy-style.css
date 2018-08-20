@@ -1215,7 +1215,7 @@ a.c-modal-clr:hover {
     text-align: right;
 }
 
-.c-ribbon span {
+.c-ribbon1 span {
     font-size: 10px;
     font-weight: bold;
     color: #FFF;
@@ -1233,7 +1233,7 @@ a.c-modal-clr:hover {
     top: 19px; right: -21px;
 }
 
-.c-ribon2 span {
+.c-ribbon2 span {
     font-size: 10px;
     font-weight: bold;
     color: #FFF;
