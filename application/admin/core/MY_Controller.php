@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller
 
         // load model
         $this->load->model('Alamat_m', 'alamat');
-        $this->load->model('Artikel_m', 'artikel');
+        $this->load->model('Event_m', 'event');
         $this->load->model('Cart_m', 'cart');
         $this->load->model('Item_detil_m', 'item_detil');
         $this->load->model('Item_img_m', 'item_img');
@@ -47,6 +47,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('Warna_m', 'warna');
         $this->load->model('Bank_m', 'bank');
         $this->load->model('Ukuran_m', 'ukuran');
+        $this->load->model('Promo_m', 'promo');
         $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Slide_instagram_m', 'slide_insta');
         $this->load->model('Provinsi_m', 'provinsi');

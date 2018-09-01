@@ -7,6 +7,9 @@ if ($submit == 'Ubah') {
     $hrg = $items->i_hrg;
     $deskripsi = $items->i_deskripsi;
     $berat = $items->i_berat;
+    $i_hot = $items->i_hot;
+    $i_new = $items->i_new;
+    $i_best = $items->i_best;
 } else if ($submit == 'Simpan') {
     $url = site_url('item/simpan');
     $id = $kode;
@@ -14,6 +17,9 @@ if ($submit == 'Ubah') {
     $hrg = '';
     $deskripsi = '';
     $berat = '';
+    $i_hot = '';
+    $i_new = '';
+    $i_best = '';
 
 } else if ($submit == 'Tambah Detail') {
     $url = site_url('item/tambah_detil_simpan');
@@ -96,6 +102,44 @@ if ($submit == 'Ubah') {
                                 <input type="number" class="form-control" min="1" max="1000" name="berat"
                                        placeholder="Berat"
                                        value="<?= $berat; ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="i_hot" value="1"
+                                           id="aktif" <?= $i_hot == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="aktif">
+                                        Hot Deal
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="i_new" value="1"
+                                           id="aktif" <?= $i_new == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="aktif">
+                                        New
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="i_best" value="1"
+                                           id="aktif" <?= $i_best == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="aktif">
+                                        Best
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
                     </div>

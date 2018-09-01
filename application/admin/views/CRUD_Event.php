@@ -1,22 +1,14 @@
 <?php
-$url = site_url('artikel/simpan');
+$url = site_url('event/simpan');
 if ($submit == 'Ubah') {
-    $id = $artikel->artikel_kode;
-    $judul = $artikel->artikel_judul;
-    $content = $artikel->artikel_content;
-    $ispromo = $artikel->artikel_ispromo;
-    $isblog = $artikel->artikel_isblog;
-    $isresi = $artikel->artikel_isresi;
-    $isnotifikasi = $artikel->artikel_isnotifikasi;
-    $isaktif = $artikel->artikel_isaktif;
+    $id = $event->event_kode;
+    $judul = $event->event_judul;
+    $content = $event->event_content;
+    $isaktif = $event->event_isaktif;
 } else if ($submit == 'Simpan') {
     $id = $kode;
     $judul = '';
     $content = '';
-    $ispromo = 0;
-    $isblog = 0;
-    $isresi = 0;
-    $isnotifikasi = 0;
     $isaktif = 0;
 }
 ?>
@@ -27,38 +19,6 @@ if ($submit == 'Ubah') {
     <div class="form-group">
         <label for="judul">Judul</label>
         <input type="text" class="form-control" name="judul" value="<?= $judul; ?>" placeholder="Input Judul Artikel">
-    </div>
-    <div class="form-group">
-        <label>Kategori</label>
-        <div class="row">
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="promo" value="1"
-                           id="promo" <?= $ispromo == 1 ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="promo">
-                        Promo
-                    </label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="blog" value="1"
-                           id="blog" <?= $isblog == 1 ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="blog">
-                        Blog
-                    </label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="notikasi" value="1"
-                           id="notikasi" <?= $isnotifikasi == 1 ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="notikasi">
-                        Notifikasi
-                    </label>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="form-group">
         <label for="content">Konten</label>

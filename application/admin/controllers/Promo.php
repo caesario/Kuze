@@ -48,18 +48,19 @@ class Promo extends MY_Controller
 
     public function simpan()
     {
-        $this->form_validation->set_rules('promo_kode', 'Kode Promo', 'is_unique[promo.promo_kode]', array('is_unique' => 'Terdapat kode promo yang sama. Silahkan coba lagi.'));
+        $this->form_validation->set_rules('promo_nama', 'Kode Promo', 'is_unique[promo.promo_kode]', array('is_unique' => 'Terdapat kode promo yang sama. Silahkan coba lagi.'));
 
         // get guid form post
-        $promo_kode = $this->input->post('promo_kode');
+        $promo_nama = $this->input->post('promo_nama');
 
         // get user from database where guid
-        $promo = $this->promo->where_promo_kode($promo_kode)->get();
+        $promo = $this->promo->where_promo_nama($promo_nama)->get();
 
         $promo_array = array(
-            'promo_kode' => $promo_kode,
-            'promo_pot_rp' => $this->input->post('promo_pot_rp'),
-            'promo_pot_persen' => $this->input->post('promo_po_persen'),
+            'promo_kode' => $this->promo->guid(),
+            'promo_nama' => $promo_nama,
+            'promo_rate' => $this->input->post('promo_rate'),
+            'promo_nominal' => $this->input->post('promo_nominal'),
             'promo_aktif' => $this->input->post('promo_aktif')
         );
 

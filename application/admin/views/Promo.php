@@ -78,21 +78,21 @@
                                 <table id="tables" class="table table-sm">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Promo</th>
-                                        <th scope="col">Nama Pemilik Rek</th>
-                                        <th scope="col">Nomor Rek</th>
+                                        <th scope="col">Promo Kode</th>
+                                        <th scope="col">Promo Rate</th>
+                                        <th scope="col">Promo Nominal</th>
                                         <th scope="col">Aktif</th>
                                         <th scope="col" class="text-center"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php if ($banks != NULL): ?>
-                                        <?php foreach ($banks as $bank): ?>
+                                    <?php if ($promos != NULL): ?>
+                                        <?php foreach ($promos as $promo): ?>
                                             <tr>
-                                                <td><?= $bank->bank_penerbit; ?></td>
-                                                <td><?= $bank->bank_nama; ?></td>
-                                                <td><?= $bank->bank_rek; ?></td>
-                                                <td><?= $bank->bank_isaktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
+                                                <td><?= $promo->promo_nama; ?></td>
+                                                <td><?= $promo->promo_rate; ?></td>
+                                                <td><?= $promo->promo_nominal; ?></td>
+                                                <td><?= $promo->promo_aktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
                                                 <td class="text-center">
                                                     <a class="btn btn-sm btn-primary" data-toggle="modal"
                                                        title="Ubah <?= $title_page; ?>"
@@ -100,13 +100,13 @@
                                                        onclick="edit($(this))" data-target="#crud"
                                                        data-backdrop="static"
                                                        data-keyboard="false"
-                                                       data-id="<?= $bank->bank_kode; ?>"><i
+                                                       data-id="<?= $promo->promo_kode; ?>"><i
                                                                 class="far fa-edit mr-2"></i>Ubah</a>
                                                     <a class="btn btn-sm btn-primary" data-toggle="modal"
                                                        title="Hapus <?= $title_page; ?>"
                                                        href="#"
                                                        onclick="hapus($(this))" data-target="#hapus"
-                                                       data-id="<?= $bank->bank_kode; ?>"><i
+                                                       data-id="<?= $promo->promo_kode; ?>"><i
                                                                 class="far fa-trash-alt mr-2"></i>Hapus</a>
                                                 </td>
                                             </tr>
@@ -131,7 +131,7 @@
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('bank/tambah'); ?>");
+                bodymodal.load("<?= site_url('promo/tambah'); ?>");
             }
 
             function edit(data) {
@@ -140,7 +140,7 @@
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('bank/ubah/'); ?>" + id);
+                bodymodal.load("<?= site_url('promo/ubah/'); ?>" + id);
             }
 
             function detil(data) {
@@ -149,13 +149,13 @@
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('bank/detil/'); ?>" + id);
+                bodymodal.load("<?= site_url('promo/detil/'); ?>" + id);
             }
 
             function hapus(data) {
                 d = data;
                 id = d.attr('data-id');
-                $('a#hapus').attr('href', "<?= site_url('bank/hapus/'); ?>" + id);
+                $('a#hapus').attr('href', "<?= site_url('promo/hapus/'); ?>" + id);
             }
 
             // ------------------------------------------------------ //

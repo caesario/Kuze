@@ -58,7 +58,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h1>Artikel</h1>
+                    <h1>Event</h1>
 
 
                 </div>
@@ -79,45 +79,39 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Judul</th>
-                                        <th scope="col">Promo</th>
-                                        <th scope="col">Blog</th>
-                                        <th scope="col">Notifikasi</th>
+                                        <th scope="col">Aktif</th>
                                         <th scope="col">Dibuat pada</th>
                                         <th scope="col">Diupdate pada</th>
                                         <th scope="col" class="text-center"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php if ($artikels != NULL): ?>
-                                        <?php foreach ($artikels as $artikel): ?>
-                                            <?php if ($artikel->artikel_isresi == 0): ?>
-                                                <tr>
-                                                    <td><?= $artikel->artikel_judul; ?></td>
-                                                    <td><?= $artikel->artikel_ispromo == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
-                                                    <td><?= $artikel->artikel_isblog == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
-                                                    <td><?= $artikel->artikel_isnotifikasi == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
-                                                    <td><?= $artikel->created_at; ?></td>
-                                                    <td><?= $artikel->updated_at; ?></td>
-                                                    <td class="text-center">
-                                                        <?php if ($artikel->artikel_kode != '0'): ?>
-                                                            <a class="btn btn-sm btn-primary" data-toggle="modal"
-                                                               title="Ubah <?= $title_page; ?>"
-                                                               href="#"
-                                                               onclick="edit($(this))" data-target="#crud"
-                                                               data-backdrop="static"
-                                                               data-keyboard="false"
-                                                               data-id="<?= $artikel->artikel_kode; ?>"><i
-                                                                        class="far fa-edit"></i> Ubah</a>
-                                                            <a class="btn btn-sm btn-danger" data-toggle="modal"
-                                                               title="Hapus <?= $title_page; ?>"
-                                                               href="#"
-                                                               onclick="hapus($(this))" data-target="#hapus"
-                                                               data-id="<?= $artikel->artikel_kode; ?>"><i
-                                                                        class="far fa-trash-alt"></i> Hapus</a>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endif; ?>
+                                    <?php if ($events != NULL): ?>
+                                        <?php foreach ($events as $event): ?>
+                                            <tr>
+                                                <td><?= $event->event_judul; ?></td>
+                                                <td><?= $event->event_isaktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
+                                                <td><?= $event->created_at; ?></td>
+                                                <td><?= $event->updated_at; ?></td>
+                                                <td class="text-center">
+                                                    <?php if ($event->event_kode != '0'): ?>
+                                                        <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                           title="Ubah <?= $title_page; ?>"
+                                                           href="#"
+                                                           onclick="edit($(this))" data-target="#crud"
+                                                           data-backdrop="static"
+                                                           data-keyboard="false"
+                                                           data-id="<?= $event->event_kode; ?>"><i
+                                                                    class="far fa-edit"></i> Ubah</a>
+                                                        <a class="btn btn-sm btn-danger" data-toggle="modal"
+                                                           title="Hapus <?= $title_page; ?>"
+                                                           href="#"
+                                                           onclick="hapus($(this))" data-target="#hapus"
+                                                           data-id="<?= $event->event_kode; ?>"><i
+                                                                    class="far fa-trash-alt"></i> Hapus</a>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                     </tbody>
@@ -140,7 +134,7 @@
                 modal.find('form').remove();
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('artikel/tambah'); ?>");
+                bodymodal.load("<?= site_url('event/tambah'); ?>");
             }
 
             function edit(data) {
@@ -149,7 +143,7 @@
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('artikel/ubah/'); ?>" + id);
+                bodymodal.load("<?= site_url('event/ubah/'); ?>" + id);
             }
 
             function detil(data) {
@@ -158,13 +152,13 @@
                 modal = $('#crud');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('artikel/detil/'); ?>" + id);
+                bodymodal.load("<?= site_url('event/detil/'); ?>" + id);
             }
 
             function hapus(data) {
                 d = data;
                 id = d.attr('data-id');
-                $('a#hapus').attr('href', "<?= site_url('artikel/hapus/'); ?>" + id);
+                $('a#hapus').attr('href', "<?= site_url('event/hapus/'); ?>" + id);
             }
 
 

@@ -6,13 +6,13 @@
  * Time: 18.01
  */
 
-class Artikel_m extends MY_Model
+class Event_m extends MY_Model
 {
     public function __construct()
     {
-        $this->table = 'artikel';
-        $this->primary_key = 'artikel_id';
-        $this->protected = array('artikel_id', 'created_at', 'update_at', 'deleted_at');
+        $this->table = 'event';
+        $this->primary_key = 'event_id';
+        $this->protected = array('event_id', 'created_at', 'update_at', 'deleted_at');
         $this->timestamps = TRUE;
         $this->soft_deletes = FALSE;
         parent::__construct();

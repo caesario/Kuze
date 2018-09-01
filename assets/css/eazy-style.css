@@ -1,8 +1,11 @@
+@font-face {
+    font-family: 'myfont';
+    src: url("../fonts/kenyancoffeerg.ttf") format('truetype');
+}
 
-
-
-
-
+body {
+    font-family: 'myfont', SansSerif;
+}
 
 a {
      -webkit-transition: all .3s;
@@ -931,7 +934,6 @@ h5.c-title-cart-total {
 
 a.btn-kupon {
     font-family: 'Poppins', sans-serif;
-    font-weight:;
     color: #777;
     padding: 10px 20px;
     font-size: 16px;
