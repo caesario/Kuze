@@ -10,9 +10,25 @@ class Home extends MY_Controller
 
     public function index()
     {
-        $this->data->artikel = $this->artikel->limit(3)->get_all();
+        $this->data->event = $this->event->limit(3)->get_all();
         $this->data->terbaru_items = function () {
             return $this->item
+                ->with_item_detil()
+                ->order_by('created_at')
+                ->limit(8)
+                ->get_all();
+        };
+
+        $this->data->best_sellers = function () {
+            return $this->item->where_i_best('1')
+                ->with_item_detil()
+                ->order_by('created_at')
+                ->limit(8)
+                ->get_all();
+        };
+
+        $this->data->new_arrivals = function () {
+            return $this->item->where_i_new('1')
                 ->with_item_detil()
                 ->order_by('created_at')
                 ->limit(8)

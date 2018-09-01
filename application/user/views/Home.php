@@ -15,14 +15,6 @@ include "layout/Menu.php";
 <?php endif; ?>
     <!-- End Slide Show -->
 
-
-    <!-- ======= Content ======= -->
-
-    <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h2 class="">New Arrival</h2>
-        <span class="text-muted c-sub-cons">New Arrival This Week</span>
-    </div>
-
     <div class="container-fluid mb-3">
         <div class="row c-padding-header">
             <?php if ($rand_image): ?>
@@ -90,6 +82,83 @@ include "layout/Menu.php";
         <?php endif; ?>
     </div>
 
+    <!-- ======= Content ======= -->
+
+    <div class="container-fluid c-padding-header text-center c-text-cons">
+        <h2 class="">New Arrival</h2>
+        <span class="text-muted c-sub-cons">New Arrival This Week</span>
+    </div>
+    <div class="container-fluid c-padding-header">
+        <div class="row">
+            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['gagal']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-success alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['berhasil']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="row">
+            <?php if ($new_arrivals() != NULL): ?>
+                <?php foreach ($new_arrivals() as $new_arrival): ?>
+                    <?php $stok = $qty($new_arrival->i_kode); ?>
+                    <?php if ($stok >= 1): ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="c-ribbon c-ribbon1">
+                                        <span>New Arrival</span>
+                                    </div>
+                                </div>
+
+                                <a href="<?= site_url('produk-terbaru/item/' . $new_arrival->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
+                                        <img class="card-img-top"
+                                             src="<?= base_url('upload/' . $item_img($new_arrival->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($new_arrival->i_kode)->ii_nama; ?>">
+                                    <?php else: ?>
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             alt="No Image">
+                                    <?php endif; ?>
+
+                                    <div class="card-body text-center">
+                                        <h5 id="rupiah" class="c-price"><?= $new_arrival->i_hrg; ?></h5>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $new_arrival->i_url . '/detil'); ?>"
+                                           class="btn btn-csr c-cart c-cart-p">
+                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
+                                                To Bag</p>
+                                        </a>
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="col">Tidak ada item yang ditampilkan</p>
+            <?php endif; ?>
+
+        </div>
+    </div>
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h2 class="">Best Seller</h2>
@@ -126,50 +195,36 @@ include "layout/Menu.php";
             <?php endif; ?>
         </div>
         <div class="row">
-            <?php if ($terbaru_items() != NULL): ?>
-                <?php foreach ($terbaru_items() as $terbaru): ?>
-                    <?php $stok = $qty($terbaru->i_kode); ?>
+            <?php if ($best_sellers() != NULL): ?>
+                <?php foreach ($best_sellers() as $best_seller): ?>
+                    <?php $stok = $qty($best_seller->i_kode); ?>
                     <?php if ($stok >= 1): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
-
-                                <div class="row">
-                                    <div class="c-ribbon c-ribbon2">
-                                        <span>New Arrival</span>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="c-ribbon c-ribbon1">
                                         <span>Best Seller</span>
                                     </div>
                                 </div>
 
-                                <a class=""
-                                   href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>">
-                                    <?php if ($item_img($terbaru->i_kode) != NULL): ?>
+                                <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($best_seller->i_kode) != NULL): ?>
                                         <img class="card-img-top"
-                                             src="<?= base_url('upload/' . $item_img($terbaru->i_kode)->ii_nama); ?>"
-                                             alt="<?= $item_img($terbaru->i_kode)->ii_nama; ?>">
+                                             src="<?= base_url('upload/' . $item_img($best_seller->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_nama; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
                                              alt="No Image">
                                     <?php endif; ?>
 
-
-
-
                                     <div class="card-body text-center">
-                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                        <!--                                    <i class="fa fa-star c-star m-0"></i>-->
-                                        <h5 id="title" class="card-title c-both c-title"><?= $terbaru->i_nama; ?></h5>
-                                        <h5 id="rupiah" class="c-price"><?= $terbaru->i_hrg; ?></h5>
-                                        <a href="<?= site_url('produk-terbaru/item/' . $terbaru->i_url . '/detil'); ?>"
+                                        <h5 id="rupiah" class="c-price"><?= $best_seller->i_hrg; ?></h5>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
-                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
+                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
+                                                To Bag</p>
                                         </a>
                                     </div>
                             </div>
@@ -216,17 +271,17 @@ include "layout/Menu.php";
     <!-- ======= News Block ======= -->
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <?php if ($artikel != NULL): ?>
-                <?php foreach ($artikel as $artk): ?>
+            <?php if ($event != NULL): ?>
+                <?php foreach ($event as $artk): ?>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="content-wrapper">
                             <div class="card">
-                                <a class="" href="<?= site_url('artikel/' . $artk->artikel_url) ?>"><img
+                                <a class="" href="<?= site_url('event/' . $artk->event_url) ?>"><img
                                             class="card-img-top"
                                             src="assets/img/blog1.jpg"
                                             alt="Card image cap"></a>
                                 <div class="card-body">
-                                    <h5 id="title" class="card-title c-title-blog"><?= $artk->artikel_url; ?></h5>
+                                    <h5 id="title" class="card-title c-title-blog"><?= $artk->event_url; ?></h5>
                                     <ul class="c-ul-blog">
                                         <li>Created at <a href="" class="c-date"><?= $artk->created_at; ?></a></li>
                                         <?php if ($artk->updated_at != NULL): ?>
@@ -234,7 +289,7 @@ include "layout/Menu.php";
                                         <?php endif; ?>
 
                                     </ul>
-                                    <p id="title" class="c-p-blog"><?= $artk->artikel_content; ?></p>
+                                    <p id="title" class="c-p-blog"><?= $artk->event_content; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +304,8 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h3 class=""># FOLLOW US ON INSTAGRAM</h3>
-        <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x c-ig-color"></i></a>
+        <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i
+                    class="fab fa-instagram fa-2x c-ig-color"></i></a>
         <span class="text-muted c-sub-cons">@kuze.co</span>
     </div>
 

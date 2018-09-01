@@ -41,13 +41,13 @@
                 </ul>
             </div>
         <?php endif; ?>
-        <?php if ($blogs != NULL): ?>
+        <?php if ($events != NULL): ?>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Blog</h5>
             <ul class="c-ul-footer">
-                <?php if ($blogs != ''): ?>
-                    <?php foreach ($blogs as $blog): ?>
-                        <li><a href="<?= site_url('blog/' . $blog->artikel_url); ?>"><?= $blog->artikel_judul; ?></a>
+                <?php if ($events != ''): ?>
+                    <?php foreach ($events as $event): ?>
+                        <li><a href="<?= site_url('event/' . $event->event_url); ?>"><?= $event->event_judul; ?></a>
                         </li>
                     <?php endforeach; ?>
                 <?php endif; ?>

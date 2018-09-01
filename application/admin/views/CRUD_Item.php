@@ -108,7 +108,7 @@ if ($submit == 'Ubah') {
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="i_hot" value="1"
-                                           id="aktif" <?= $i_hot == 1 ? 'checked' : ''; ?>>
+                                           id="aktif" <?= $i_hot == 1 ? 'checked' : ''; ?> disabled>
                                     <label class="form-check-label" for="aktif">
                                         Hot Deal
                                     </label>
@@ -123,7 +123,7 @@ if ($submit == 'Ubah') {
                                     <input class="form-check-input" type="checkbox" name="i_new" value="1"
                                            id="aktif" <?= $i_new == 1 ? 'checked' : ''; ?>>
                                     <label class="form-check-label" for="aktif">
-                                        New
+                                        New Arrival
                                     </label>
                                 </div>
 
@@ -136,7 +136,7 @@ if ($submit == 'Ubah') {
                                     <input class="form-check-input" type="checkbox" name="i_best" value="1"
                                            id="aktif" <?= $i_best == 1 ? 'checked' : ''; ?>>
                                     <label class="form-check-label" for="aktif">
-                                        Best
+                                        Best Seller
                                     </label>
                                 </div>
 

@@ -105,9 +105,9 @@ class Item extends MY_Controller
             'i_hrg' => $this->input->post('hrg'),
             'i_berat' => $this->input->post('berat'),
             'i_deskripsi' => $this->input->post('deskripsi'),
-            'i_hot' => $this->input->post('i_hot'),
-            'i_new' => $this->input->post('i_new'),
-            'i_best' => $this->input->post('i_best'),
+            'i_hot' => 0,
+            'i_new' => $this->input->post('i_new') != '' ? $this->input->post('i_new') : 0,
+            'i_best' => $this->input->post('i_best') != '' ? $this->input->post('i_best') : 0,
             'i_url' => $this->slug->create_uri(array('title' => $this->input->post('nama')))
         );
 

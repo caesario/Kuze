@@ -1,6 +1,7 @@
 <div class="row small">
     <div class="col text-center c-modal-col">
-        <p class="text-center r-pink f-size"><i class="fa fa-check-circle fa-5x"></i> <br> Successfully Add Items to Cart</p>
+        <p class="text-center r-pink f-size"><i class="fa fa-check-circle fa-5x"></i> <br> Successfully Add Items to Bag
+        </p>
     </div>
 </div>
 <hr style="padding: 0; margin: 0">

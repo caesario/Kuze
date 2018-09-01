@@ -3,15 +3,15 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 
-    <!-- ======= Banner Cart ======= -->
+    <!-- ======= Banner Bag ======= -->
     <div class="wrapper-cart">
-        <h5 class="text-center c-title-cart">Cart</h5>
+        <h5 class="text-center c-title-cart">Bag</h5>
 
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Cart</a>
+                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Bag</a>
             </nav>
         </div>
     </div>
@@ -46,7 +46,7 @@ include "layout/Menu.php";
     </div>
 
 
-    <!-- ======= Detail Cart ======= -->
+    <!-- ======= Detail Bag ======= -->
 
     <div class="container-fluid c-padding-header">
 
@@ -115,7 +115,7 @@ include "layout/Menu.php";
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">Promo Code</h5>
-            <form action="<?= site_url('cart'); ?>" method="get" class="form-group">
+            <form action="<?= site_url('cart/promo'); ?>" method="POST" class="form-group">
 
                 <div class="input-group mb-3">
                     <input name="kode_promo" type="text" class="form-control" placeholder="Enter Promo Code"
@@ -131,7 +131,7 @@ include "layout/Menu.php";
     <br>
 
 
-    <!-- ======= Total Cart ======= -->
+    <!-- ======= Total Bag ======= -->
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">Shopping Summary</h5>
@@ -139,11 +139,11 @@ include "layout/Menu.php";
                 <tbody>
                 <tr>
                     <th class="c-table-cart-total p-1 pl-4">Total Price</th>
-                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total($_SESSION['id']); ?></span></td>
+                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total(); ?></span></td>
                 </tr>
                 <tr>
-                    <th class="p-1 pl-4">Discount</th>
-                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                    <th class="p-1 pl-4">Promo</th>
+                    <td><span class="c-price-cart-3 pl-3"><?= isset($view_promo) ? $view_promo : '-'; ?></span></td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Other</th>
@@ -153,11 +153,11 @@ include "layout/Menu.php";
                 <tr>
                     <th class="p-1 pl-4">Total</th>
                     <td><span id="rupiah"
-                              class="c-price-cart-2 pl-3 c-l-hight"><?= $cart_total($_SESSION['id']); ?></span></td>
+                              class="c-price-cart-2 pl-3 c-l-hight"><?= $cart_total(); ?></span></td>
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('cart/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
+            <a href="<?= site_url('bag/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
                 Shipping</a>
         </div>
     </div>

@@ -85,11 +85,11 @@
             <div class="col-xl-2 col-lg-2 col-12 text-right c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                     <a href="<?= site_url('profil'); ?>" class="c-dis"><i class="fa fa-search fa-lg c-icon-top"></i></a>
-                    <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                    <a href="<?= site_url('Bag'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
                     <a href="<?= site_url('logout'); ?>"><i class="fa fa-sign-out-alt fa-lg c-icon-top" data-toggle="tooltip" data-placement="bottom" title="<?= $_SESSION['nama']; ?>"></i></a>
                 <?php else: ?>
 <!--                    <a href="--><?//= site_url('Profil'); ?><!--"><i class="fa fa-search fa-lg c-icon-top"></i></a>-->
-                    <a href="<?= site_url('Cart'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
+                    <a href="<?= site_url('Bag'); ?>"><i class="fa fa-shopping-cart fa-lg c-icon-top"></i></a>
                     <a href="<?= site_url('Login'); ?>"><i class="fa fa-lock fa-lg c-icon-top"></i></a>
                 <?php endif; ?>
             </div>

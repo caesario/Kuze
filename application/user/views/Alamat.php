@@ -10,7 +10,7 @@ include "layout/Menu.php";
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Cart</a>
+                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Bag</a>
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item active-bread" href="<?= site_url('Alamat'); ?>">Address</a>
             </nav>

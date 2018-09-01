@@ -78,6 +78,8 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">Item</th>
+                                <th scope="col">New Arrival</th>
+                                <th scope="col">Best Seller</th>
                                 <th scope="col">Harga</th>
                                 <th scope="col">Berat (Gram)</th>
                                 <th scope="col">Detail</th>
@@ -133,7 +135,13 @@
 
                                             </div>
                                         </td>
+
                                         <td scope="row" class="align-middle"><?= $item->i_nama; ?></td>
+                                        <td scope="row"
+                                            class="align-middle text-center"><?= $item->i_new == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
+                                        <td scope="row"
+                                            class="align-middle text-center"><?= $item->i_best == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
+
                                         <td scope="row" class="align-middle" id="rupiah"><?= $item->i_hrg; ?></td>
                                         <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
                                         <td>
@@ -369,7 +377,7 @@
                 mark: ',',
                 decimals: 0,
                 thousand: '.',
-                prefix: 'Rp. ',
+                prefix: 'IDR ',
                 suffix: ''
             });
 

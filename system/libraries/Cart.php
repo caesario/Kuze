@@ -38,11 +38,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Shopping Keranjang Class
+ * Shopping Cart Class
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
- * @category	Shopping Keranjang
+ * @category    Shopping Cart
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/cart.html
  * @deprecated	3.0.0	This class is too specific for CI.
@@ -115,7 +115,7 @@ class CI_Cart {
 			$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
 		}
 
-		log_message('info', 'Keranjang Class Initialized');
+        log_message('info', 'Cart Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -423,7 +423,7 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Keranjang Total
+     * Cart Total
 	 *
 	 * @return	int
 	 */
@@ -467,7 +467,7 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Keranjang Contents
+     * Cart Contents
 	 *
 	 * Returns the entire cart array
 	 *

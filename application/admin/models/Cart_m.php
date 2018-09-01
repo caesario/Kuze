@@ -6,7 +6,8 @@
  * Time: 18.01
  */
 
-class Cart_m extends MY_Model {
+class Bag_m extends MY_Model
+{
     public function __construct()
     {
         $this->table = 'cart';

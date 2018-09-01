@@ -94,11 +94,13 @@
             <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                     <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart c-icon-top" style="font-size:1.7rem;"></i></a>
+                        <a href="<?= site_url('bag'); ?>"><i class="fa fa-shopping-cart c-icon-top"
+                                                             style="font-size:1.7rem;"></i></a>
                     </div>
                 <?php else: ?>
                     <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('cart'); ?>"><i class="fa fa-shopping-cart c-icon-top" style="font-size:1.7rem;"></i></a>
+                        <a href="<?= site_url('bag'); ?>"><i class="fa fa-shopping-cart c-icon-top"
+                                                             style="font-size:1.7rem;"></i></a>
                     </div>
                 <?php endif; ?>
             </div>

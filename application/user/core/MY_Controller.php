@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller
         // load model
         $this->load->model('Alamat_m', 'alamat');
         $this->load->model('Event_m', 'event');
-        $this->load->model('Cart_m', 'cart');
+        $this->load->model('Bag_m', 'cart');
         $this->load->model('Item_detil_m', 'item_detil');
         $this->load->model('Item_img_m', 'item_img');
         $this->load->model('Item_kategori_m', 'item_kategori');
@@ -77,7 +77,7 @@ class MY_Controller extends CI_Controller
 
         $this->callback();
         $this->load_pref();
-        $this->blog_load();
+        $this->event_load();
     }
 
 
@@ -194,18 +194,6 @@ class MY_Controller extends CI_Controller
             return $this->item_img->where(array('i_kode' => $i_kode))->get_all();
         };
 
-        $this->data->cart_s = function ($p_kode) {
-            return $this->cart->where('pengguna_kode', $p_kode)->get_all();
-        };
-
-        $this->data->cart_total = function ($p_kode) {
-            $hasil = 0;
-            foreach ($this->cart->where('pengguna_kode', $p_kode)->get_all() as $cart_total) {
-                $hasil += (int) $cart_total->ca_tharga;
-            }
-
-            return $hasil;
-        };
 
         $this->data->bank_s = function () {
             return $this->bank->where('bank_isaktif', 1)->get_all();
@@ -245,13 +233,13 @@ class MY_Controller extends CI_Controller
 
     }
 
-    private function blog_load()
+    private function event_load()
     {
-        $blog = $this->artikel->where('artikel_isblog', 1)->get_all();
-        if ($blog) {
-            $this->data->blogs = $blog;
+        $event = $this->event->get_all();
+        if ($event) {
+            $this->data->events = $event;
         } else {
-            $this->data->blogs = '';
+            $this->data->events = '';
         }
     }
 }
