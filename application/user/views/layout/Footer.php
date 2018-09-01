@@ -130,7 +130,7 @@
             keyboard: false,
             show: true
         });
-        $('#cart > div > div > div.modal-body').load('<?= site_url('cart/modal_cart'); ?>');
+        $('#cart > div > div > div.modal-body').load('<?= site_url('bag/modal_bag'); ?>');
     </script>
 <?php endif; ?>
 <script>

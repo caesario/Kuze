@@ -79,6 +79,6 @@
         <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block c-modal-clr">Countinue Shopping</a>
     </div>
     <div class="col">
-        <a href="<?= site_url('cart'); ?>" class="btn btn-sm  btn-block c-modal-clr">Checkout</a>
+        <a href="<?= site_url('bag'); ?>" class="btn btn-sm  btn-block c-modal-clr">Checkout</a>
     </div>
 </div>

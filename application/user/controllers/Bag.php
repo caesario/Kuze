@@ -57,8 +57,19 @@ class Bag extends MY_Controller
 
     }
 
-    public function modal_cart()
+    public function modal_bag()
     {
+        $this->data->cart_total = function () {
+
+
+            $hasil = 0;
+            foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
+                $hasil += (int)$cart_total->ca_tharga;
+            }
+
+            return $hasil;
+        };
+
         $this->load->view('Modal_Bag', $this->data);
     }
 
