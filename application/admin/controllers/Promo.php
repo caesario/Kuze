@@ -33,7 +33,7 @@ class Promo extends MY_Controller
     {
         $this->data->title = $this->data->brandname . ' | Promo > Tambah';
         $this->data->submit = 'Simpan';
-        $this->data->kode = '';
+        $this->data->kode = $this->promo->guid();
         $this->load->view('CRUD_Promo', $this->data);
     }
 
@@ -48,27 +48,35 @@ class Promo extends MY_Controller
 
     public function simpan()
     {
-        $this->form_validation->set_rules('promo_nama', 'Kode Promo', 'is_unique[promo.promo_kode]', array('is_unique' => 'Terdapat kode promo yang sama. Silahkan coba lagi.'));
+        $this->form_validation->set_rules('promo_nama', 'Kode Promo', 'is_unique[promo.promo_nama]', array('is_unique' => 'Terdapat kode promo yang sama. Silahkan coba lagi.'));
+
 
         // get guid form post
-        $promo_nama = $this->input->post('promo_nama');
+        $id = $this->input->post('promo_kode');
 
         // get user from database where guid
-        $promo = $this->promo->where_promo_nama($promo_nama)->get();
+        $promo = $this->promo->where_promo_kode($id)->get();
+        $promo_nama = $this->input->post('promo_nama');
 
         $promo_array = array(
-            'promo_kode' => $this->promo->guid(),
+            'promo_kode' => $id,
             'promo_nama' => $promo_nama,
             'promo_rate' => $this->input->post('promo_rate'),
             'promo_nominal' => $this->input->post('promo_nominal'),
+            'promo_ket' => $this->input->post('promo_ket'),
             'promo_aktif' => $this->input->post('promo_aktif')
         );
 
         if ($promo) {
 
             // cek validasi
-            if ($this->form_validation->run() === FALSE) {
+            // validasi
+            if ($this->form_validation->run() === FALSE && $promo->promo_nama != $promo_nama) {
                 $this->data->gagal = validation_errors();
+                $this->session->set_flashdata('gagal', $this->data->gagal);
+                redirect('promo');
+            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $promo_nama)) {
+                $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('promo');

@@ -61,7 +61,7 @@
             mark: ',',
             decimals: 2,
             thousand: '.',
-            prefix: 'Rp. ',
+            prefix: 'IDR ',
             suffix: ''
         });
 

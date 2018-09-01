@@ -1,20 +1,25 @@
 <?php
 $url = site_url('promo/simpan');
 if ($submit == 'Ubah') {
+    $promo_kode = $promo->promo_kode;
     $promo_nama = $promo->promo_nama;
     $promo_rate = $promo->promo_rate;
     $promo_nominal = $promo->promo_nominal;
+    $promo_ket = $promo->promo_ket;
     $promo_aktif = $promo->promo_aktif;
 } else if ($submit == 'Simpan') {
+    $promo_kode = $kode;
     $promo_nama = '';
     $promo_rate = '';
     $promo_nominal = '';
+    $promo_ket = '';
     $promo_aktif = 1;
 }
 ?>
 
 <form action="<?= $url; ?>" method="post">
     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
+    <input type="hidden" name="promo_kode" value="<?= $promo_kode; ?>">
     <div class="form-group">
         <label for="promo_kode">Kode Promo</label>
         <input type="text" class="form-control" name="promo_nama" id="promo_nama" value="<?= $promo_nama; ?>"
@@ -31,6 +36,10 @@ if ($submit == 'Ubah') {
         <input type="number" class="form-control" name="promo_nominal" id="promo_nominal"
                value="<?= $promo_nominal; ?>"
                placeholder="Input Potongan Nominal">
+    </div>
+    <div class="form-group">
+        <label for="promo_ket">Keterangan</label>
+        <textarea name="promo_ket" id="promo_ket" class="form-control"><?= $promo_ket; ?></textarea>
     </div>
     <div class="form-group">
         <div class="form-check">

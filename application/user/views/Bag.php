@@ -115,17 +115,20 @@ include "layout/Menu.php";
     <div class="container-fluid c-padding-header c-margin-cart-total">
         <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">Promo Code</h5>
-            <form action="<?= site_url('cart/promo'); ?>" method="POST" class="form-group">
 
-                <div class="input-group mb-3">
-                    <input name="kode_promo" type="text" class="form-control" placeholder="Enter Promo Code"
-                           aria-label="Masukan Kode Voucher" aria-describedby="basic-addon2" required>
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-kupon btn-csr">Use Code</button>
-                    </div>
+            <div class="input-group mb-3">
+                <input name="kode_promo" id="kode_promo" type="text" class="form-control" placeholder="Enter Promo Code"
+                       aria-label="Masukan Kode Voucher">
+                <div class="input-group-append">
+                    <button type="submit" id="btn_kode" class="btn btn-kupon btn-csr">Use Code</button>
                 </div>
-
-            </form>
+            </div>
+            <script>
+                $('#btn_kode').click(function () {
+                    kode_promo = $('#kode_promo').val();
+                    window.location.href = 'bag/promo/' + kode_promo;
+                });
+            </script>
         </div>
     </div>
     <br>
@@ -151,7 +154,7 @@ include "layout/Menu.php";
                 </tr>
 
                 <tr>
-                    <th class="p-1 pl-4">Total</th>
+                    <th class="p-1 pl-4">Grand Total</th>
                     <td><span id="rupiah"
                               class="c-price-cart-2 pl-3 c-l-hight"><?= $cart_total(); ?></span></td>
                 </tr>

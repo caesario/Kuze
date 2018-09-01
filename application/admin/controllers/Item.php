@@ -93,6 +93,7 @@ class Item extends MY_Controller
         $this->form_validation->set_rules('nama', 'Item', 'is_unique[item.i_nama]', array('is_unique' => 'Terdapat nama yang sama. Silahkan coba lagi.'));
 
         // get guid form post
+
         $id = $this->input->post('id');
         $counter = (int)$this->input->post('counter');
 

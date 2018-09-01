@@ -90,8 +90,8 @@
                                         <?php foreach ($promos as $promo): ?>
                                             <tr>
                                                 <td><?= $promo->promo_nama; ?></td>
-                                                <td><?= $promo->promo_rate; ?></td>
-                                                <td><?= $promo->promo_nominal; ?></td>
+                                                <td><?= $promo->promo_rate; ?> %</td>
+                                                <td id="rupiah"><?= $promo->promo_nominal; ?></td>
                                                 <td><?= $promo->promo_aktif == 1 ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>'; ?></td>
                                                 <td class="text-center">
                                                     <a class="btn btn-sm btn-primary" data-toggle="modal"
@@ -157,6 +157,26 @@
                 id = d.attr('data-id');
                 $('a#hapus').attr('href', "<?= site_url('promo/hapus/'); ?>" + id);
             }
+
+            // ------------------------------------------------------ //
+            // Format Rupiah
+            // ------------------------------------------------------ //
+            var moneyFormat = wNumb({
+                mark: ',',
+                decimals: 0,
+                thousand: '.',
+                prefix: 'IDR ',
+                suffix: ''
+            });
+
+            $(document).ready(function () {
+                $('td[id="rupiah"]').each(function (index) {
+                    var value = parseInt($(this).html()),
+                        hasil = moneyFormat.to(value);
+
+                    $(this).html(hasil);
+                })
+            });
 
             // ------------------------------------------------------ //
             // Data table
