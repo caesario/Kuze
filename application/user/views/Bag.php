@@ -126,7 +126,7 @@ include "layout/Menu.php";
             <script>
                 $('#btn_kode').click(function () {
                     kode_promo = $('#kode_promo').val();
-                    window.location.href = 'bag/promo/' + kode_promo;
+                    window.location.href = '/bag/promo/' + kode_promo;
                 });
             </script>
         </div>
@@ -145,22 +145,22 @@ include "layout/Menu.php";
                     <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total(); ?></span></td>
                 </tr>
                 <tr>
-                    <th class="p-1 pl-4">Promo</th>
-                    <td><span class="c-price-cart-3 pl-3"><?= isset($view_promo) ? $view_promo : '-'; ?></span></td>
+                    <th class="p-1 pl-4">Kode Promo</th>
+                    <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
                 </tr>
                 <tr>
-                    <th class="p-1 pl-4">Other</th>
-                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                    <th class="p-1 pl-4">Note</th>
+                    <td><span class="c-price-cart-3 pl-3"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span></td>
                 </tr>
 
                 <tr>
                     <th class="p-1 pl-4">Grand Total</th>
                     <td><span id="rupiah"
-                              class="c-price-cart-2 pl-3 c-l-hight"><?= $cart_total(); ?></span></td>
+                              class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total(); ?></span></td>
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= site_url('bag/checkout'); ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
+            <a href="<?= current_url() . '/checkout'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
                 Shipping</a>
         </div>
     </div>
