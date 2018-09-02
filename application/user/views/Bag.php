@@ -62,8 +62,8 @@ include "layout/Menu.php";
             </tr>
 
 
-            <?php if ($cart_s($_SESSION['id']) != NULL): ?>
-                <?php foreach ($cart_s($_SESSION['id']) as $cart): ?>
+            <?php if ($cart_s != NULL): ?>
+                <?php foreach ($cart_s as $cart): ?>
                     <tr>
 
                         <td>
@@ -142,7 +142,7 @@ include "layout/Menu.php";
                 <tbody>
                 <tr>
                     <th class="c-table-cart-total p-1 pl-4">Total Price</th>
-                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total(); ?></span></td>
+                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Kode Promo</th>
@@ -156,7 +156,7 @@ include "layout/Menu.php";
                 <tr>
                     <th class="p-1 pl-4">Grand Total</th>
                     <td><span id="rupiah"
-                              class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total(); ?></span></td>
+                              class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
                 </tr>
                 </tbody>
             </table>

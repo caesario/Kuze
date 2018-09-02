@@ -84,19 +84,25 @@
                 <div class="row">
                     <div class="col text-bold">Sub total</div>
                     <div class="col">
-                        <div id="rupiah"><?= $biaya_subtotal(); ?></div>
+                        <div id="rupiah"><?= $biaya_subtotal; ?></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-bold">Potongan</div>
+                    <div class="col">
+                        <div id="rupiah"><?= $diskon_harga; ?></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col text-bold">Biaya pengiriman</div>
                     <div class="col">
-                        <div id="rupiah"><?= $biaya_pengiriman(); ?></div>
+                        <div id="rupiah"><?= $biaya_pengiriman; ?></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col text-bold">Grand total</div>
                     <div class="col">
-                        <div id="rupiah"><?= $biaya_subtotal() + $biaya_pengiriman(); ?></div>
+                        <div id="rupiah"><?= $grand_total; ?></div>
                     </div>
                 </div>
             </div>

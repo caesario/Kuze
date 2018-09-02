@@ -17,28 +17,11 @@ class Bag extends MY_Controller
 
     public function index()
     {
-        $this->data->kode_promo = $this->input->post('kode_promo');
-        $this->data->cart_s = function () {
+        $cart_s = function () {
             return $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
         };
 
-        $this->data->promo_total = function () {
-            $promo = $this->promo->where_promo_nama($this->data->kode_promo)->get();
-            if (isset($promo) && $promo != NULL) {
-                if ($promo->promo_rate != 0) {
-                    $this->data->view_promo = $promo->promo_rate + ' %';
-
-                    $potongan = $this->data->cart_total * ($promo->promo_rate / 100);
-                    return $potongan;
-                } elseif ($promo->promo_nominal != 0) {
-                    $this->data->view_promo = 'IDR ' + $promo->promo_nominal;
-
-                    return $promo->promo_nominal;
-                }
-            }
-        };
-
-        $this->data->cart_total = function () {
+        $cart_total = function () {
 
             $hasil = 0;
             foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
@@ -48,19 +31,14 @@ class Bag extends MY_Controller
             return (int)$hasil;
         };
 
-        $this->data->grand_total = function () {
-            $cart_total = function () {
-                $hasil = 0;
-                foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
-                    $hasil += (int)$cart_total->ca_tharga;
-                }
+        $grand_total = function () use ($cart_total) {
 
-                return (int)$hasil;
-            };
-
-            return $cart_total();
+            return $cart_total;
         };
 
+        $this->data->cart_s = $cart_s();
+        $this->data->cart_total = $cart_total();
+        $this->data->grand_total = $grand_total();
         $this->load->view('Bag', $this->data);
 
     }
@@ -232,47 +210,22 @@ class Bag extends MY_Controller
 
     public function promo($kode_promo = '')
     {
-
-        $this->data->kode_promo = $kode_promo;
-        $this->data->view_promo = '';
-        $this->data->cart_s = function () {
+        $cart_s = function () {
             return $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
         };
 
-//        $this->data->promo_total = function () {
-//            $promo = $this->promo->where_promo_nama($this->data->kode_promo)->get();
-//            if (isset($promo) && $promo != NULL) {
-//                if ($promo->promo_rate != 0) {
-//                    $this->data->view_promo = $promo->promo_rate + ' %';
-//
-//                    $potongan = $this->data->cart_total * ($promo->promo_rate / 100);
-//                    return $potongan;
-//                } elseif ($promo->promo_nominal != 0) {
-//                    $this->data->view_promo = 'IDR ' + $promo->promo_nominal;
-//
-//                    return $promo->promo_nominal;
-//                }
-//            }
-//        };
-        $promo_where = array(
-            'promo_nama' => $kode_promo,
-            'promo_aktif' => '1'
-        );
-        $promo = $this->promo->where($promo_where)->get();
+        $promo = function () use ($kode_promo) {
+            $promo_where = array(
+                'promo_nama' => $kode_promo,
+                'promo_aktif' => '1'
+            );
 
-        if ($promo) {
-            $this->data->promo_ket = $promo->promo_ket;
-            $this->data->promo_rate = $promo->promo_rate;
-            $this->data->promo_nominal = $promo->promo_nominal;
-        }
+            $promo = $this->promo->where($promo_where)->get();
+            return $promo ? $promo : redirect('bag');
+        };
 
-//        if ($promo && $promo->promo_rate) {
-//            $this->data->view_promo = $promo->promo_rate . ' %';
-//        } elseif ($promo && $promo->promo_nominal) {
-//            $this->data->view_promo = 'IDR ' . $promo->promo_nominal;
-//        }
 
-        $this->data->cart_total = function () {
+        $cart_total = function () {
 
             $hasil = 0;
             foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
@@ -282,19 +235,18 @@ class Bag extends MY_Controller
             return (int)$hasil;
         };
 
-        $this->data->grand_total = function () {
-            $cart_total = function () {
-                $hasil = 0;
-                foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
-                    $hasil += (int)$cart_total->ca_tharga;
-                }
-
-                return (int)$hasil;
-            };
+        $grand_total = function () use ($cart_total, $promo) {
 
             $harga = $cart_total();
-            $promo_rate = $this->data->promo_rate;
-            $promo_nominal = $this->data->promo_nominal;
+            $diskon = $promo();
+            if ($diskon) {
+                $promo_rate = $diskon->promo_rate;
+                $promo_nominal = $diskon->promo_nominal;
+            } else {
+                $promo_rate = 0;
+                $promo_nominal = 0;
+            }
+
 
             if ($promo_rate != 0) {
                 $potongan = $harga * ($promo_rate / 100);
@@ -304,12 +256,16 @@ class Bag extends MY_Controller
                 $potongan = $promo_nominal;
                 $hasil = $harga - $potongan;
             } else {
-                $hasil = $this->data->cart_total();
+                $hasil = $harga;
             }
 
             return $hasil;
         };
 
+        $this->data->kode_promo = $kode_promo;
+        $this->data->cart_s = $cart_s();
+        $this->data->cart_total = $cart_total();
+        $this->data->grand_total = $grand_total();
         $this->load->view('Bag', $this->data);
     }
 

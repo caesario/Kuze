@@ -261,6 +261,7 @@ class Order extends MY_Controller
 
     public function detil($id)
     {
+        $that =& $this;
         $this->data->orders_noid = $id;
         $this->data->orders = $this->order->with_order_detil()->where_orders_noid($this->data->orders_noid)->get();
         $this->data->duedate = function () {
@@ -275,7 +276,7 @@ class Order extends MY_Controller
             foreach ($this->data->orders->order_detil as $order) {
                 $hasil += $order->orders_detil_tharga;
             }
-            return $hasil;
+            return (int)$hasil;
         };
         $this->data->pengiriman = function () {
             $alamat = new stdClass();
@@ -331,7 +332,7 @@ class Order extends MY_Controller
             return $hasil;
         };
 
-        $this->data->biaya_subtotal = function () {
+        $biaya_subtotal = function () {
             $hasil = 0;
             $orders_noid = $this->order
                 ->where('orders_noid', $this->data->orders_noid)
@@ -340,10 +341,10 @@ class Order extends MY_Controller
                 $hasil += (int)$od->orders_detil_tharga;
             }
 
-            return $hasil;
+            return (int)$hasil;
         };
 
-        $this->data->biaya_pengiriman = function () {
+        $biaya_pengiriman = function () {
             $orders_noid = $this->order
                 ->where('orders_noid', $this->data->orders_noid)
                 ->get()->orders_noid;
@@ -357,6 +358,38 @@ class Order extends MY_Controller
 
 
         };
+
+        $diskon_harga = function () {
+            $promo_kode = $this->order
+                ->where('orders_noid', $this->data->orders_noid)
+                ->get()->promo_kode;
+            $promo = $this->promo->where('promo_kode', $promo_kode)->get();
+
+
+            $harga = $this->order
+                ->where('orders_noid', $this->data->orders_noid)
+                ->get()->orders_hrg;
+            $promo_rate = $promo->promo_rate;
+            $promo_nominal = $promo->promo_nominal;
+
+            if ($promo_rate != 0) {
+                $potongan = $harga * ($promo_rate / 100);
+
+            } elseif ($promo_nominal != 0) {
+                $potongan = $promo_nominal;
+            } else {
+                $potongan = 0;
+            }
+
+            return (int)$potongan;
+
+        };
+
+        $this->data->biaya_subtotal = $biaya_subtotal();
+        $this->data->diskon_harga = $diskon_harga();
+        $this->data->biaya_pengiriman = $biaya_pengiriman();
+        $this->data->grand_total = $biaya_subtotal() - $diskon_harga() + $biaya_pengiriman();
+
         $this->load->view('Detil_order', $this->data);
     }
 
