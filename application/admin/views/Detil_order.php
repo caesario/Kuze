@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="text-success">Tanggal Jatuh Tempo Pembayaran :</div>
                 <p class="small">
-                    <?= $duedate(); ?>
+                    <?= $duedate; ?>
                 </p>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="col">
                 <div class="text-success">Tujuan Pengiriman :</div>
                 <p class="small">
-                    <?= $pengiriman(); ?>
+                    <?= $pengiriman; ?>
                 </p>
             </div>
             <div class="col">
@@ -46,11 +46,11 @@
         <div class="row">
             <div class="col">
                 <div class="text-success">Metode Pembayaran :</div>
-                <p class="small"><?= $metode_pembayaran(); ?></p>
+                <p class="small"><?= $metode_pembayaran; ?></p>
             </div>
             <div class="col">
                 <div class="text-success">Metode Pengiriman :</div>
-                <p class="small"><?= $jasa(); ?></p>
+                <p class="small"><?= $jasa; ?></p>
             </div>
         </div>
         <div class="row mb-5">

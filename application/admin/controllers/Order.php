@@ -261,26 +261,24 @@ class Order extends MY_Controller
 
     public function detil($id)
     {
-        $that =& $this;
-        $this->data->orders_noid = $id;
-        $this->data->orders = $this->order->with_order_detil()->where_orders_noid($this->data->orders_noid)->get();
-        $this->data->duedate = function () {
-            $duedate = strtotime($this->data->orders->created_at);
+        $orders = $this->order->with_order_detil()->where_orders_noid($id)->get();
+        $duedate = function () use ($orders) {
+            $duedate = strtotime($orders->created_at);
             $duedate += 21600;
             $duedate = date('Y-m-d H:i:s', $duedate);
             return $duedate;
         };
 
-        $this->data->orders_total = function () {
+        $orders_total = function () use ($orders) {
             $hasil = 0;
-            foreach ($this->data->orders->order_detil as $order) {
+            foreach ($orders->order_detil as $order) {
                 $hasil += $order->orders_detil_tharga;
             }
             return (int)$hasil;
         };
-        $this->data->pengiriman = function () {
+        $pengiriman = function () use ($id) {
             $alamat = new stdClass();
-            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $this->data->orders_noid)->get();
+            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $id)->get();
 
             if ($order_pengiriman) {
                 $alamat->provinsi = $this->provinsi
@@ -304,8 +302,8 @@ class Order extends MY_Controller
 
         };
 
-        $this->data->jasa = function () {
-            $ongkir = $this->order_ongkir->where('orders_noid', $this->data->orders_noid)->get();
+        $jasa = function () use ($id) {
+            $ongkir = $this->order_ongkir->where('orders_noid', $id)->get();
 
             if ($ongkir) {
                 return $ongkir->orders_ongkir_nama . ' - ' . $ongkir->orders_ongkir_deskripsi . ' (' . $ongkir->orders_ongkir_estimasi . ' hari)';
@@ -316,9 +314,9 @@ class Order extends MY_Controller
 
         };
 
-        $this->data->metode_pembayaran = function () {
+        $metode_pembayaran = function () use ($id) {
             $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
+                ->where('orders_noid', $id)
                 ->get()->orders_noid;
             $pembayaran = $this->order_payment->with_bank()->where('orders_noid', $orders_noid)->get();
 
@@ -332,10 +330,10 @@ class Order extends MY_Controller
             return $hasil;
         };
 
-        $biaya_subtotal = function () {
+        $biaya_subtotal = function () use ($id) {
             $hasil = 0;
             $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
+                ->where('orders_noid', $id)
                 ->get()->orders_noid;
             foreach ($this->order_detil->where('orders_noid', $orders_noid)->get_all() as $od) {
                 $hasil += (int)$od->orders_detil_tharga;
@@ -344,9 +342,9 @@ class Order extends MY_Controller
             return (int)$hasil;
         };
 
-        $biaya_pengiriman = function () {
+        $biaya_pengiriman = function () use ($id) {
             $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
+                ->where('orders_noid', $id)
                 ->get()->orders_noid;
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
 
@@ -359,15 +357,15 @@ class Order extends MY_Controller
 
         };
 
-        $diskon_harga = function () {
+        $diskon_harga = function () use ($id) {
             $promo_kode = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
+                ->where('orders_noid', $id)
                 ->get()->promo_kode;
             $promo = $this->promo->where('promo_kode', $promo_kode)->get();
 
 
             $harga = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
+                ->where('orders_noid', $id)
                 ->get()->orders_hrg;
             $promo_rate = $promo->promo_rate;
             $promo_nominal = $promo->promo_nominal;
@@ -385,6 +383,13 @@ class Order extends MY_Controller
 
         };
 
+        $this->data->orders_noid = $id;
+        $this->data->orders = $orders;
+        $this->data->duedate = $duedate();
+        $this->data->pengiriman = $pengiriman();
+        $this->data->jasa = $jasa();
+        $this->data->metode_pembayaran = $metode_pembayaran();
+        $this->data->orders_total = $orders_total();
         $this->data->biaya_subtotal = $biaya_subtotal();
         $this->data->diskon_harga = $diskon_harga();
         $this->data->biaya_pengiriman = $biaya_pengiriman();
