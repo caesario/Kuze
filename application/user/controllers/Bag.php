@@ -144,8 +144,11 @@ class Bag extends MY_Controller
                     $potongan = $promo_nominal;
                     $totalharga = $harga - $potongan;
                 } else {
-                    $totalharga = $this->data->cart_total();
+                    $totalharga = $harga;
                 }
+            } else {
+                $promo_kode = 0;
+                $harga = $cart_total();
             }
 
             $this->order->insert(array(
