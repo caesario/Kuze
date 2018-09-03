@@ -100,11 +100,6 @@ include "layout/Menu.php";
                 <select name="kecamatan" id="kecamatan" class="kecamatan form-control" required>
                 </select>
             </div>
-            <div class="col-lg-6 col-sm-12">
-                <label for="kelurahan">Village</label>
-                <select name="kelurahan" id="kelurahan" class="kelurahan form-control" required>
-                </select>
-            </div>
         </div>
 
         <div class="row form-group">
@@ -186,6 +181,11 @@ include "layout/Menu.php";
                         };
                     }
                 }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
+                    $('#kodepos').val(res);
+                })
             });
             $('#kecamatan').select2({
                 theme: 'bootstrap4',
@@ -201,26 +201,6 @@ include "layout/Menu.php";
                         };
                     }
                 }
-            });
-            $('#kelurahan').select2({
-                theme: 'bootstrap4',
-                placeholder: 'Choose Village',
-                ajax: {
-                    url: '<?= site_url('API/get_kelurahan'); ?>',
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term,
-                            kecamatan: $('#kecamatan').val()
-                        };
-                    }
-                }
-            }).on('select2:select', function () {
-                var id = $(this).val();
-                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
-                    $('#kodepos').val(res);
-                })
             });
 
             $('#pilih_alamat').select2({
