@@ -1,13 +1,21 @@
 <?php
-require_once 'RESTClient.php';
 
-class Endpoints {
+/**
+ * RajaOngkir Library for CodeIgniter
+ * Endpoints
+ *
+ * @author Andi Siswanto <andisis92@gmail.com>
+ */
+require_once 'restclient.php';
+
+class Endpoints
+{
 
     private $api_key;
     private $account_type;
-    private $originType;
 
-    public function __construct($api_key, $account_type) {
+    public function __construct($api_key, $account_type)
+    {
         $this->api_key = $api_key;
         $this->account_type = $account_type;
     }
@@ -17,7 +25,8 @@ class Endpoints {
      * @param integer $province_id ID propinsi, jika NULL tampilkan semua propinsi
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function province($province_id = NULL) {
+    function province($province_id = NULL)
+    {
         $params = (is_null($province_id)) ? array() : array('id' => $province_id);
         $rest_client = new RESTClient($this->api_key, 'province', $this->account_type);
         return $rest_client->get($params);
@@ -29,7 +38,8 @@ class Endpoints {
      * @param integer $city_id ID kota, jika ID propinsi dan kota NULL maka tampilkan semua kota
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function city($province_id = NULL, $city_id = NULL) {
+    function city($province_id = NULL, $city_id = NULL)
+    {
         $params = (is_null($province_id)) ? array() : array('province' => $province_id);
         if (!is_null($city_id)) {
             $params['id'] = $city_id;
@@ -40,16 +50,14 @@ class Endpoints {
 
     /**
      * Fungsi untuk mendapatkan data kecamatan di Indonesia
-     * @param integer $city_id ID kota
-     * @param integer $id ID kecamatan, Jika ID kecamatan NULL, maka akan menampilkan semua
-     *               kecamatan pada kabupaten/kota terkait. Jika ID kecamatan diisi, maka akan
-     *               menampilkan detil kecamatan
+     * @param integer $city_id ID kota untuk mendapatkan nama kecamatan berdasarkan kote
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function subdistrict($city_id, $id = NULL) {
-        $params = array('city' => $city_id);
-        if (!is_null($id)) {
-            $params['id'] = $id;
+    function subdistrict($city_id, $subdistrict_id = NULL)
+    {
+        $params = (is_null($city_id)) ? array() : array('city' => $city_id);
+        if (!is_null($subdistrict_id)) {
+            $params['id'] = $subdistrict_id;
         }
         $rest_client = new RESTClient($this->api_key, 'subdistrict', $this->account_type);
         return $rest_client->get($params);
@@ -63,14 +71,13 @@ class Endpoints {
      * @param string $courier Kode kurir
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function cost($origin, $destination, $weight, $courier) {
+    function cost($origin, $destination, $weight, $courier)
+    {
         $params = array(
             'origin' => $origin,
             'destination' => $destination,
             'weight' => $weight,
-            'courier' => $courier,
-            'originType' => (strlen($origin)==3 && $this->account_type!='pro')?'city':$this->originType,
-            'destinationType' => (strlen($destination)==3 && $this->account_type!='pro')?'city':$this->originType
+            'courier' => $courier
         );
         $rest_client = new RESTClient($this->api_key, 'cost', $this->account_type);
         return $rest_client->post($params);
@@ -78,70 +85,75 @@ class Endpoints {
 
     /**
      * Fungsi untuk mendapatkan daftar/nama kota yang mendukung pengiriman Internasional
-     *
+     * 
      * @param integer $province_id ID propinsi
      * @param integer $city_id ID kota, jika ID propinsi dan ID kota NULL maka tampilkan semua kota
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function internationalOrigin($province_id = NULL, $city_id = NULL) {
+    function internationalOrigin($province_id = NULL, $city_id = NULL)
+    {
         $params = (is_null($province_id)) ? array() : array('province' => $province_id);
         if (!is_null($city_id)) {
             $params['id'] = $city_id;
         }
-        $rest_client = new RESTClient($this->api_key, 'v2/internationalOrigin', $this->account_type);
+        $rest_client = new RESTClient($this->api_key, 'internationalOrigin', $this->account_type);
         return $rest_client->get($params);
     }
 
     /**
      * Fungsi untuk mendapatkan daftar/nama negara tujuan pengiriman internasional
-     *
+     * 
      * @param integer ID negara, jika kosong maka akan menampilkan semua negara
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function internationalDestination($country_id = NULL) {
+    function internationalDestination($country_id = NULL)
+    {
         $params = (is_null($country_id)) ? array() : array('id' => $country_id);
-        $rest_client = new RESTClient($this->api_key, 'v2/internationalDestination', $this->account_type);
+        $rest_client = new RESTClient($this->api_key, 'internationalDestination', $this->account_type);
         return $rest_client->get($params);
     }
 
     /**
      * Fungsi untuk mendapatkan ongkir internasional (EMS)
-     *
+     * 
      * @param integer ID kota asal
-     * @param integer ID negara tujuan
+     * @param ineteger ID negara tujuan
      * @param integer Berat kiriman dalam gram
      * @param string Kode kurir
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function internationalCost($origin, $destination, $weight, $courier) {
+    function internationalCost($origin, $destination, $weight, $courier)
+    {
         $params = array(
             'origin' => $origin,
             'destination' => $destination,
             'weight' => $weight,
             'courier' => $courier
         );
-        $rest_client = new RESTClient($this->api_key, 'v2/internationalCost', $this->account_type);
+        $rest_client = new RESTClient($this->api_key, 'internationalCost', $this->account_type);
         return $rest_client->post($params);
     }
 
     /**
      * Fungsi untuk mendapatkan nilai kurs rupiah terhadap USD
-     *
+     * 
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function currency() {
+    function currency()
+    {
         $rest_client = new RESTClient($this->api_key, 'currency', $this->account_type);
         return $rest_client->get(array());
     }
 
     /**
      * Fungsi untuk melacak paket/nomor resi
-     *
+     * 
      * @param string Nomor resi
      * @param string Kode kurir
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function waybill($waybill_number, $courier) {
+    function waybill($waybill_number, $courier)
+    {
         $params = array(
             'waybill' => $waybill_number,
             'courier' => $courier

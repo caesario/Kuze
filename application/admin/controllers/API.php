@@ -6,6 +6,17 @@ class API extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('RajaOngkir', 'rajaongkir');
+    }
+
+    public function api_provinsi()
+    {
+        return $this->rajaongkir->province();
+    }
+
+    public function api_city()
+    {
+        return $this->rajaongkir->city();
     }
 
     public function get_provinsi($id = '')
