@@ -10,7 +10,7 @@ class New_arrival extends MY_Controller
 
     public function index()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->where('i_new', '1')->get_all();
         $this->data->breadcumburl = site_url('new_arrival');
         $this->data->breadcumb = 'New Arrival';
         $this->load->view('New_arrival', $this->data);

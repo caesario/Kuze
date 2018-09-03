@@ -10,7 +10,7 @@ class Best_seller extends MY_Controller
 
     public function index()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->where('i_best', '1')->get_all();
         $this->data->breadcumburl = site_url('Best_seller');
         $this->data->breadcumb = 'Best Seller';
         $this->load->view('Best_seller', $this->data);
