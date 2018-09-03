@@ -36,6 +36,11 @@ include "layout/Menu.php";
                     <?php foreach ($items as $item): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
+                                <div class="row">
+                                    <div class="c-ribbon c-ribbon1">
+                                        <span>Best Seller</span>
+                                    </div>
+                                </div>
                                 <?php if ($item_img($item->i_kode) != NULL): ?>
 
                                     <a class="" href="<?= site_url('best_seller/item/' . $item->i_url . '/detil'); ?>">
