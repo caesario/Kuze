@@ -82,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $provinsi = '';
     $kabupaten = '';
     $kecamatan = '';
-    $kelurahan = '';
     $kodepos = '';
     $alamat = '';
     $email = '';
@@ -188,12 +187,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <label for="kecamatan">Kecamatan</label>
                         <select name="kecamatan" id="kecamatan" class="kecamatan form-control"
                                 value="<?= $kecamatan; ?>" required>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="kelurahan">Kelurahan / Desa</label>
-                        <select name="kelurahan" id="kelurahan" class="kelurahan form-control"
-                                value="<?= $kelurahan; ?>" required>
                         </select>
                     </div>
 
@@ -328,6 +321,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         };
                     }
                 }
+            }).on('select2:select', function () {
+                var id = $(this).val();
+                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
+                    $('#kodepos').val(res);
+                })
             });
             $('#kecamatan').select2({
                 theme: 'bootstrap4',
@@ -344,26 +342,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     }
                 }
             });
-            $('#kelurahan').select2({
-                theme: 'bootstrap4',
-                placeholder: 'Pilih kelurahan / desa',
-                ajax: {
-                    url: '<?= site_url('API/get_kelurahan'); ?>',
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term,
-                            kecamatan: $('#kecamatan').val()
-                        };
-                    }
-                }
-            }).on('select2:select', function () {
-                var id = $(this).val();
-                $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
-                    $('#kodepos').val(res);
-                })
-            });
         });
     </script>
     <script>
@@ -373,7 +351,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         var kelurahan = $('#kelurahan');
 
         $.when(
-            $.getJSON('<?= site_url('API/get_provinsi/'); ?>' + <?= $provinsi; ?>, function (res) {
+            $.getJSON('<?= site_url('API/get_provinsi/'); ?>', function (res) {
                 provinsi.append(new Option(
                     res.results[0].text, res.results[0].id, true, true
                 )).trigger('change');

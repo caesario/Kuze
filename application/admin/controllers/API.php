@@ -33,7 +33,8 @@ class API extends MY_Controller
             $data = array(
                 'kabupaten_id' => $p['city_id'],
                 'provinsi_id' => $p['province_id'],
-                'kabupaten_nama' => $p['city_name']
+                'kabupaten_nama' => $p['city_name'],
+                'kodepos' => $p['postal_code']
             );
 
             $this->kabupaten->insert($data);
@@ -49,12 +50,12 @@ class API extends MY_Controller
         foreach ($kabupaten as $p) {
             $city_id = $p['city_id'];
             $kecamatan = json_decode($this->rajaongkir->subdistrict($city_id));
-            $kecamatan = $kecamatan['rajaongkir']['results'];
+            $kecamatan = $kecamatan->rajaongkir->results;
             foreach ($kecamatan as $p) {
                 $data = array(
-                    'kecamatan_id' => $p['subdistrict_id'],
-                    'kabupaten_id' => $p['city_id'],
-                    'kecamatan_nama' => $p['subdistrict_name']
+                    'kecamatan_id' => $p->subdistrict_id,
+                    'kabupaten_id' => $p->city_id,
+                    'kecamatan_nama' => $p->subdistrict_name
                 );
 
                 $this->kecamatan->insert($data);
@@ -181,9 +182,9 @@ class API extends MY_Controller
         echo json_encode($data);
     }
 
-    public function get_kodepos($desa_id)
+    public function get_kodepos($kabupaten)
     {
-        $hasil = $this->desa->get($desa_id);
+        $hasil = $this->kabupaten->get($kabupaten);
         echo $hasil->kodepos;
     }
 
