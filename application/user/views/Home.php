@@ -4,16 +4,16 @@ include "layout/Menu.php";
 ?>
 
     <!-- Slide Show -->
-<?php if ($img_promos != NULL): ?>
-    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
-        <?php foreach ($img_promos as $promo): ?>
-            <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
-                 data-caption="<?= $promo->slide_promo_caption; ?>"
-                 alt="<?= $promo->slide_promo_img; ?>">
-        <?php endforeach; ?>
-    </div>
-<?php endif; ?>
-    <!-- End Slide Show -->
+
+    <?php if ($img_promos != NULL): ?>
+        <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
+            <?php foreach ($img_promos as $promo): ?>
+                <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
+                     data-caption="<?= $promo->slide_promo_caption; ?>"
+                     alt="<?= $promo->slide_promo_img; ?>">
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 
     <div class="container-fluid mb-3">
         <div class="row c-padding-header">
@@ -82,7 +82,9 @@ include "layout/Menu.php";
         <?php endif; ?>
     </div>
 
-    <!-- ======= Content ======= -->
+    <!-- End Slide Show -->
+
+    <!-- ======= Content New Arrival ======= -->
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h2 class="">New Arrival</h2>
@@ -161,13 +163,15 @@ include "layout/Menu.php";
         </div>
     </div>
 
+    <!-- ======= End Product New Arrival ======= -->
+
+    <!-- ======= Product Best Seller ======= -->
+
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h2 class="">Best Seller</h2>
         <span class="text-muted c-sub-cons">Best Seller on This Month</span>
     </div>
 
-
-    <!-- ======= Product ======= -->
     <div class="container-fluid c-padding-header">
         <div class="row">
             <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
@@ -241,6 +245,8 @@ include "layout/Menu.php";
 
         </div>
     </div>
+
+    <!-- ======= End Product Best Seller ======= -->
 
 
     <!-- ======= Long Product ======= -->
