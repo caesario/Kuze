@@ -114,7 +114,10 @@
         var value = parseInt($(this).html()),
             hasil = moneyFormat.to(value);
 
-        $(this).html(hasil);
+        if ($(this).html() === '-') {
+        } else {
+            $(this).html(hasil);
+        }
     });
 </script>
 <script>
