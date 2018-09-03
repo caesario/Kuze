@@ -67,6 +67,32 @@ class Kategori extends MY_Controller
         $this->load->view('Detil', $this->data);
     }
 
+    public function get_item_bestseller($i_url)
+    {
+        $this->data->item = $this->item
+            ->with_item_detil()
+            ->where('i_url', $i_url)
+            ->get();
+        $this->data->breadcumburl = site_url('best_seller');
+        $this->data->breadcumburl1 = site_url('best_seller/item/' . $i_url . '/detil');
+        $this->data->breadcumb = 'Best Seller';
+        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+        $this->load->view('Detil', $this->data);
+    }
+
+    public function get_item_newarrival($i_url)
+    {
+        $this->data->item = $this->item
+            ->with_item_detil()
+            ->where('i_url', $i_url)
+            ->get();
+        $this->data->breadcumburl = site_url('new_arrival');
+        $this->data->breadcumburl1 = site_url('new_arrival/item/' . $i_url . '/detil');
+        $this->data->breadcumb = 'New Arrival';
+        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+        $this->load->view('Detil', $this->data);
+    }
+
 }
 
 /* End of file Home.php */
