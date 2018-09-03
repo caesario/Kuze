@@ -15,7 +15,7 @@ class Pencarian extends MY_Controller
     {
         $cari = $_GET['keyword'];
         $this->data->keyword = $cari;
-        $this->data->cari_s = $this->item->select_pencarian($cari);
+        $this->data->keywords = $this->item->select_pencarian($cari);
         $this->load->view('Pencarian', $this->data);
 
     }

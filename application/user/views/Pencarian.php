@@ -31,9 +31,41 @@ include "layout/Menu.php";
     <!-- Pencarian -->
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <pre>
-                <?php print_r($cari_s); ?>
-            </pre>
+            <?php if ($keywords != NULL): ?>
+                <?php foreach ($keywords as $keyword): ?>
+                    <?php $stok = $qty($keyword->i_kode); ?>
+                    <?php if ($stok >= 1): ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="card">
+                                <a href="<?= site_url('item/' . $keyword->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($keyword->i_kode) != NULL): ?>
+                                        <img class="card-img-top"
+                                             src="<?= base_url('upload/' . $item_img($keyword->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($keyword->i_kode)->ii_nama; ?>">
+                                    <?php else: ?>
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             alt="No Image">
+                                    <?php endif; ?>
+
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title c-both c-title"><?= $keyword->i_nama; ?></h5>
+                                        <h5 id="rupiah" class="c-price"><?= $keyword->i_hrg; ?></h5>
+                                        <a href="<?= site_url('item/' . $keyword->i_url . '/detil'); ?>"
+                                           class="btn btn-csr c-cart c-cart-p">
+                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
+                                                To Bag</p>
+                                        </a>
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="col">Tidak ada item yang ditampilkan</p>
+            <?php endif; ?>
         </div>
     </div>
     <script>
