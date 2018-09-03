@@ -11,12 +11,55 @@ class API extends MY_Controller
 
     public function api_provinsi()
     {
-        return $this->rajaongkir->province();
+        $this->provinsi->delete_all();
+        $provinsi = json_decode($this->rajaongkir->province(), true);
+        $provinsi = $provinsi['rajaongkir']['results'];
+        foreach ($provinsi as $p) {
+            $data = array(
+                'provinsi_id' => $p['province_id'],
+                'provinsi_nama' => $p['province']
+            );
+
+            $this->provinsi->insert($data);
+        }
     }
 
-    public function api_city()
+    public function api_kabupaten()
     {
-        return $this->rajaongkir->city();
+        $this->kabupaten->delete_all();
+        $kabupaten = json_decode($this->rajaongkir->city(), true);
+        $kabupaten = $kabupaten['rajaongkir']['results'];
+        foreach ($kabupaten as $p) {
+            $data = array(
+                'kabupaten_id' => $p['city_id'],
+                'provinsi_id' => $p['province_id'],
+                'kabupaten_nama' => $p['city_name']
+            );
+
+            $this->kabupaten->insert($data);
+        }
+    }
+
+    public function api_kecamatan()
+    {
+        $this->kecamatan->delete_all();
+        $kabupaten = json_decode($this->rajaongkir->city(), true);
+        $kabupaten = $kabupaten['rajaongkir']['results'];
+
+        foreach ($kabupaten as $p) {
+            $city_id = $p['city_id'];
+            $kecamatan = json_decode($this->rajaongkir->subdistrict($city_id));
+            $kecamatan = $kecamatan['rajaongkir']['results'];
+            foreach ($kecamatan as $p) {
+                $data = array(
+                    'kecamatan_id' => $p['subdistrict_id'],
+                    'kabupaten_id' => $p['city_id'],
+                    'kecamatan_nama' => $p['subdistrict_name']
+                );
+
+                $this->kecamatan->insert($data);
+            }
+        }
     }
 
     public function get_provinsi($id = '')
