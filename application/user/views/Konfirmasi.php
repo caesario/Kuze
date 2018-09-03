@@ -93,7 +93,7 @@ $total = $biaya_subtotal + $biaya_pengiriman;
             </div>
         </div>
 
-    <div class="col-md-8 col-12 c-margin-auto mt-4">
+    <div class="col-md-8 col-12 c-margin-auto mt-4 small">
         <div class="c-cart-total col-lg-6 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
             <h5 class="c-title-cart-total">Promo</h5>
             <table class="table table-bordered">
