@@ -1,4 +1,4 @@
-<?php
+Profil_password.php<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profil extends MY_Controller

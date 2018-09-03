@@ -117,13 +117,8 @@ include "layout/Menu.php";
                                                     required>
                                             </select>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="kelurahan">
-                                                Village</label>
-                                            <select name="kelurahan" id="kelurahan" class="kelurahan form-control"
-                                                    required>
-                                            </select>
-                                        </div>
+
+
 
                                         <div class="col mt-2">
                                             <label for="kodepos">Post Code</label>
