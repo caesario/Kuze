@@ -15,7 +15,7 @@ include "layout/Menu.php";
         </div>
     <?php endif; ?>
 
-    <div class="container-fluid mb-3">
+    <div class="container-fluid px-0 mb-3">
         <div class="row c-padding-header">
             <?php if ($rand_image): ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
@@ -125,7 +125,7 @@ include "layout/Menu.php";
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
                                 <div class="row">
-                                    <div class="c-ribbon c-ribbon1">
+                                    <div class="c-ribbon c-ribbon2">
                                         <span>New Arrival</span>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@ include "layout/Menu.php";
                                         <h5 id="rupiah" class="c-price"><?= $new_arrival->i_hrg; ?></h5>
                                         <a href="<?= site_url('produk-terbaru/item/' . $new_arrival->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
-                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
                                             <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
                                                 To Bag</p>
                                         </a>
@@ -229,7 +229,7 @@ include "layout/Menu.php";
                                         <h5 id="rupiah" class="c-price"><?= $best_seller->i_hrg; ?></h5>
                                         <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
-                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
                                             <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
                                                 To Bag</p>
                                         </a>
@@ -247,6 +247,92 @@ include "layout/Menu.php";
     </div>
 
     <!-- ======= End Product Best Seller ======= -->
+
+
+    <!-- ======= Product Best Seller ======= -->
+
+    <div class="container-fluid c-padding-header text-center c-text-cons">
+        <h2 class="">Sale Item</h2>
+        <span class="text-muted c-sub-cons">Sale Item This Month</span>
+    </div>
+
+    <div class="container-fluid c-padding-header">
+        <div class="row">
+            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['gagal']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                <div class="col">
+                    <div class="alert alert-success alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['berhasil']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="row">
+            <?php if ($best_sellers() != NULL): ?>
+                <?php foreach ($best_sellers() as $best_seller): ?>
+                    <?php $stok = $qty($best_seller->i_kode); ?>
+                    <?php if ($stok >= 1): ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="card">
+<!--                                <div class="row">-->
+<!--                                    <div class="c-ribbon c-ribbon1">-->
+<!--                                        <span>Sale Item</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                                <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($best_seller->i_kode) != NULL): ?>
+                                        <img class="card-img-top"
+                                             src="<?= base_url('upload/' . $item_img($best_seller->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_nama; ?>">
+                                    <?php else: ?>
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             alt="No Image">
+                                    <?php endif; ?>
+
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title c-both c-title"><?= $best_seller->i_nama; ?></h5>
+
+                                        <h5 id="rupiah" class="c-price"><?= $best_seller->i_hrg; ?></h5>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>"
+                                           class="btn btn-csr c-cart c-cart-p">
+                                            <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
+                                            <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
+                                                To Bag</p>
+                                        </a>
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="col">Tidak ada item yang ditampilkan</p>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+    <!-- ======= End Product Best Seller ======= -->
+
+
 
 
     <!-- ======= Long Product ======= -->
@@ -321,7 +407,7 @@ include "layout/Menu.php";
 
     <!-- ======= Instagram ======= -->
     <div class="container-fluid">
-        <div class="row">
+        <div class="row px-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
                     <img src="assets/img/ig1.jpg" class="c-ig" alt="">
