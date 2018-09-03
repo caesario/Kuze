@@ -43,7 +43,6 @@ class Ongkir_transfer extends MY_Controller
         };
 
         $this->data->pengiriman = $this->get_biaya($order)->rajaongkir->results;
-        print_r($this->get_biaya($order));
 
         if ($this->data->orders->orders_status == 7) {
             $this->data->gagal = 'Order tidak ada atau telah dibatalkan.';
@@ -54,13 +53,13 @@ class Ongkir_transfer extends MY_Controller
         $this->load->view('Ongkir_transfer', $this->data);
     }
 
-    private function get_biaya($orders_noid, $kurir = 'jne:pos:tiki')
+    private function get_biaya($orders_noid, $kurir = 'jne:sicepat:jnt')
     {
         $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
         $dst_id = $order_pengiriman->orders_pengiriman_kecamatan;
         $ori_id = $this->toko->get()->t_kecamatan;
 
-        $cost = $this->rajaongkir->cost($ori_id, $dst_id, $this->get_berat($orders_noid), $kurir);
+        $cost = $this->rajaongkir->cost($ori_id, 'subdistrict', $dst_id, 'subdistrict', $this->get_berat($orders_noid), $kurir);
         echo '<script>console.log(' . $cost . ')</script>';
         return json_decode($cost);
     }
