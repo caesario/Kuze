@@ -58,7 +58,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h1><i class="fa fa-bank mr-2"></i>Kode Promo</h1>
+                    <h1><i class="fas fa-tags mr-2"></i>Kode Promo</h1>
 
 
                 </div>

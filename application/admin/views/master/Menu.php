@@ -32,7 +32,7 @@
                     </ul>
                 </li>
                 <li><a href="<?= site_url('item'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Item</a></li>
-                <li><a href="<?= site_url('promo'); ?>"><i class="fas fa-shopping-cart mr-2"></i>Promo</a></li>
+                <li><a href="<?= site_url('promo'); ?>"><i class="fas fa-tags mr-2"></i>Promo</a></li>
                 <!--                <li><a href="-->
                 <? //= site_url('seri'); ?><!--"><i class="fas fa-shopping-cart mr-2"></i>Item Grosir</a></li>-->
                 <li><a href="#transaksi" aria-expanded="false" data-toggle="collapse"><i
