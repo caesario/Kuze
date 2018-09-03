@@ -163,7 +163,7 @@ include "layout/Menu.php";
                 <tr>
                     <th class="p-1 pl-4">Disc. Total Price</th>
                     <td><span id="rupiah"
-                              class="c-price-cart-3 pl-3"><?= isset($diskon_harga) ? $diskon_harga : '0'; ?></span></td>
+                              class="c-price-cart-3 pl-3"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span></td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Shipping Charges</th>
