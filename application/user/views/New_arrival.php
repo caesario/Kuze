@@ -58,11 +58,6 @@ include "layout/Menu.php";
                                         </a>
                                     <?php endif; ?>
                                     <div class="card-body">
-                                        <!--                                                <i class="fa fa-star c-star"></i>-->
-                                        <!--                                                <i class="fa fa-star c-star"></i>-->
-                                        <!--                                                <i class="fa fa-star c-star"></i>-->
-                                        <!--                                                <i class="fa fa-star c-star"></i>-->
-                                        <!--                                                <i class="fa fa-star c-star"></i>-->
                                         <h5 class="card-title c-both c-title"><?= $kat->item->i_nama; ?></h5>
                                         <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
                                             <h5 id="rupiah" class="c-price"><?= $kat->item->i_hrg_vip; ?></h5>
