@@ -39,7 +39,7 @@
                          alt="">
                 <?php else: ?>
                     <img class="img-fluid mx-auto d-block" width="130" height="80"
-                         src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
                          alt="No Image">
                 <?php endif; ?>
             </div>

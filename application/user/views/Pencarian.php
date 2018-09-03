@@ -44,7 +44,7 @@ include "layout/Menu.php";
                                              alt="<?= $item_img($keyword->i_kode)->ii_nama; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
-                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                              alt="No Image">
                                     <?php endif; ?>
 

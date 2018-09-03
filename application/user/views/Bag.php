@@ -75,7 +75,7 @@ include "layout/Menu.php";
                                                     alt="<?= $item_img($item_kode)->ii_nama; ?>"></a>
                                 <?php else: ?>
                                     <a href=""><img class="c-img-cart"
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                                    src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                     alt="noimg.png"></a>
                                 <?php endif; ?>
                             <?php endif; ?>

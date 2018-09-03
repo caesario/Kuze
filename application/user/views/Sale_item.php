@@ -46,7 +46,7 @@ include "layout/Menu.php";
                                 <?php else: ?>
                                     <a class="" href="<?= site_url('sale_item/item/' . $item->i_url . '/detil'); ?>">
                                         <img class="card-img-top"
-                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                              alt="No Image">
                                     </a>
                                 <?php endif; ?>
