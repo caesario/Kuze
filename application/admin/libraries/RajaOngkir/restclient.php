@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * RajaOngkir Library for CodeIgniter
+ * REST Client
+ *
+ * @author Andi Siswanto <andisis92@gmail.com>
+ *
+ */
 class RESTClient {
 
     private $endpoint;
@@ -22,7 +29,7 @@ class RESTClient {
 
     /**
      * HTTP POST method
-     *
+     * 
      * @param array Parameter yang dikirimkan
      * @return string Response dari cURL
      */
@@ -45,7 +52,7 @@ class RESTClient {
 
     /**
      * HTTP GET method
-     *
+     * 
      * @param array Parameter yang dikirimkan
      * @return string Response dari cURL
      */

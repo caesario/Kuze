@@ -1,10 +1,19 @@
 <?php
+
+/**
+ * RajaOngkir Library for CodeIgniter
+ * Digunakan untuk mengkonsumsi API RajaOngkir dengan mudah
+ *
+ * @author Andi Siswanto <andisis92@gmail.com>
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once 'Ongkir/Endpoints.php';
-class Ongkir extends Endpoints {
+require_once 'RajaOngkir/endpoints.php';
+
+class RajaOngkir extends Endpoints
+{
+
     private $api_key;
     private $account_type;
-    private $_ci;
 
     public function __construct() {
         // Pastikan bahwa PHP mendukung cURL
@@ -12,13 +21,12 @@ class Ongkir extends Endpoints {
             log_message('error', 'cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.');
         }
         $this->_ci = & get_instance();
-        $this->_ci->load->config('ongkir', TRUE);
-        // Pastikan Anda sudah memasukkan API Key di application/config/rajaongkir.php
-        if ($this->_ci->config->item('api_key', 'ongkir') == "") {
+        $this->_ci->load->config('rajaongkir', TRUE);
+        if ($this->_ci->config->item('rajaongkir_api_key', 'rajaongkir') == "") {
             log_message("error", "Harap masukkan API KEY Anda di config.");
         } else {
-            $this->api_key = $this->_ci->config->item('api_key', 'ongkir');
-            $this->account_type = $this->_ci->config->item('account_type', 'ongkir');
+            $this->api_key = $this->_ci->config->item('rajaongkir_api_key', 'rajaongkir');
+            $this->account_type = $this->_ci->config->item('rajaongkir_account_type', 'rajaongkir');
         }
         parent::__construct($this->api_key, $this->account_type);
     }
