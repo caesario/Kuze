@@ -85,6 +85,59 @@ include "layout/Menu.php";
                         Checkout
                     </button>
                 </form>
+
+
+            </div>
+
+            <div class="container-fluid c-padding-header c-margin-cart-total">
+
+                <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
+                    <h5 class="c-title-cart-total">Promo</h5>
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th class="c-table-cart-total p-1 pl-4">Coupon</th>
+                            <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th class="p-1 pl-4">Note</th>
+                            <td><span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h5 class="c-title-cart-total">Shopping Summary</h5>
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th class="c-table-cart-total p-1 pl-4">Total Price</th>
+                            <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
+                        </tr>
+                        <tr>
+                            <th class="p-1 pl-4">Disc. Total Price</th>
+                            <td><span id="rupiah"
+                                      class="c-price-cart-3 pl-3"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span></td>
+                        </tr>
+                        <tr>
+                            <th class="p-1 pl-4">Shipping Charges</th>
+                            <td><span class="c-price-cart-3 pl-3">-</span></td>
+                        </tr>
+                        <tr>
+                            <th nowrap class="p-1 pl-4 pr-4">Disc. Shipping Charges</th>
+                            <td><span class="c-price-cart-3 pl-3">-</span></td>
+                        </tr>
+
+                        <tr>
+                            <th class="p-1 pl-4">Grand Total</th>
+                            <td><span id="rupiah"
+                                      class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- <a href="?= current_url() . '/checkout'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
+                        Shipping</a> ->
+                </div>
             </div>
             <!-- ======= Checkout Left ======= -->
 <!--            <div class="col-lg-6">-->
