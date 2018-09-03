@@ -33,18 +33,20 @@ include "layout/Menu.php";
                     <?php foreach ($pengiriman as $k1): ?>
                         <?php $nama = $k1->name; ?>
                         <?php foreach ($k1->costs as $k2): ?>
+                            <?php $service = $k2->service; ?>
                             <?php $deskripsi = $k2->description; ?>
                             <?php foreach ($k2->cost as $k3): ?>
                                 <?php $biaya = $k3->value; ?>
                                 <?php $estimasi = $k3->etd; ?>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="pengiriman" id="pengiriman"
+                                    <input class="form-check-input" type="radio" name="pengiriman"
+                                           id="pengiriman-<?= $service; ?>"
                                            data-deskripsi="<?= $deskripsi; ?>"
                                            data-biaya="<?= $biaya; ?>"
                                            data-estimasi="<?= $estimasi; ?>"
                                            data-nama="<?= $nama; ?>"
                                            value="1" required>
-                                    <label class="form-check-label" for="pengiriman">
+                                    <label class="form-check-label" for="pengiriman-<?= $service; ?>">
                                         <?= $nama . ' - ' . $deskripsi . ' (' . $estimasi . ' hari) ('; ?> <span
                                                 id="rupiah"><?= $biaya; ?></span>)
                                     </label>
