@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * RajaOngkir Library for CodeIgniter
+ * REST Client
+ *
+ * @author Andi Siswanto <andisis92@gmail.com>
+ *
+ */
 class RESTClient
 {
 

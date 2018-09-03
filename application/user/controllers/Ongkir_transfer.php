@@ -10,7 +10,7 @@ class Ongkir_transfer extends MY_Controller
             redirect('login');
         }
 
-        $this->load->library('Ongkir', 'ongkir');
+        $this->load->library('RajaOngkir', 'ongkir');
     }
 
     public function index()
@@ -62,8 +62,8 @@ class Ongkir_transfer extends MY_Controller
         $dst = (string)$this->kabupaten->where('kabupaten_id', $dst_id)->get()->kabupaten_nama;
         $origin = (string)$this->kabupaten->where('kabupaten_id', $ori_id)->get()->kabupaten_nama;
 
-        $ongkir = json_decode($this->ongkir->city(), true);
-        $ongkir = $ongkir['rajaongkir']['results'];
+        $ongkir = json_decode($this->rajaongkir->city(), true);
+        $ongkir = $ongkir['RajaOngkir']['results'];
 
         foreach ($ongkir as $key => $value) {
 
@@ -79,7 +79,7 @@ class Ongkir_transfer extends MY_Controller
 
         }
 
-        $cost = $this->ongkir->cost($hasil->origin_id, $hasil->dst_id, $this->get_berat($orders_noid), $kurir);
+        $cost = $this->rajaongkir->cost($hasil->origin_id, $hasil->dst_id, $this->get_berat($orders_noid), $kurir);
         echo '<script>console.log(' . $cost . ')</script>';
         return json_decode($cost);
     }
