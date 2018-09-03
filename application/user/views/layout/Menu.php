@@ -3,25 +3,25 @@
     <div class="row">
         <div class="col-12 text-right px-0">
             <?php if (isset($_SESSION['id'])): ?>
-                <a class="alert-link f-link c-header-a" href="<?= site_url('order_status'); ?>">
-                    Order Status
+                <a class="alert-link f-link c-header-a ml-1 mr-1" href="<?= site_url('order_status'); ?>">
+                    Pending Orders
                 </a>
-                | <a class="alert-link f-link c-header-a" href="<?= site_url('order_history'); ?>">
+                | <a class="alert-link f-link c-header-a ml-1 mr-1" href="<?= site_url('order_history'); ?>">
                     Order History
                 </a>
             <?php endif; ?>
             <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
-                | Hello<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a">
+                | Hello<a href="<?= site_url('profil'); ?>" class="alert-link f-link c-header-a ml-1">
                     <i class="fa fa-user"></i> <?= $_SESSION['nama']; ?>
                 </a>
-                | <a class="alert-link f-link c-header-a" href="<?= site_url('logout'); ?>">
+                | <a class="alert-link f-link c-header-a ml-1 mr-1" href="<?= site_url('logout'); ?>">
                     Log Out
                 </a>
             <?php else: ?>
-                <a class="alert-link f-link c-header-a" href="<?= site_url('login'); ?>">
+                <a class="alert-link f-link c-header-a ml-1 mr-1" href="<?= site_url('login'); ?>">
                     Login
                 </a>
-                | <a class="alert-link f-link c-header-a" href="<?= site_url('register'); ?>">
+                | <a class="alert-link f-link c-header- ml-1 mr-1" href="<?= site_url('register'); ?>">
                     Register
                 </a>
             <?php endif; ?>

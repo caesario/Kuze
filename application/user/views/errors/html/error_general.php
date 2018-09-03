@@ -30,8 +30,8 @@ $CI->load->helper('url');
     <div class="row align-items-center">
         <div class="col-2"></div>
         <div class="col text-center">
-            <img class="img-fluid mt-5" src="<?= base_url('assets/img/error-404.png'); ?>" alt="404">
-            <a class="btn btn-csr c-btn-cart" href="<?= site_url('/'); ?>">Back to Home</a>
+            <img class="img-fluid mt-5" src="<?= base_url('assets/img/error-404.png'); ?>" alt="404"><br>
+            <a class="btn btn-success text-black" href="<?= site_url('/'); ?>">Back to Home</a>
         </div>
         <div class="col-2"></div>
     </div>
