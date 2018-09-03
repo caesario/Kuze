@@ -48,7 +48,7 @@
                     <form class="form-inline my-2 my-lg-0 col-12 m-auto" action="<?= site_url('cari'); ?>" method="get">
                         <div class="input-group col-12 px-0">
                             <input class="form-control" type="text" placeholder="Search"
-                                   aria-label="Search" id="cari" name="cari" autocomplete="off">
+                                   aria-label="Search" id="keyword" name="keyword" autocomplete="off">
                             <div class="input-group-addon">
                                 <button class="btn btn-search-color f-btn-search" type="submit" style=""
                                         id="search-btn"><i

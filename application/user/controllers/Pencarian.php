@@ -13,8 +13,9 @@ class Pencarian extends MY_Controller
 
     public function index()
     {
-        $cari = $this->input->get('cari');
-        $this->data->cari_s = $this->item->with_item_detil()->where('i_nama LIKE', '%' . $cari . '%')->get_all();
+        $cari = $_GET['keyword'];
+        $this->data->keyword = $cari;
+        $this->data->cari_s = $this->item->select_pencarian($cari);
         $this->load->view('Pencarian', $this->data);
 
     }

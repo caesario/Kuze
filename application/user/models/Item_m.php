@@ -51,6 +51,13 @@ class Item_m extends MY_Model
 
     }
 
+    public function select_pencarian($where_like)
+    {
+        $query = $this->db->query("SELECT * FROM item WHERE i_nama LIKE '%$where_like%';");
+
+        return $query->result();
+    }
+
     public function select_sum_qty_where($id)
     {
         $query = $this->db->query("SELECT i.i_kode, i.i_nama, i.i_hrg_reseller, i.i_hrg_vip, id.* , w.w_nama, u.u_nama, s.s_nama, SUM(iq.iq_qty) qty
