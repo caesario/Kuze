@@ -42,7 +42,6 @@ class New_toko extends MY_Controller
             't_provinsi' => $this->input->post('provinsi'),
             't_kabupaten' => $this->input->post('kabupaten'),
             't_kecamatan' => $this->input->post('kecamatan'),
-            't_desa' => $this->input->post('kelurahan'),
             't_kodepos' => $this->input->post('kodepos'),
             't_alamat' => $this->input->post('alamat'),
             't_email' => $this->input->post('email'),

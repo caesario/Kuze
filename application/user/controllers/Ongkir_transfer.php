@@ -43,6 +43,7 @@ class Ongkir_transfer extends MY_Controller
         };
 
         $this->data->pengiriman = $this->get_biaya($order)->rajaongkir->results;
+        print_r($this->get_biaya($order));
 
         if ($this->data->orders->orders_status == 7) {
             $this->data->gagal = 'Order tidak ada atau telah dibatalkan.';
@@ -53,33 +54,13 @@ class Ongkir_transfer extends MY_Controller
         $this->load->view('Ongkir_transfer', $this->data);
     }
 
-    private function get_biaya($orders_noid, $kurir = 'jne')
+    private function get_biaya($orders_noid, $kurir = 'jne:pos:tiki')
     {
-        $hasil = new stdClass();
         $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
-        $dst_id = $order_pengiriman->orders_pengiriman_kabupaten;
-        $ori_id = $this->toko->get()->t_kabupaten;
-        $dst = (string)$this->kabupaten->where('kabupaten_id', $dst_id)->get()->kabupaten_nama;
-        $origin = (string)$this->kabupaten->where('kabupaten_id', $ori_id)->get()->kabupaten_nama;
+        $dst_id = $order_pengiriman->orders_pengiriman_kecamatan;
+        $ori_id = $this->toko->get()->t_kecamatan;
 
-        $ongkir = json_decode($this->rajaongkir->city(), true);
-        $ongkir = $ongkir['RajaOngkir']['results'];
-
-        foreach ($ongkir as $key => $value) {
-
-            if (strpos($dst, (string)$ongkir[$key]['city_name'])) {
-                $hasil->dst_id = $ongkir[$key]['city_id'];
-                $hasil->dst_name = $ongkir[$key]['city_name'];
-            }
-
-            if (strpos($origin, (string)$ongkir[$key]['city_name'])) {
-                $hasil->origin_id = $ongkir[$key]['city_id'];
-                $hasil->origin_name = $ongkir[$key]['city_name'];
-            }
-
-        }
-
-        $cost = $this->rajaongkir->cost($hasil->origin_id, $hasil->dst_id, $this->get_berat($orders_noid), $kurir);
+        $cost = $this->rajaongkir->cost($ori_id, $dst_id, $this->get_berat($orders_noid), $kurir);
         echo '<script>console.log(' . $cost . ')</script>';
         return json_decode($cost);
     }

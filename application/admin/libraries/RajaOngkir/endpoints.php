@@ -67,10 +67,13 @@ class Endpoints {
      * @param string $courier Kode kurir
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function cost($origin, $destination, $weight, $courier) {
+    function cost($origin, $originType, $destination, $destinationType, $weight, $courier)
+    {
         $params = array(
             'origin' => $origin,
+            "originType" => $originType,
             'destination' => $destination,
+            "destinationType" => $destinationType,
             'weight' => $weight,
             'courier' => $courier
         );
