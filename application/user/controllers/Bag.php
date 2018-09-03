@@ -23,9 +23,15 @@ class Bag extends MY_Controller
 
         $cart_total = function () {
             $hasil = 0;
-            foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
-                $hasil += (int)$cart_total->ca_tharga;
+            $carts = $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
+            if ($carts) {
+                foreach ($carts as $cart_total) {
+                    $hasil += (int)$cart_total->ca_tharga;
+                }
+            } else {
+                $hasil = 0;
             }
+
 
             return (int)$hasil;
         };
@@ -144,8 +150,12 @@ class Bag extends MY_Controller
                     $potongan = $promo_nominal;
                     $totalharga = $harga - $potongan;
                 } else {
-                    $totalharga = $this->data->cart_total();
+                    $totalharga = $harga;
                 }
+            } else {
+                $promo_kode = 0;
+                $harga = $cart_total();
+                $totalharga = $harga;
             }
 
             $this->order->insert(array(
@@ -219,7 +229,12 @@ class Bag extends MY_Controller
             );
 
             $promo = $this->promo->where($promo_where)->get();
-            return $promo ? $promo : redirect('bag');
+
+            if ($promo) {
+                return $promo;
+            } else {
+                redirect('bag');
+            }
         };
 
 
@@ -284,6 +299,7 @@ class Bag extends MY_Controller
         };
 
         $this->data->kode_promo = $kode_promo;
+        $this->data->promo_ket = $promo()->promo_ket;
         $this->data->cart_s = $cart_s();
         $this->data->cart_total = $cart_total();
         $this->data->diskon_harga = $diskon_harga();

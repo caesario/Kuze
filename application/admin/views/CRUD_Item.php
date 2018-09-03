@@ -107,10 +107,10 @@ if ($submit == 'Ubah') {
                         <div class="col-12">
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="i_hot" value="1"
-                                           id="aktif" <?= $i_hot == 1 ? 'checked' : ''; ?> disabled>
-                                    <label class="form-check-label" for="aktif">
-                                        Hot Deal
+                                    <input class="form-check-input" type="checkbox" name="i_sale" value="1"
+                                           id="i_sale" <?= $i_hot == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="i_sale">
+                                        Sale Item
                                     </label>
                                 </div>
 
@@ -121,8 +121,8 @@ if ($submit == 'Ubah') {
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="i_new" value="1"
-                                           id="aktif" <?= $i_new == 1 ? 'checked' : ''; ?>>
-                                    <label class="form-check-label" for="aktif">
+                                           id="i_new" <?= $i_new == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="i_new">
                                         New Arrival
                                     </label>
                                 </div>
@@ -134,8 +134,8 @@ if ($submit == 'Ubah') {
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="i_best" value="1"
-                                           id="aktif" <?= $i_best == 1 ? 'checked' : ''; ?>>
-                                    <label class="form-check-label" for="aktif">
+                                           id="i_best" <?= $i_best == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="i_best">
                                         Best Seller
                                     </label>
                                 </div>

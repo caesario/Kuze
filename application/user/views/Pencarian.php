@@ -21,7 +21,7 @@ include "layout/Menu.php";
                     <a class="breadcrumb-item" href="<?= site_url('/'); ?>">Home</a>
                     <i class="fa fa-arrow-right"></i>
                     <span class="breadcrumb-item c-breadcrum-active"
-                          href="Pencarian "><?= $this->input->get('cari'); ?></span>
+                          href="Pencarian "><?= $keyword; ?></span>
                 </nav>
             </div>
         </div>
@@ -30,122 +30,43 @@ include "layout/Menu.php";
 
     <!-- Pencarian -->
     <div class="container-fluid c-padding-header">
-    <div class="row">
-        <?php if (isset($cari_s) && $cari_s != NULL): ?>
-            <?php foreach ($cari_s as $cari): ?>
-                <?php $stok = $qty($cari->i_kode); ?>
-                <?php if ($stok > 1): ?>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <?php if ($item_img($cari->i_kode) != NULL): ?>
+        <div class="row">
+            <?php if ($keywords != NULL): ?>
+                <?php foreach ($keywords as $keyword): ?>
+                    <?php $stok = $qty($keyword->i_kode); ?>
+                    <?php if ($stok >= 1): ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="card">
+                                <a href="<?= site_url('item/' . $keyword->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($keyword->i_kode) != NULL): ?>
+                                        <img class="card-img-top"
+                                             src="<?= base_url('upload/' . $item_img($keyword->i_kode)->ii_nama); ?>"
+                                             alt="<?= $item_img($keyword->i_kode)->ii_nama; ?>">
+                                    <?php else: ?>
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
+                                             alt="No Image">
+                                    <?php endif; ?>
 
-                                <a class="" href="<?= base_url('Detil'); ?>">
-                                    <img class="card-img-top"
-                                         src="<?= base_url('upload/' . $item_img($cari->i_kode)->ii_nama); ?>"
-                                         alt="<?= $item_img($cari->i_kode)->ii_nama; ?>">
-                                    <div class="middle">
-                                        <a href="<?= site_url('produk-terbaru/item/' . $cari->i_url . '/detil'); ?>"
-                                           class="c-view-kat-text">Quick View</a>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title c-both c-title"><?= $keyword->i_nama; ?></h5>
+                                        <h5 id="rupiah" class="c-price"><?= $keyword->i_hrg; ?></h5>
+                                        <a href="<?= site_url('item/' . $keyword->i_url . '/detil'); ?>"
+                                           class="btn btn-csr c-cart c-cart-p">
+                                            <i class="fa fa-shopping-cart c-cart-i mr-2"></i>
+                                            <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
+                                                To Bag</p>
+                                        </a>
                                     </div>
-                                </a>
-                            <?php else: ?>
-                                <a class="" href="<?= base_url('Detil'); ?>">
-                                    <img class="card-img-top"
-                                         src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
-                                         alt="No Image">
-                                    <div class="middle">
-                                        <a href="<?= site_url('produk-terbaru/item/' . $cari->i_url . '/detil'); ?>"
-                                           class="c-view-kat-text">Quick View</a>
-                                    </div>
-                                </a>
-                            <?php endif; ?>
-                            <div class="card-body">
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <i class="fa fa-star c-star"></i>
-                                <h5 class="card-title c-both c-title"><?= $cari->i_nama; ?></h5>
-                                <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                    <h5 id="rupiah" class="c-price"><?= $cari->i_hrg_vip; ?></h5>
-                                <?php else: ?>
-                                    <h5 id="rupiah"
-                                        class="c-price"><?= $cari->i_hrg_reseller; ?></h5>
-                                <?php endif; ?>
-                                <a href="                                        <a href="<?= site_url('produk-terbaru/item/' . $cari->i_url . '/detil'); ?>"
-                                "
-                                   class="btn btn-csr c-cart c-cart-p">
-                                    <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                                </a>
-                                <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-                                <!--                        </a>-->
-                                <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-                                <!--                        </a>-->
                             </div>
+                            </a>
                         </div>
-                    </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <?php if (isset($items) && $items != NULL): ?>
-            <?php foreach ($items as $item): ?>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <?php if ($item_img($item->i_kode) != NULL): ?>
-
-                            <a class="" href="<?= base_url('Detil'); ?>">
-                                <img class="card-img-top"
-                                     src="<?= base_url('upload/' . $item_img($item->i_kode)->ii_nama); ?>"
-                                     alt="<?= $item_img($item->i_kode)->ii_nama; ?>">
-                                <div class="middle">
-                                    <a href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>"
-                                       class="c-view-kat-text">Quick View</a>
-                                </div>
-                            </a>
-                        <?php else: ?>
-                            <a class="" href="<?= base_url('Detil'); ?>">
-                                <img class="card-img-top"
-                                     src="https://upload.wikimedia.org/wikipedia/commons/archive/a/ac/20121003093557%21No_image_available.svg"
-                                     alt="No Image">
-                                <div class="middle">
-                                    <a href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>"
-                                       class="c-view-kat-text">Quick View</a>
-                                </div>
-                            </a>
-                        <?php endif; ?>
-                        <div class="card-body">
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <i class="fa fa-star c-star"></i>
-                            <h5 class="card-title c-both c-title"><?= $item->i_nama; ?></h5>
-                            <?php if (isset($_SESSION['tipe']) && $_SESSION['tipe'] == '1'): ?>
-                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_vip; ?></h5>
-                            <?php else: ?>
-                                <h5 id="rupiah" class="c-price"><?= $item->i_hrg_reseller; ?></h5>
-                            <?php endif; ?>
-                            <a href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>"
-                               class="btn btn-csr c-cart c-cart-p">
-                                <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
-                            </a>
-                            <!--                        <a href="" class="btn btn-csr c-cart">-->
-                            <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-                            <!--                        </a>-->
-                            <!--                        <a href="" class="btn btn-csr c-cart">-->
-                            <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-                            <!--                        </a>-->
-                        </div>
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
-        <?php else: ?>
-
-        <?php endif; ?>
-    </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="col">Tidak ada item yang ditampilkan</p>
+            <?php endif; ?>
+        </div>
     </div>
     <script>
         $('[id="title"]').ellipsis();

@@ -140,6 +140,7 @@ include "layout/Menu.php";
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
+                                        <h5 class="card-title c-both c-title"><?= $new_arrival->i_nama; ?></h5>
                                         <h5 id="rupiah" class="c-price"><?= $new_arrival->i_hrg; ?></h5>
                                         <a href="<?= site_url('produk-terbaru/item/' . $new_arrival->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
@@ -219,6 +220,8 @@ include "layout/Menu.php";
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
+                                        <h5 class="card-title c-both c-title"><?= $best_seller->i_nama; ?></h5>
+
                                         <h5 id="rupiah" class="c-price"><?= $best_seller->i_hrg; ?></h5>
                                         <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
