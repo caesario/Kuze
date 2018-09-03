@@ -28,10 +28,10 @@ $total = $biaya_subtotal + $biaya_pengiriman;
     </div>
 
     <!-- Detail Konfirmasi Pembayaran -->
-    <div class="container c-padding-header">
+    <div class="container">
         <h5 class="text-center c-color-444 mb-5">ORDER DETAIL : #<?= $nomor_order; ?></h5>
     </div>
-    <div class="row c-color-444">
+    <div class="row c-color-444 mx-0">
         <div class="col-md-8 col-12 m-auto">
             <div class="ml-1 row">
                 <div class="col-md-6 col-sm-12 mb-2">
@@ -92,6 +92,55 @@ $total = $biaya_subtotal + $biaya_pengiriman;
                 </table>
             </div>
         </div>
+
+    <div class="col-md-8 col-12 c-margin-auto mt-4">
+        <div class="c-cart-total col-lg-6 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
+            <h5 class="c-title-cart-total">Promo</h5>
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th class="c-table-cart-total p-1 pl-4">Coupon</th>
+                    <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
+                </tr>
+                <tr>
+                <tr>
+                    <th class="p-1 pl-4">Note</th>
+                    <td><span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h5 class="c-title-cart-total">Shopping Summary</h5>
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th class="c-table-cart-total p-1 pl-4">Total Price</th>
+                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
+                </tr>
+                <tr>
+                    <th class="p-1 pl-4">Disc. Total Price</th>
+                    <td><span id="rupiah"
+                              class="c-price-cart-3 pl-3"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span></td>
+                </tr>
+                <tr>
+                    <th class="p-1 pl-4">Shipping Charges</th>
+                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                </tr>
+                <tr>
+                    <th nowrap class="p-1 pl-4 pr-4">Disc. Shipping Charges</th>
+                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                </tr>
+
+                <tr>
+                    <th class="p-1 pl-4">Grand Total</th>
+                    <td><span id="rupiah"
+                              class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
     </div>
 
     <div class="container-fluid c-padding-header mb-5">
@@ -155,6 +204,10 @@ $total = $biaya_subtotal + $biaya_pengiriman;
 
            </div>
        </div>
+    </div>
+
+    <div class="col-md-8 col-12 c-margin-auto">
+
     </div>
 
 <?php
