@@ -53,7 +53,7 @@ class Endpoints
      * @param integer $city_id ID kota untuk mendapatkan nama kecamatan berdasarkan kote
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function subdistrict($city_id, $subdistrict_id = NULL)
+    function subdistrict($city_id = NULL, $subdistrict_id = NULL)
     {
         $params = (is_null($city_id)) ? array() : array('city' => $city_id);
         if (!is_null($subdistrict_id)) {
@@ -71,11 +71,13 @@ class Endpoints
      * @param string $courier Kode kurir
      * @return string Response dari cURL, berupa string JSON balasan dari RajaOngkir
      */
-    function cost($origin, $destination, $weight, $courier)
+    function cost($origin, $originType, $destination, $destinationType, $weight, $courier)
     {
         $params = array(
             'origin' => $origin,
+            "originType" => $originType,
             'destination' => $destination,
+            "destinationType" => $destinationType,
             'weight' => $weight,
             'courier' => $courier
         );

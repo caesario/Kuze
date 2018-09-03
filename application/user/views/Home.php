@@ -407,7 +407,7 @@ include "layout/Menu.php";
 
     <!-- ======= Instagram ======= -->
     <div class="container-fluid">
-        <div class="row px-5">
+        <div class="row px-4 px-lg-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
                     <img src="assets/img/ig1.jpg" class="c-ig" alt="">
