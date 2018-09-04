@@ -23,16 +23,16 @@ include "layout/Menu.php";
                     <?php if (isset($rand_image[0])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[0]->ii_url); ?>"
-                                     alt="<?= $rand_image[0]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[0]->ii_type . ';base64,' . (base64_encode($rand_image[0]->ii_data)); ?>"
+                                     alt="<?= $rand_image[0]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
                     <?php if (isset($rand_image[1])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[1]->ii_url); ?>"
-                                     alt="<?= $rand_image[1]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[1]->ii_type . ';base64,' . (base64_encode($rand_image[1]->ii_data)); ?>"
+                                     alt="<?= $rand_image[1]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -43,16 +43,16 @@ include "layout/Menu.php";
                     <?php if (isset($rand_image[2])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[2]->ii_url); ?>"
-                                     alt="<?= $rand_image[2]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[2]->ii_type . ';base64,' . (base64_encode($rand_image[2]->ii_data)); ?>"
+                                     alt="<?= $rand_image[2]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
                     <?php if (isset($rand_image[3])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[3]->ii_url); ?>"
-                                     alt="<?= $rand_image[3]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[3]->ii_type . ';base64,' . (base64_encode($rand_image[3]->ii_data)); ?>"
+                                     alt="<?= $rand_image[3]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -63,16 +63,16 @@ include "layout/Menu.php";
                     <?php if (isset($rand_image[4])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[4]->ii_url); ?>"
-                                     alt="<?= $rand_image[4]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[4]->ii_type . ';base64,' . (base64_encode($rand_image[4]->ii_data)); ?>"
+                                     alt="<?= $rand_image[4]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
                     <?php if (isset($rand_image[5])): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="<?= base_url('upload/' . $rand_image[5]->ii_url); ?>"
-                                     alt="<?= $rand_image[5]->ii_url; ?>">
+                                <img src="data:<?= $rand_image[5]->ii_type . ';base64,' . (base64_encode($rand_image[5]->ii_data)); ?>"
+                                     alt="<?= $rand_image[5]->ii_kode; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -130,11 +130,11 @@ include "layout/Menu.php";
                                     </div>
                                 </div>
 
-                                <a href="<?= site_url('produk-terbaru/item/' . $new_arrival->i_url . '/detil'); ?>">
+                                <a href="<?= site_url('new_arrival/item/' . $new_arrival->i_url . '/detil'); ?>">
                                     <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
                                         <img class="card-img-top"
-                                             src="<?= base_url('upload/' . $item_img($new_arrival->i_kode)->ii_nama); ?>"
-                                             alt="<?= $item_img($new_arrival->i_kode)->ii_nama; ?>">
+                                             src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -212,11 +212,11 @@ include "layout/Menu.php";
                                     </div>
                                 </div>
 
-                                <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
+                                <a href="<?= site_url('best_seller/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
                                         <img class="card-img-top"
-                                             src="<?= base_url('upload/' . $item_img($best_seller->i_kode)->ii_nama); ?>"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_nama; ?>">
+                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -299,8 +299,8 @@ include "layout/Menu.php";
                                 <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
                                         <img class="card-img-top"
-                                             src="<?= base_url('upload/' . $item_img($best_seller->i_kode)->ii_nama); ?>"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_nama; ?>">
+                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"

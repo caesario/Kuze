@@ -71,8 +71,8 @@ include "layout/Menu.php";
                                 <?php $item_kode = $item_detil($cart->item_detil_kode)->item->i_kode; ?>
                                 <?php if ($item_img($item_kode) != NULL): ?>
                                     <a href=""><img class="c-img-cart"
-                                                    src="<?= base_url('upload/' . $item_img($item_kode)->ii_nama); ?>"
-                                                    alt="<?= $item_img($item_kode)->ii_nama; ?>"></a>
+                                                    src="data:<?= $item_img($item_kode)->ii_type . ';base64,' . (base64_encode($item_img($item_kode)->ii_data)); ?>"
+                                                    alt="<?= $item_img($item_kode)->ii_kode; ?>"></a>
                                 <?php else: ?>
                                     <a href=""><img class="c-img-cart"
                                                     src="<?= base_url('assets/img/noimage.jpg'); ?>"

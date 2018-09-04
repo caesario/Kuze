@@ -133,29 +133,21 @@ class Upload extends MY_Controller
             $default = 0;
         }
 
-        $data = $_POST['image'];
-
-        list($type, $data) = explode(';', $data);
-        list(, $data) = explode(',', $data);
-
-
-        $data = base64_decode($data);
-        $imageName = time() . '.png';
-        file_put_contents('upload/' . $imageName, $data);
+        $imgData = file_get_contents($_FILES['image']['tmp_name']);
+        $imageProperties = getimageSize($_FILES['image']['tmp_name']);
 
         $data = array(
             'ii_kode' => $this->item_img->guid(),
-            'ii_nama' => $imageName,
-            'ii_url' => $imageName,
             'ii_default' => $default,
-            'ii_type' => 'png',
+            'ii_data' => $imgData,
+            'ii_type' => $imageProperties['mime'],
             'i_kode' => $this->input->post('i_kode')
         );
 
         // insert
         $this->item_img->insert($data);
-
-        echo 'Gambar berhasil diupload';
+        $this->data->berhasil = 'Foto Item berhasil diperbarui.';
+        $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
     }
 

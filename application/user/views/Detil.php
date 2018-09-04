@@ -38,7 +38,8 @@ include "layout/Menu.php";
                      data-height="400">
                     <?php if ($item_img_all($item->i_kode) != NULL): ?>
                         <?php foreach ($item_img_all($item->i_kode) as $img): ?>
-                            <img src="<?= base_url('upload/' . $img->ii_nama); ?>" class="card-img-top">
+                            <img src="data:<?= $img->ii_type . ';base64,' . (base64_encode($img->ii_data)); ?>"
+                                 class="card-img-top">
                         <?php endforeach; ?>
                     <?php else: ?>
                         <img src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -138,8 +139,8 @@ include "layout/Menu.php";
                         <a class="" href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>">
                             <?php if ($item_img($hot->i_kode) != NULL): ?>
                                 <img class="card-img-top"
-                                     src="<?= base_url('upload/' . $item_img($hot->i_kode)->ii_nama); ?>"
-                                     alt="<?= $item_img($hot->i_kode)->ii_nama; ?>">
+                                     src="data:<?= $item_img($hot->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($hot->i_kode)->ii_data)); ?>"
+                                     alt="<?= $item_img($hot->i_kode)->ii_kode; ?>">
                             <?php else: ?>
                                 <img class="img-fluid mx-auto d-block"
                                      src="<?= base_url('assets/img/noimage.jpg'); ?>"

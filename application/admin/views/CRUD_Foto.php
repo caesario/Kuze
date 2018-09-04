@@ -3,9 +3,7 @@
         <div class="form-group">
             <div class="input-group">
                 <div class="custom-file">
-                    <input type="file" name="upload_image" id="upload_image" class="custom-file-input"
-                           accept="image/jpeg,image/png" multiple
-                           required>
+                    <input type="file" name="upload_image" id="upload_image" class="custom-file-input" required>
                     <label class="custom-file-label">Pilih gambar</label>
                 </div>
             </div>
@@ -54,19 +52,22 @@
 
         $('#doupload').click(function (event) {
             $image_crop.croppie('result', {
-                type: 'canvas',
-                size: 'viewport'
+                type: 'blob',
+                size: 'original'
             }).then(function (response) {
+                console.log(response);
+                var fd = new FormData();
+                fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                fd.append('image', response);
+                fd.append('i_kode', '<?= $i_kode ?>');
                 $.ajax({
                     url: "<?= site_url('upload/simpan_img'); ?>",
                     type: "POST",
-                    data: {
-                        "image": response,
-                        "ecommerce_eazy": '<?= $this->security->get_csrf_hash(); ?>',
-                        "i_kode": '<?= $i_kode ?>'
-                    },
+                    data: fd,
+                    processData: false,
+                    contentType: false,
                     success: function (data) {
-                        $('#viewimage').html(data);
+                        window.location.reload();
                     }
                 });
             })

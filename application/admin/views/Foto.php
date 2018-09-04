@@ -33,8 +33,9 @@
                 <?php foreach ($item_imgs as $img): ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0 transform-on-hover">
-                            <a class="lightbox" href="<?= base_url('upload/' . $img->ii_nama); ?>">
-                                <img src="<?= base_url('upload/' . $img->ii_nama); ?>" alt="Card Image"
+                            <a class="lightbox" href="#">
+                                <img src="data:<?= $img->ii_type . ';base64,' . (base64_encode($img->ii_data)); ?>"
+                                     alt="<?= $img->ii_kode; ?>"
                                      class="card-img-top">
                             </a>
                             <div class="card-body">
