@@ -6,9 +6,6 @@ class Pencarian extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->data->item_with_item_detil = function ($i_nama) {
-            return $this->item->with_item_detil()->where('i_nama LIKE', '%' . $i_nama . '%')->get_all();
-        };
     }
 
     public function index()

@@ -73,7 +73,7 @@
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <p class="c-text-payment">We are support payment</p>
-            <img style="width:120px;" src="assets/img/BCA-Kuze.png" alt="">
+            <img style="width:120px;" src="<?= base_url('assets/img/BCA-Kuze.png'); ?>" alt="">
 <!--            <p class="c-text-secure">Secure Payment</p>-->
 <!--            <i class="fa fa-lock c-lala-land fa-3x"></i>-->
 <!--            <i class="fas fa-shield-alt fa-3x c-lala-land"></i>-->
