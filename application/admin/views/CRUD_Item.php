@@ -7,7 +7,7 @@ if ($submit == 'Ubah') {
     $hrg = $items->i_hrg;
     $deskripsi = $items->i_deskripsi;
     $berat = $items->i_berat;
-    $i_hot = $items->i_hot;
+    $i_sale = $items->i_sale;
     $i_new = $items->i_new;
     $i_best = $items->i_best;
 } else if ($submit == 'Simpan') {
@@ -17,7 +17,7 @@ if ($submit == 'Ubah') {
     $hrg = '';
     $deskripsi = '';
     $berat = '';
-    $i_hot = '';
+    $i_sale = '';
     $i_new = '';
     $i_best = '';
 
@@ -108,7 +108,7 @@ if ($submit == 'Ubah') {
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="i_sale" value="1"
-                                           id="i_sale" <?= $i_hot == 1 ? 'checked' : ''; ?>>
+                                           id="i_sale" <?= $i_sale == 1 ? 'checked' : ''; ?>>
                                     <label class="form-check-label" for="i_sale">
                                         Sale Item
                                     </label>
