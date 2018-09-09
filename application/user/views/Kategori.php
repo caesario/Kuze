@@ -32,7 +32,7 @@ include "layout/Menu.php";
     <div class="container-fluid c-padding-header">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-2 col-lg-2">
-                <h5 class="card-title mb-0 text-left">Kategori</h5>
+                <h5 class="card-title mb-0 text-left">Category</h5>
                 <hr>
                 <?php if ($menu_kategori != NULL): ?>
                     <ul class="nav flex-column c-ul-footer">
