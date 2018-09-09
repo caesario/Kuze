@@ -290,6 +290,11 @@ include "layout/Menu.php";
                     <?php if ($stok >= 1): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
+                                <div class="row">
+                                    <div class="c-ribbon c-ribbon3">
+                                        <span>Sale Item</span>
+                                    </div>
+                                </div>
 <!--                                <div class="row">-->
 <!--                                    <div class="c-ribbon c-ribbon1">-->
 <!--                                        <span>Sale Item</span>-->
@@ -491,22 +496,22 @@ include "layout/Menu.php";
                 <!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
-                <div class="media">
-                    <div class="fa fa-car c-icon-bot"></div>
-                    <div class="media-body c-padding-media-body">
-                        <h5 class="mt-0">24/7 SUPPORT</h5>
-                        <p>Our Support Team Ready to 7 days a week</p>
-                    </div>
-                </div>
+<!--                <div class="media">-->
+<!--                    <div class="fa fa-car c-icon-bot"></div>-->
+<!--                    <div class="media-body c-padding-media-body">-->
+<!--                        <h5 class="mt-0">24/7 SUPPORT</h5>-->
+<!--                        <p>Our Support Team Ready to 7 days a week</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
-                <div class="media">
-                    <div class="fa fa-refresh c-icon-bot"></div>
-                    <div class="media-body c-padding-media-body">
-                        <h5 class="mt-0">7 DAYS RETURN</h5>
-                        <p>Product any fault within 7 days for an exchange</p>
-                    </div>
-                </div>
+<!--                <div class="media">-->
+<!--                    <div class="fa fa-refresh c-icon-bot"></div>-->
+<!--                    <div class="media-body c-padding-media-body">-->
+<!--                        <h5 class="mt-0">7 DAYS RETURN</h5>-->
+<!--                        <p>Product any fault within 7 days for an exchange</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
                 <!--                <div class="media">-->

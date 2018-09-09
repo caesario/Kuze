@@ -31,16 +31,7 @@
 <!--            <p class="c-nomer-footer"><b>Instagram :</b> --><?//= $instagram; ?><!--</p>-->
 <!--            <p class="c-email-footer"><b>Email :</b> --><?//= $email; ?><!--</p>-->
         </div>
-        <?php if ($menu_kategori != NULL): ?>
-            <div class="col-lg col-md-6 col-sm-6">
-                <h5 class="c-judul-footer">Category</h5>
-                <ul class="c-ul-footer">
-                    <?php foreach ($menu_kategori as $menukat): ?>
-                        <li><a href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
+
         <?php if ($events != NULL): ?>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Blog</h5>

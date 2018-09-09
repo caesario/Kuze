@@ -52,7 +52,7 @@ include "layout/Menu.php";
             </div>
 
             <div class="col-12 col-sm-12 col-md-10 col-lg-10">
-                <h5 class="card-title mb-0 text-left">Item</h5>
+                <h5 class="card-title mb-0 text-left">Product</h5>
                 <hr>
                 <div class="container-fluid c-padding-header mt-3">
                     <div class="row">
@@ -66,8 +66,8 @@ include "layout/Menu.php";
                                             <?php if ($item_img($kat->item->i_kode) != NULL): ?>
                                                 <a class="" href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>">
                                                     <img class="card-img-top"
-                                                         src="<?= base_url('upload/' . $item_img($kat->item->i_kode)->ii_nama); ?>"
-                                                         alt="<?= $item_img($kat->item->i_kode)->ii_nama; ?>">
+                                                         src="data:<?= $item_img($kat->item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($kat->item->i_kode)->ii_data)); ?>"
+                                                         alt="<?= $item_img($kat->item->i_kode)->ii_kode; ?>">
                                                 </a>
                                             <?php else: ?>
                                                 <a class="" href="<?= base_url('Detil'); ?>">
@@ -80,17 +80,21 @@ include "layout/Menu.php";
                                                     </div>
                                                 </a>
                                             <?php endif; ?>
-                                            <div class="card-body">
-<!--                                                <i class="fa fa-star c-star"></i>-->
-<!--                                                <i class="fa fa-star c-star"></i>-->
-<!--                                                <i class="fa fa-star c-star"></i>-->
-<!--                                                <i class="fa fa-star c-star"></i>-->
-<!--                                                <i class="fa fa-star c-star"></i>-->
+
+                                            <div class="card-body text-center">
+                                                <!--<i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>
+                                                <i class="fa fa-star c-star"></i>-->
                                                 <h5 class="card-title c-both c-title"><?= $kat->item->i_nama; ?></h5>
                                                 <h5 id="rupiah" class="c-price"><?= $kat->item->i_hrg; ?></h5>
-                                                <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
-                                                   class="btn btn-csr c-cart c-cart-p">
-                                                    <i class="fa fa-shopping-cart c-cart-i"></i> BELI BARANG
+                                                <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>
+                                                "
+                                                class="btn btn-csr c-cart c-cart-p">
+                                                <i class="fa fa-plus c-cart-i mr-2"></i>
+                                                <p class="d-inline-block m-0 font-weight-normal"
+                                                   style="font-size:1rem;">Add To Bag</p>
                                                 </a>
                                                 <!--                        <a href="" class="btn btn-csr c-cart">-->
                                                 <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
@@ -99,6 +103,8 @@ include "layout/Menu.php";
                                                 <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
                                                 <!--                        </a>-->
                                             </div>
+
+
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -112,8 +118,8 @@ include "layout/Menu.php";
 
                                             <a class="" href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>">
                                                 <img class="card-img-top"
-                                                     src="<?= base_url('upload/' . $item_img($item->i_kode)->ii_nama); ?>"
-                                                     alt="<?= $item_img($item->i_kode)->ii_nama; ?>">
+                                                     src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
+                                                     alt="<?= $item_img($item->i_kode)->ii_kode; ?>">
                                             </a>
                                         <?php else: ?>
                                             <a class="" href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>">
