@@ -133,5 +133,16 @@
         window.location.href = url;
     })
 </script>
+<script>
+    function onHover()
+    {
+        $("#menuImg").attr('src', 'assets/img/kaos2.jpg');
+    }
+
+    function offHover()
+    {
+        $("#menuImg").attr('src', 'assets/img/kaos.jpg');
+    }
+</script>
 </body>
 </html>

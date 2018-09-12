@@ -199,6 +199,7 @@ a.c-header-a:hover {
 .content-wrapper, .content-wrapper-no {
     width: 100%;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 .content-wrapper img , .content-wrapper-no img {
     width: 100%;
