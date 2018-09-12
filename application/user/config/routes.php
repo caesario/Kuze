@@ -54,6 +54,7 @@ $route['login'] = 'auth/login';
 $route['register'] = 'auth/register';
 $route['forgot'] = 'auth/forgot';
 $route['logout'] = 'auth/logout';
+$route['FAQ'] = 'FAQ';
 $route['cari'] = 'pencarian';
 $route['produk-terbaru'] = 'home/produkbaru';
 $route['produk-terbaru/item/(:any)/detil'] = 'home/item/$1';
