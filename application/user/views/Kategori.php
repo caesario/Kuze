@@ -82,26 +82,7 @@ include "layout/Menu.php";
                                             <?php endif; ?>
 
                                             <div class="card-body text-center">
-                                                <!--<i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>
-                                                <i class="fa fa-star c-star"></i>-->
-                                                <h5 class="card-title c-both c-title"><?= $kat->item->i_nama; ?></h5>
-                                                <h5 id="rupiah" class="c-price"><?= $kat->item->i_hrg; ?></h5>
-                                                <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>
-                                                "
-                                                class="btn btn-csr c-cart c-cart-p">
-                                                <i class="fa fa-plus c-cart-i mr-2"></i>
-                                                <p class="d-inline-block m-0 font-weight-normal"
-                                                   style="font-size:1rem;">Add To Bag</p>
-                                                </a>
-                                                <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                                <!--                            <i class="fa fa-heart c-cart-i2"></i>-->
-                                                <!--                        </a>-->
-                                                <!--                        <a href="" class="btn btn-csr c-cart">-->
-                                                <!--                            <i class="fa fa-refresh c-cart-i2""></i>-->
-                                                <!--                        </a>-->
+                                             
                                             </div>
 
 

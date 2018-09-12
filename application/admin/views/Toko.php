@@ -91,6 +91,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
         <?php endif; ?>
         <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Logo</h1>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-primary" data-toggle="modal" href="#" onclick="unggah()"
+                               data-target="#upload"
+                               data-backdrop="static" data-keyboard="false"><i class="fa fa-plus mr-2"></i>Upload Logo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Icon</h1>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-primary" data-toggle="modal" href="#" onclick="unggah()"
+                               data-target="#upload"
+                               data-backdrop="static" data-keyboard="false"><i class="fa fa-plus mr-2"></i>Upload Icon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
             <div class="card">
                 <div class="card-header">
                     <h1>Toko</h1>
@@ -99,22 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                       class="card-body">
                     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <input type="hidden" name="t_kode" value="<?= $tokoid; ?>">
-                    <div class="row form-group">
-                        <div class="col">
-                            <label for="logo">Logo</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="logo" name="logo">
-                                <label class="custom-file-label" for="logo">Pilih Logo...</label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="icon">Icon</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="icon" name="icon">
-                                <label class="custom-file-label" for="icon">Pilih Icon...</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row form-group">
                         <div class="col">
                             <label for="nama">Nama Toko</label>
@@ -237,6 +249,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 bodymodal = modal.find('div.modal-body');
 
                 bodymodal.load("<?= site_url('users/detil/'); ?>" + id);
+            }
+
+            function unggah_logo(data) {
+                d = data;
+                id = d.attr('data-id');
+
+                modal = $('#upload');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('upload/logo'); ?>" + id);
+            }
+
+            function unggah_icon(data) {
+                d = data;
+                id = d.attr('data-id');
+
+                modal = $('#upload');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('upload/icon'); ?>" + id);
             }
 
             function hapus(data) {
@@ -419,6 +451,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
             <div class="modal-footer">
                 <a id="hapus" href="#" class="btn btn-sm btn-danger">Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="crudfoto" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
             </div>
         </div>
     </div>

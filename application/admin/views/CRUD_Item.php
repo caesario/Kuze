@@ -3,21 +3,23 @@
 if ($submit == 'Ubah') {
     $url = site_url('item/simpan');
     $id = $items->i_kode;
+    $kodeitem = $items->i_kodeitem;
     $nama = $items->i_nama;
     $hrg = $items->i_hrg;
     $deskripsi = $items->i_deskripsi;
     $berat = $items->i_berat;
-    $i_hot = $items->i_hot;
+    $i_sale = $items->i_sale;
     $i_new = $items->i_new;
     $i_best = $items->i_best;
 } else if ($submit == 'Simpan') {
     $url = site_url('item/simpan');
     $id = $kode;
+    $kodeitem = '';
     $nama = '';
     $hrg = '';
     $deskripsi = '';
     $berat = '';
-    $i_hot = '';
+    $i_sale = '';
     $i_new = '';
     $i_best = '';
 
@@ -45,10 +47,24 @@ if ($submit == 'Ubah') {
         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
         <input type="hidden" name="id" value="<?= $id; ?>">
         <?php if ($submit == 'Simpan' || $submit == 'Ubah'): ?>
-            <div class="form-group">
-                <label for="nama">Item</label>
-                <input type="text" class="form-control" name="nama" placeholder="Input Kode Item" value="<?= $nama; ?>"
-                       required>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="kodeitem">Kode Item</label>
+                        <input type="text" class="form-control" name="kodeitem" id="kodeitem"
+                               placeholder="Input Kode Item"
+                               value="<?= $kodeitem; ?>"
+                               required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="nama">Nama Item</label>
+                        <input type="text" class="form-control" name="nama" placeholder="Input Nama Item"
+                               value="<?= $nama; ?>"
+                               required>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
         <div class="row">
@@ -108,7 +124,7 @@ if ($submit == 'Ubah') {
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="i_sale" value="1"
-                                           id="i_sale" <?= $i_hot == 1 ? 'checked' : ''; ?>>
+                                           id="i_sale" <?= $i_sale == 1 ? 'checked' : ''; ?>>
                                     <label class="form-check-label" for="i_sale">
                                         Sale Item
                                     </label>
@@ -155,39 +171,54 @@ if ($submit == 'Ubah') {
         <?php endif; ?>
 
         <?php if ($submit == 'Simpan' || $submit == 'Tambah Detail'): ?>
-            <div class="form-group">
-                <table class="table table-sm" id="tabel">
-                    <thead>
-                    <tr>
-                        <th scope="col">Ukuran</th>
-                        <th scope="col">QTY</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <select name="ukuran[]" id="ukuran" class="form-control small" required>
-                                <?php foreach ($this->ukuran->get_all() as $ukuran): ?>
-                                    <option value="<?= $ukuran->u_kode; ?>"><?= $ukuran->u_nama; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                        <td><input name="qty[]" id="qty" type="number" class="form-control" value="0" min="0"></td>
-                        <td>
-                            <a href="#" class="mt-1" onclick="hapus_detil($(this))"><i
-                                        class="fa fa-window-close fa-2x"></i></a>
-                        </td>
-                    </tr>
-                    <tfoot>
-                    <tr>
-                        <th colspan="4">
-                            <a href="#" class="mt-1" id="baru_detil">Tambah Detail</a>
-                        </th>
-                    </tr>
-                    </tfoot>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <table class="table table-sm table-borderless" id="tabel">
+                            <thead>
+                            <tr>
+                                <th scope="col">Ukuran</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="width: 50%;">
+                                    <select name="ukuran[]" id="ukuran" class="form-control" required>
+                                        <?php foreach ($this->ukuran->get_all() as $ukuran): ?>
+                                            <option value="<?= $ukuran->u_kode; ?>"><?= $ukuran->u_nama; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td><input name="qty[]" id="qty" type="number" class="form-control" value="0" min="0">
+                                </td>
+                                <td>
+                                    <a href="#" class="mt-1" onclick="hapus_detil($(this))"><i
+                                                class="fa fa-window-close fa-2x"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                            <tr>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="#" class="btn btn-sm btn-primary" id="baru_detil">Tambah Detail</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
         <div class="form-group">

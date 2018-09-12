@@ -69,22 +69,27 @@
                                     <a class="nav-link c-dropdown font-weight-bold" href="<?= base_url(''); ?>">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('kategori'); ?>">Category</a>
+                                    <a class="nav-link font-weight-bold"
+                                       href="<?= base_url('kategori'); ?>">Category</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New Arrival</a>
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New
+                                        Arrival</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('best_seller'); ?>">Best Seller</a>
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('best_seller'); ?>">Best
+                                        Seller</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('sale_item'); ?>">Sale Item</a>
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('sale_item'); ?>">Sale
+                                        Item</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-weight-bold" href="<?= base_url('blog'); ?>">Event</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('hot_to_order'); ?>">How to Order</a>
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('hot_to_order'); ?>">How to
+                                        Order</a>
                                 </li>
                             </ul>
                         </div>
@@ -94,15 +99,21 @@
             <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                     <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('bag'); ?>"><i class="fa fa-shopping-bag c-icon-top"
-                                                             style="font-size:1.7rem;"> </i></a>
-                        <div id="" class="badge badge-warning r-badge r-cart-badge">1</div>
+                        <a href="<?= site_url('bag'); ?>">
+                            <i class="fa fa-shopping-bag c-icon-top" style="font-size:1.7rem;"></i>
+                        </a>
+                        <?php if (isset($bag_counter)): ?>
+                            <div class="badge badge-warning r-badge r-cart-badge"><?= $bag_counter; ?></div>
+                        <?php endif; ?>
                     </div>
                 <?php else: ?>
                     <div class="col mt-4 mt-lg-2">
-                        <a href="<?= site_url('bag'); ?>"><i class="fa fa-shopping-bag c-icon-top"
-                                                             style="font-size:1.7rem;"> </i></a>
-                        <div id="" class="badge badge-warning r-badge r-cart-badge">1</div>
+                        <a href="<?= site_url('bag'); ?>">
+                            <i class="fa fa-shopping-bag c-icon-top" style="font-size:1.7rem;"></i>
+                        </a>
+                        <?php if (isset($bag_counter)): ?>
+                            <div lass="badge badge-warning r-badge r-cart-badge"><?= $bag_counter; ?></div>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
             </div>

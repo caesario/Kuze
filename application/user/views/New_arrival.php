@@ -46,6 +46,8 @@ include "layout/Menu.php";
                                     <a class="" href="<?= site_url('new_arrival/item/' . $item->i_url . '/detil'); ?>">
                                         <img class="card-img-top"
                                              src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
+                                             id="menuImg" onmouseover="onHover();"
+                                             onmouseout="offHover();"
                                              alt="<?= $item_img($item->i_kode)->ii_kode; ?>">
                                     </a>
                                 <?php else: ?>
