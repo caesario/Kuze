@@ -137,7 +137,6 @@ class Item extends MY_Controller
 
             // update
             $item_update = $this->item->update($item_array, 'i_kode');
-
             $item_kategori_hapus = $this->item_kategori->where('i_kode', $id)->delete();
 
             if ($item_kategori_hapus) {
