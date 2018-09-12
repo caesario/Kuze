@@ -205,12 +205,12 @@ class Bag extends MY_Controller
                 $this->data->berhasil = 'Item berhasil dihapus.';
                 $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
-                redirect('cart');
+                redirect('bag');
             } else {
                 $this->data->gagal = 'Item gagal dihapus.';
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
-                redirect('cart');
+                redirect('bag');
             }
         }
 

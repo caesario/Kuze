@@ -33,4 +33,14 @@ class Bag_m extends MY_Model
         $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
+
+    public function select_count($user)
+    {
+        $query = $this->db->from($this->table)->where('pengguna_kode', $user);
+        $query = $query->get();
+        return $query->num_rows();
+
+
+    }
+
 }
