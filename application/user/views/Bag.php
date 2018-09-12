@@ -102,7 +102,8 @@ include "layout/Menu.php";
                             <span id="rupiah" class="c-price-cart-2"><?= $cart->ca_tharga; ?></span>
                         </td>
                         <td class="text-center">
-                            <a tooltip title="Hapus item" href="<?= site_url('cart/' . $cart->ca_kode . '/delete'); ?>"><i
+                            <a tooltip title="Hapus item"
+                               href="<?= site_url('bag/' . $cart->ca_kode . '/delete'); ?>"><i
                                         class="fa fa-times c-black"></i></a>
                         </td>
                     </tr>

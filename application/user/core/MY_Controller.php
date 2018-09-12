@@ -78,6 +78,7 @@ class MY_Controller extends CI_Controller
         $this->callback();
         $this->load_pref();
         $this->event_load();
+        $this->bag_counter();
     }
 
 
@@ -241,6 +242,14 @@ class MY_Controller extends CI_Controller
         } else {
             $this->data->events = '';
         }
+    }
+
+    private function bag_counter()
+    {
+        if (isset($_SESSION['id'])) {
+            $this->data->bag_counter = $this->cart->select_count($_SESSION['id']);
+        }
+
     }
 }
 
