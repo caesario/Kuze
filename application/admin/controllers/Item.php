@@ -90,7 +90,8 @@ class Item extends MY_Controller
 
     public function simpan()
     {
-        $this->form_validation->set_rules('nama', 'Item', 'is_unique[item.i_nama]', array('is_unique' => 'Terdapat nama yang sama. Silahkan coba lagi.'));
+        $this->form_validation->set_rules('nama', 'Nama Item', 'is_unique[item.i_nama]', array('is_unique' => 'Terdapat nama yang sama. Silahkan coba lagi.'));
+        $this->form_validation->set_rules('kodeitem', 'Kode Item', 'is_unique[item.i_kodeitem]', array('is_unique' => 'Terdapat kode item yang sama. Silahkan coba lagi.'));
 
         // get guid form post
 
@@ -100,8 +101,10 @@ class Item extends MY_Controller
         // get user from database where guid
         $item = $this->item->where('i_kode', $id)->get();
         $item_nama = $this->input->post('nama');
+        $item_kode = $this->input->post('kodeitem');
         $item_array = array(
             'i_kode' => $id,
+            'i_kodeitem' => $item_kode,
             'i_nama' => $item_nama,
             'i_hrg' => $this->input->post('hrg'),
             'i_berat' => $this->input->post('berat'),
@@ -116,12 +119,17 @@ class Item extends MY_Controller
         if ($item) {
 
             // validasi
-            if ($this->form_validation->run() === FALSE && $item->i_nama != $item_nama) {
+            if ($this->form_validation->run() === FALSE && ($item->i_nama != $item_nama || $item->i_kodeitem != $item_kode)) {
                 $this->data->gagal = validation_errors();
                 $this->session->set_flashdata('gagal', $this->data->gagal);
                 redirect('item');
             } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
-                $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
+                $this->data->gagal = 'Karakter untuk nama item tidak diperbolehkan.';
+                $this->session->set_flashdata('gagal', $this->data->gagal);
+
+                redirect('item');
+            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_kode)) {
+                $this->data->gagal = 'Karakter untuk kode item tidak diperbolehkan.';
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('item');
@@ -129,7 +137,6 @@ class Item extends MY_Controller
 
             // update
             $item_update = $this->item->update($item_array, 'i_kode');
-
             $item_kategori_hapus = $this->item_kategori->where('i_kode', $id)->delete();
 
             if ($item_kategori_hapus) {

@@ -77,9 +77,11 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col">Item</th>
+                                <th scope="col">Kode Item</th>
+                                <th scope="col">Nama Item</th>
                                 <th scope="col">New Arrival</th>
                                 <th scope="col">Best Seller</th>
+                                <th scope="col">Sale Item</th>
                                 <th scope="col">Harga</th>
                                 <th scope="col">Berat (Gram)</th>
                                 <th scope="col">Detail</th>
@@ -127,7 +129,7 @@
                                                         <a class="dropdown-item small" data-toggle="modal"
                                                            data-backdrop="static" data-keyboard="false"
                                                            href="#"
-                                                           onclick=Promo_m"hapus_item($(this))"
+                                                           onclick="hapus_item($(this))"
                                                            data-target="#modal_hapus"
                                                            data-id="<?= $item->i_kode; ?>"><i
                                                                     class="far fa-trash-alt mr-2"></i>Hapus Item</a>
@@ -137,13 +139,18 @@
                                             </div>
                                         </td>
 
+                                        <td scope="row" class="align-middle"><?= $item->i_kodeitem; ?></td>
                                         <td scope="row" class="align-middle"><?= $item->i_nama; ?></td>
                                         <td scope="row"
                                             class="align-middle text-center"><?= $item->i_new == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
                                         <td scope="row"
-                                            class="align-middle text-center"><?= $item->i_best == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
-
-                                        <td scope="row" class="align-middle" id="rupiah"><?= $item->i_hrg; ?></td>
+                                            class="align-middle text-center"><?= $item->i_best == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?>
+                                        </td>
+                                        <td scope="row"
+                                            class="align-middle text-center"><?= $item->i_sale == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?>
+                                        </td>
+                                        <td style="width: 10%;" scope="row" class="align-middle"
+                                            id="rupiah"><?= $item->i_hrg; ?></td>
                                         <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
                                         <td>
                                             <?php if (isset($item->item_detil)): ?>
