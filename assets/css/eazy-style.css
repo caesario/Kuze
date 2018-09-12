@@ -3,9 +3,9 @@
     /*src: url("../fonts/kenyancoffeerg.ttf") format('truetype');*/
 /*}*/
 
-/*body {*/
-    /*font-family: 'myfont', SansSerif;*/
-/*}*/
+body {
+    font-family: 'Lato', sans-serif;
+}
 
 a {
      -webkit-transition: all .3s;
@@ -255,8 +255,8 @@ a.c-header-a:hover {
 
 .card:hover .btn-csr {
     color: #fff;
-    background-color: #56cfe1;
-    border-color: #56cfe1;
+    background-color: #777;
+    border-color: #777;
 }
 
 .btn-csr2:hover {
@@ -302,12 +302,13 @@ a.c-header-a:hover {
     cursor: default;
 }
 h5.c-price{
-    color: #56cfe1;
+    color: #777;
     /*font-weight: bold;*/
     margin-bottom: 10px;
     cursor: default;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
+    font-size: 15px;
 }
 
 
@@ -1254,4 +1255,37 @@ a.c-modal-clr:hover {
     position: absolute;
     top: 20px;
     right: -39px;
+}
+
+.c-ribbon3 span {
+    font-size: 11px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 22px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 140px;
+    display: block;
+    background: #56cfe1;
+    background: linear-gradient(#56cfe1 0%, #56cfe1 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 20px;
+    right: -39px;
+}
+
+.r-badge {
+    margin-top: -5px;
+    margin-left: 5px;
+}
+
+.r-cart-badge {
+    font-size: 12px;
+    background: #696969;
+    color: #fff;
+    padding: 3px 6px;
+    vertical-align: top;
+    border-radius: 8px;
 }

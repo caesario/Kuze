@@ -153,6 +153,7 @@ include "layout/Menu.php";
                 </tr>
                 </tbody>
             </table>
+            <br>
             <h5 class="c-title-cart-total">Shopping Summary</h5>
             <table class="table table-bordered">
                 <tbody>
