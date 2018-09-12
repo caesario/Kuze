@@ -51,7 +51,8 @@ if ($submit == 'Ubah') {
                 <div class="col">
                     <div class="form-group">
                         <label for="kodeitem">Kode Item</label>
-                        <input type="text" class="form-control" name="kode" placeholder="Input Kode Item"
+                        <input type="text" class="form-control" name="kodeitem" id="kodeitem"
+                               placeholder="Input Kode Item"
                                value="<?= $kodeitem; ?>"
                                required>
                     </div>
