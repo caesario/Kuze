@@ -74,10 +74,7 @@ include "layout/Menu.php";
                                                     <img class="card-img-top"
                                                          src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                          alt="No Image">
-                                                    <div class="middle">
-                                                        <a href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
-                                                           class="c-view-kat-text">Quick Viewo</a>
-                                                    </div>
+
                                                 </a>
                                             <?php endif; ?>
 
