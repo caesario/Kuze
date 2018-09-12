@@ -134,6 +134,8 @@ include "layout/Menu.php";
                                     <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
                                         <img class="card-img-top"
                                              src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                             id="menuImg" onmouseover="onHover();"
+                                             onmouseout="offHover();"
                                              alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
@@ -216,6 +218,8 @@ include "layout/Menu.php";
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
                                         <img class="card-img-top"
                                              src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             id="menuImg" onmouseover="onHover();"
+                                             onmouseout="offHover();"
                                              alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
@@ -305,6 +309,8 @@ include "layout/Menu.php";
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
                                         <img class="card-img-top"
                                              src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             id="menuImg" onmouseover="onHover();"
+                                             onmouseout="offHover();"
                                              alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
