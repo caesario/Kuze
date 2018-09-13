@@ -16,7 +16,7 @@
         <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
             <h5 class="c-judul-footer">Kuze Original</h5>
                 <ul class="c-ul-footer">
-                    <li><a href="<?= site_url(''); ?>">About Us</a></li>
+                    <li><a href="<?= site_url('Aboutus'); ?>">About Us</a></li>
                     <li><a href="<?= site_url(''); ?>">Contact </a></li>
                 </ul>
 <!--            --><?php //if ($logo != NULL): ?>
@@ -59,7 +59,7 @@
                 <li><a href="<?= site_url(''); ?>">Shipping Information</a></li>
                 <li><a href="<?= site_url(''); ?>">How to Order</a></li>
                 <li><a href="<?= site_url(''); ?>">Lookbook</a></li>
-                <li><a href="<?= site_url(''); ?>">FAQ</a></li>
+                <li><a href="<?= site_url('Faq'); ?>">FAQ</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
