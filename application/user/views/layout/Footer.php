@@ -17,7 +17,7 @@
             <h5 class="c-judul-footer">Kuze Original</h5>
                 <ul class="c-ul-footer">
                     <li><a href="<?= site_url('Aboutus'); ?>">About Us</a></li>
-                    <li><a href="<?= site_url(''); ?>">Contact </a></li>
+                    <li><a href="<?= site_url('Contact'); ?>">Contact </a></li>
                 </ul>
 <!--            --><?php //if ($logo != NULL): ?>
 <!--                <img src="--><?//= base_url('upload/' . $logo); ?><!--" width="150" height="80"-->
