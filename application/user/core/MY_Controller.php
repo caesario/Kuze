@@ -191,6 +191,18 @@ class MY_Controller extends CI_Controller
             }
         };
 
+        $this->data->item_img_last = function ($i_kode) {
+            $hasil = $this->item_img
+                ->where('i_kode', $i_kode)->limit(1)->order_by('created_at')
+                ->get();
+
+            if ($hasil) {
+                return $hasil;
+            } else {
+                return NULL;
+            }
+        };
+
         $this->data->item_img_all = function ($i_kode) {
             return $this->item_img->where(array('i_kode' => $i_kode))->get_all();
         };

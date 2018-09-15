@@ -5,15 +5,15 @@ include "layout/Menu.php";
 
     <!-- Slide Show -->
 
-    <?php if ($img_promos != NULL): ?>
-        <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
-            <?php foreach ($img_promos as $promo): ?>
-                <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
-                     data-caption="<?= $promo->slide_promo_caption; ?>"
-                     alt="<?= $promo->slide_promo_img; ?>">
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+<?php if ($img_promos != NULL): ?>
+    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
+        <?php foreach ($img_promos as $promo): ?>
+            <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
+                 data-caption="<?= $promo->slide_promo_caption; ?>"
+                 alt="<?= $promo->slide_promo_img; ?>">
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 
     <div class="container-fluid px-0 mb-3">
         <div class="row c-padding-header">
@@ -132,15 +132,31 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('new_arrival/item/' . $new_arrival->i_url . '/detil'); ?>">
                                     <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
-                                        <img class="card-img-top"
-                                             src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
-                                             id="menuImg" onmouseover="onHover();"
-                                             onmouseout="offHover();"
-                                             alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>">
+                                    <img id="img_show_header-<?= $new_arrival->i_kode; ?>"
+                                         src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto d-block-<?= $new_arrival->i_kode; ?>">
+                                    <img id="img_show_hover-<?= $new_arrival->i_kode; ?>" style="display: none"
+                                         src="data:<?= $item_img_last($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($new_arrival->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img_last($new_arrival->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto">
+                                        <script>
+                                            $(document).ready(function () {
+                                                if ($('#img_show_header-<?= $new_arrival->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $new_arrival->i_kode; ?>').show();
+                                                    $('#img_show_header-<?= $new_arrival->i_kode; ?>').hide();
+                                                } else if ($('#img_show_hover-<?= $new_arrival->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $new_arrival->i_kode; ?>').hide();
+                                                    $('#img_show_header-<?= $new_arrival->i_kode; ?>').show();
+                                                }
+
+
+                                            })
+                                        </script>
                                     <?php else: ?>
-                                        <img class="img-fluid mx-auto d-block"
-                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                             alt="No Image">
+                                    <img class="img-fluid mx-auto d-block"
+                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                         alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -216,15 +232,31 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('best_seller/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                        <img class="card-img-top"
-                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                             id="menuImg" onmouseover="onHover();"
-                                             onmouseout="offHover();"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
+                                    <img id="img_show_header-<?= $best_seller->i_kode; ?>"
+                                         src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto d-block-<?= $best_seller->i_kode; ?>">
+                                    <img id="img_show_hover-<?= $best_seller->i_kode; ?>" style="display: none"
+                                         src="data:<?= $item_img_last($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($best_seller->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img_last($best_seller->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto d-block">
+                                        <script>
+                                            $(document).ready(function () {
+                                                if ($('#img_show_header-<?= $best_seller->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').show();
+                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').hide();
+                                                } else if ($('#img_show_hover-<?= $best_seller->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').hide();
+                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').show();
+                                                }
+
+
+                                            })
+                                        </script>
                                     <?php else: ?>
-                                        <img class="img-fluid mx-auto d-block"
-                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                             alt="No Image">
+                                    <img class="img-fluid mx-auto d-block"
+                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                         alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -299,23 +331,34 @@ include "layout/Menu.php";
                                         <span>Sale Item</span>
                                     </div>
                                 </div>
-<!--                                <div class="row">-->
-<!--                                    <div class="c-ribbon c-ribbon1">-->
-<!--                                        <span>Sale Item</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
 
                                 <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                        <img class="card-img-top"
-                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                             id="menuImg" onmouseover="onHover();"
-                                             onmouseout="offHover();"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>">
+                                    <img id="img_show_header-<?= $best_seller->i_kode; ?>"
+                                         src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto d-block-<?= $best_seller->i_kode; ?>">
+                                    <img id="img_show_hover-<?= $best_seller->i_kode; ?>" style="display: none"
+                                         src="data:<?= $item_img_last($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($best_seller->i_kode)->ii_data)); ?>"
+                                         alt="<?= $item_img_last($best_seller->i_kode)->ii_kode; ?>"
+                                         class="img-fluid mx-auto d-block">
+                                        <script>
+                                            $(document).ready(function () {
+                                                if ($('#img_show_header-<?= $best_seller->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').show();
+                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').hide();
+                                                } else if ($('#img_show_hover-<?= $best_seller->i_kode; ?>').is(":hover")) {
+                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').hide();
+                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').show();
+                                                }
+
+
+                                            })
+                                        </script>
                                     <?php else: ?>
-                                        <img class="img-fluid mx-auto d-block"
-                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                             alt="No Image">
+                                    <img class="img-fluid mx-auto d-block"
+                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                         alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -342,8 +385,6 @@ include "layout/Menu.php";
     </div>
 
     <!-- ======= End Product Best Seller ======= -->
-
-
 
 
     <!-- ======= Long Product ======= -->
@@ -383,7 +424,7 @@ include "layout/Menu.php";
                         <div class="content-wrapper">
                             <div class="card">
                                 <a class="" href="<?= site_url('event/' . $artk->event_url) ?>"><img
-                                            class="card-img-top"
+                                            class="img-fluid mx-auto d-block"
                                             src="assets/img/blog1.jpg"
                                             alt="Card image cap"></a>
                                 <div class="card-body">
@@ -502,22 +543,22 @@ include "layout/Menu.php";
                 <!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
-<!--                <div class="media">-->
-<!--                    <div class="fa fa-car c-icon-bot"></div>-->
-<!--                    <div class="media-body c-padding-media-body">-->
-<!--                        <h5 class="mt-0">24/7 SUPPORT</h5>-->
-<!--                        <p>Our Support Team Ready to 7 days a week</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="media">-->
+                <!--                    <div class="fa fa-car c-icon-bot"></div>-->
+                <!--                    <div class="media-body c-padding-media-body">-->
+                <!--                        <h5 class="mt-0">24/7 SUPPORT</h5>-->
+                <!--                        <p>Our Support Team Ready to 7 days a week</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
-<!--                <div class="media">-->
-<!--                    <div class="fa fa-refresh c-icon-bot"></div>-->
-<!--                    <div class="media-body c-padding-media-body">-->
-<!--                        <h5 class="mt-0">7 DAYS RETURN</h5>-->
-<!--                        <p>Product any fault within 7 days for an exchange</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="media">-->
+                <!--                    <div class="fa fa-refresh c-icon-bot"></div>-->
+                <!--                    <div class="media-body c-padding-media-body">-->
+                <!--                        <h5 class="mt-0">7 DAYS RETURN</h5>-->
+                <!--                        <p>Product any fault within 7 days for an exchange</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="col-lg-3 col-md-12">
                 <!--                <div class="media">-->
