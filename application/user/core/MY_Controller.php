@@ -191,6 +191,10 @@ class MY_Controller extends CI_Controller
             }
         };
 
+        $this->data->item_img_count = function ($i_kode) {
+            return $this->item_img->counter($i_kode);
+        };
+
         $this->data->item_img_last = function ($i_kode) {
             $hasil = $this->item_img
                 ->where('i_kode', $i_kode)->limit(1)->order_by('created_at')

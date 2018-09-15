@@ -35,6 +35,14 @@ class Home extends MY_Controller
                 ->get_all();
         };
 
+        $this->data->sale_items = function () {
+            return $this->item->where_i_sale('1')
+                ->with_item_detil()
+                ->order_by('created_at')
+                ->limit(8)
+                ->get_all();
+        };
+
         $this->data->rand_image = $this->item_img->select_random();
 
         $this->data->img_promos = $this->slide_promo->get_all();

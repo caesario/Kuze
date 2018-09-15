@@ -92,32 +92,6 @@ include "layout/Menu.php";
     </div>
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-danger alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['gagal']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['berhasil']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-        <div class="row">
             <?php if ($new_arrivals() != NULL): ?>
                 <?php foreach ($new_arrivals() as $new_arrival): ?>
                     <?php $stok = $qty($new_arrival->i_kode); ?>
@@ -132,12 +106,19 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('new_arrival/item/' . $new_arrival->i_url . '/detil'); ?>">
                                     <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
-                                        <img id="<?= $new_arrival->i_kode; ?>"
-                                             onmouseover="img_hover($(this))"
-                                             onmouseleave="img_off($(this))"
-                                             src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
-                                             alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
-                                             class="img-fluid mx-auto d-block">
+                                        <?php if ($item_img_count($new_arrival->i_kode) > 1): ?>
+                                            <img id="<?= $new_arrival->i_kode; ?>"
+                                                 onmouseover="img_hover($(this))"
+                                                 onmouseleave="img_off($(this))"
+                                                 src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
+                                                 class="img-fluid mx-auto d-block">
+                                        <?php else: ?>
+                                            <img id="<?= $new_arrival->i_kode; ?>"
+                                                 src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
+                                                 class="img-fluid mx-auto d-block">
+                                        <?php endif; ?>
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -154,8 +135,8 @@ include "layout/Menu.php";
                                                 To Bag</p>
                                         </a>
                                     </div>
+                                </a>
                             </div>
-                            </a>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
@@ -177,32 +158,6 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-danger alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['gagal']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['berhasil']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-        <div class="row">
             <?php if ($best_sellers() != NULL): ?>
                 <?php foreach ($best_sellers() as $best_seller): ?>
                     <?php $stok = $qty($best_seller->i_kode); ?>
@@ -217,12 +172,19 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('best_seller/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                        <img id="<?= $best_seller->i_kode; ?>"
-                                             onmouseover="img_hover($(this))"
-                                             onmouseleave="img_off($(this))"
-                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
-                                             class="img-fluid mx-auto d-block">
+                                        <?php if ($item_img_count($best_seller->i_kode) > 1): ?>
+                                            <img id="<?= $best_seller->i_kode; ?>"
+                                                 onmouseover="img_hover($(this))"
+                                                 onmouseleave="img_off($(this))"
+                                                 src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                                 class="img-fluid mx-auto d-block">
+                                        <?php else: ?>
+                                            <img id="<?= $best_seller->i_kode; ?>"
+                                                 src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                                 class="img-fluid mx-auto d-block">
+                                        <?php endif; ?>
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -240,8 +202,8 @@ include "layout/Menu.php";
                                                 To Bag</p>
                                         </a>
                                     </div>
+                                </a>
                             </div>
-                            </a>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
@@ -255,7 +217,7 @@ include "layout/Menu.php";
     <!-- ======= End Product Best Seller ======= -->
 
 
-    <!-- ======= Product Best Seller ======= -->
+    <!-- ======= Product Sale Item ======= -->
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
         <h2 class="">Sale Item</h2>
@@ -264,35 +226,9 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header">
         <div class="row">
-            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-danger alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['gagal']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['berhasil']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-        <div class="row">
-            <?php if ($best_sellers() != NULL): ?>
-                <?php foreach ($best_sellers() as $best_seller): ?>
-                    <?php $stok = $qty($best_seller->i_kode); ?>
+            <?php if ($sale_items() != NULL): ?>
+                <?php foreach ($sale_items() as $sale_item): ?>
+                    <?php $stok = $qty($sale_item->i_kode); ?>
                     <?php if ($stok >= 1): ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="card">
@@ -302,14 +238,20 @@ include "layout/Menu.php";
                                     </div>
                                 </div>
 
-                                <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
-                                    <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                        <img id="<?= $best_seller->i_kode; ?>"
-                                             onmouseover="img_hover($(this))"
-                                             onmouseleave="img_off($(this))"
-                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
-                                             class="img-fluid mx-auto d-block">
+                                <a href="<?= site_url('produk-terbaru/item/' . $sale_item->i_url . '/detil'); ?>">
+                                    <?php if ($item_img($sale_item->i_kode) != NULL): ?>
+                                        <?php if ($item_img_count($sale_item->i_kode) > 1): ?>
+                                            <img id="<?= $sale_item->i_kode; ?>"
+                                                 onmouseover="img_hover($(this))"
+                                                 onmouseleave="img_off($(this))"
+                                                 src="data:<?= $item_img($sale_item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($sale_item->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($sale_item->i_kode)->ii_kode; ?>"
+                                                 class="img-fluid mx-auto d-block">
+                                        <?php else: ?>
+                                            <img id="<?= $sale_item->i_kode; ?>"
+                                                 src="data:<?= $item_img($sale_item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($sale_item->i_kode)->ii_data)); ?>"
+                                                 alt="<?= $item_img($sale_item->i_kode)->ii_kode; ?>"
+                                        <?php endif; ?>
                                     <?php else: ?>
                                         <img class="img-fluid mx-auto d-block"
                                              src="<?= base_url('assets/img/noimage.jpg'); ?>"
@@ -317,18 +259,18 @@ include "layout/Menu.php";
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
-                                        <h5 class="card-title c-both c-title"><?= $best_seller->i_nama; ?></h5>
+                                        <h5 class="card-title c-both c-title"><?= $sale_item->i_nama; ?></h5>
 
-                                        <h5 id="rupiah" class="c-price"><?= $best_seller->i_hrg; ?></h5>
-                                        <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>"
+                                        <h5 id="rupiah" class="c-price"><?= $sale_item->i_hrg; ?></h5>
+                                        <a href="<?= site_url('produk-terbaru/item/' . $sale_item->i_url . '/detil'); ?>"
                                            class="btn btn-csr c-cart c-cart-p">
                                             <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
                                             <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add
                                                 To Bag</p>
                                         </a>
                                     </div>
+                                </a>
                             </div>
-                            </a>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>

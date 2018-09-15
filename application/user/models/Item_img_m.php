@@ -43,4 +43,11 @@ class Item_img_m extends MY_Model {
         }
         return $hasil;
     }
+
+    public function counter($i_kode)
+    {
+        $query = $this->db->from($this->table)->where('i_kode', $i_kode);
+        $query = $query->get();
+        return $query->num_rows();
+    }
 }
