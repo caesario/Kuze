@@ -48,6 +48,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('Bank_m', 'bank');
         $this->load->model('Ukuran_m', 'ukuran');
         $this->load->model('Promo_m', 'promo');
+        $this->load->model('Billboard_m', 'billboard');
         $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Slide_instagram_m', 'slide_insta');
         $this->load->model('Provinsi_m', 'provinsi');
