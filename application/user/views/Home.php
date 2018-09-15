@@ -132,31 +132,16 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('new_arrival/item/' . $new_arrival->i_url . '/detil'); ?>">
                                     <?php if ($item_img($new_arrival->i_kode) != NULL): ?>
-                                    <img id="img_show_header-<?= $new_arrival->i_kode; ?>"
-                                         src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto d-block-<?= $new_arrival->i_kode; ?>">
-                                    <img id="img_show_hover-<?= $new_arrival->i_kode; ?>" style="display: none"
-                                         src="data:<?= $item_img_last($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($new_arrival->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img_last($new_arrival->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto">
-                                        <script>
-                                            $(document).ready(function () {
-                                                if ($('#img_show_header-<?= $new_arrival->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $new_arrival->i_kode; ?>').show();
-                                                    $('#img_show_header-<?= $new_arrival->i_kode; ?>').hide();
-                                                } else if ($('#img_show_hover-<?= $new_arrival->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $new_arrival->i_kode; ?>').hide();
-                                                    $('#img_show_header-<?= $new_arrival->i_kode; ?>').show();
-                                                }
-
-
-                                            })
-                                        </script>
+                                        <img id="<?= $new_arrival->i_kode; ?>"
+                                             onmouseover="img_hover($(this))"
+                                             onmouseleave="img_off($(this))"
+                                             src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
+                                             class="img-fluid mx-auto d-block">
                                     <?php else: ?>
-                                    <img class="img-fluid mx-auto d-block"
-                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                         alt="No Image">
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                             alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -232,31 +217,16 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('best_seller/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                    <img id="img_show_header-<?= $best_seller->i_kode; ?>"
-                                         src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto d-block-<?= $best_seller->i_kode; ?>">
-                                    <img id="img_show_hover-<?= $best_seller->i_kode; ?>" style="display: none"
-                                         src="data:<?= $item_img_last($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($best_seller->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img_last($best_seller->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto d-block">
-                                        <script>
-                                            $(document).ready(function () {
-                                                if ($('#img_show_header-<?= $best_seller->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').show();
-                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').hide();
-                                                } else if ($('#img_show_hover-<?= $best_seller->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').hide();
-                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').show();
-                                                }
-
-
-                                            })
-                                        </script>
+                                        <img id="<?= $best_seller->i_kode; ?>"
+                                             onmouseover="img_hover($(this))"
+                                             onmouseleave="img_off($(this))"
+                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                             class="img-fluid mx-auto d-block">
                                     <?php else: ?>
-                                    <img class="img-fluid mx-auto d-block"
-                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                         alt="No Image">
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                             alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -334,31 +304,16 @@ include "layout/Menu.php";
 
                                 <a href="<?= site_url('produk-terbaru/item/' . $best_seller->i_url . '/detil'); ?>">
                                     <?php if ($item_img($best_seller->i_kode) != NULL): ?>
-                                    <img id="img_show_header-<?= $best_seller->i_kode; ?>"
-                                         src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto d-block-<?= $best_seller->i_kode; ?>">
-                                    <img id="img_show_hover-<?= $best_seller->i_kode; ?>" style="display: none"
-                                         src="data:<?= $item_img_last($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img_last($best_seller->i_kode)->ii_data)); ?>"
-                                         alt="<?= $item_img_last($best_seller->i_kode)->ii_kode; ?>"
-                                         class="img-fluid mx-auto d-block">
-                                        <script>
-                                            $(document).ready(function () {
-                                                if ($('#img_show_header-<?= $best_seller->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').show();
-                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').hide();
-                                                } else if ($('#img_show_hover-<?= $best_seller->i_kode; ?>').is(":hover")) {
-                                                    $('#img_show_hover-<?= $best_seller->i_kode; ?>').hide();
-                                                    $('#img_show_header-<?= $best_seller->i_kode; ?>').show();
-                                                }
-
-
-                                            })
-                                        </script>
+                                        <img id="<?= $best_seller->i_kode; ?>"
+                                             onmouseover="img_hover($(this))"
+                                             onmouseleave="img_off($(this))"
+                                             src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                             alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
+                                             class="img-fluid mx-auto d-block">
                                     <?php else: ?>
-                                    <img class="img-fluid mx-auto d-block"
-                                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                         alt="No Image">
+                                        <img class="img-fluid mx-auto d-block"
+                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
+                                             alt="No Image">
                                     <?php endif; ?>
 
                                     <div class="card-body text-center">
@@ -571,6 +526,35 @@ include "layout/Menu.php";
             </div>
         </div>
     </div>
+    <script>
+        function img_hover(data) {
+            var img = data,
+                id = img.attr('id'),
+                hasil = "";
+            $.getJSON("/API/get_last_img/" + id, function (data) {
+                img.fadeOut("fast", function () {
+                    hasil = "data:" + data["type"] + ";base64," + data["img"];
+                    img.attr("src", hasil);
+                    img.fadeIn("fast");
+                });
+            });
+
+        }
+
+        function img_off(data) {
+            var img = data,
+                id = img.attr('id'),
+                hasil = "";
+
+            $.getJSON("/API/get_default_img/" + id, function (data) {
+                img.fadeOut("fast", function () {
+                    hasil = "data:" + data["type"] + ";base64," + data["img"];
+                    img.attr("src", hasil);
+                    img.fadeIn("fast");
+                });
+            });
+        }
+    </script>
 
 <?php
 include "layout/Footer.php";

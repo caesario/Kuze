@@ -219,4 +219,25 @@ class API extends MY_Controller
         echo json_encode($hasil);
     }
 
+    public function get_last_img($i_kode)
+    {
+        $img = $this->item_img->where('i_kode', $i_kode)->limit(1)->order_by('created_at', 'ASC')->get();
+
+        $hasil = array();
+        $hasil['type'] = $img->ii_type;
+        $hasil['img'] = base64_encode($img->ii_data);
+
+        echo json_encode($hasil);
+    }
+
+    public function get_default_img($i_kode)
+    {
+        $img = $this->item_img->where(array('i_kode' => $i_kode, 'ii_default' => 1))->get();
+        $hasil = array();
+        $hasil['type'] = $img->ii_type;
+        $hasil['img'] = base64_encode($img->ii_data);
+
+        echo json_encode($hasil);
+    }
+
 }

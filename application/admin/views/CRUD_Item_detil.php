@@ -2,14 +2,10 @@
 $url = site_url('item/simpan_detil');
 if ($submit == 'Ubah') {
     $id = $item_detil->item_detil_kode;
-    $warna = $item_detil->w_kode;
     $ukuran = $item_detil->u_kode;
-    $seri = $item_detil->s_kode;
 } else if ($submit == 'Simpan') {
     $id = $kode;
-    $warna = '';
     $ukuran = '';
-    $seri = '';
 }
 ?>
 <form action="<?= $url; ?>" method="post">
@@ -17,29 +13,11 @@ if ($submit == 'Ubah') {
     <input type="hidden" name="id" value="<?= $id; ?>">
     <div class="row">
         <div class="col form-group">
-            <label for="warna">Warna</label>
-            <select name="warna" id="warna" class="form-control small" required>
-                <option value="" disabled>Pilih Warna</option>
-                <?php foreach ($this->warna->get_all() as $katwarna): ?>
-                    <option value="<?= $katwarna->w_kode; ?>" <?= $warna != '' && $warna == $katwarna->w_kode ? 'selected' : ''; ?> ><?= $katwarna->w_nama; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="col form-group">
             <label for="ukuran">Ukuran</label>
             <select name="ukuran" id="ukuran" class="form-control small" required>
                 <option value="" disabled>Pilih Ukuran</option>
                 <?php foreach ($this->ukuran->get_all() as $katukuran): ?>
                     <option value="<?= $katukuran->u_kode; ?>" <?= $ukuran != '' && $ukuran == $katukuran->u_kode ? 'selected' : ''; ?> ><?= $katukuran->u_nama; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="col form-group">
-            <label for="seri">Seri</label>
-            <select name="seri" id="seri" class="form-control small">
-                <option value="0">None</option>
-                <?php foreach ($this->seri->get_all() as $katseri): ?>
-                    <option value="<?= $katseri->s_kode; ?>" <?= $seri != '' && $seri == $katseri->s_kode ? 'selected' : ''; ?> ><?= $katseri->s_nama; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
