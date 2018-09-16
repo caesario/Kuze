@@ -20,39 +20,19 @@ include "layout/Menu.php";
             <?php if ($rand_image): ?>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
-                    <?php if (isset($rand_image[0])): ?>
+                    <?php if (isset($img1)): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[0]->ii_type . ';base64,' . (base64_encode($rand_image[0]->ii_data)); ?>"
-                                     alt="<?= $rand_image[0]->ii_kode; ?>">
+                                <img src="data:<?= $img1->blb_type . ';base64,' . (base64_encode($img1->blb_data)); ?>"
+                                     alt="<?= $img1->blb_judul; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
-                    <?php if (isset($rand_image[1])): ?>
+                    <?php if (isset($img2)): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[1]->ii_type . ';base64,' . (base64_encode($rand_image[1]->ii_data)); ?>"
-                                     alt="<?= $rand_image[1]->ii_kode; ?>">
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-12">
-                <div class="row">
-                    <?php if (isset($rand_image[2])): ?>
-                        <div class="col-12">
-                            <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[2]->ii_type . ';base64,' . (base64_encode($rand_image[2]->ii_data)); ?>"
-                                     alt="<?= $rand_image[2]->ii_kode; ?>">
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (isset($rand_image[3])): ?>
-                        <div class="col-12">
-                            <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[3]->ii_type . ';base64,' . (base64_encode($rand_image[3]->ii_data)); ?>"
-                                     alt="<?= $rand_image[3]->ii_kode; ?>">
+                                <img src="data:<?= $img2->blb_type . ';base64,' . (base64_encode($img2->blb_data)); ?>"
+                                     alt="<?= $img2->blb_judul; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -60,19 +40,31 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                 <div class="row">
-                    <?php if (isset($rand_image[4])): ?>
+                    <?php if (isset($img3)): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[4]->ii_type . ';base64,' . (base64_encode($rand_image[4]->ii_data)); ?>"
-                                     alt="<?= $rand_image[4]->ii_kode; ?>">
+                                <img src="data:<?= $img3->blb_type . ';base64,' . (base64_encode($img3->blb_data)); ?>"
+                                     alt="<?= $img3->blb_judul; ?>">
                             </div>
                         </div>
                     <?php endif; ?>
-                    <?php if (isset($rand_image[5])): ?>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                <div class="row">
+                    <?php if (isset($img4)): ?>
                         <div class="col-12">
                             <div class="content-wrapper">
-                                <img src="data:<?= $rand_image[5]->ii_type . ';base64,' . (base64_encode($rand_image[5]->ii_data)); ?>"
-                                     alt="<?= $rand_image[5]->ii_kode; ?>">
+                                <img src="data:<?= $img4->blb_type . ';base64,' . (base64_encode($img4->blb_data)); ?>"
+                                     alt="<?= $img4->blb_judul; ?>">
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($img5)): ?>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img src="data:<?= $img5->blb_type . ';base64,' . (base64_encode($img5->blb_data)); ?>"
+                                     alt="<?= $img5->blb_judul; ?>">
                             </div>
                         </div>
                     <?php endif; ?>

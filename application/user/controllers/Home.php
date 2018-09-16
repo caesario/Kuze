@@ -11,6 +11,11 @@ class Home extends MY_Controller
     public function index()
     {
         $this->data->event = $this->event->limit(3)->get_all();
+        $this->data->img1 = $this->billboard->get(1);
+        $this->data->img2 = $this->billboard->get(2);
+        $this->data->img3 = $this->billboard->get(3);
+        $this->data->img4 = $this->billboard->get(4);
+        $this->data->img5 = $this->billboard->get(5);
         $this->data->terbaru_items = function () {
             return $this->item
                 ->with_item_detil()
