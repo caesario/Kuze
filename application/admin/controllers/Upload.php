@@ -125,17 +125,11 @@ class Upload extends MY_Controller
     public function simpan_img()
     {
         // cek update
-        $img = $this->item_img->where(array('i_kode' => $this->input->post('i_kode'), 'ii_default' => 1))->get();
-
-        if (!$img) {
-            $default = 1;
-        } else {
-            $default = 0;
-        }
+        $this->item_img->where('ii_default', 1)->update(array('ii_default' => 0));
 
         $imgData = file_get_contents($_FILES['image']['tmp_name']);
         $imageProperties = getimageSize($_FILES['image']['tmp_name']);
-
+        $default = 1;
         $data = array(
             'ii_kode' => $this->item_img->guid(),
             'ii_default' => $default,

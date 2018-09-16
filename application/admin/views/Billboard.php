@@ -81,17 +81,17 @@
                                         <div id="viewimage1" style="display: none"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input class="form-control" type="text" name="judul" id="judul"
+                                        <label for="judul1">Judul</label>
+                                        <input class="form-control" type="text" name="judul" id="judul1"
                                                placeholder="Judul">
                                     </div>
                                     <div class="form-group">
-                                        <label for="url">URL</label>
-                                        <input class="form-control" type="text" name="url" id="url" placeholder="URL">
+                                        <label for="url1">URL</label>
+                                        <input class="form-control" type="text" name="url" id="url1" placeholder="URL">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ket">Keterangan</label>
-                                        <textarea class="form-control" name="ket" id="ket"
+                                        <label for="ket1">Keterangan</label>
+                                        <textarea class="form-control" name="ket" id="ket1"
                                                   placeholder="Keterangan"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -118,17 +118,17 @@
                                         <div id="viewimage2" style="display: none"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input class="form-control" type="text" name="judul" id="judul"
+                                        <label for="judul2">Judul</label>
+                                        <input class="form-control" type="text" name="judul" id="judul2"
                                                placeholder="Judul">
                                     </div>
                                     <div class="form-group">
-                                        <label for="url">URL</label>
-                                        <input class="form-control" type="text" name="url" id="url" placeholder="URL">
+                                        <label for="url2">URL</label>
+                                        <input class="form-control" type="text" name="url" id="url2" placeholder="URL">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ket">Keterangan</label>
-                                        <textarea class="form-control" name="ket" id="ket"
+                                        <label for="ket2">Keterangan</label>
+                                        <textarea class="form-control" name="ket" id="ket2"
                                                   placeholder="Keterangan"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -155,17 +155,17 @@
                                                id="upload_image3">
                                     </div>
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input class="form-control" type="text" name="judul" id="judul"
+                                        <label for="judul3">Judul</label>
+                                        <input class="form-control" type="text" name="judul" id="judul3"
                                                placeholder="Judul">
                                     </div>
                                     <div class="form-group">
-                                        <label for="url">URL</label>
-                                        <input class="form-control" type="text" name="url" id="url" placeholder="URL">
+                                        <label for="url3">URL</label>
+                                        <input class="form-control" type="text" name="url" id="url3" placeholder="URL">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ket">Keterangan</label>
-                                        <textarea class="form-control" name="ket" id="ket"
+                                        <label for="ket3">Keterangan</label>
+                                        <textarea class="form-control" name="ket" id="ket3"
                                                   placeholder="Keterangan"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -193,17 +193,17 @@
                                                id="upload_image4">
                                     </div>
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input class="form-control" type="text" name="judul" id="judul"
+                                        <label for="judul4">Judul</label>
+                                        <input class="form-control" type="text" name="judul4" id="judul"
                                                placeholder="Judul">
                                     </div>
                                     <div class="form-group">
-                                        <label for="url">URL</label>
-                                        <input class="form-control" type="text" name="url" id="url" placeholder="URL">
+                                        <label for="url4">URL</label>
+                                        <input class="form-control" type="text" name="url" id="url4" placeholder="URL">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ket">Keterangan</label>
-                                        <textarea class="form-control" name="ket" id="ket"
+                                        <label for="ket4">Keterangan</label>
+                                        <textarea class="form-control" name="ket" id="ket4"
                                                   placeholder="Keterangan"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -227,17 +227,17 @@
                                                id="upload_image5">
                                     </div>
                                     <div class="form-group">
-                                        <label for="judul">Judul</label>
-                                        <input class="form-control" type="text" name="judul" id="judul"
+                                        <label for="judul5">Judul</label>
+                                        <input class="form-control" type="text" name="judul" id="judul5"
                                                placeholder="Judul">
                                     </div>
                                     <div class="form-group">
-                                        <label for="url">URL</label>
-                                        <input class="form-control" type="text" name="url" id="url" placeholder="URL">
+                                        <label for="url5">URL</label>
+                                        <input class="form-control" type="text" name="url" id="url5" placeholder="URL">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ket">Keterangan</label>
-                                        <textarea class="form-control" name="ket" id="ket"
+                                        <label for="ket5">Keterangan</label>
+                                        <textarea class="form-control" name="ket" id="ket5"
                                                   placeholder="Keterangan"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -278,15 +278,35 @@
         <script>
             $(document).ready(function () {
                 var $klip1 = $('#upload_image1'),
-                    $tampil1 = $('#viewimage1');
+                    $tampil1 = $('#viewimage1'),
+                    $judul1 = $('#judul1').val(),
+                    $url1 = $('#url1').val(),
+                    $ket1 = $('#ket1').val(),
+                    $posisi1 = 1;
                 var $klip2 = $('#upload_image2'),
-                    $tampil2 = $('#viewimage2');
+                    $tampil2 = $('#viewimage2'),
+                    $judul2 = $('#judul2').val(),
+                    $url2 = $('#url2').val(),
+                    $ket2 = $('#ket2').val(),
+                    $posisi2 = 2;
                 var $klip3 = $('#upload_image3'),
-                    $tampil3 = $('#viewimage3');
+                    $tampil3 = $('#viewimage3'),
+                    $judul3 = $('#judul3').val(),
+                    $url3 = $('#url3').val(),
+                    $ket3 = $('#ket3').val(),
+                    $posisi3 = 3;
                 var $klip4 = $('#upload_image4'),
-                    $tampil4 = $('#viewimage4');
+                    $tampil4 = $('#viewimage4'),
+                    $judul4 = $('#judul4').val(),
+                    $url4 = $('#url4').val(),
+                    $ket4 = $('#ket4').val(),
+                    $posisi4 = 4;
                 var $klip5 = $('#upload_image5'),
-                    $tampil5 = $('#viewimage5');
+                    $tampil5 = $('#viewimage5'),
+                    $judul5 = $('#judul5').val(),
+                    $url5 = $('#url5').val(),
+                    $ket5 = $('#ket5').val(),
+                    $posisi5 = 5;
 
                 var $obj1 = $tampil1.croppie({
                     enableExif: true,
@@ -414,6 +434,149 @@
                     $tampil5.show();
                 });
 
+
+                // Upload gambar1
+                $('#doupload1').click(function (event) {
+                    $obj1.croppie('result', {
+                        type: 'blob',
+                        size: 'original'
+                    }).then(function (response) {
+                        var fd = new FormData();
+                        fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                        fd.append('image', response);
+                        fd.append('judul', $judul1);
+                        fd.append('url', $url1);
+                        fd.append('ket', $ket1);
+                        fd.append('posisi', $posisi1);
+                        console.log(fd);
+                        $.ajax({
+                            url: "<?= site_url('billboard/simpan'); ?>",
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                console.log(data);
+                                // window.location.reload();
+                            }
+                        });
+                    });
+                });
+                // end upload gambar1
+
+                // upload gambar2
+                $('#doupload2').click(function (event) {
+                    $obj2.croppie('result', {
+                        type: 'blob',
+                        size: 'original'
+                    }).then(function (response) {
+                        console.log(response);
+                        var fd = new FormData();
+                        fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                        fd.append('image', response);
+                        fd.append('judul', $judul2);
+                        fd.append('url', $url2);
+                        fd.append('ket', $ket2);
+                        fd.append('posisi', $posisi2);
+                        $.ajax({
+                            url: "<?= site_url('billboard/simpan'); ?>",
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                window.location.reload();
+                            }
+                        });
+                    })
+                });
+                // end upload gambar2
+
+
+                // upload gambar3
+                $('#doupload3').click(function (event) {
+                    $obj3.croppie('result', {
+                        type: 'blob',
+                        size: 'original'
+                    }).then(function (response) {
+                        console.log(response);
+                        var fd = new FormData();
+                        fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                        fd.append('image', response);
+                        fd.append('judul', $judul3);
+                        fd.append('url', $url3);
+                        fd.append('ket', $ket3);
+                        fd.append('posisi', $posisi3);
+                        $.ajax({
+                            url: "<?= site_url('billboard/simpan'); ?>",
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                window.location.reload();
+                            }
+                        });
+                    })
+                });
+                // end upload gambar3
+
+                // upload gambar4
+                $('#doupload4').click(function (event) {
+                    $obj4.croppie('result', {
+                        type: 'blob',
+                        size: 'original'
+                    }).then(function (response) {
+                        console.log(response);
+                        var fd = new FormData();
+                        fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                        fd.append('image', response);
+                        fd.append('judul', $judul4);
+                        fd.append('url', $url4);
+                        fd.append('ket', $ket4);
+                        fd.append('posisi', $posisi4);
+                        $.ajax({
+                            url: "<?= site_url('billboard/simpan'); ?>",
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                window.location.reload();
+                            }
+                        });
+                    })
+                });
+                // end upload gambar4
+
+
+                // upload gambar5
+                $('#doupload5').click(function (event) {
+                    $obj5.croppie('result', {
+                        type: 'blob',
+                        size: 'original'
+                    }).then(function (response) {
+                        console.log(response);
+                        var fd = new FormData();
+                        fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                        fd.append('image', response);
+                        fd.append('judul', $judul5);
+                        fd.append('url', $url5);
+                        fd.append('ket', $ket5);
+                        fd.append('posisi', $posisi5);
+                        $.ajax({
+                            url: "<?= site_url('billboard/simpan'); ?>",
+                            type: "POST",
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                window.location.reload();
+                            }
+                        });
+                    })
+                });
+                // end upload gambar5
             });
         </script>
 

@@ -22,6 +22,7 @@ class API extends MY_Controller
 
             $this->provinsi->insert($data);
         }
+        return;
     }
 
     public function api_kabupaten()
@@ -39,6 +40,7 @@ class API extends MY_Controller
 
             $this->kabupaten->insert($data);
         }
+        return;
     }
 
     public function api_kecamatan()
@@ -61,6 +63,7 @@ class API extends MY_Controller
                 $this->kecamatan->insert($data);
             }
         }
+        return;
     }
 
     public function get_provinsi($id = '')

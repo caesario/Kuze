@@ -6,7 +6,24 @@ class New_toko extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('RajaOngkir', 'rajaongkir');
+
         $toko = $this->toko->get();
+        $provinsi = $this->provinsi->get(1);
+        $kabupaten = $this->kabupaten->get(1);
+        $kecamatan = $this->kecamatan->get(1);
+
+        if (!$provinsi) {
+            $this->api_provinsi();
+        }
+
+        if (!$kabupaten) {
+            $this->api_kabupaten();
+        }
+
+        if (!$kecamatan) {
+            $this->api_kecamatan();
+        }
 
         if ($toko) {
             redirect('new_user');
@@ -111,6 +128,63 @@ class New_toko extends MY_Controller
         $hasil = $this->upload->data();
 
         return $hasil;
+    }
+
+    private function api_provinsi()
+    {
+        $this->provinsi->delete_all();
+        $provinsi = json_decode($this->rajaongkir->province(), true);
+        $provinsi = $provinsi['rajaongkir']['results'];
+        foreach ($provinsi as $p) {
+            $data = array(
+                'provinsi_id' => $p['province_id'],
+                'provinsi_nama' => $p['province']
+            );
+
+            $this->provinsi->insert($data);
+        }
+        return;
+    }
+
+    private function api_kabupaten()
+    {
+        $this->kabupaten->delete_all();
+        $kabupaten = json_decode($this->rajaongkir->city(), true);
+        $kabupaten = $kabupaten['rajaongkir']['results'];
+        foreach ($kabupaten as $p) {
+            $data = array(
+                'kabupaten_id' => $p['city_id'],
+                'provinsi_id' => $p['province_id'],
+                'kabupaten_nama' => $p['city_name'],
+                'kodepos' => $p['postal_code']
+            );
+
+            $this->kabupaten->insert($data);
+        }
+        return;
+    }
+
+    private function api_kecamatan()
+    {
+        $this->kecamatan->delete_all();
+        $kabupaten = json_decode($this->rajaongkir->city(), true);
+        $kabupaten = $kabupaten['rajaongkir']['results'];
+
+        foreach ($kabupaten as $p) {
+            $city_id = $p['city_id'];
+            $kecamatan = json_decode($this->rajaongkir->subdistrict($city_id));
+            $kecamatan = $kecamatan->rajaongkir->results;
+            foreach ($kecamatan as $p) {
+                $data = array(
+                    'kecamatan_id' => $p->subdistrict_id,
+                    'kabupaten_id' => $p->city_id,
+                    'kecamatan_nama' => $p->subdistrict_name
+                );
+
+                $this->kecamatan->insert($data);
+            }
+        }
+        return;
     }
 
 }

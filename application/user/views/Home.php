@@ -141,7 +141,10 @@ include "layout/Menu.php";
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="col">Tidak ada item yang ditampilkan</p>
+                <div class="col">
+                    <p class="text-center">Tidak ada item yang ditampilkan</p>
+                </div>
+
             <?php endif; ?>
 
         </div>
@@ -208,7 +211,9 @@ include "layout/Menu.php";
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="col">Tidak ada item yang ditampilkan</p>
+                <div class="col">
+                    <p class="text-center">Tidak ada item yang ditampilkan</p>
+                </div>
             <?php endif; ?>
 
         </div>
@@ -275,7 +280,9 @@ include "layout/Menu.php";
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p class="col">Tidak ada item yang ditampilkan</p>
+                <div class="col">
+                    <p class="text-center">Tidak ada item yang ditampilkan</p>
+                </div>
             <?php endif; ?>
 
         </div>

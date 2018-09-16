@@ -49,52 +49,34 @@ class Billboard extends MY_Controller
 
     public function simpan()
     {
-        // get guid form post
-        $id = $this->input->post('id');
-
         // get user from database where guid
-        $billboard = $this->billboard->where('blb_kode', $id)->get();
         $billboard_data = file_get_contents($_FILES['image']['tmp_name']);
         $billboard_type = getimageSize($_FILES['image']['tmp_name']);
 
         $billboard_array = array(
-            'blb_kode' => $this->input->post('id'),
             'blb_judul' => $this->input->post('judul'),
             'blb_type' => $billboard_type,
             'blb_data' => $billboard_data,
             'blb_ket' => $this->input->post('ket'),
+            'blb_posisi' => $this->input->post('posisi'),
         );
 
-        if ($billboard) {
-            $billboard_update = $this->billboard->update($billboard_array, 'blb_kode');
 
-            if ($billboard_update) {
-                $this->data->berhasil = 'Gambar Billboard berhasil diperbarui.';
-                $this->session->set_flashdata('berhasil', $this->data->berhasil);
+//        $billboard_insert = $this->billboard->insert($billboard_array);
+//
+//        if ($billboard_insert) {
+//            $this->data->berhasil = 'Gambar Billboard berhasil dibuat.';
+//            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+//
+//            redirect('billboard');
+//        } else {
+//            $this->data->gagal = 'Gambar Billboard gagal dibuat.';
+//            $this->session->set_flashdata('gagal', $this->data->gagal);
+//
+//            redirect('billboard');
+//        }
 
-                redirect('billboard');
-            } else {
-                $this->data->gagal = 'Gambar Billboard gagal diperbarui.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('billboard');
-            }
-        } else {
-
-            $billboard_insert = $this->billboard->insert($billboard_array);
-
-            if ($billboard_insert) {
-                $this->data->berhasil = 'Gambar Billboard berhasil dibuat.';
-                $this->session->set_flashdata('berhasil', $this->data->berhasil);
-
-                redirect('billboard');
-            } else {
-                $this->data->gagal = 'Gambar Billboard gagal dibuat.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('billboard');
-            }
-        }
+        echo json_encode($billboard_array);
     }
 
     public function hapus($id)

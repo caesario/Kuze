@@ -78,10 +78,20 @@
                     <a href="<?= site_url('pengguna'); ?>"><i class="fa fa-users mr-2"></i>Admin
                     </a>
                 </li>
+                <li>
+                    <a href="#foto" aria-expanded="false" data-toggle="collapse"><i class="fas fa-images mr-2"></i>Foto</a>
+                    <ul id="foto" class="collapse list-unstyled ">
+                        <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-angle-right mr-2"></i>Slide</a></li>
+                        <li><a href="<?= site_url('instagram'); ?>"><i class="fas fa-angle-right mr-2"></i>Instagram</a>
+                        </li>
+                        <li><a href="<?= site_url('billboard'); ?>"><i class="fas fa-angle-right mr-2"></i>Billboard</a>
+                        </li>
+                    </ul>
+                </li>
                 <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
                 <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
-                <li><a href="<?= site_url('slide'); ?>"><i class="fas fa-images mr-2"></i>Slide</a></li>
-                <li><a href="<?= site_url('instagram'); ?>"><i class="fas fa-images mr-2"></i>Instagram</a></li>
+
+
             </ul>
         </div>
     </div>
@@ -94,8 +104,11 @@
 
         // MENU MISC
         var c_misc = $.cookie('misc_menu');
+        var c_foto = $.cookie('foto_menu');
         var $menu_misc = $('#side-main-menu > li:nth-child(2) > a');
+        var $menu_foto = $('#side-admin-menu > li:nth-child(4) > a');
         var $ul_misc = $('#misc');
+        var $ul_foto = $('#foto');
 
         if (c_misc == 'expanded') {
             $menu_misc.removeClass('collapsed').attr('aria-expanded', 'true');
@@ -107,12 +120,30 @@
             $ul_misc.removeClass('show');
         }
 
+        if (c_foto == 'expanded') {
+            $menu_foto.removeClass('collapsed').attr('aria-expanded', 'true');
+            $ul_foto.addClass('show');
+        }
+
+        if (c_foto == 'collapsed') {
+            $menu_foto.addClass('collapsed').attr('aria-expanded', 'false');
+            $ul_foto.removeClass('show');
+        }
+
         $menu_misc.click(function () {
             if ($menu_misc.hasClass('collapsed')) {
                 $.cookie('misc_menu', 'expanded', {path: '/', expires: 100});
             } else
             {
                 $.cookie('misc_menu', 'collapsed', {path: '/', expires: 100});
+            }
+        });
+
+        $menu_foto.click(function () {
+            if ($menu_foto.hasClass('collapsed')) {
+                $.cookie('foto_menu', 'expanded', {path: '/', expires: 100});
+            } else {
+                $.cookie('foto_menu', 'collapsed', {path: '/', expires: 100});
             }
         });
         // END MISC
