@@ -96,10 +96,10 @@
                                                          data-click="true"
                                                          data-swipe="true"
                                                          data-allowfullscreen="true"
-                                                         data-width="220"
-                                                         data-height="150">
-                                                        <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
-                                                             width="220" height="150">
+                                                         data-width="200"
+                                                         data-height="200">
+                                                        <img src="data:<?= $promo->slide_promo_type . ';base64,' . (base64_encode($promo->slide_promo_data)); ?>"
+                                                             width="200" height="200">
                                                     </div>
                                                 </td>
                                                 <td class="align-middle text-center"><?= $promo->slide_promo_isaktif == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
@@ -111,12 +111,12 @@
                                                        onclick="edit($(this))" data-target="#crud"
                                                        data-backdrop="static"
                                                        data-keyboard="false"
-                                                       data-id="<?= $promo->slide_promo_kode; ?>"><i
+                                                       data-id="<?= $promo->slide_promo_id; ?>"><i
                                                                 class="far fa-edit"></i> Ubah</a>
                                                     <a data-toggle="modal" class="btn btn-sm btn-danger"
                                                        href="#"
                                                        onclick="hapus($(this))" data-target="#hapus"
-                                                       data-id="<?= $promo->slide_promo_kode; ?>"><i
+                                                       data-id="<?= $promo->slide_promo_id; ?>"><i
                                                                 class="far fa-trash-alt"></i> Hapus</a>
                                                 </td>
                                             </tr>
@@ -207,7 +207,7 @@
     </footer>
 </div>
 <div class="modal fade" id="crud" tabindex="-1" role="dialog" aria-labelledby="crud" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
 
             <div class="modal-body">

@@ -12,7 +12,7 @@ class Slide_promo_m extends MY_Model
     {
         $this->table = 'slide_promo';
         $this->primary_key = 'slide_promo_id';
-        $this->protected = array('slide_promo_id', 'created_at', 'update_at');
+        $this->protected = array('created_at', 'update_at', 'deleted_at');
         $this->timestamps = TRUE;
         $this->soft_deletes = FALSE;
         parent::__construct();

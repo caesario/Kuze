@@ -8,9 +8,9 @@ include "layout/Menu.php";
 <?php if ($img_promos != NULL): ?>
     <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
         <?php foreach ($img_promos as $promo): ?>
-            <img src="<?= base_url('upload/' . $promo->slide_promo_img); ?>"
+            <img src="data:<?= $promo->slide_promo_type . ';base64,' . (base64_encode($promo->slide_promo_data)); ?>"
                  data-caption="<?= $promo->slide_promo_caption; ?>"
-                 alt="<?= $promo->slide_promo_img; ?>">
+                 alt="<?= $promo->slide_promo_caption; ?>">
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

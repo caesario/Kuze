@@ -1,85 +1,114 @@
-<?php
-$url = site_url('slide/simpan');
-if ($submit == 'Ubah') {
-    $id = $slide_promo->slide_promo_kode;
-    $img = $slide_promo->slide_promo_img;
-    $caption = $slide_promo->slide_promo_caption;
-    $isaktif = $slide_promo->slide_promo_isaktif;
-} else if ($submit == 'Simpan') {
-    $id = $kode;
-    $img = '';
-    $caption = '';
-    $isaktif = '';
-}
-?>
-
-<form action="<?= $url; ?>" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
-    <input type="hidden" id="inputfilename" name="image" value="<?= $img; ?>">
-    <input type="hidden" name="id" value="<?= $id; ?>">
-    <div class="form-group">
-        <label for="file">Gambar</label>
-        <img class="img-fluid mx-auto d-block mb-2" height="300" width="300" src="" id="filename"
-             style="display: none;">
-        <div class="custom-file">
-        <input class="custom-file-input " id="imageupload" type="file" name="image"
-               data-url="<?= site_url('upload/single_image'); ?>">
-        <label class="custom-file-label" for="customFile">Pilih gambar</label>
-    </div>
-    <div class="progress" style="display: none;">
-        <div class="progress-bar bg-success" id="progress" role="progressbar" style="width: 25%" aria-valuenow="25"
-             aria-valuemin="0" aria-valuemax="100">25%
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="upload_image">File</label>
+            <input class="form-control-file" type="file" name="upload_image" id="upload_image">
+            <div id="viewimage" style="display: none"></div>
+            <button class="btn btn-sm btn-danger" id="cancel" style="display: none;">Batal</button>
         </div>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="caption">Tulisan Promo</label>
-        <textarea class="form-control" name="caption" id="caption"><?= $caption; ?></textarea>
-    </div>
-
-    <div class="form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="aktif" value="1"
-                   id="aktif" <?= $isaktif == 1 ? 'checked' : ''; ?>>
-            <label class="form-check-label" for="aktif">
-                Tampilkan
-            </label>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="caption">Tulisan Promo</label>
+            <textarea class="form-control" name="caption" id="caption"></textarea>
         </div>
     </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
-        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="aktif" value="1"
+                       id="aktif">
+                <label class="form-check-label" for="aktif">
+                    Tampilkan
+                </label>
+            </div>
+        </div>
     </div>
-    <?php if (isset($berhasil)): ?>
-        <p class="text-success"><?= $berhasil; ?></p>
-    <?php endif; ?>
-    <?php if (isset($gagal)): ?>
-        <p class="text-danger"><?= $gagal; ?></p>
-    <?php endif; ?>
-</form>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <button type="button" id="doupload" class="btn btn-primary">Upload</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+        </div>
+    </div>
+</div>
+
+
 <script>
-    $(function () {
-        $('#imageupload').fileupload({
-            dataType: 'json',
-            done: function (e, data) {
-                $('#filename').attr("src", "<?= base_url('upload/');?>" + data.result.file_name);
-                $('#inputfilename').attr("value", data.result.file_name);
+    $(document).ready(function () {
+        var inimage = $('#upload_image'),
+            viewimage = $('#viewimage'),
+            cancel = $('#cancel');
+
+        var croppie_img = viewimage.croppie({
+            enableExif: true,
+            viewport: {
+                width: 750,
+                height: 750,
+                type: 'square' //circle
             },
-            progressall: function (e, data) {
-                var showimgsrc = $('#filename');
-                var hideupload = $('#crud > div > div > div > form > div:nth-child(4) > div.custom-file');
-                var showprogress = $('#crud > div > div > div > form > div:nth-child(4) > div.progress');
-
-                hideupload.hide();
-                showprogress.show();
-                showimgsrc.show();
-
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress').css(
-                    'width',
-                    progress + '%'
-                ).text(progress + '%');
+            boundary: {
+                width: 750,
+                height: 750
             }
         });
+
+        cancel.click(function () {
+            inimage.show().val('');
+            viewimage.hide();
+            cancel.hide();
+        });
+
+        inimage.on('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                croppie_img.croppie('bind', {
+                    url: event.target.result
+                }).then(function () {
+                    console.log('jQuery bind complete');
+                });
+            };
+            reader.readAsDataURL(this.files[0]);
+            viewimage.show();
+            inimage.hide();
+            cancel.show();
+        });
+
+        $('#doupload').click(function (event) {
+            croppie_img.croppie('result', {
+                type: 'blob',
+                size: 'original'
+            }).then(function (response) {
+                var aktif = $('#aktif'),
+                    caption = $('#caption'),
+                    foto = response;
+                var fd = new FormData();
+                fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
+                fd.append('foto', foto);
+                fd.append('caption', caption);
+                fd.append('aktif', aktif);
+
+                $.ajax({
+                    url: "<?= site_url('slide/simpan'); ?>",
+                    type: "POST",
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        window.location.reload();
+                    },
+                    error: function (data) {
+                        console.log(data.responseText);
+                    }
+                });
+            })
+        });
+
     });
 </script>
