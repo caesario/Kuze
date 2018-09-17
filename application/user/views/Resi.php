@@ -40,8 +40,8 @@ include "layout/Menu.php";
                 <table class="table table-sm table-borderless" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">ID Report</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Orders</th>
+                        <th scope="col">Airwaybill</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -51,15 +51,15 @@ include "layout/Menu.php";
                                 <?php foreach ($resis as $resi): ?>
                             <tr>
                                 <td>
-                                    <?= $resi->artikel_judul; ?>
+                                    <?= $resi->orders_noid; ?>
                                 </td>
                                 <td>
-                                    <?= $resi->created_at; ?>
+                                    <?= $resi->orders_resi_no; ?>
                                 </td>
                                 <td>
                                     <a class="btn c-login-btn c-edit"
-                                       href="<?= site_url('resi/' . $resi->artikel_url . '/detil'); ?>">
-                                        Detail
+                                       href="<?= site_url('resi/' . $resi->orders_noid . '/track'); ?>">
+                                        Track
                                     </a>
                                 </td>
                             </tr>

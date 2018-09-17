@@ -290,10 +290,7 @@ class Order extends MY_Controller
                 $alamat->kecamatan = $this->kecamatan
                     ->where('kecamatan_id', $order_pengiriman->orders_pengiriman_kecamatan)
                     ->get()->kecamatan_nama;
-                $alamat->desa = $this->desa
-                    ->where('desa_id', $order_pengiriman->orders_pengiriman_desa)
-                    ->get()->desa_nama;
-                $hasil = $order_pengiriman->orders_pengiriman_deskripsi . ', ' . $alamat->desa . '<br>' . $alamat->kecamatan . ', ' . $alamat->kabupaten . '<br>' .
+                $hasil = $order_pengiriman->orders_pengiriman_deskripsi . ', <br>' . $alamat->kecamatan . ', ' . $alamat->kabupaten . '<br>' .
                     $alamat->provinsi . ', ' . $order_pengiriman->orders_pengiriman_kodepos;
             } else {
                 $hasil = '';
@@ -367,8 +364,15 @@ class Order extends MY_Controller
             $harga = $this->order
                 ->where('orders_noid', $id)
                 ->get()->orders_hrg;
-            $promo_rate = $promo->promo_rate;
-            $promo_nominal = $promo->promo_nominal;
+
+            if ($promo) {
+                $promo_rate = $promo->promo_rate;
+                $promo_nominal = $promo->promo_nominal;
+            } else {
+                $promo_rate = 0;
+                $promo_nominal = 0;
+            }
+
 
             if ($promo_rate != 0) {
                 $potongan = $harga * ($promo_rate / 100);

@@ -93,7 +93,7 @@ class Slide extends MY_Controller
 
     public function hapus($id)
     {
-        $slide_promo = $this->slide_promo->where('slide_promo_kode', $id)->delete();
+        $slide_promo = $this->slide_promo->where('slide_promo_id', $id)->delete();
 
         if ($slide_promo) {
             $this->data->berhasil = 'Data Slide Promo berhasil dihapus';

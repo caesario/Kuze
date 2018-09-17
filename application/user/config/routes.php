@@ -64,8 +64,11 @@ $route['hot-item/item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['item/(:any)/detil'] = 'home/item/$1';
 $route['item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['best_seller/item/(:any)/detil'] = 'kategori/get_item_bestseller/$1';
+$route['best_seller/item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['new_arrival/item/(:any)/detil'] = 'kategori/get_item_newarrival/$1';
+$route['new_arrival/item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['sale_item/item/(:any)/detil'] = 'kategori/get_item_saleitem/$1';
+$route['sale_item/item/(:any)/add_to_bag'] = 'bag/add/$1';
 
 $route['kategori/(:any)'] = 'kategori/get_item/$1';
 $route['kategori/all/item/(:any)/detil'] = 'kategori/get_item_detil_all/$1';

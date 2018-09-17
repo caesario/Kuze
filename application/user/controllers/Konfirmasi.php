@@ -23,10 +23,15 @@ class Konfirmasi extends MY_Controller
             return $hasil;
         };
 
+        $promo = function () use ($orders_noid) {
+            $promo_kode = $this->order->where('orders_noid', $orders_noid)->get()->promo_kode;
+            return $this->promo->where('promo_kode', $promo_kode)->get();
+        };
 
-        $this->data->pengiriman = function () {
+
+        $pengiriman = function () use ($orders_noid) {
             $hasil = new stdClass();
-            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $this->data->orders_noid)->get();
+            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
             $hasil->provinsi = $this->provinsi
                 ->where('provinsi_id', $order_pengiriman->orders_pengiriman_provinsi)
                 ->get()->provinsi_nama;
@@ -43,8 +48,8 @@ class Konfirmasi extends MY_Controller
 
         };
 
-        $this->data->nama_nomor = function () {
-            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $this->data->orders_noid)->get();
+        $nama_nomor = function () use ($orders_noid) {
+            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
             $hasil = new stdClass();
             $hasil->nama = $order_pengiriman->orders_pengiriman_r_nama;
             $hasil->kontak = $order_pengiriman->orders_pengiriman_r_kontak;
@@ -52,26 +57,20 @@ class Konfirmasi extends MY_Controller
             return $hasil->nama . '<br>' . $hasil->kontak;
         };
 
-        $this->data->jasa = function () {
-            $ongkir = $this->order_ongkir->where('orders_noid', $this->data->orders_noid)->get();
+        $jasa = function () use ($orders_noid) {
+            $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
 
             return $ongkir->orders_ongkir_nama . ' - ' . $ongkir->orders_ongkir_deskripsi . ' (' . $ongkir->orders_ongkir_estimasi . ' hari)';
         };
 
-        $this->data->metode_pembayaran = function () {
-            $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
-                ->get()->orders_noid;
+        $metode_pembayaran = function () use ($orders_noid) {
             $pembayaran = $this->order_payment->with_bank()->where('orders_noid', $orders_noid)->get()->bank;
 
             return $pembayaran->bank_penerbit . ' - (A/N: ' . $pembayaran->bank_nama . ') (Nomor Rek: ' . $pembayaran->bank_rek . ')';
         };
 
-        $this->data->biaya_subtotal = function () {
+        $biaya_subtotal = function () use ($orders_noid) {
             $hasil = 0;
-            $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
-                ->get()->orders_noid;
             foreach ($this->order_detil->where('orders_noid', $orders_noid)->get_all() as $od) {
                 $hasil += (int)$od->orders_detil_tharga;
             }
@@ -79,10 +78,7 @@ class Konfirmasi extends MY_Controller
             return $hasil;
         };
 
-        $this->data->biaya_pengiriman = function () {
-            $orders_noid = $this->order
-                ->where('orders_noid', $this->data->orders_noid)
-                ->get()->orders_noid;
+        $biaya_pengiriman = function () use ($orders_noid) {
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
             return (int)$ongkir->orders_ongkir_biaya;
         };
@@ -92,6 +88,68 @@ class Konfirmasi extends MY_Controller
             $this->session->set_flashdata('gagal', $this->data->gagal);
             redirect('/');
         }
+
+        $grand_total = function () use ($biaya_subtotal, $promo, $biaya_pengiriman) {
+
+            $harga = $biaya_subtotal();
+            $diskon = $promo();
+            if ($diskon) {
+                $promo_rate = $diskon->promo_rate;
+                $promo_nominal = $diskon->promo_nominal;
+            } else {
+                $promo_rate = 0;
+                $promo_nominal = 0;
+            }
+
+
+            if ($promo_rate != 0) {
+                $potongan = $harga * ($promo_rate / 100);
+                $hasil = $harga - $potongan;
+
+            } elseif ($promo_nominal != 0) {
+                $potongan = $promo_nominal;
+                $hasil = $harga - $potongan;
+            } else {
+                $hasil = $harga;
+            }
+
+            $hasil = $hasil + $biaya_pengiriman();
+
+            return $hasil;
+        };
+
+        $diskon_harga = function () use ($biaya_subtotal, $promo) {
+            $harga = $biaya_subtotal();
+            $diskon = $promo();
+            if ($diskon) {
+                $promo_rate = $diskon->promo_rate;
+                $promo_nominal = $diskon->promo_nominal;
+            } else {
+                $promo_rate = 0;
+                $promo_nominal = 0;
+            }
+
+            if ($promo_rate != 0) {
+                $potongan = $harga * ($promo_rate / 100);
+                $hasil = $potongan;
+            } elseif ($promo_nominal != 0) {
+                $hasil = $promo_nominal;
+            } else {
+                $hasil = 0;
+            }
+
+            return $hasil;
+        };
+
+        $this->data->promo = $promo();
+        $this->data->pengiriman = $pengiriman();
+        $this->data->nama_nomor = $nama_nomor();
+        $this->data->jasa = $jasa();
+        $this->data->metode_pembayaran = $metode_pembayaran();
+        $this->data->biaya_pengiriman = $biaya_pengiriman();
+        $this->data->biaya_subtotal = $biaya_subtotal();
+        $this->data->diskon_harga = $diskon_harga();
+        $this->data->grand_total = $grand_total();
 
         $this->load->view('Konfirmasi', $this->data);
     }
@@ -181,12 +239,8 @@ class Konfirmasi extends MY_Controller
             $hasil->kecamatan = $this->kecamatan
                 ->where('kecamatan_id', $order_pengiriman->orders_pengiriman_kecamatan)
                 ->get()->kecamatan_nama;
-            $hasil->desa = $this->desa
-                ->where('desa_id', $order_pengiriman->orders_pengiriman_desa)
-                ->get()->desa_nama;
 
-
-            return $order_pengiriman->orders_pengiriman_deskripsi . '<br>' . $hasil->desa . '<br>' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
+            return $order_pengiriman->orders_pengiriman_deskripsi . '<br>' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
                 $hasil->provinsi . ', ' . $order_pengiriman->orders_pengiriman_kodepos;
 
         };

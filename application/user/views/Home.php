@@ -6,11 +6,10 @@ include "layout/Menu.php";
     <!-- Slide Show -->
 
 <?php if ($img_promos != NULL): ?>
-    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true">
+    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true" data-width="100%">
         <?php foreach ($img_promos as $promo): ?>
             <img src="data:<?= $promo->slide_promo_type . ';base64,' . (base64_encode($promo->slide_promo_data)); ?>"
-                 data-caption="<?= $promo->slide_promo_caption; ?>"
-                 alt="<?= $promo->slide_promo_caption; ?>">
+                 alt="<?= (string)$promo->slide_promo_caption; ?>">
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

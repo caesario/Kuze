@@ -67,13 +67,13 @@ include "layout/Menu.php";
                         <div class="col-md-7 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Recipient</b></p>
-                                <p class="ml-5 mb-0"><?= $nama_nomor(); ?></p>
+                                <p class="ml-5 mb-0"><?= $nama_nomor; ?></p>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-2"><i class="fa fa-credit-card mr-2"></i> <b>Bank Account</b></p>
-                                <p class="ml-5"><?= $metode_pembayaran(); ?></p>
+                                <p class="ml-5"><?= $metode_pembayaran; ?></p>
                             </div>
                         </div>
                     </div>
@@ -81,13 +81,13 @@ include "layout/Menu.php";
                         <div class="col-md-7 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-2"><i class="fa fa-address-book mr-2"></i> <b>Shipping Address</b></p>
-                                <p class="ml-5"><?= $pengiriman(); ?></p>
+                                <p class="ml-5"><?= $pengiriman; ?></p>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-2"><i class="fa fa-car mr-2"></i> <b>Shipping Method</b></p>
-                                <p class="ml-5"> <?= $jasa(); ?></p>
+                                <p class="ml-5"> <?= $jasa; ?></p>
                             </div>
                         </div>
                     </div>
@@ -134,12 +134,15 @@ include "layout/Menu.php";
                             <tbody>
                             <tr>
                                 <th class="c-table-cart-total p-1 pl-4">Coupon</th>
-                                <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
+                                <td>
+                                    <span class="c-price-cart-3 pl-3"><?= isset($promo) ? $promo->promo_nama : '-'; ?></span>
+                                </td>
                             </tr>
                             <tr>
                             <tr>
                                 <th class="p-1 pl-4">Note</th>
-                                <td><span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
+                                <td>
+                                    <span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo) ? $promo->promo_ket : '-'; ?></span>
                                 </td>
                             </tr>
                             </tbody>
@@ -149,7 +152,9 @@ include "layout/Menu.php";
                             <tbody>
                             <tr>
                                 <th class="c-table-cart-total p-1 pl-4">Total Price</th>
-                                <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
+                                <td><span id="rupiah"
+                                          class="c-price-cart-3 pl-3"><?= isset($biaya_subtotal) ? $biaya_subtotal : '-'; ?></span>
+                                </td>
                             </tr>
                             <tr>
                                 <th class="p-1 pl-4">Disc. Total Price</th>
@@ -158,7 +163,9 @@ include "layout/Menu.php";
                             </tr>
                             <tr>
                                 <th class="p-1 pl-4">Shipping Charges</th>
-                                <td><span class="c-price-cart-3 pl-3">-</span></td>
+                                <td><span id="rupiah"
+                                          class="c-price-cart-3 pl-3"><?= isset($biaya_pengiriman) ? $biaya_pengiriman : '-'; ?></span>
+                                </td>
                             </tr>
                             <tr>
                                 <th nowrap class="p-1 pl-4 pr-4">Disc. Shipping Charges</th>
