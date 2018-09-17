@@ -40,6 +40,7 @@ include "layout/Menu.php";
                                 <?php $estimasi = $k3->etd; ?>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="pengiriman"
+                                           onchange="ongkir($(this))"
                                            id="pengiriman-<?= $service; ?>"
                                            data-deskripsi="<?= $deskripsi; ?>"
                                            data-biaya="<?= $biaya; ?>"
@@ -93,8 +94,8 @@ include "layout/Menu.php";
 
 
     <script>
-        $('[id="pengiriman"]').change(function () {
-            var data = $(this);
+        function ongkir(prepare) {
+            var data = prepare;
             var deskripsi = data.attr('data-deskripsi');
             var biaya = data.attr('data-biaya');
             var estimasi = data.attr('data-estimasi');
@@ -106,7 +107,7 @@ include "layout/Menu.php";
                 $('#biaya').val(biaya),
                 $('#estimasi').val(estimasi)
             )
-        });
+        }
 
         $('[id="bank"]').change(function () {
             var data = $(this);

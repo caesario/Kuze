@@ -54,15 +54,6 @@ include "layout/Menu.php";
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <h5 class="mb-2"><?= $item->i_nama; ?></h5>
                         <hr class="mb-2">
-                        <div class="row mb-3">
-                            <div class="col c-review">
-                                <i class="fa fa-star c-star m-0"></i>
-                                <i class="fa fa-star c-star m-0"></i>
-                                <i class="fa fa-star c-star m-0"></i>
-                                <i class="fa fa-star c-star m-0"></i>
-                                <i class="fa fa-star c-star m-0"></i>
-                            </div>
-                        </div>
 
                         <div class="row">
                             <div class="col">
