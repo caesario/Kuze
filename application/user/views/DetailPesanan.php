@@ -135,14 +135,14 @@ include "layout/Menu.php";
                             <tr>
                                 <th class="c-table-cart-total p-1 pl-4">Coupon</th>
                                 <td>
-                                    <span class="c-price-cart-3 pl-3"><?= isset($promo) ? $promo->promo_nama : '-'; ?></span>
+                                    <span class="c-price-cart-3 pl-3"><?= isset($promo->promo_nama) ? $promo->promo_nama : '-'; ?></span>
                                 </td>
                             </tr>
                             <tr>
                             <tr>
                                 <th class="p-1 pl-4">Note</th>
                                 <td>
-                                    <span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo) ? $promo->promo_ket : '-'; ?></span>
+                                    <span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo->promo_ket) ? $promo->promo_ket : '-'; ?></span>
                                 </td>
                             </tr>
                             </tbody>
