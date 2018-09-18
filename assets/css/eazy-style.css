@@ -1389,4 +1389,37 @@ a.c-modal-clr:hover {
         transform: rotate(90deg);
         font-size: 40px;
     }
+
 }
+
+@media only screen and (max-width: 1440px) {
+    .show-hp {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hidden-hp {
+        display: none;
+    }
+
+    .iconhp  {
+        margin-top: 10px;
+
+    }
+
+    .show-hp {
+        margin-top: -45px;
+        margin-lef: 100px;
+        display: block;
+
+    }
+
+}​
+
+
+
+
+
+
+
