@@ -127,7 +127,7 @@
     })
 </script>
 <script>
-    $(function () {
+    $(document).ready(function () {
         $('img').Lazy({
             placeholder: "https://i.gifer.com/AvGf.gif"
         });
