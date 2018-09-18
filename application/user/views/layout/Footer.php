@@ -16,8 +16,8 @@
         <div class="col-lg col-md-6 col-sm-12 c-margin-bot">
             <h5 class="c-judul-footer">Kuze Original</h5>
                 <ul class="c-ul-footer">
-                    <li><a href="<?= site_url(''); ?>">About Us</a></li>
-                    <li><a href="<?= site_url(''); ?>">Contact </a></li>
+                    <li><a href="<?= site_url('Aboutus'); ?>">About Us</a></li>
+                    <li><a href="<?= site_url('Contact'); ?>">Contact </a></li>
                 </ul>
 <!--            --><?php //if ($logo != NULL): ?>
 <!--                <img src="--><?//= base_url('upload/' . $logo); ?><!--" width="150" height="80"-->
@@ -49,17 +49,17 @@
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
                 <li><a href="<?= site_url('resi'); ?>">Airway Bill Report</a></li>
-                <li><a href="<?= site_url('pending'); ?>">Order Status</a></li>
-                <li><a href="<?= site_url('riwayat'); ?>">Order History</a></li>
+                <li><a href="<?= site_url('Order_status'); ?>">Order Status</a></li>
+                <li><a href="<?= site_url('Order_history'); ?>">Order History</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Help</h5>
             <ul class="c-ul-footer">
                 <li><a href="<?= site_url(''); ?>">Shipping Information</a></li>
-                <li><a href="<?= site_url(''); ?>">How to Order</a></li>
+                <li><a href="<?= site_url('Howtoorder'); ?>">How to Order</a></li>
                 <li><a href="<?= site_url(''); ?>">Lookbook</a></li>
-                <li><a href="<?= site_url(''); ?>">FAQ</a></li>
+                <li><a href="<?= site_url('Faq'); ?>">FAQ</a></li>
             </ul>
         </div>
         <div class="col-lg col-md-6 col-sm-6">

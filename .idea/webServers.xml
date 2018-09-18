@@ -2,18 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="ff0902d3-90ac-4113-938d-cbac96505558" name="Kuze Live" url="http://kuzeoriginal.com">
-        <fileTransfer host="kuzeoriginal.com" port="21" rootFolder="/public_html/demo">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
-          </advancedOptions>
-          <option name="port" value="21" />
-        </fileTransfer>
-      </webServer>
-      <webServer id="a9bc2ae5-b09b-4e26-883d-d567fa50d5d4" name="kuze Server" url="http://kuze.bukaide.com">
+      <webServer id="1bbe9b39-d391-4326-9cb4-a12a5514492a" name="kuze" url="http://kuze.bukaide.com">
         <fileTransfer host="kuze.bukaide.com" port="22" rootFolder="/home/kuze/public_html" accessType="SFTP">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
           <option name="port" value="22" />
         </fileTransfer>
