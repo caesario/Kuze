@@ -62,7 +62,20 @@ class MY_Controller extends CI_Controller
         $this->data->meta_title = $this->config->item('webname');
         $this->data->meta_content = $this->config->item('webdeskripsi');
         $this->data->meta_keywords = $this->config->item('webkeywords');
-        $this->data->menu_kategori = $this->kategori->get_all();
+
+        $menu_kategori = function () {
+            $hasil = new ArrayObject();
+            $query = $this->kategori->with_item_kategori()->get_all();
+            foreach ($query as $q) {
+                if ($q->item_kategori != NULL) {
+                    $hasil->append($q);
+                }
+            }
+
+            return $hasil;
+        };
+
+        $this->data->menu_kategori = $menu_kategori();
         $this->data->menu_cart = function ($session_id) {
             return $this->cart->with_item_detil()->where('pengguna_kode', $session_id)->get_all();
         };
