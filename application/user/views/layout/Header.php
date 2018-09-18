@@ -32,7 +32,8 @@
     <script src="<?= base_url('assets/vendor/fotorama/fotorama.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-lazy/jquery.lazy.min.js'); ?>"></script>
 
-    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
+
+    <link rel="shortcut icon" href="<?= base_url('assets/img/kuzelogo.jpeg'); ?>">
 
     <title><?= $brandname; ?></title>
 </head>
