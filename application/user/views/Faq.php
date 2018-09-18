@@ -21,52 +21,98 @@ include "layout/Menu.php";
                 <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <i class="fa fa-shopping-bag mr-2"></i>
+                            <i class="far fa-question-circle mr-2"></i>
                             <i class="float-right fa fa-plus"></i>
-                            Jual Beli - Lo jual gua beli
+                            How Do I make Purchase?
                         </a>
                     </h4>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body container pt-4 pb-4">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div class="panel-body container pt-4 pb-4 text-small">
+                        Shopping at Kuze is easy: <br><br>
+
+                        - Use the New Arrival, Sale Item, etc… links or choose item.
+                        <br> - Once you have found an item, choose your size and click on the 'ADD TO CART' button on the product page.
+                        <br> - Review the items in your shopping bag by clicking the 'SHOPPING CART' link at the top of the page.
+                        <br> Click on 'PROCEED TO CHECKOUT' to complete your order.
                     </div>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
+                <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <i class="fa fa-truck mr-2"></i>
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="far fa-question-circle mr-2"></i>
                             <i class="float-right fa fa-plus"></i>
-                            Pengiriman
+                            Do I need to create an account to place an order?
                         </a>
                     </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body container pt-4 pb-4">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body container pt-4 pb-4 text-small">
+                        You can't shop at Kuze without creating an account.
+                        However, sign up with us and you'll be able to enjoy the following benefits:<br><br>
+
+                        - Track your orders and review past purchases<br>
+                        - Preview our new collections and register your interest for your favorite pieces<br>
+                        - Save your address so you can shop even quicker next time
                     </div>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
+                <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="fa fa-box-open mr-2"></i>
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="far fa-question-circle mr-2"></i>
                             <i class="float-right fa fa-plus"></i>
-                            Buka
+                            Is my personal information keep private?
                         </a>
                     </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body container pt-4 pb-4">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body container pt-4 pb-4 text-small">
+                        Please be assured that we take data protection seriously, and your information will only be shared with third parties where they abide by applicable data protection legislation. For more information, please read our privacy policy.
                     </div>
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="far fa-question-circle mr-2"></i>
+                            <i class="float-right fa fa-plus"></i>
+                            Can I choose my currency I pay in?
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body container pt-4 pb-4 text-small">
+                        No. the currency we use is rupiah / IDR
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="far fa-question-circle mr-2"></i>
+                            <i class="float-right fa fa-plus"></i>
+                            How long does delivery take, and what are the charges?
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body container pt-4 pb-4 text-small">
+                        Delivery time frame is between 10-12 working days and depending on the shipping company you choose
+                    </div>
+                </div>
+            </div>
+
+
 
         </div><!-- panel-group -->
     </div>
