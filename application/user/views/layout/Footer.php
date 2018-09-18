@@ -144,5 +144,10 @@
         $("#menuImg").attr('src', 'assets/img/kaos.jpg');
     }
 </script>
+<script>
+    $(function () {
+        $('.img-fluid').Lazy();
+    });
+</script>
 </body>
 </html>

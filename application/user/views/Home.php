@@ -129,7 +129,8 @@ include "layout/Menu.php";
                                             <img id="<?= $new_arrival->i_kode; ?>"
                                                  onmouseover="img_hover($(this))"
                                                  onmouseleave="img_off($(this))"
-                                                 src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                                 data-src="data:<?= $item_img($new_arrival->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($new_arrival->i_kode)->ii_data)); ?>"
+                                                 src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                  alt="<?= $item_img($new_arrival->i_kode)->ii_kode; ?>"
                                                  class="img-fluid mx-auto d-block">
                                         <?php else: ?>
@@ -198,7 +199,8 @@ include "layout/Menu.php";
                                             <img id="<?= $best_seller->i_kode; ?>"
                                                  onmouseover="img_hover($(this))"
                                                  onmouseleave="img_off($(this))"
-                                                 src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                                 data-src="data:<?= $item_img($best_seller->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($best_seller->i_kode)->ii_data)); ?>"
+                                                 src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                  alt="<?= $item_img($best_seller->i_kode)->ii_kode; ?>"
                                                  class="img-fluid mx-auto d-block">
                                         <?php else: ?>
@@ -268,7 +270,8 @@ include "layout/Menu.php";
                                             <img id="<?= $sale_item->i_kode; ?>"
                                                  onmouseover="img_hover($(this))"
                                                  onmouseleave="img_off($(this))"
-                                                 src="data:<?= $item_img($sale_item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($sale_item->i_kode)->ii_data)); ?>"
+                                                 data-src="data:<?= $item_img($sale_item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($sale_item->i_kode)->ii_data)); ?>"
+                                                 src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                  alt="<?= $item_img($sale_item->i_kode)->ii_kode; ?>"
                                                  class="img-fluid mx-auto d-block">
                                         <?php else: ?>
