@@ -19,13 +19,13 @@ include "layout/Menu.php";
             <div class="col-lg-4">
                 <div class="card-contact text-center">
                     <i class="fa fa-envelope fa-3x mt-2"></i>
-                    <p class="mt-2">Kuzeoriginal@email.com</p>
+                    <p class="mt-2"><?= $email; ?></p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card-contact text-center">
                     <i class="fa fa-phone fa-3x mt-2"></i>
-                    <p class="mt-2">082x xxxx xxxx</p>
+                    <p class="mt-2"><?= $whatsapp; ?></p>
                 </div>
             </div>
         </div>
@@ -35,13 +35,13 @@ include "layout/Menu.php";
             <div class="col-lg-4">
                 <div class="card-contact text-center">
                     <i class="fab fa-whatsapp fa-3x mt-2"></i>
-                    <p class="mt-2">082x xxxx xxxx</p>
+                    <p class="mt-2"><?= $whatsapp; ?></p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card-contact text-center">
                     <i class="fab fa-line fa-3x mt-2"></i>
-                    <p class="mt-2">@kuze</p>
+                    <p class="mt-2"><?= $line; ?></p>
                 </div>
             </div>
         </div>

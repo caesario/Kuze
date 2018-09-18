@@ -33,15 +33,11 @@
     <div class="container-fluid c-padding-header">
         <div class="row">
             <div class="col-xl-2 col-lg-2 c-head-min">
-                <?php if ($logo != NULL): ?>
-                    <img src="<?= base_url('upload/' . $logo); ?>" width="130" height="80"
+
+                    <img src="<?= base_url('assets/img/kuzelogo.jpeg'); ?>" width="130" height="80"
                          class="img-fluid mx-auto d-block"
                          alt="">
-                <?php else: ?>
-                    <img class="img-fluid mx-auto d-block" width="130" height="80"
-                         src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                         alt="No Image">
-                <?php endif; ?>
+
             </div>
             <div class="col-xl-8 col-lg-8 col-12">
                 <div class="row mt-lg-1 mt-2">
@@ -70,7 +66,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-weight-bold"
-                                       href="<?= base_url('category'); ?>">Category</a>
+                                       href="<?= base_url('kategori'); ?>">Category</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New
@@ -84,11 +80,11 @@
                                     <a class="nav-link font-weight-bold" href="<?= base_url('sale_item'); ?>">Sale
                                         Item</a>
                                 </li>
+<!--                                <li class="nav-item">-->
+<!--                                    <a class="nav-link font-weight-bold" href="--><!--">Event</a>-->
+<!--                                </li>-->
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('blog'); ?>">Event</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('hot_to_order'); ?>">How to
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('Howtoorder'); ?>">How to
                                         Order</a>
                                 </li>
                             </ul>

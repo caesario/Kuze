@@ -32,19 +32,7 @@
 <!--            <p class="c-email-footer"><b>Email :</b> --><?//= $email; ?><!--</p>-->
         </div>
 
-        <?php if ($events != NULL): ?>
-        <div class="col-lg col-md-6 col-sm-6">
-            <h5 class="c-judul-footer">Blog</h5>
-            <ul class="c-ul-footer">
-                <?php if ($events != ''): ?>
-                    <?php foreach ($events as $event): ?>
-                        <li><a href="<?= site_url('event/' . $event->event_url); ?>"><?= $event->event_judul; ?></a>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-        </div>
-        <?php endif; ?>
+
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Information</h5>
             <ul class="c-ul-footer">
@@ -56,9 +44,9 @@
         <div class="col-lg col-md-6 col-sm-6">
             <h5 class="c-judul-footer">Help</h5>
             <ul class="c-ul-footer">
-                <li><a href="<?= site_url(''); ?>">Shipping Information</a></li>
+
                 <li><a href="<?= site_url('Howtoorder'); ?>">How to Order</a></li>
-                <li><a href="<?= site_url(''); ?>">Lookbook</a></li>
+                
                 <li><a href="<?= site_url('Faq'); ?>">FAQ</a></li>
             </ul>
         </div>

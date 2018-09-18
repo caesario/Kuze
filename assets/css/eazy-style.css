@@ -551,7 +551,7 @@ ul.c-ul-footer li a {
     text-decoration: none;
 }
 ul.c-ul-footer li:hover a {
-    color: #56cfe1;
+    color: #555;
     -webkit-transition: all .3s;
     transition: all .3s;
 }
@@ -1345,14 +1345,18 @@ a.c-modal-clr:hover {
 .card-contact {
     margin: 3px;
     border-radius: 7px;
-    border: 0.5px solid black;
+    border: 0.5px solid #777;
     padding: 10px;
     background-color: #F8F8F8;
     box-shadow: 2px 3px #777;
 }
 
 .card-contact > i {
-    color: none;
+    color: #777;
+}
+
+.card-contact > p {
+    color: #777;
 }
 
 .card-howto {

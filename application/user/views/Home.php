@@ -346,38 +346,6 @@ include "layout/Menu.php";
     <!--    </div>-->
 
 
-    <!-- ======= News Block ======= -->
-    <div class="container-fluid c-padding-header">
-        <div class="row">
-            <?php if ($event != NULL): ?>
-                <?php foreach ($event as $artk): ?>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="content-wrapper">
-                            <div class="card">
-                                <a class="" href="<?= site_url('event/' . $artk->event_url) ?>"><img
-                                            class="img-fluid mx-auto d-block"
-                                            src="assets/img/blog1.jpg"
-                                            alt="Card image cap"></a>
-                                <div class="card-body">
-                                    <h5 id="title" class="card-title c-title-blog"><?= $artk->event_url; ?></h5>
-                                    <ul class="c-ul-blog">
-                                        <li>Created at <a href="" class="c-date"><?= $artk->created_at; ?></a></li>
-                                        <?php if ($artk->updated_at != NULL): ?>
-                                            <li>Updated at <a href="" class="c-date"><?= $artk->updated_at; ?></a></li>
-                                        <?php endif; ?>
-
-                                    </ul>
-                                    <p id="title" class="c-p-blog"><?= $artk->event_content; ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php endforeach; ?>
-
-            <?php endif; ?>
-        </div>
-    </div>
 
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
