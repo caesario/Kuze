@@ -40,7 +40,7 @@ include "layout/Menu.php";
                         <?php foreach ($menu_kategori as $menukat): ?>
                             <li class="nav-item mb-1 ml-1 ">
                                 <a class=""
-                                   href="<?= site_url('kategori/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
+                                   href="<?= site_url('category/' . $menukat->k_url); ?>"><?= $menukat->k_nama; ?></a>
                             </li>
                         <?php endforeach; ?>
 
@@ -67,7 +67,8 @@ include "layout/Menu.php";
                                                 <a class=""
                                                    href="<?= site_url('kategori/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>">
                                                     <img class="card-img-top"
-                                                         src="data:<?= $item_img($kat->item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($kat->item->i_kode)->ii_data)); ?>"
+                                                         data-src="data:<?= $item_img($kat->item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($kat->item->i_kode)->ii_data)); ?>"
+                                                         src="https://i.gifer.com/AvGf.gif"
                                                          alt="<?= $item_img($kat->item->i_kode)->ii_kode; ?>">
                                                 </a>
                                             <?php else: ?>
@@ -98,7 +99,8 @@ include "layout/Menu.php";
                                             <a class=""
                                                href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>">
                                                 <img class="card-img-top"
-                                                     src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
+                                                     data-src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
+                                                     src="https://i.gifer.com/AvGf.gif"
                                                      alt="<?= $item_img($item->i_kode)->ii_kode; ?>">
                                             </a>
                                         <?php else: ?>

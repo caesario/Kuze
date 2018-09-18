@@ -93,23 +93,28 @@
     // ------------------------------------------------------ //
     // Format Rupiah
     // ------------------------------------------------------ //
-    var moneyFormat = wNumb({
-        mark: ',',
-        decimals: 0,
-        thousand: '.',
-        prefix: 'IDR ',
-        suffix: ''
+
+
+    $(function () {
+        var moneyFormat = wNumb({
+            mark: ',',
+            decimals: 0,
+            thousand: '.',
+            prefix: 'IDR ',
+            suffix: ''
+        });
+        $('[id="rupiah"]').each(function (index) {
+            var value = parseInt($(this).html()),
+                hasil = moneyFormat.to(value);
+
+            if ($(this).html() === '-') {
+            } else {
+                $(this).html(hasil);
+            }
+        });
     });
 
-    $('[id="rupiah"]').each(function (index) {
-        var value = parseInt($(this).html()),
-            hasil = moneyFormat.to(value);
 
-        if ($(this).html() === '-') {
-        } else {
-            $(this).html(hasil);
-        }
-    });
 </script>
 <script>
     $('[id="title"]').ellipsis();
@@ -134,19 +139,10 @@
     })
 </script>
 <script>
-    function onHover()
-    {
-        $("#menuImg").attr('src', 'assets/img/kaos2.jpg');
-    }
-
-    function offHover()
-    {
-        $("#menuImg").attr('src', 'assets/img/kaos.jpg');
-    }
-</script>
-<script>
     $(function () {
-        $('.img-fluid').Lazy();
+        $('img').Lazy({
+            placeholder: "https://i.gifer.com/AvGf.gif"
+        });
     });
 </script>
 </body>

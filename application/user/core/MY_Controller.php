@@ -80,6 +80,8 @@ class MY_Controller extends CI_Controller
         $this->load_pref();
         $this->event_load();
         $this->bag_counter();
+
+        $this->db->cache_on();
     }
 
 

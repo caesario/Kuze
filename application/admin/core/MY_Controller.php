@@ -11,6 +11,7 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         ini_set('memory_limit', '1024M');
+
         parent::__construct();
 
         $this->data = new stdClass();
@@ -80,6 +81,8 @@ class MY_Controller extends CI_Controller
 
         $this->callback();
         $this->load_pref();
+
+        $this->db->cache_on();
     }
 
 
