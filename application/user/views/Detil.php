@@ -124,7 +124,7 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header c-margin-related">
         <div class="row">
-            <?php foreach ($this->item->with_item_img('where:ii_default =1')->limit(4)->get_all() as $hot): ?>
+            <?php foreach ($this->item->with_item_img->limit(4)->get_all() as $hot): ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <a class="" href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>">

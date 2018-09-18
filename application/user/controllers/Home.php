@@ -65,30 +65,45 @@ class Home extends MY_Controller
 
     public function produkbaru()
     {
-        $this->data->terbaru_items = function () {
-            return $this->item
-                ->with_item_detil()
-                ->order_by('created_at')
-                ->limit(8)
-                ->get_all();
-        };
-        $this->data->breadcumburl = site_url('produk-terbaru');
-        $this->data->breadcumb = 'Produk Terbaru';
-        $this->load->view('Produk_baru', $this->data);
+        if (!$this->cache->get('home_produkbaru')) {
+            $this->data->terbaru_items = function () {
+                return $this->item
+                    ->with_item_detil()
+                    ->order_by('created_at')
+                    ->limit(8)
+                    ->get_all();
+            };
+            $this->data->breadcumburl = site_url('produk-terbaru');
+            $this->data->breadcumb = 'Produk Terbaru';
+
+            // Save into the cache for 5 minutes
+            $this->cache->save('home_produkbaru', $this->data, 300);
+            $this->load->view('Produk_baru', $this->data);
+        } else {
+            $this->load->view('Produk_baru', $this->cache->get('home_produkbaru'));
+        }
+
     }
 
     public function item($i_url)
     {
-        $this->data->item =  $this->item
-            ->with_item_detil()
-            ->where('i_url', $i_url)
-            ->get();
-        $this->data->breadcumburl = site_url('produk-terbaru');
-        $this->data->breadcumburl1 = site_url('produk-terbaru/item/' . $i_url . '/detil');
-        $this->data->breadcumb = 'Produk Terbaru';
-        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+        if (!$this->cache->get('home_item')) {
+            $this->data->item = $this->item
+                ->with_item_detil()
+                ->where('i_url', $i_url)
+                ->get();
+            $this->data->breadcumburl = site_url('produk-terbaru');
+            $this->data->breadcumburl1 = site_url('produk-terbaru/item/' . $i_url . '/detil');
+            $this->data->breadcumb = 'Produk Terbaru';
+            $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
 
-        $this->load->view('Detil', $this->data);
+            // Save into the cache for 5 minutes
+            $this->cache->save('home_item', $this->data, 300);
+            $this->load->view('Detil', $this->data);
+        } else {
+            $this->load->view('Detil', $this->cache->get('home_item'));
+        }
+
     }
 
     public function hot($i_url)
