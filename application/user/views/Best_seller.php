@@ -93,6 +93,13 @@ include "layout/Menu.php";
     <script>
         $('[id="title"]').ellipsis();
     </script>
+    <script>
+        $(function () {
+            $('img').Lazy({
+                placeholder: "https://i.gifer.com/AvGf.gif"
+            });
+        });
+    </script>
 
 
 <?php

@@ -470,6 +470,13 @@ include "layout/Menu.php";
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            $('img').Lazy({
+                placeholder: "https://i.gifer.com/AvGf.gif"
+            });
+        });
+    </script>
 <?php
 include "layout/Footer.php";
 ?>

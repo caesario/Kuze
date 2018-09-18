@@ -126,12 +126,5 @@
         window.location.href = url;
     })
 </script>
-<script>
-    $(document).ready(function () {
-        $('img').Lazy({
-            placeholder: "https://i.gifer.com/AvGf.gif"
-        });
-    });
-</script>
 </body>
 </html>

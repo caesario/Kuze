@@ -55,7 +55,7 @@ class Home extends MY_Controller
 
 
             // Save into the cache for 5 minutes
-            $this->cache->save('home_index', $this->data, 3600);
+            $this->cache->save('home_index', $this->data, 300);
             $this->load->view('Home', $this->data);
         } else {
             $this->load->view('Home', $this->cache->get('home_index'));
