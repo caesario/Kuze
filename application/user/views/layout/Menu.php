@@ -70,7 +70,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-weight-bold"
-                                       href="<?= base_url('kategori'); ?>">Category</a>
+                                       href="<?= base_url('category'); ?>">Category</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New
