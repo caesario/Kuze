@@ -52,7 +52,7 @@ class Kategori extends MY_Controller
             ->get();
         $this->data->breadcumburl = site_url('category/' . $k_url);
         $this->data->breadcumburl1 = site_url('category/' . $k_url . '/item/' . $i_url . '/detil');
-        $this->data->breadcumb = $this->category->where('k_url', $k_url)->get()->k_nama;
+        $this->data->breadcumb = $this->kategori->where('k_url', $k_url)->get()->k_nama;
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
         $this->load->view('Detil', $this->data);
     }
