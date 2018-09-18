@@ -70,6 +70,7 @@ $route['new_arrival/item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['sale_item/item/(:any)/detil'] = 'kategori/get_item_saleitem/$1';
 $route['sale_item/item/(:any)/add_to_bag'] = 'bag/add/$1';
 
+$route['category'] = 'kategori';
 $route['category/(:any)'] = 'kategori/get_item/$1';
 $route['category/all/item/(:any)/detil'] = 'kategori/get_item_detil_all/$1';
 $route['category/(:any)/item/(:any)/detil'] = 'kategori/get_item_detil/$1/$2';

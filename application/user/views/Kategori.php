@@ -97,7 +97,7 @@ include "layout/Menu.php";
                                         <?php if ($item_img($item->i_kode) != NULL): ?>
 
                                             <a class=""
-                                               href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>">
+                                               href="<?= site_url('category/all/item/' . $item->i_url . '/detil'); ?>">
                                                 <img class="card-img-top"
                                                      data-src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
                                                      src="https://i.gifer.com/AvGf.gif"
@@ -105,7 +105,7 @@ include "layout/Menu.php";
                                             </a>
                                         <?php else: ?>
                                             <a class=""
-                                               href="<?= site_url('kategori/all/item/' . $item->i_url . '/detil'); ?>">
+                                               href="<?= site_url('category/all/item/' . $item->i_url . '/detil'); ?>">
                                                 <img class="card-img-top"
                                                      src="<?= base_url('assets/img/noimage.jpg'); ?>"
                                                      alt="No Image">

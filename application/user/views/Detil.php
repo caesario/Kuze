@@ -38,7 +38,8 @@ include "layout/Menu.php";
                      data-height="400">
                     <?php if ($item_img_all($item->i_kode) != NULL): ?>
                         <?php foreach ($item_img_all($item->i_kode) as $img): ?>
-                            <img src="data:<?= $img->ii_type . ';base64,' . (base64_encode($img->ii_data)); ?>"
+                            <img data-src="data:<?= $img->ii_type . ';base64,' . (base64_encode($img->ii_data)); ?>"
+                                 src="https://i.gifer.com/AvGf.gif"
                                  class="card-img-top">
                         <?php endforeach; ?>
                     <?php else: ?>
@@ -124,13 +125,14 @@ include "layout/Menu.php";
 
     <div class="container-fluid c-padding-header c-margin-related">
         <div class="row">
-            <?php foreach ($this->item->with_item_img->limit(4)->get_all() as $hot): ?>
+            <?php foreach ($this->item->with_item_img()->limit(4)->get_all() as $hot): ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <a class="" href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>">
                             <?php if ($item_img($hot->i_kode) != NULL): ?>
                                 <img class="card-img-top"
-                                     src="data:<?= $item_img($hot->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($hot->i_kode)->ii_data)); ?>"
+                                     data-src="data:<?= $item_img($hot->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($hot->i_kode)->ii_data)); ?>"
+                                     src="https://i.gifer.com/AvGf.gif"
                                      alt="<?= $item_img($hot->i_kode)->ii_kode; ?>">
                             <?php else: ?>
                                 <img class="img-fluid mx-auto d-block"
@@ -201,6 +203,13 @@ include "layout/Menu.php";
             });
             $("#wu").prepend("<option value='' selected='selected'>Select Size</option>");
         })
+    </script>
+    <script>
+        $(function () {
+            $('img').Lazy({
+                placeholder: "https://i.gifer.com/AvGf.gif"
+            });
+        });
     </script>
 
 <?php
