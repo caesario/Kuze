@@ -70,10 +70,10 @@ $route['new_arrival/item/(:any)/add_to_bag'] = 'bag/add/$1';
 $route['sale_item/item/(:any)/detil'] = 'kategori/get_item_saleitem/$1';
 $route['sale_item/item/(:any)/add_to_bag'] = 'bag/add/$1';
 
-$route['kategori/(:any)'] = 'kategori/get_item/$1';
-$route['kategori/all/item/(:any)/detil'] = 'kategori/get_item_detil_all/$1';
-$route['kategori/(:any)/item/(:any)/detil'] = 'kategori/get_item_detil/$1/$2';
-$route['kategori/(:any)/item/(:any)/add_to_bag'] = 'bag/add';
+$route['category/(:any)'] = 'kategori/get_item/$1';
+$route['category/all/item/(:any)/detil'] = 'kategori/get_item_detil_all/$1';
+$route['category/(:any)/item/(:any)/detil'] = 'kategori/get_item_detil/$1/$2';
+$route['category/(:any)/item/(:any)/add_to_bag'] = 'bag/add';
 $route['bag/(:any)/delete'] = 'bag/delete/$1';
 $route['bag/promo/(:any)/checkout'] = 'bag/checkout';
 $route['checkout/(:any)/alamat_pengiriman'] = 'alamat/get/$1';

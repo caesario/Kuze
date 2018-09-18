@@ -43,12 +43,6 @@
 
 
                     <div class="form-group col-md-6 mb-0">
-                        <label class="col-form-label">User Type <span class="c-form-star">*</span></label>
-                        <input type="text" class="form-control" value="<?= $profil->pengguna_tipe == 1 ? 'VIP' : 'Reseller'; ?>" placeholder="tipe" disabled>
-                    </div>
-
-
-                    <div class="form-group col-md-6 mb-0">
                         <label class="col-form-label">Full Name <span class="c-form-star">*</span></label>
                         <input type="text" class="form-control" id="inputEmail" value="<?= $profil->pengguna_nama; ?>" name="nama" autocomplete="off">
                     </div>

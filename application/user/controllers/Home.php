@@ -27,7 +27,7 @@ class Home extends MY_Controller
         $this->data->best_sellers = function () {
             return $this->item->where_i_best('1')
                 ->with_item_detil()
-                ->order_by('created_at')
+                ->order_by('created_at', 'DESC')
                 ->limit(8)
                 ->get_all();
         };
@@ -35,7 +35,7 @@ class Home extends MY_Controller
         $this->data->new_arrivals = function () {
             return $this->item->where_i_new('1')
                 ->with_item_detil()
-                ->order_by('created_at')
+                ->order_by('created_at', 'DESC')
                 ->limit(8)
                 ->get_all();
         };
@@ -43,7 +43,7 @@ class Home extends MY_Controller
         $this->data->sale_items = function () {
             return $this->item->where_i_sale('1')
                 ->with_item_detil()
-                ->order_by('created_at')
+                ->order_by('created_at', 'DESC')
                 ->limit(8)
                 ->get_all();
         };

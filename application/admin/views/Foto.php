@@ -40,10 +40,6 @@
                             </a>
                             <div class="card-body">
                                 <p class="text-muted card-text">
-                                    <a class="text-gray"
-                                       href="<?= site_url('item_img/set_default/' . $img->i_kode . '/' . $img->ii_kode); ?>"
-                                       onclick="utama($(this))" data-id="<?= $img->ii_kode; ?>">Set Default</a>
-                                    <br>
                                     <a class="text-danger" href="<?= site_url('item_img/hapus/' . $img->ii_kode); ?>"
                                        data-id="<?= $img->ii_kode; ?>">Hapus</a>
                                 </p>

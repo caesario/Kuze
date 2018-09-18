@@ -19,7 +19,7 @@ class Sale_item extends MY_Controller
     public function get_item_all()
     {
         $this->data->items = $this->item->limit(10)->get_all();
-        $this->data->breadcumburl = site_url('kategori');
+        $this->data->breadcumburl = site_url('category');
         $this->data->breadcumb = 'Kategori';
         $this->load->view('Kategori', $this->data);
     }
@@ -36,8 +36,8 @@ class Sale_item extends MY_Controller
         }
         $this->data->k_url = $k_url;
         $this->data->item_kategori = $item_kategori;
-        $this->data->breadcumburl = site_url('kategori/'. $k_url);
-        $this->data->breadcumb = $this->kategori->where('k_url', $k_url)->get()->k_nama;
+        $this->data->breadcumburl = site_url('category/' . $k_url);
+        $this->data->breadcumb = $this->category->where('k_url', $k_url)->get()->k_nama;
         $this->load->view('Kategori', $this->data);
     }
 
@@ -47,9 +47,9 @@ class Sale_item extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
-        $this->data->breadcumburl = site_url('kategori/'. $k_url);
-        $this->data->breadcumburl1 = site_url('kategori/'. $k_url . '/item/' . $i_url . '/detil');
-        $this->data->breadcumb = $this->kategori->where('k_url', $k_url)->get()->k_nama;
+        $this->data->breadcumburl = site_url('category/' . $k_url);
+        $this->data->breadcumburl1 = site_url('category/' . $k_url . '/item/' . $i_url . '/detil');
+        $this->data->breadcumb = $this->category->where('k_url', $k_url)->get()->k_nama;
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
         $this->load->view('Detil', $this->data);
     }
@@ -60,8 +60,8 @@ class Sale_item extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
-        $this->data->breadcumburl = site_url('kategori/all');
-        $this->data->breadcumburl1 = site_url('kategori/all/item/' . $i_url . '/detil');
+        $this->data->breadcumburl = site_url('category/all');
+        $this->data->breadcumburl1 = site_url('category/all/item/' . $i_url . '/detil');
         $this->data->breadcumb = 'All';
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
         $this->load->view('Detil', $this->data);

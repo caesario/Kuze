@@ -130,7 +130,8 @@ class Bank extends MY_Controller
     {
 
         $bank_hapus = $this->bank->where('bank_kode', $id)->delete();
-        if ($bank_hapus) {
+        $order_payment = $this->order_payment->where('bank_kode', $id)->get();
+        if ($bank_hapus && !$order_payment) {
             $this->data->berhasil = 'Data Bank berhasil dihapus';
             $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
@@ -142,4 +143,6 @@ class Bank extends MY_Controller
             redirect('bank');
         }
     }
+
+
 }
