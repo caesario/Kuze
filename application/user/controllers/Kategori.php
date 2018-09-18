@@ -26,19 +26,16 @@ class Kategori extends MY_Controller
 
     public function get_item($k_url)
     {
-        $kategori = $this->kategori->where('k_url', $k_url)->get();
-        if ($kategori) {
-            $item_kategori = $this->item_kategori
-                ->where('k_kode', $kategori->k_kode)
-                ->with_item()->get_all();
-        } else {
-            $item_kategori = '';
-        }
+        $item_kategori = function () use ($k_url) {
+            $kategori_kode = $this->kategori->where('k_url', $k_url)->get()->k_kode;
+            return $this->item_kategori->with_item()->where('k_kode', $kategori_kode)->get_all();
+        };
         $this->data->k_url = $k_url;
-        $this->data->item_kategori = $item_kategori;
+        $this->data->item_kategori = $item_kategori();
         $this->data->breadcumburl = site_url('category/' . $k_url);
-        $this->data->breadcumb = $this->category->where('k_url', $k_url)->get()->k_nama;
+        $this->data->breadcumb = $this->kategori->where('k_url', $k_url)->get()->k_nama;
         $this->load->view('Kategori', $this->data);
+//        print_r($item_kategori());
     }
 
     public function get_item_detil($k_url, $i_url)
