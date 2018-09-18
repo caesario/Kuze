@@ -59,7 +59,7 @@ include "layout/Menu.php";
                                         </a>
                                     </div>
                             </div>
-                            </a>
+                            </a>`
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>

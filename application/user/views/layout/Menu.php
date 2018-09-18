@@ -88,7 +88,7 @@
                                     <a class="nav-link font-weight-bold" href="<?= base_url('blog'); ?>">Event</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold" href="<?= base_url('hot_to_order'); ?>">How to
+                                    <a class="nav-link font-weight-bold" href="<?= base_url('Howtoorder'); ?>">How to
                                         Order</a>
                                 </li>
                             </ul>
