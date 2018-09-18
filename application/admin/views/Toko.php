@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $provinsi = $toko->t_provinsi;
         $kabupaten = $toko->t_kabupaten;
         $kecamatan = $toko->t_kecamatan;
-        $kelurahan = $toko->t_desa;
         $kodepos = $toko->t_kodepos;
         $alamat = $toko->t_alamat;
         $email = $toko->t_email;
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $provinsi = '';
         $kabupaten = '';
         $kecamatan = '';
-        $kelurahan = '';
         $kodepos = '';
         $alamat = '';
         $email = '';
@@ -91,34 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
         <?php endif; ?>
         <div class="col">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h1>Logo</h1>
-                        </div>
-                        <div class="card-body">
-                            <a class="btn btn-primary" data-toggle="modal" href="#" onclick="unggah()"
-                               data-target="#upload"
-                               data-backdrop="static" data-keyboard="false"><i class="fa fa-plus mr-2"></i>Upload Logo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h1>Icon</h1>
-                        </div>
-                        <div class="card-body">
-                            <a class="btn btn-primary" data-toggle="modal" href="#" onclick="unggah()"
-                               data-target="#upload"
-                               data-backdrop="static" data-keyboard="false"><i class="fa fa-plus mr-2"></i>Upload Icon</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
             <div class="card">
                 <div class="card-header">
                     <h1>Toko</h1>
@@ -168,12 +138,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <label for="kecamatan">Kecamatan</label>
                             <select name="kecamatan" id="kecamatan" class="kecamatan form-control"
                                     value="<?= $kecamatan; ?>" required>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="kelurahan">Kelurahan / Desa</label>
-                            <select name="kelurahan" id="kelurahan" class="kelurahan form-control"
-                                    value="<?= $kelurahan; ?>" required>
                             </select>
                         </div>
 
@@ -251,26 +215,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 bodymodal.load("<?= site_url('users/detil/'); ?>" + id);
             }
 
-            function unggah_logo(data) {
-                d = data;
-                id = d.attr('data-id');
-
-                modal = $('#upload');
-                bodymodal = modal.find('div.modal-body');
-
-                bodymodal.load("<?= site_url('upload/logo'); ?>" + id);
-            }
-
-            function unggah_icon(data) {
-                d = data;
-                id = d.attr('data-id');
-
-                modal = $('#upload');
-                bodymodal = modal.find('div.modal-body');
-
-                bodymodal.load("<?= site_url('upload/icon'); ?>" + id);
-            }
-
             function hapus(data) {
                 d = data;
                 id = d.attr('data-id');
@@ -344,33 +288,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         }
                     }
                 });
-                $('#kelurahan').select2({
-                    theme: 'bootstrap4',
-                    placeholder: 'Pilih kelurahan / desa',
-                    ajax: {
-                        url: '<?= site_url('API/get_kelurahan'); ?>',
-                        dataType: 'json',
-                        delay: 250,
-                        data: function (params) {
-                            return {
-                                q: params.term,
-                                kecamatan: $('#kecamatan').val()
-                            };
-                        }
-                    }
-                }).on('select2:select', function () {
-                    var id = $(this).val();
-                    $.get('<?= site_url('API/get_kodepos/'); ?>' + id, function (res) {
-                        $('#kodepos').val(res);
-                    })
-                });
             });
         </script>
         <script>
             var provinsi = $('#provinsi');
             var kabupaten = $('#kabupaten');
             var kecamatan = $('#kecamatan');
-            var kelurahan = $('#kelurahan');
 
             $.when(
                 $.getJSON('<?= site_url('API/get_provinsi/'); ?>' + <?= $provinsi; ?>, function (res) {
@@ -400,17 +323,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         res.results[0].text, res.results[0].id, true, true
                     )).trigger('change');
                     kecamatan.trigger({
-                        type: 'select2:select',
-                        params: {
-                            data: res
-                        }
-                    })
-                }),
-                $.getJSON('<?= site_url('API/get_kelurahan/'); ?>' + <?= $kelurahan; ?>, function (res) {
-                    kelurahan.append(new Option(
-                        res.results[0].text, res.results[0].id, true, true
-                    )).trigger('change');
-                    kelurahan.trigger({
                         type: 'select2:select',
                         params: {
                             data: res

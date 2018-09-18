@@ -182,7 +182,7 @@ class MY_Controller extends CI_Controller
 
         $this->data->item_img = function ($i_kode) {
             $hasil = $this->item_img
-                ->where(array('i_kode' => $i_kode, 'ii_default' => 1))
+                ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
                 ->get();
 
             if ($hasil) {

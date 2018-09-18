@@ -89,7 +89,7 @@
                     </ul>
                 </li>
                 <li><a href="<?= site_url('toko'); ?>"><i class="fa fa-cogs mr-2"></i>Toko </a></li>
-                <li><a href="<?= site_url('bank'); ?>"><i class="fa fa-bank mr-2"></i>Bank </a></li>
+                <li><a href="<?= site_url('bank'); ?>"><i class="fas fa-bank mr-2"></i>Bank </a></li>
 
 
             </ul>
@@ -106,7 +106,7 @@
         var c_misc = $.cookie('misc_menu');
         var c_foto = $.cookie('foto_menu');
         var $menu_misc = $('#side-main-menu > li:nth-child(2) > a');
-        var $menu_foto = $('#side-admin-menu > li:nth-child(4) > a');
+        var $menu_foto = $('#side-admin-menu > li:nth-child(2) > a');
         var $ul_misc = $('#misc');
         var $ul_foto = $('#foto');
 

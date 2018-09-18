@@ -232,7 +232,7 @@ class API extends MY_Controller
 
     public function get_default_img($i_kode)
     {
-        $img = $this->item_img->where(array('i_kode' => $i_kode, 'ii_default' => 1))->get();
+        $img = $this->item_img->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')->get();
         $hasil = array();
         $hasil['type'] = $img->ii_type;
         $hasil['img'] = base64_encode($img->ii_data);

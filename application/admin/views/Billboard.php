@@ -163,17 +163,18 @@
                                             <label for="judul1">Judul</label>
                                             <input class="form-control" type="text" name="judul" id="judul1"
                                                    placeholder="Judul"
-                                                   value="<?= isset($img1) ? $img1->blb_judul : ''; ?>">
+                                                   value="<?= isset($img1->blb_judul) ? $img1->blb_judul : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="url1">URL</label>
                                             <input class="form-control" type="text" name="url" id="url1"
-                                                   placeholder="URL" value="<?= isset($img1) ? $img1->blb_url : ''; ?>">
+                                                   placeholder="URL"
+                                                   value="<?= isset($img1->blb_url) ? $img1->blb_url : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="ket1">Keterangan</label>
                                             <textarea class="form-control" name="ket" id="ket1"
-                                                      placeholder="Keterangan"><?= isset($img1) ? $img1->blb_ket : ''; ?></textarea>
+                                                      placeholder="Keterangan"><?= isset($img1->blb_ket) ? $img1->blb_ket : ''; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="button" id="doupload1" class="btn btn-primary">Upload
@@ -206,17 +207,18 @@
                                             <label for="judul2">Judul</label>
                                             <input class="form-control" type="text" name="judul" id="judul2"
                                                    placeholder="Judul"
-                                                   value="<?= isset($img2) ? $img2->blb_judul : ''; ?>">
+                                                   value="<?= isset($img2->blb_judul) ? $img2->blb_judul : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="url2">URL</label>
                                             <input class="form-control" type="text" name="url" id="url2"
-                                                   placeholder="URL" value="<?= isset($img2) ? $img2->blb_url : ''; ?>">
+                                                   placeholder="URL"
+                                                   value="<?= isset($img2->blb_url) ? $img2->blb_url : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="ket2">Keterangan</label>
                                             <textarea class="form-control" name="ket" id="ket2"
-                                                      placeholder="Keterangan"><?= isset($img2) ? $img2->blb_ket : ''; ?></textarea>
+                                                      placeholder="Keterangan"><?= isset($img2->blb_ket) ? $img2->blb_ket : ''; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="button" id="doupload2" class="btn btn-primary">Upload
@@ -249,17 +251,18 @@
                                             <label for="judul3">Judul</label>
                                             <input class="form-control" type="text" name="judul" id="judul3"
                                                    placeholder="Judul"
-                                                   value="<?= isset($img3) ? $img3->blb_judul : ''; ?>">
+                                                   value="<?= isset($img3->blb_judul) ? $img3->blb_judul : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="url3">URL</label>
                                             <input class="form-control" type="text" name="url" id="url3"
-                                                   placeholder="URL" value="<?= isset($img3) ? $img3->blb_url : ''; ?>">
+                                                   placeholder="URL"
+                                                   value="<?= isset($img3->blb_url) ? $img3->blb_url : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="ket3">Keterangan</label>
                                             <textarea class="form-control" name="ket" id="ket3"
-                                                      placeholder="Keterangan"><?= isset($img3) ? $img3->blb_ket : ''; ?></textarea>
+                                                      placeholder="Keterangan"><?= isset($img3->blb_ket) ? $img3->blb_ket : ''; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="button" id="doupload3" class="btn btn-primary">Upload
@@ -294,17 +297,18 @@
                                             <label for="judul4">Judul</label>
                                             <input class="form-control" type="text" name="judul" id="judul4"
                                                    placeholder="Judul"
-                                                   value="<?= isset($img4) ? $img4->blb_judul : ''; ?>">
+                                                   value="<?= isset($img4->blb_judul) ? $img4->blb_judul : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="url4">URL</label>
                                             <input class="form-control" type="text" name="url" id="url4"
-                                                   placeholder="URL" value="<?= isset($img4) ? $img4->blb_url : ''; ?>">
+                                                   placeholder="URL"
+                                                   value="<?= isset($img4->blb_url) ? $img4->blb_url : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="ket4">Keterangan</label>
                                             <textarea class="form-control" name="ket" id="ket4"
-                                                      placeholder="Keterangan"><?= isset($img4) ? $img4->blb_ket : ''; ?></textarea>
+                                                      placeholder="Keterangan"><?= isset($img4->blb_ket) ? $img4->blb_ket : ''; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="button" id="doupload4" class="btn btn-primary">Upload
@@ -335,17 +339,18 @@
                                             <label for="judul5">Judul</label>
                                             <input class="form-control" type="text" name="judul" id="judul5"
                                                    placeholder="Judul"
-                                                   value="<?= isset($img5) ? $img5->blb_judul : ''; ?>">
+                                                   value="<?= isset($img5->blb_judul) ? $img5->blb_judul : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="url5">URL</label>
                                             <input class="form-control" type="text" name="url" id="url5"
-                                                   placeholder="URL" value="<?= isset($img5) ? $img5->blb_url : ''; ?>">
+                                                   placeholder="URL"
+                                                   value="<?= isset($img5->blb_url) ? $img5->blb_url : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="ket5">Keterangan</label>
                                             <textarea class="form-control" name="ket" id="ket5"
-                                                      placeholder="Keterangan"><?= isset($img5) ? $img5->blb_ket : ''; ?></textarea>
+                                                      placeholder="Keterangan"><?= isset($img5->blb_ket) ? $img5->blb_ket : ''; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="button" id="doupload5" class="btn btn-primary">Upload

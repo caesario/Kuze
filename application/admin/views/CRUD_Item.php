@@ -120,18 +120,7 @@ if ($submit == 'Ubah') {
                                        value="<?= $berat; ?>" required>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="i_sale" value="1"
-                                           id="i_sale" <?= $i_sale == 1 ? 'checked' : ''; ?>>
-                                    <label class="form-check-label" for="i_sale">
-                                        Sale Item
-                                    </label>
-                                </div>
 
-                            </div>
-                        </div>
 
                         <div class="col-12">
                             <div class="form-group">
@@ -153,6 +142,19 @@ if ($submit == 'Ubah') {
                                            id="i_best" <?= $i_best == 1 ? 'checked' : ''; ?>>
                                     <label class="form-check-label" for="i_best">
                                         Best Seller
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="i_sale" value="1"
+                                           id="i_sale" <?= $i_sale == 1 ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="i_sale">
+                                        Sale Item
                                     </label>
                                 </div>
 
