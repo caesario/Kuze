@@ -28,7 +28,13 @@ class Kategori extends MY_Controller
     {
         $item_kategori = function () use ($k_url) {
             $kategori_kode = $this->kategori->where('k_url', $k_url)->get()->k_kode;
-            return $this->item_kategori->with_item()->where('k_kode', $kategori_kode)->get_all();
+            $hasil = $this->item_kategori->with_item()->where('k_kode', $kategori_kode)->get_all();
+
+            if ($hasil) {
+                return $hasil;
+            } else {
+                return $hasil = NULL;
+            }
         };
         $this->data->k_url = $k_url;
         $this->data->item_kategori = $item_kategori();
