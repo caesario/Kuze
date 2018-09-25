@@ -50,37 +50,27 @@ class Slide extends MY_Controller
     public function simpan()
     {
         // get user from database where guid
-//        $slide_data = file_get_contents($_FILES['foto']['tmp_name']);
-//        $slide_type = getimageSize($_FILES['foto']['tmp_name']);
-//
-//        $slide_array = array(
-//            'slide_promo_caption' => $this->input->post('caption'),
-//            'slide_promo_type' => $slide_type['mime'],
-//            'slide_promo_data' => $slide_data,
-//            'slide_promo_isaktif' => $this->input->post('aktif')
-//        );
-//
-//
-//        $slide_insert = $this->slide_promo->insert($slide_array);
-//
-//        if ($slide_insert) {
-//            $this->data->berhasil = 'Foto Slide berhasil dibuat.';
-//            $this->session->set_flashdata('berhasil', $this->data->berhasil);
-//
-//        } else {
-//            $this->data->gagal = 'Foto Slide gagal dibuat.';
-//            $this->session->set_flashdata('gagal', $this->data->gagal);
-//
-//        }
+        $slide_data = file_get_contents($_FILES['slide_img']['tmp_name']);
+        $slide_type = getimageSize($_FILES['slide_img']['tmp_name']);
 
-        foreach (array_keys($_FILES) as $key) {
-            foreach ($_FILES[$key] as $i => $v) {
-                echo $_FILES[$key][$i];
-                echo '\n';
-            }
-        }
-        foreach (array_keys($_POST) as $key) {
-            var_dump($_POST[$key]);
+        $slide_array = array(
+            'slide_promo_caption' => $this->input->post('caption'),
+            'slide_promo_type' => $slide_type['mime'],
+            'slide_promo_data' => $slide_data,
+            'slide_promo_isaktif' => $this->input->post('aktif')
+        );
+
+
+        $slide_insert = $this->slide_promo->insert($slide_array);
+
+        if ($slide_insert) {
+            $this->data->berhasil = 'Foto Slide berhasil dibuat.';
+            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+
+        } else {
+            $this->data->gagal = 'Foto Slide gagal dibuat.';
+            $this->session->set_flashdata('gagal', $this->data->gagal);
+
         }
     }
 

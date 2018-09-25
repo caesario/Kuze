@@ -233,7 +233,6 @@ class API extends MY_Controller
                 'alamat_provinsi' => $alamat->alamat->alamat_provinsi,
                 'alamat_kabupaten' => $alamat->alamat->alamat_kabupaten,
                 'alamat_kecamatan' => $alamat->alamat->alamat_kecamatan,
-                'alamat_desa' => $alamat->alamat->alamat_desa,
                 'alamat_kodepos' => $alamat->alamat->alamat_kodepos,
                 'alamat_deskripsi' => $alamat->alamat->alamat_deskripsi,
             );

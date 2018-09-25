@@ -106,13 +106,6 @@
                                                 <td class="align-middle"><?= $promo->created_at; ?></td>
                                                 <td class="align-middle"><?= $promo->updated_at; ?></td>
                                                 <td class="align-middle">
-                                                    <a data-toggle="modal" class="btn btn-sm btn-primary"
-                                                       href="#"
-                                                       onclick="edit($(this))" data-target="#crud"
-                                                       data-backdrop="static"
-                                                       data-keyboard="false"
-                                                       data-id="<?= $promo->slide_promo_id; ?>"><i
-                                                                class="far fa-edit"></i> Ubah</a>
                                                     <a data-toggle="modal" class="btn btn-sm btn-danger"
                                                        href="#"
                                                        onclick="hapus($(this))" data-target="#hapus"

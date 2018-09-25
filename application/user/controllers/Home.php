@@ -100,10 +100,7 @@ class Home extends MY_Controller
         };
 
         $this->data->rand_image = $this->item_img->select_random();
-
-        $this->data->img_promos = $this->slide_promo->get_all();
-
-
+        $this->data->img_promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
         $this->load->view('Home', $this->data);
 
     }

@@ -127,9 +127,9 @@ class API extends MY_Controller
         echo json_encode($data);
     }
 
-    public function get_kodepos($desa_id)
+    public function get_kodepos($kabupaten_id)
     {
-        $hasil = $this->desa->get($desa_id);
+        $hasil = $this->kabupaten->get($kabupaten_id);
         echo $hasil->kodepos;
     }
 
@@ -153,12 +153,8 @@ class API extends MY_Controller
                 $hasil['kecamatan'] = $this->kecamatan
                     ->where('kecamatan_id', $g->alamat->alamat_kecamatan)
                     ->get()->kecamatan_nama;
-                $hasil['desa'] = $this->desa
-                    ->where('desa_id', $g->alamat->alamat_desa)
-                    ->get()->desa_nama;
 
-
-                $text = $g->alamat->alamat_deskripsi . ', ' . $hasil['desa'] . ', ' . $hasil['kecamatan'] . ', ' . $hasil['kabupaten'] .
+                $text = $g->alamat->alamat_deskripsi . ', ' . $hasil['kecamatan'] . ', ' . $hasil['kabupaten'] .
                     ', ' . $hasil['provinsi'] . ', ' . $g->alamat->alamat_kodepos;
 
                 array_push($data['results'], array(
@@ -179,12 +175,9 @@ class API extends MY_Controller
                 $hasil['kecamatan'] = $this->kecamatan
                     ->where('kecamatan_id', $g->alamat->alamat_kecamatan)
                     ->get()->kecamatan_nama;
-                $hasil['desa'] = $this->desa
-                    ->where('desa_id', $g->alamat->alamat_desa)
-                    ->get()->desa_nama;
 
 
-                $text = $g->alamat->alamat_deskripsi . ', ' . $hasil['desa'] . ', ' . $hasil['kecamatan'] . ', ' . $hasil['kabupaten'] .
+                $text = $g->alamat->alamat_deskripsi . ', ' . $hasil['kecamatan'] . ', ' . $hasil['kabupaten'] .
                     ', ' . $hasil['provinsi'] . ', ' . $g->alamat->alamat_kodepos;
                 array_push($data['results'], array(
                     'id' => $g->alamat->alamat_kode,
