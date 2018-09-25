@@ -70,43 +70,53 @@
     <a href="https://www.instagram.com/<?= $instagram; ?>" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
     <a href="https://wa.me/62<?= $whatsapp; ?>" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
 </div>
-
 <script>
-    $('#myDropdown').on('show.bs.dropdown', function () {
-        $('.dropdown-toggle').dropdown()
-    })
-
-</script>
-<script>
-    // ------------------------------------------------------ //
-    // Format Rupiah
-    // ------------------------------------------------------ //
-
-
-    var moneyFormat = wNumb({
-        mark: ',',
-        decimals: 0,
-        thousand: '.',
-        prefix: 'IDR ',
-        suffix: ''
-    });
-    $('[id="rupiah"]').each(function (index) {
-        var value = parseInt($(this).html()),
-            hasil = moneyFormat.to(value);
-
-        if ($(this).html() === '-') {
-        } else {
-            $(this).html(hasil);
-        }
+    $(function () {
+        $('#myDropdown').on('show.bs.dropdown', function () {
+            $('.dropdown-toggle').dropdown()
+        })
     });
 
+    $(function () {
+        // ------------------------------------------------------ //
+        // Format Rupiah
+        // ------------------------------------------------------ //
 
-</script>
-<script>
-    $('[id="title"]').ellipsis();
-</script>
-<script>
-    $('#table').DataTable();
+
+        var moneyFormat = wNumb({
+            mark: ',',
+            decimals: 0,
+            thousand: '.',
+            prefix: 'IDR ',
+            suffix: ''
+        });
+        $('[id="rupiah"]').each(function (index) {
+            var value = parseInt($(this).html()),
+                hasil = moneyFormat.to(value);
+
+            if ($(this).html() === '-') {
+            } else {
+                $(this).html(hasil);
+            }
+        });
+    });
+
+    $(function () {
+        $('[id="title"]').ellipsis();
+    });
+
+    $(function () {
+        $('#table').DataTable();
+    });
+
+    $(function () {
+        $('div.image.mx-auto.d-block').click(function () {
+            var url = $(this).attr('data-url');
+            window.location.href = url;
+        })
+    });
+
+
 </script>
 <?php if (isset($_SESSION['modal'])): ?>
     <script>
@@ -118,11 +128,5 @@
         $('#cart > div > div > div.modal-body').load('<?= site_url('bag/modal_bag'); ?>');
     </script>
 <?php endif; ?>
-<script>
-    $('div.image.mx-auto.d-block').click(function () {
-        var url = $(this).attr('data-url');
-        window.location.href = url;
-    })
-</script>
 </body>
 </html>

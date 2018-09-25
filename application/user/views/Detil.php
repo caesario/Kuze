@@ -159,33 +159,35 @@ include "layout/Menu.php";
     </div>
 
     <script>
-        $('#wu').change(function () {
-            var qty = $(this).find(':selected').data('qty');
-            var value = $(this).val();
-            $.when(
-                $('#stok').val(qty),
-                $('#qty').attr('max', qty)
-            );
-            if (qty === 0 && value !== '') {
-                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
-                $('#check').show()
-                    .removeClass('text-success')
-                    .addClass('text-danger')
-                    .html('Stok habis');
-            } else if (qty > 0 && value !== '') {
-                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
-                $('#check').show()
-                    .removeClass('text-danger')
-                    .addClass('text-success')
-                    .html('Stok tersedia');
-            } else {
-                $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').addClass('mt-3');
-                $('#check').hide();
-            }
+        $(function () {
+            $('#wu').change(function () {
+                var qty = $(this).find(':selected').data('qty');
+                var value = $(this).val();
+                $.when(
+                    $('#stok').val(qty),
+                    $('#qty').attr('max', qty)
+                );
+                if (qty === 0 && value !== '') {
+                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
+                    $('#check').show()
+                        .removeClass('text-success')
+                        .addClass('text-danger')
+                        .html('Stok habis');
+                } else if (qty > 0 && value !== '') {
+                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
+                    $('#check').show()
+                        .removeClass('text-danger')
+                        .addClass('text-success')
+                        .html('Stok tersedia');
+                } else {
+                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').addClass('mt-3');
+                    $('#check').hide();
+                }
+            })
         })
     </script>
     <script>
-        $(document).ready(function () {
+        $(function () {
             var options = $('#wu option');
             var arr = options.map(function (_, o) {
                 return {t: $(o).text(), v: o.value, q: $(o).attr('data-qty')};

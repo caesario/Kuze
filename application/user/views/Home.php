@@ -2,37 +2,6 @@
 include "layout/Header.php";
 include "layout/Menu.php";
 ?>
-
-    <!-- Slide Show -->
-    <script>
-        function img_hover(data) {
-            var img = data,
-                id = img.attr('id'),
-                hasil = "";
-            $.getJSON("/API/get_last_img/" + id, function (data) {
-                img.fadeOut(100, function () {
-                    hasil = "data:" + data["type"] + ";base64," + data["img"];
-                    img.attr("src", hasil);
-                    img.fadeIn(100);
-                });
-            });
-
-        }
-
-        function img_off(data) {
-            var img = data,
-                id = img.attr('id'),
-                hasil = "";
-
-            $.getJSON("/API/get_default_img/" + id, function (data) {
-                img.fadeOut(100, function () {
-                    hasil = "data:" + data["type"] + ";base64," + data["img"];
-                    img.attr("src", hasil);
-                    img.fadeIn(100);
-                });
-            });
-        }
-    </script>
 <?php if ($img_promos != NULL): ?>
     <div class="fotorama mb-4" data-fit="cover" data-autoplay="true" data-width="100%">
         <?php foreach ($img_promos as $promo): ?>

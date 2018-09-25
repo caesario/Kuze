@@ -31,6 +31,35 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url('assets/vendor/fotorama/fotorama.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-lazy/jquery.lazy.min.js'); ?>"></script>
+    <script>
+        function img_hover(data) {
+            var img = data,
+                id = img.attr('id'),
+                hasil = "";
+            $.getJSON("/API/get_last_img/" + id, function (data) {
+                img.fadeOut(100, function () {
+                    hasil = "data:" + data["type"] + ";base64," + data["img"];
+                    img.attr("src", hasil);
+                    img.fadeIn(100);
+                });
+            });
+
+        }
+
+        function img_off(data) {
+            var img = data,
+                id = img.attr('id'),
+                hasil = "";
+
+            $.getJSON("/API/get_default_img/" + id, function (data) {
+                img.fadeOut(100, function () {
+                    hasil = "data:" + data["type"] + ";base64," + data["img"];
+                    img.attr("src", hasil);
+                    img.fadeIn(100);
+                });
+            });
+        }
+    </script>
 
 
     <link rel="shortcut icon" href="<?= base_url('assets/img/kuzelogo.jpeg'); ?>">
