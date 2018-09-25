@@ -73,7 +73,15 @@ class Slide extends MY_Controller
 //
 //        }
 
-        var_dump($_FILES['foto']);
+        foreach (array_keys($_FILES) as $key) {
+            foreach ($_FILES[$key] as $i => $v) {
+                echo $_FILES[$key][$i];
+                echo '\n';
+            }
+        }
+        foreach (array_keys($_POST) as $key) {
+            var_dump($_POST[$key]);
+        }
     }
 
     protected function upload_img()

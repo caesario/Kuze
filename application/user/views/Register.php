@@ -45,35 +45,29 @@ include "layout/Header.php";
                 <div class="form-group">
                     <label for="nama" class="sr-only">Nama Lengkap</label>
                     <input type="text" id="nama" name="nama" class="form-control" placeholder="Full Name"
-                           value="<?= set_value('nama'); ?>" required>
+                           value="" required>
                     <p><?= form_error('nama'); ?></p>
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="sr-only">E-mail</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Email Address"
-                           value="<?= set_value('email'); ?>" required>
+                           value="" required>
                     <p><?= form_error('nama'); ?></p>
                 </div>
 
                 <div class="form-group">
                     <label for="notelp" class="sr-only">Nomor Telp</label>
                     <input type="text" id="notelp" name="notelp" class="form-control" placeholder="Phone Number"
-                           value="<?= set_value('notelp'); ?>" required>
+                           value="" required>
                     <p><?= form_error('nama'); ?></p>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" id="password" name="password" class="form-control" minlength="8" maxlength="15"
-                           placeholder="Password" value="<?= set_value('password'); ?>" required>
+                           placeholder="Password" value="" required>
                     <p><?= form_error('nama'); ?></p>
-                </div>
-
-                <div class="checkbox">
-                    <label class="">
-                        <input type="checkbox" value="remember-me"> Required Check
-                    </label>
                 </div>
                 <button class="btn btn-lg btn-block c-login-btn" type="submit">Create Account</button>
                 <!--<p class="text-center"><a class="c-link-color" href="">Forgot your password?</a></p>-->

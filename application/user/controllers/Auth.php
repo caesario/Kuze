@@ -79,12 +79,18 @@ class Auth extends MY_Controller
             array(
                 'field' => 'email',
                 'label' => 'E-mail',
-                'rules' => 'required|valid_email|is_unique[pengguna.pengguna_email]'
+                'rules' => 'required|valid_email|is_unique[pengguna.pengguna_email]',
+                'errors' => array(
+                    'is_unique' => '%s sudah digunakan. Mohon gunakan yang lain.'
+                )
             ),
             array(
                 'field' => 'notelp',
                 'label' => 'No. Telp',
-                'rules' => 'required|integer|is_unique[pengguna.pengguna_telp]'
+                'rules' => 'required|integer|is_unique[pengguna.pengguna_telp]',
+                'errors' => array(
+                    'is_unique' => '%s sudah digunakan. Mohon gunakan yang lain.'
+                )
             ),
             array(
                 'field' => 'password',

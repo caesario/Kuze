@@ -56,21 +56,20 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/datatable/css/dataTables.bootstrap4.min.css'); ?>">
     <!-- Javascript files-->
     <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/jquery.cookie/jquery.cookie.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/jquery-validation/jquery.validate.min.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="<?= base_url('assets/vendor/popper.js/umd/popper.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/datatable/js/jquery.dataTables.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/datatable/js/dataTables.bootstrap4.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/grasp_mobile_progress_circle-1.0.0.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/jquery.cookie/jquery.cookie.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/jquery-validation/jquery.validate.min.js'); ?>"></script>
+
     <script src="<?= base_url('assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/loadingoverlay/loadingoverlay.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/loadingoverlay/loadingoverlay_progress.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-ellipsis/jquery.ellipsis.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/wnumb/wNumb.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/jquery-fileupload/js/vendor/jquery.ui.widget.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/jquery-fileupload/js/jquery.fileupload.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/croppie/croppie.min.js'); ?>"></script>
     <script src="<?= base_url('node_modules/cropit/dist/jquery.cropit.js'); ?>"></script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=omulajpwx33earwq4t3xfgo7zbqaoey3a7cd3zipl90xlzbu"></script>

@@ -38,10 +38,9 @@
         </div>
     </div>
 </div>
-
-
 <script>
-    $(document).ready(function () {
+
+    $(function () {
         var inimage = $('#upload_image'),
             viewimage = $('#viewimage'),
             cancel = $('#cancel');
@@ -56,7 +55,10 @@
             boundary: {
                 width: 750,
                 height: 750
-            }
+            },
+            showZoomer: false,
+            enableResize: false,
+            enableOrientation: false
         });
 
         cancel.click(function () {
@@ -71,7 +73,7 @@
                 croppie_img.croppie('bind', {
                     url: event.target.result
                 }).then(function () {
-                    console.log('jQuery bind complete');
+                    console.log('Bind Image Success');
                 });
             };
             reader.readAsDataURL(this.files[0]);
@@ -87,12 +89,11 @@
             }).then(function (response) {
                 var aktif = $('#aktif'),
                     caption = $('#caption');
-                console.log(response);
                 var fd = new FormData();
                 fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
-                fd.append('foto', response);
-                // fd.append('caption', caption);
-                // fd.append('aktif', aktif);
+                fd.append('slide_img', response);
+                fd.append('caption', caption);
+                fd.append('aktif', aktif);
 
                 $.ajax({
                     url: "<?= site_url('slide/simpan'); ?>",
