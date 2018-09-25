@@ -1352,10 +1352,10 @@ a.c-modal-clr:hover {
 .card-contact {
     margin: 3px;
     border-radius: 7px;
-    border: 0.5px solid #777;
+    border: 0.5px solid #999;
     padding: 10px;
     background-color: #F8F8F8;
-    box-shadow: 2px 3px #777;
+    /*box-shadow: 2px 3px #777;*/
 }
 
 .card-contact > i {
