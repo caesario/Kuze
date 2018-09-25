@@ -3,7 +3,7 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 <?php if ($img_promos != NULL): ?>
-    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true" data-width="100%" data-height="60%">
+    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true" data-width="100%" data-height="80%">
         <?php foreach ($img_promos as $promo): ?>
             <img src="data:<?= $promo->slide_promo_type . ';base64,' . (base64_encode($promo->slide_promo_data)); ?>"
                  alt="<?= (string)$promo->slide_promo_caption; ?>">

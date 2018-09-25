@@ -87,8 +87,8 @@
                 type: 'blob',
                 size: 'original'
             }).then(function (response) {
-                var aktif = $('#aktif'),
-                    caption = $('#caption');
+                var aktif = $('#aktif').val(),
+                    caption = $('#caption').val();
                 var fd = new FormData();
                 fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
                 fd.append('slide_img', response);
@@ -103,7 +103,7 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        console.log(data);
+                        window.location.reload();
                     },
                     error: function (data) {
                         console.log(data.responseText);
