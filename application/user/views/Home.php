@@ -20,6 +20,7 @@ include "layout/Menu.php";
                         <div class="col-12">
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img1->blb_type . ';base64,' . (base64_encode($img1->blb_data)); ?>"
+                                     src="<?= base_url('assets/img/loader.gif'); ?>"
                                      alt="<?= $img1->blb_judul; ?>">
                             </div>
                         </div>
@@ -28,6 +29,7 @@ include "layout/Menu.php";
                         <div class="col-12">
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img2->blb_type . ';base64,' . (base64_encode($img2->blb_data)); ?>"
+                                     src="<?= base_url('assets/img/loader.gif'); ?>"
                                      alt="<?= $img2->blb_judul; ?>">
                             </div>
                         </div>
@@ -40,6 +42,7 @@ include "layout/Menu.php";
                         <div class="col-12">
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img3->blb_type . ';base64,' . (base64_encode($img3->blb_data)); ?>"
+                                     src="<?= base_url('assets/img/loader.gif'); ?>"
                                      alt="<?= $img3->blb_judul; ?>" style="height: 104%;">
                             </div>
                         </div>
@@ -52,6 +55,7 @@ include "layout/Menu.php";
                         <div class="col-12">
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img4->blb_type . ';base64,' . (base64_encode($img4->blb_data)); ?>"
+                                     src="<?= base_url('assets/img/loader.gif'); ?>"
                                      alt="<?= $img4->blb_judul; ?>">
                             </div>
                         </div>
@@ -60,6 +64,7 @@ include "layout/Menu.php";
                         <div class="col-12">
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img5->blb_type . ';base64,' . (base64_encode($img5->blb_data)); ?>"
+                                     src="<?= base_url('assets/img/loader.gif'); ?>"
                                      alt="<?= $img5->blb_judul; ?>">
                             </div>
                         </div>
