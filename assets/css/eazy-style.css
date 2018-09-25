@@ -882,7 +882,7 @@ img.c-img-cart {
 p.c-cart-productname{
     color: #666;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    /*font-size: 18px;*/
     margin: 0px;
 
 }
@@ -1424,6 +1424,14 @@ a.c-modal-clr:hover {
 
 }​
 
+
+ .c-kon-font {
+     font-size: 0.97rem;
+ }
+
+.c-kon-font th, span {
+    font-size: 0.97rem;
+}
 
 
 

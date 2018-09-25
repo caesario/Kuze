@@ -95,17 +95,17 @@ include "layout/Menu.php";
         <div class="col-md-8 col-12 c-margin-auto mt-4 small">
             <div class="c-cart-total col-lg-6 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
                 <h5 class="c-title-cart-total">Promo</h5>
-                <table class="table table-bordered">
+                <table class="table table-bordered c-kon-font">
                     <tbody>
                     <tr>
-                        <th class="c-table-cart-total p-1 pl-4">Coupon</th>
+                        <th class="c-table-cart-total p-1 pl-4 font-weight-normal">Coupon</th>
                         <td>
                             <span class="c-price-cart-3 pl-3"><?= isset($promo->promo_nama) ? $promo->promo_nama : '-'; ?></span>
                         </td>
                     </tr>
                     <tr>
                     <tr>
-                        <th class="p-1 pl-4">Note</th>
+                        <th class="p-1 pl-4 font-weight-normal">Note</th>
                         <td>
                             <span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo->promo_ket) ? $promo->promo_ket : '-'; ?></span>
                         </td>
@@ -113,31 +113,31 @@ include "layout/Menu.php";
                     </tbody>
                 </table>
                 <h5 class="c-title-cart-total">Shopping Summary</h5>
-                <table class="table table-bordered">
+                <table class="table table-bordered c-kon-font">
                     <tbody>
                     <tr>
-                        <th class="c-table-cart-total p-1 pl-4">Total Price</th>
+                        <th class="c-table-cart-total p-1 pl-4 font-weight-normal">Total Price</th>
                         <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $biaya_subtotal; ?></span></td>
                     </tr>
                     <tr>
-                        <th class="p-1 pl-4">Disc. Total Price (-)</th>
+                        <th class="p-1 pl-4 font-weight-normal">Disc. Total Price (-)</th>
                         <td><span id="rupiah"
                                   class="c-price-cart-3 pl-3 text-danger"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span>
                         </td>
                     </tr>
                     <tr>
-                        <th class="p-1 pl-4">Shipping Charges</th>
+                        <th class="p-1 pl-4 font-weight-normal">Shipping Charges</th>
                         <td><span id="rupiah"
                                   class="c-price-cart-3 pl-3"><?= isset($biaya_pengiriman) ? $biaya_pengiriman : '-'; ?></span>
                         </td>
                     </tr>
                     <tr>
-                        <th nowrap class="p-1 pl-4 pr-4">Disc. Shipping Charges</th>
+                        <th nowrap class="p-1 pl-4 pr-4 font-weight-normal">Disc. Shipping Charges</th>
                         <td><span class="c-price-cart-3 pl-3">-</span></td>
                     </tr>
 
                     <tr>
-                        <th class="p-1 pl-4">Grand Total</th>
+                        <th class="p-1 pl-4 font-weight-normal">Grand Total</th>
                         <td><span id="rupiah"
                                   class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
                     </tr>
