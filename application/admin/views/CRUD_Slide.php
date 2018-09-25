@@ -86,13 +86,13 @@
                 size: 'original'
             }).then(function (response) {
                 var aktif = $('#aktif'),
-                    caption = $('#caption'),
-                    foto = response;
+                    caption = $('#caption');
+                console.log(response);
                 var fd = new FormData();
                 fd.append('ecommerce_eazy', '<?= $this->security->get_csrf_hash(); ?>');
-                fd.append('foto', foto);
-                fd.append('caption', caption);
-                fd.append('aktif', aktif);
+                fd.append('foto', response);
+                // fd.append('caption', caption);
+                // fd.append('aktif', aktif);
 
                 $.ajax({
                     url: "<?= site_url('slide/simpan'); ?>",
@@ -100,8 +100,9 @@
                     data: fd,
                     processData: false,
                     contentType: false,
+                    cache: false,
                     success: function (data) {
-                        window.location.reload();
+                        console.log(data);
                     },
                     error: function (data) {
                         console.log(data.responseText);
