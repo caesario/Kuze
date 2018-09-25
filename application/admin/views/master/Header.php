@@ -71,7 +71,6 @@
     <script src="<?= base_url('assets/vendor/jquery-ellipsis/jquery.ellipsis.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/wnumb/wNumb.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/croppie/croppie.min.js'); ?>"></script>
-    <script src="<?= base_url('node_modules/cropit/dist/jquery.cropit.js'); ?>"></script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=omulajpwx33earwq4t3xfgo7zbqaoey3a7cd3zipl90xlzbu"></script>
 
     <!-- Main File-->
