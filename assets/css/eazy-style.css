@@ -870,8 +870,8 @@ th {
 }
 img.c-img-cart {
     width: 150px;
-    height: 200px;
-    margin: 0px 10px 0px 20px;
+    /*height: 200px;*/
+    /*margin: 0px 10px 0px 20px;*/
 }
 .c-table-line-height{
     /*line-height: 190px;*/
@@ -924,6 +924,13 @@ p.c-cart-productname:hover a {
 .c-cart-total th {
     letter-spacing: .04em;
 }
+
+@media only screen and (max-width: 500px) {
+    .c-cart-total th {
+        letter-spacing: 0;
+    }
+}
+
 h5.c-title-cart-total {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -931,7 +938,7 @@ h5.c-title-cart-total {
     letter-spacing: .5px;
     font-style: normal;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 a.btn-kupon {

@@ -88,9 +88,9 @@ include "layout/Menu.php";
                         Checkout
                     </button>
                 </form>
-
-
             </div>
+        </div>
+    </div>
 
 
     <script>
