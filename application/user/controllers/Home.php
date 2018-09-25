@@ -95,11 +95,15 @@ class Home extends MY_Controller
 
     public function get_billboard()
     {
-        $hasil['img1'] = $this->billboard->get(1);
-        $hasil['img2'] = $this->billboard->get(2);
-        $hasil['img3'] = $this->billboard->get(3);
-        $hasil['img4'] = $this->billboard->get(4);
-        $hasil['img5'] = $this->billboard->get(5);
+        $hasil = array();
+        for ($i = 1; $i <= 5; $i++) {
+            $tmp = $this->billboard->get($i);
+            $hasil[$i]['id'] = $tmp->blb_id;
+            $hasil[$i]['alt'] = $tmp->blb_judul;
+            $hasil[$i]['url'] = $tmp->blb_url;
+            $hasil[$i]['ket'] = $tmp->blb_ket;
+            $hasil[$i]['src'] = "data:" . $tmp->blb_type . ";base64," . (base64_encode($tmp->blb_data));
+        }
 
         echo json_encode($hasil);
     }

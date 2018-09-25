@@ -14,66 +14,54 @@ include "layout/Menu.php";
     <div ng-app="kuze" ng-controller="homeController">
         <div class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
-                <?php if ($rand_image): ?>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <?php if (isset($img1)): ?>
-                            <div class="col-12">
-                                <div class="content-wrapper">
-                                    <img data-src="data:<?= $img1->blb_type . ';base64,' . (base64_encode($img1->blb_data)); ?>"
-                                         src="<?= base_url('assets/img/loader.gif'); ?>"
-                                         alt="<?= $img1->blb_judul; ?>">
-                                </div>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img id="{{ img1['id'] }}"
+                                     src="{{ img1['src'] }}"
+                                     alt="{{ img1['alt'] }}">
                             </div>
-                        <?php endif; ?>
-                        <?php if (isset($img2)): ?>
-                            <div class="col-12">
-                                <div class="content-wrapper">
-                                    <img data-src="data:<?= $img2->blb_type . ';base64,' . (base64_encode($img2->blb_data)); ?>"
-                                         src="<?= base_url('assets/img/loader.gif'); ?>"
-                                         alt="<?= $img2->blb_judul; ?>">
-                                </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img id="{{ img2['id'] }}"
+                                     src="{{ img2['src'] }}"
+                                     alt="{{ img2['alt'] }}">
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <?php if (isset($img3)): ?>
-                            <div class="col-12">
-                                <div class="content-wrapper">
-                                    <img data-src="data:<?= $img3->blb_type . ';base64,' . (base64_encode($img3->blb_data)); ?>"
-                                         src="<?= base_url('assets/img/loader.gif'); ?>"
-                                         alt="<?= $img3->blb_judul; ?>" style="height: 104%;">
-                                </div>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img id="{{ img3['id'] }}"
+                                     src="{{ img3['src'] }}"
+                                     alt="{{ img3['alt'] }}" style="height: 104%;">
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <?php if (isset($img4)): ?>
-                            <div class="col-12">
-                                <div class="content-wrapper">
-                                    <img data-src="data:<?= $img4->blb_type . ';base64,' . (base64_encode($img4->blb_data)); ?>"
-                                         src="<?= base_url('assets/img/loader.gif'); ?>"
-                                         alt="<?= $img4->blb_judul; ?>">
-                                </div>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img id="{{ img4['id'] }}"
+                                     src="{{ img4['src'] }}"
+                                     alt="{{ img4['alt'] }}">
                             </div>
-                        <?php endif; ?>
-                        <?php if (isset($img5)): ?>
-                            <div class="col-12">
-                                <div class="content-wrapper">
-                                    <img data-src="data:<?= $img5->blb_type . ';base64,' . (base64_encode($img5->blb_data)); ?>"
-                                         src="<?= base_url('assets/img/loader.gif'); ?>"
-                                         alt="<?= $img5->blb_judul; ?>">
-                                </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="content-wrapper">
+                                <img id="{{ img5['id'] }}"
+                                     src="{{ img5['src'] }}"
+                                     alt="{{ img5['alt'] }}">
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
         </div>
 
         <!-- End Slide Show -->
@@ -401,16 +389,12 @@ include "layout/Menu.php";
             };
 
             $http.get("/home/get_billboard").then(function (response) {
-                $scope.img1 = response.data.img1;
-                $scope.img1.src = "data:" + response.data.img1.ii_type + ";base64," + $base64.encode(response.data.img1.ii_data);
-                $scope.img2 = response.data.img2;
-                $scope.img2.src = "data:" + response.data.img2.ii_type + ";base64," + $base64.encode(response.data.img2.ii_data);
-                $scope.img3 = response.data.img3;
-                $scope.img3.src = "data:" + response.data.img3.ii_type + ";base64," + $base64.encode(response.data.img3.ii_data);
-                $scope.img4 = response.data.img4;
-                $scope.img4.src = "data:" + response.data.img4.ii_type + ";base64," + $base64.encode(response.data.img4.ii_data);
-                $scope.img5 = response.data.img5;
-                $scope.img5.src = "data:" + response.data.img5.ii_type + ";base64," + $base64.encode(response.data.img5.ii_data);
+                console.log(response);
+                $scope.img1 = response.data[1];
+                $scope.img2 = response.data[2];
+                $scope.img3 = response.data[3];
+                $scope.img4 = response.data[4];
+                $scope.img5 = response.data[5];
             });
 
         });
