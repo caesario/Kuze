@@ -47,12 +47,9 @@ class Print_pdf extends MY_Controller
             $hasil->kecamatan = $this->kecamatan
                 ->where('kecamatan_id', $order_pengiriman->orders_pengiriman_kecamatan)
                 ->get()->kecamatan_nama;
-            $hasil->desa = $this->desa
-                ->where('desa_id', $order_pengiriman->orders_pengiriman_desa)
-                ->get()->desa_nama;
 
 
-            return $order_pengiriman->orders_pengiriman_deskripsi . ', ' . $hasil->desa . ', ' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
+            return $order_pengiriman->orders_pengiriman_deskripsi . ', ' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
                 $hasil->provinsi . ', ' . $order_pengiriman->orders_pengiriman_kodepos;
 
         };
