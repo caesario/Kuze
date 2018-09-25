@@ -47,9 +47,7 @@ include "layout/Menu.php";
 
 
     <!-- ======= Detail Bag ======= -->
-
     <div class="container-fluid c-padding-header">
-
         <table class="table table-responsive-md table-bordered c-table-vertical">
             <tr>
                 <th class="c-table-thumbnail"></th>
@@ -65,8 +63,7 @@ include "layout/Menu.php";
             <?php if ($cart_s != NULL): ?>
                 <?php foreach ($cart_s as $cart): ?>
                     <tr>
-
-                        <td>
+                        <td class="text-center">
                             <?php if ($item_detil($cart->item_detil_kode)->item->i_kode): ?>
                                 <?php $item_kode = $item_detil($cart->item_detil_kode)->item->i_kode; ?>
                                 <?php if ($item_img($item_kode) != NULL): ?>
@@ -113,10 +110,11 @@ include "layout/Menu.php";
     </div>
 
 
+    <!-- ======= Total Bag ======= -->
     <div class="container-fluid c-padding-header c-margin-cart-total">
-        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
+        <div class="c-cart-total col-lg-5 col-md-7 col-sm-10 px-0 px-sm-3 float-right">
+            <!-- ======= Promo Code ======= -->
             <h5 class="c-title-cart-total">Promo Code</h5>
-
             <div class="input-group mb-3">
                 <input name="kode_promo" id="kode_promo" type="text" class="form-control" placeholder="Enter Promo Code"
                        aria-label="Masukan Kode Voucher">
@@ -130,20 +128,13 @@ include "layout/Menu.php";
                     window.location.href = '/bag/promo/' + kode_promo;
                 });
             </script>
-        </div>
-    </div>
-    <br>
-
-
-    <!-- ======= Total Bag ======= -->
-    <div class="container-fluid c-padding-header c-margin-cart-total">
-
-        <div class="c-cart-total col-lg-5 col-md-6 col-sm-7 px-0 px-sm-3 float-right">
+            <br>
+            <!-- ======= Promo ======= -->
             <h5 class="c-title-cart-total">Promo</h5>
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th class="c-table-cart-total p-1 pl-4">Coupon</th>
+                    <th class="p-1 pl-4">Coupon</th>
                     <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
                 </tr>
                 <tr>
@@ -155,6 +146,7 @@ include "layout/Menu.php";
                 </tbody>
             </table>
             <br>
+            <!-- ======= Summary ======= -->
             <h5 class="c-title-cart-total">Shopping Summary</h5>
             <table class="table table-bordered">
                 <tbody>
