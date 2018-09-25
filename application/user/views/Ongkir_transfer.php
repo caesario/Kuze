@@ -66,11 +66,15 @@ include "layout/Menu.php";
                                 <?php $name = $bank->bank_penerbit . ' (A/N: ' . $bank->bank_nama . ') (Nomor Rek: ' . $bank->bank_rek . ')'; ?>
                                 <div class="form-check">
 
-                                    <input class="form-check-input" type="radio"
+                                    <input id="bank-<?= $bank->bank_kode; ?>"
+                                           onchange="bank_change($(this))"
+                                           class="form-check-input"
+                                           type="radio"
                                            data-id="<?= $bank->bank_kode; ?>"
-                                           name="bank" id="bank"
+                                           name="bank"
                                            value="1" required>
-                                    <label class="form-check-label" for="bank"><?= $name; ?></label>
+                                    <label class="form-check-label"
+                                           for="bank-<?= $bank->bank_kode; ?>"><?= $name; ?></label>
 
                                 </div>
                             <?php endforeach; ?>
@@ -95,11 +99,10 @@ include "layout/Menu.php";
 
     <script>
         function ongkir(prepare) {
-            var data = prepare;
-            var deskripsi = data.attr('data-deskripsi');
-            var biaya = data.attr('data-biaya');
-            var estimasi = data.attr('data-estimasi');
-            var nama = data.attr('data-nama');
+            var deskripsi = prepare.attr('data-deskripsi');
+            var biaya = prepare.attr('data-biaya');
+            var estimasi = prepare.attr('data-estimasi');
+            var nama = prepare.attr('data-nama');
 
             $.when(
                 $('#nama').val(nama),
@@ -107,15 +110,16 @@ include "layout/Menu.php";
                 $('#biaya').val(biaya),
                 $('#estimasi').val(estimasi)
             )
+        };
+
+        function bank_change(prepare) {
+            var bank_id = prepare.attr('data-id');
+
+            $.when(
+                $('#bank_id').val(bank_id)
+            )
         }
 
-        $('[id="bank"]').change(function () {
-            var data = $(this);
-            var id = data.attr('data-id');
-            $.when(
-                $('#bank_id').val(id)
-            );
-        });
     </script>
 <?php
 include "layout/Footer.php";

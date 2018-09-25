@@ -138,11 +138,6 @@
                                                            href="<?= site_url('print_pdf/slip_pengiriman/' . $order->orders_noid); ?>"
                                                         ><i class="far fa-file-alt mr-2"></i>Slip Pengiriman
                                                         </a>
-                                                        <a class="dropdown-item" data-toggle="modal" href="#"
-                                                           onclick="print_invoice($(this))" data-target="#crud"
-                                                           data-id="<?= $order->orders_noid; ?>"><i
-                                                                    class="far fa-file-alt mr-2"></i>Invoice
-                                                        </a>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
