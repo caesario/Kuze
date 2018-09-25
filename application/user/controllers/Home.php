@@ -10,100 +10,100 @@ class Home extends MY_Controller
 
     public function index()
     {
-//        if (!$this->cache->get('home_index')) {
-//            $this->data->event = $this->event->limit(3)->get_all();
-//            $this->data->img1 = $this->billboard->get(1);
-//            $this->data->img2 = $this->billboard->get(2);
-//            $this->data->img3 = $this->billboard->get(3);
-//            $this->data->img4 = $this->billboard->get(4);
-//            $this->data->img5 = $this->billboard->get(5);
-//            $this->data->terbaru_items = function () {
-//                return $this->item
-//                    ->with_item_detil()
-//                    ->order_by('created_at')
-//                    ->limit(8)
-//                    ->get_all();
-//            };
-//
-//            $this->data->best_sellers = function () {
-//                return $this->item->where_i_best('1')
-//                    ->with_item_detil()
-//                    ->order_by('created_at', 'DESC')
-//                    ->limit(8)
-//                    ->get_all();
-//            };
-//
-//            $this->data->new_arrivals = function () {
-//                return $this->item->where_i_new('1')
-//                    ->with_item_detil()
-//                    ->order_by('created_at', 'DESC')
-//                    ->limit(8)
-//                    ->get_all();
-//            };
-//
-//            $this->data->sale_items = function () {
-//                return $this->item->where_i_sale('1')
-//                    ->with_item_detil()
-//                    ->order_by('created_at', 'DESC')
-//                    ->limit(8)
-//                    ->get_all();
-//            };
-//
-//            $this->data->rand_image = $this->item_img->select_random();
-//
-//            $this->data->img_promos = $this->slide_promo->get_all();
-//
-//
-//            // Save into the cache for 5 minutes
-//            $this->cache->save('home_index', $this->data, 300);
-//            $this->load->view('Home', $this->data);
-//        } else {
-//            $this->load->view('Home', $this->cache->get('home_index'));
-//        }
 
         $this->data->event = $this->event->limit(3)->get_all();
-        $this->data->img1 = $this->billboard->get(1);
-        $this->data->img2 = $this->billboard->get(2);
-        $this->data->img3 = $this->billboard->get(3);
-        $this->data->img4 = $this->billboard->get(4);
-        $this->data->img5 = $this->billboard->get(5);
-        $this->data->terbaru_items = function () {
-            return $this->item
-                ->with_item_detil()
-                ->order_by('created_at')
-                ->limit(8)
-                ->get_all();
-        };
-
-        $this->data->best_sellers = function () {
-            return $this->item->where_i_best('1')
-                ->with_item_detil()
-                ->order_by('created_at', 'DESC')
-                ->limit(8)
-                ->get_all();
-        };
-
-        $this->data->new_arrivals = function () {
-            return $this->item->where_i_new('1')
-                ->with_item_detil()
-                ->order_by('created_at', 'DESC')
-                ->limit(8)
-                ->get_all();
-        };
-
-        $this->data->sale_items = function () {
-            return $this->item->where_i_sale('1')
-                ->with_item_detil()
-                ->order_by('created_at', 'DESC')
-                ->limit(8)
-                ->get_all();
-        };
+//        $this->data->img1 = $this->billboard->get(1);
+//        $this->data->img2 = $this->billboard->get(2);
+//        $this->data->img3 = $this->billboard->get(3);
+//        $this->data->img4 = $this->billboard->get(4);
+//        $this->data->img5 = $this->billboard->get(5);
+//        $this->data->terbaru_items = function () {
+//            return $this->item
+//                ->with_item_detil()
+//                ->order_by('created_at')
+//                ->limit(8)
+//                ->get_all();
+//        };
+//
+//        $this->data->best_sellers = function () {
+//            return $this->item->where_i_best('1')
+//                ->with_item_detil()
+//                ->order_by('created_at', 'DESC')
+//                ->limit(8)
+//                ->get_all();
+//        };
+//
+//        $this->data->new_arrivals = function () {
+//            return $this->item->where_i_new('1')
+//                ->with_item_detil()
+//                ->order_by('created_at', 'DESC')
+//                ->limit(8)
+//                ->get_all();
+//        };
+//
+//        $this->data->sale_items = function () {
+//            return $this->item->where_i_sale('1')
+//                ->with_item_detil()
+//                ->order_by('created_at', 'DESC')
+//                ->limit(8)
+//                ->get_all();
+//        };
 
         $this->data->rand_image = $this->item_img->select_random();
         $this->data->img_promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
         $this->load->view('Home', $this->data);
 
     }
+
+    public function best_seller()
+    {
+        $hasil = $this->item->where_i_best('1')
+            ->order_by('created_at', 'DESC')
+            ->limit(8)
+            ->get_all();
+        echo json_encode($hasil);
+    }
+
+    public function new_arrival()
+    {
+        $hasil = $this->item->where_i_new('1')
+            ->order_by('created_at', 'DESC')
+            ->limit(8)
+            ->get_all();
+
+        echo json_encode($hasil);
+    }
+
+    public function sale_item()
+    {
+        $hasil = $this->item->where_i_sale('1')
+            ->order_by('created_at', 'DESC')
+            ->limit(8)
+            ->get_all();
+
+        echo json_encode($hasil);
+    }
+
+    public function get_image($i_kode)
+    {
+        $hasil = $this->item_img
+            ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
+            ->get();
+
+        echo json_encode($hasil);
+    }
+
+    public function get_billboard()
+    {
+        $hasil['img1'] = $this->billboard->get(1);
+        $hasil['img2'] = $this->billboard->get(2);
+        $hasil['img3'] = $this->billboard->get(3);
+        $hasil['img4'] = $this->billboard->get(4);
+        $hasil['img5'] = $this->billboard->get(5);
+
+        echo json_encode($hasil);
+    }
+
 
     public function produkbaru()
     {
