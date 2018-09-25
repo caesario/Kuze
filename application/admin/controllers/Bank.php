@@ -129,16 +129,16 @@ class Bank extends MY_Controller
     public function hapus($id)
     {
 
-        $bank_hapus = $this->bank->where('bank_kode', $id)->delete();
         $order_payment = $this->order_payment->where('bank_kode', $id)->get();
-        if ($bank_hapus && !$order_payment) {
+        if (!$order_payment) {
+            $this->bank->where('bank_kode', $id)->delete();
             $this->data->berhasil = 'Data Bank berhasil dihapus';
             $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
             redirect('bank');
         } else {
             $this->data->gagal = 'Data Bank gagal dihapus';
-            $this->session->set_flashdata('berhasil', $this->data->gagal);
+            $this->session->set_flashdata('gagal', $this->data->gagal);
 
             redirect('bank');
         }
