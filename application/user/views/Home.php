@@ -43,7 +43,7 @@ include "layout/Menu.php";
                             <div class="content-wrapper">
                                 <img data-src="data:<?= $img3->blb_type . ';base64,' . (base64_encode($img3->blb_data)); ?>"
                                      src="<?= base_url('assets/img/loader.gif'); ?>"
-                                     alt="<?= $img3->blb_judul; ?>">
+                                     alt="<?= $img3->blb_judul; ?>" style="height: 104%;">
                             </div>
                         </div>
                     <?php endif; ?>
