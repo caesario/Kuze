@@ -50,47 +50,96 @@ class Home extends MY_Controller
 //        };
 
         $this->data->rand_image = $this->item_img->select_random();
-        $this->data->img_promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
         $this->load->view('Home', $this->data);
+
+    }
+
+    public function slide_promo()
+    {
+        $hasil = array();
+        $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
+        foreach ($promos as $k => $v) {
+            $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($v->slide_promo_data));
+            $hasil[$k]['caption'] = $v->slide_promo_caption;
+            $hasil[$k]['type'] = "image";
+
+        }
+
+        echo json_encode($hasil);
 
     }
 
     public function best_seller()
     {
-        $hasil = $this->item->where_i_best('1')
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_best('1')
             ->order_by('created_at', 'DESC')
             ->limit(8)
             ->get_all();
+
+        foreach ($data as $k => $v) {
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
         echo json_encode($hasil);
     }
 
     public function new_arrival()
     {
-        $hasil = $this->item->where_i_new('1')
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_new('1')
             ->order_by('created_at', 'DESC')
             ->limit(8)
             ->get_all();
+
+        foreach ($data as $k => $v) {
+
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
 
         echo json_encode($hasil);
     }
 
     public function sale_item()
     {
-        $hasil = $this->item->where_i_sale('1')
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_sale('1')
             ->order_by('created_at', 'DESC')
             ->limit(8)
             ->get_all();
 
+        foreach ($data as $k => $v) {
+
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
+
         echo json_encode($hasil);
     }
 
-    public function get_image($i_kode)
+    private function get_image($i_kode)
     {
-        $hasil = $this->item_img
+        $data = $this->item_img
             ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
             ->get();
 
-        echo json_encode($hasil);
+        if ($data != NULL) {
+            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($data->ii_data));
+        } else {
+            $hasil = base_url('assets/img/noimage.jpg');
+        }
+
+        return $hasil;
     }
 
     public function get_billboard()

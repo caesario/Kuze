@@ -3,30 +3,33 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 
-<?php if ($img_promos != NULL): ?>
-    <div class="fotorama mb-4" data-fit="cover" data-autoplay="true" data-width="100%" data-height="80%">
-        <?php foreach ($img_promos as $promo): ?>
-            <img src="data:<?= $promo->slide_promo_type . ';base64,' . (base64_encode($promo->slide_promo_data)); ?>"
-                 alt="<?= (string)$promo->slide_promo_caption; ?>">
-        <?php endforeach; ?>
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
     </div>
-<?php endif; ?>
+    <div class="fotorama mb-4" fotorama item="fotorama_items" data-fit="cover" data-autoplay="true" data-width="100%"
+         data-height="80%">
+    </div>
+
     <div ng-app="kuze" ng-controller="homeController">
         <div class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div class="col-12">
+                        <div ng-if="img1" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img1['id'] }}"
-                                     src="{{ img1['src'] }}"
+                                     ng-src="{{ img1['src'] }}"
                                      alt="{{ img1['alt'] }}">
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div ng-if="img2" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img2['id'] }}"
-                                     src="{{ img2['src'] }}"
+                                     ng-src="{{ img2['src'] }}"
                                      alt="{{ img2['alt'] }}">
                             </div>
                         </div>
@@ -34,10 +37,10 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div class="col-12">
+                        <div ng-if="img3" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img3['id'] }}"
-                                     src="{{ img3['src'] }}"
+                                     ng-src="{{ img3['src'] }}"
                                      alt="{{ img3['alt'] }}" style="height: 104%;">
                             </div>
                         </div>
@@ -45,17 +48,17 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div class="col-12">
+                        <div ng-if="img4" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img4['id'] }}"
-                                     src="{{ img4['src'] }}"
+                                     ng-src="{{ img4['src'] }}"
                                      alt="{{ img4['alt'] }}">
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div ng-if="img5" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img5['id'] }}"
-                                     src="{{ img5['src'] }}"
+                                     ng-src="{{ img5['src'] }}"
                                      alt="{{ img5['alt'] }}">
                             </div>
                         </div>
@@ -72,7 +75,14 @@ include "layout/Menu.php";
             <h2 class="">New Arrival</h2>
             <span class="text-muted c-sub-cons">New Arrival This Week</span>
         </div>
-        <div class="container-fluid c-padding-header">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div ng-if="new_arrivals" class="container-fluid c-padding-header">
             <div class="row">
                 <div ng-repeat="new_arrival in new_arrivals" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
@@ -86,13 +96,13 @@ include "layout/Menu.php";
                             <img id="{{new_arrival.i_kode}}"
                                  onmouseover="img_hover($(this))"
                                  onmouseleave="img_off($(this))"
-                                 src="<?= base_url('assets/img/loader.gif'); ?>"
+                                 ng-src="{{ new_arrival.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title">{{new_arrival.i_nama}}</h5>
+                                <h5 class="card-title c-both c-title" ng-bind="new_arrival.i_nama"></h5>
 
-                                <h5 id="rupiah" class="c-price">{{new_arrival.i_hrg}}</h5>
+                                <h5 class="c-price" ng-bind="new_arrival.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil"
                                    class="btn btn-csr c-cart c-cart-p">
                                     <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
@@ -116,10 +126,15 @@ include "layout/Menu.php";
             <h2 class="">Best Seller</h2>
             <span class="text-muted c-sub-cons">Best Seller on This Month</span>
         </div>
-
-        <div class="container-fluid c-padding-header">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div ng-if="best_sellers" class="container-fluid c-padding-header">
             <div class="row">
-
                 <div ng-repeat="best_seller in best_sellers" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="row">
@@ -132,13 +147,13 @@ include "layout/Menu.php";
                             <img id="{{best_seller.i_kode}}"
                                  onmouseover="img_hover($(this))"
                                  onmouseleave="img_off($(this))"
-                                 src="<?= base_url('assets/img/loader.gif'); ?>"
+                                 ng-src="{{ best_seller.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title">{{best_seller.i_nama}}</h5>
+                                <h5 class="card-title c-both c-title" ng-bind="best_seller.i_nama"></h5>
 
-                                <h5 id="rupiah" class="c-price">{{best_seller.i_hrg}}</h5>
+                                <h5 class="c-price" ng-bind="best_seller.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>best_seller/item/{{best_seller.i_url}}/detil"
                                    class="btn btn-csr c-cart c-cart-p">
                                     <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
@@ -166,7 +181,14 @@ include "layout/Menu.php";
             <span class="text-muted c-sub-cons">Sale Item This Month</span>
         </div>
 
-        <div class="container-fluid c-padding-header">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div ng-if="sale_items" class="container-fluid c-padding-header">
             <div class="row">
 
                 <div ng-repeat="sale_item in sale_items" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -181,13 +203,13 @@ include "layout/Menu.php";
                             <img id="{{sale_item.i_kode}}"
                                  onmouseover="img_hover($(this))"
                                  onmouseleave="img_off($(this))"
-                                 src="<?= base_url('assets/img/loader.gif'); ?>"
+                                 ng-src="{{ sale_item.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title">{{sale_item.i_nama}}</h5>
+                                <h5 class="card-title c-both c-title" ng-bind="sale_item.i_nama"></h5>
 
-                                <h5 id="rupiah" class="c-price">{{sale_item.i_hrg}}</h5>
+                                <h5 class="c-price" ng-bind="sale_item.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>sale_item/item/{{sale_item.i_url}}/detil"
                                    class="btn btn-csr c-cart c-cart-p">
                                     <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
@@ -206,34 +228,6 @@ include "layout/Menu.php";
         </div>
 
         <!-- ======= End Product Best Seller ======= -->
-
-
-        <!-- ======= Long Product ======= -->
-        <!--    <div class="containter-fluid c-padding-header c-margin-lon">-->
-        <!--        <div class="row">-->
-        <!--            <div class="col-md-4 col-sm-12">-->
-        <!--                <div class="content-wrapper">-->
-        <!--                    <img src="assets/img/lon1.jpg" alt="">-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--            <div class="col-md-4 col-sm-12">-->
-        <!--                <div class="content-wrapper">-->
-        <!--                    <img src="assets/img/lon1.jpg" alt="">-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--            <div class="col-md-4 col-sm-12">-->
-        <!--                <div class="content-wrapper">-->
-        <!--                    <img src="assets/img/lon3.jpg" alt="">-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--    </div>-->
-
-
-        <!--    <div class="container-fluid c-padding-header text-center c-text-cons">-->
-        <!--        <h3 class="">NEWS FROM BLOG</h3>-->
-        <!--        <span class="text-muted c-sub-cons">Fashion Trends We're Looking Forward</span>-->
-        <!--    </div>-->
 
     </div>
 
@@ -366,10 +360,10 @@ include "layout/Menu.php";
         });
     </script>
     <script src="<?= base_url('node_modules/angular/angular.min.js'); ?>"></script>
-    <script src="<?= base_url('node_modules/angular-base64/angular-base64.min.js'); ?>"></script>
+    <script src="<?= base_url('node_modules/angular-fotorama/angular-fotorama.js'); ?>"></script>
     <script>
-        var app = angular.module("kuze", ['base64']);
-        app.controller("homeController", function ($http, $scope, $base64) {
+        var app = angular.module("kuze", []);
+        app.controller("homeController", function ($http, $scope) {
             $http.get("/home/new_arrival").then(function (response) {
                 $scope.new_arrivals = response.data;
             });
@@ -382,21 +376,52 @@ include "layout/Menu.php";
                 $scope.sale_items = response.data;
             });
 
-            $scope.init_image = function (item_kode) {
-                return $http.get("/home/get_image/" + item_kode).then(function (response) {
-                    return response.data;
-                })
-            };
+            $http.get("/home/slide_promo").then(function (response) {
+                $scope.fotorama_items = response.data;
+            });
 
             $http.get("/home/get_billboard").then(function (response) {
-                console.log(response);
                 $scope.img1 = response.data[1];
                 $scope.img2 = response.data[2];
                 $scope.img3 = response.data[3];
                 $scope.img4 = response.data[4];
                 $scope.img5 = response.data[5];
             });
+        });
 
+        app.config(function ($httpProvider) {
+            $httpProvider.interceptors.push(function ($q) {
+                return {
+                    'request': function (config) {
+                        $('.spinner').show();
+                        return config;
+                    },
+
+                    'response': function (response) {
+                        $('.spinner').hide();
+                        return response;
+                    }
+                };
+            });
+        });
+
+        app.run(function ($rootScope) {
+            if ($rootScope.$last) {
+                $('.spinner').hide();
+            } else {
+                $('.spinner').show();
+            }
+
+        });
+
+        app.filter('rupiah', function () {
+            return function (val) {
+                while (/(\d+)(\d{3})/.test(val.toString())) {
+                    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + '.' + '$2');
+                }
+                var val = 'IDR ' + val;
+                return val;
+            };
         });
     </script>
 
