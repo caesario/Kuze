@@ -10,9 +10,10 @@ include "layout/Menu.php";
             <nav class="c-nav-breadcrumb c-bread-cart">
                 <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item " href="<?= site_url('cart'); ?>">Bag</a>
+                <a class="breadcrumb-item " href="<?= site_url('bag'); ?>">Bag</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('Alamat'); ?>">Address</a>
+                <a class="breadcrumb-item active-bread"
+                   href="<?= site_url('checkout/' . $this->uri->segment(2) . '/alamat_pengiriman'); ?>">Address</a>
             </nav>
         </div>
     </div>
