@@ -16,7 +16,8 @@ include "layout/Menu.php";
                    href="<?= site_url('checkout/' . $this->uri->segment(2) . '/alamat_pengiriman'); ?>">Address</a>
                 <i class="fa fa-arrow-right"></i>
                 <a class="breadcrumb-item active-bread"
-                   href="<?= site_url('checkout/' . $this->uri->segment(2) . '/ongkir_transfer'); ?>">Method</a>
+                   href="<?= site_url('checkout/' . $this->uri->segment(2) . '/ongkir_transfer'); ?>">Payment & Shipping
+                    Method</a>
             </nav>
         </div>
     </div>
