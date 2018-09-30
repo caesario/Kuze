@@ -85,11 +85,11 @@ class MY_Controller extends CI_Controller
         $this->callback();
         $this->load_pref();
 
-        $this->db->cache_on();
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
-        $this->output->set_header("Cache-Control: post-check=0, pre-check=0");
-        $this->output->set_header("Pragma: no-cache");
-        $this->output->cache(1000);
+//        $this->db->cache_on();
+//        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
+//        $this->output->set_header("Cache-Control: post-check=0, pre-check=0");
+//        $this->output->set_header("Pragma: no-cache");
+//        $this->output->cache(1000);
     }
 
 

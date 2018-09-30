@@ -37,7 +37,7 @@ class Item extends MY_Controller
         $this->data->title_page = 'Item';
 
         $this->data->total_item = $this->item->count_rows();
-        $this->data->items = $this->item->with_item_detil()->with_item_kategori()->get_all();
+        $this->data->items = $this->item->with_item_detil()->with_item_kategori()->order_by('created_at', 'DESC')->get_all();
         $this->data->warna = function ($ide_kode, $w_kode) {
             return $this->warna->fields('w_nama')->with_item_detil('where:item_detil_kode = \'' . $ide_kode . '\'')->where('w_kode', $w_kode)->get();
         };

@@ -250,17 +250,38 @@
             }
 
             // ------------------------------------------------------ //
+            // Format Rupiah
+            // ------------------------------------------------------ //
+            var moneyFormat = wNumb({
+                mark: ',',
+                decimals: 2,
+                thousand: '.',
+                prefix: 'Rp. ',
+                suffix: ''
+            });
+
+            // ------------------------------------------------------ //
             // Data table
             // ------------------------------------------------------ //
             $('#tables').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                },
+                "order": [[0, 'desc']],
+                "fnDrawCallback": function (oSettings) {
+                    $('div[id="rupiah"]').each(function (index) {
+                        var value = parseInt($(this).html()),
+                            hasil = moneyFormat.to(value);
+
+                        $(this).html(hasil);
+                    });
                 }
             });
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();
             });
+
 
             // ------------------------------------------------------ //
             // Remove after 5 second
@@ -272,26 +293,6 @@
                         $('[role="alert"]').remove();
                     }
                 }, 5000);
-            });
-
-            // ------------------------------------------------------ //
-            // Format Rupiah
-            // ------------------------------------------------------ //
-            var moneyFormat = wNumb({
-                mark: ',',
-                decimals: 2,
-                thousand: '.',
-                prefix: 'Rp. ',
-                suffix: ''
-            });
-
-            $(document).ready(function () {
-                $('div[id="rupiah"]').each(function (index) {
-                    var value = parseInt($(this).html()),
-                        hasil = moneyFormat.to(value);
-
-                    $(this).html(hasil);
-                })
             });
 
         </script>

@@ -43,7 +43,7 @@ class Order_m extends MY_Model
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
                                     LEFT JOIN orders_detil
                                     ON orders.orders_noid = orders_detil.orders_noid
-                                    GROUP BY orders.orders_noid;");
+                                    GROUP BY orders.orders_noid");
 
         return $query->result();
     }

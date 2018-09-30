@@ -170,14 +170,7 @@
             // ------------------------------------------------------ //
             // $('#tables').DataTable();
 
-            // ------------------------------------------------------ //
-            // Data table
-            // ------------------------------------------------------ //
-            $('#tables').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
-                }
-            });
+
 
             $(document).ready(function () {
                 $('[tooltip]').tooltip();
@@ -206,14 +199,23 @@
                 suffix: ''
             });
 
-            $(document).ready(function () {
-                $('div[id="rupiah"]').each(function (index) {
-                    var value = parseInt($(this).html()),
-                        hasil = moneyFormat.to(value);
+            // ------------------------------------------------------ //
+            // Data table
+            // ------------------------------------------------------ //
+            $('#tables').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
+                },
+                "fnDrawCallback": function (oSettings) {
+                    $('div[id="rupiah"]').each(function (index) {
+                        var value = parseInt($(this).html()),
+                            hasil = moneyFormat.to(value);
 
-                    $(this).html(hasil);
-                })
+                        $(this).html(hasil);
+                    });
+                }
             });
+
         </script>
     </section>
     <footer class="main-footer">

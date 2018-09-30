@@ -149,8 +149,9 @@
                                         <td scope="row"
                                             class="align-middle text-center"><?= $item->i_sale == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?>
                                         </td>
-                                        <td style="width: 10%;" scope="row" class="align-middle"
-                                            id="rupiah"><?= $item->i_hrg; ?></td>
+                                        <td style="width: 10%;" scope="row" class="align-middle">
+                                            <div id="rupiah"><?= $item->i_hrg; ?></div>
+                                        </td>
                                         <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
                                         <td>
                                             <?php if (isset($item->item_detil)): ?>
@@ -346,6 +347,19 @@
             //     $(this).closest('tr').nextUntil("tr:has(#child)").show();
             // });
 
+
+            // ------------------------------------------------------ //
+            // Format Rupiah
+            // ------------------------------------------------------ //
+            var moneyFormat = wNumb({
+                mark: ',',
+                decimals: 0,
+                thousand: '.',
+                prefix: 'IDR ',
+                suffix: ''
+            });
+
+
             // ------------------------------------------------------ //
             // Data table
             // ------------------------------------------------------ //
@@ -356,7 +370,15 @@
                 "columnDefs": [{
                     "targets": [0, 5],
                     "orderable": false
-                }]
+                }],
+                "fnDrawCallback": function (oSettings) {
+                    $('div[id="rupiah"]').each(function (index) {
+                        var value = parseInt($(this).html()),
+                            hasil = moneyFormat.to(value);
+
+                        $(this).html(hasil);
+                    });
+                }
             });
 
             // ------------------------------------------------------ //
@@ -378,25 +400,7 @@
                 }, 5000);
             });
 
-            // ------------------------------------------------------ //
-            // Format Rupiah
-            // ------------------------------------------------------ //
-            var moneyFormat = wNumb({
-                mark: ',',
-                decimals: 0,
-                thousand: '.',
-                prefix: 'IDR ',
-                suffix: ''
-            });
 
-            $(document).ready(function () {
-                $('td[id="rupiah"]').each(function (index) {
-                    var value = parseInt($(this).html()),
-                        hasil = moneyFormat.to(value);
-
-                    $(this).html(hasil);
-                })
-            });
 
             $('.table-responsive').on('show.bs.dropdown', function () {
                 $('.table-responsive').css("overflow", "inherit");
