@@ -3,8 +3,15 @@
 <head>
     <title>Order : #<?= $orders_noid; ?></title>
 </head>
+
+<style>
+    body {
+        font-size: 18px;
+    }
+</style>
+
 <body>
-<h2>#<?= $orders_noid; ?></h2>
+<h2 style="margin-bottom: 0px;">Alamat Pengiriman</h2>
 <hr>
 <table>
     <tr>
@@ -19,17 +26,16 @@
         <td height="30">Alamat</td>
         <td height="30"><?= $pengiriman(); ?></td>
     </tr>
+    <tr>
+        <td height="30">Jenis Pengiriman</td>
+        <td height="30"></td>
+    </tr>
 </table>
 <hr>
-<b><?= $brandname; ?></b><br><br>
+<b>KUZE.CO</b><br>
 <table>
     <tr>
-        <td width="100">E-mail</td>
-        <td>: <?= $email; ?><br></td>
-    </tr>
-    <tr>
-        <td>Whatsapp</td>
-        <td>: <?= $whatsapp; ?></td>
+        <td><?= $whatsapp; ?></td>
     </tr>
 </table>
 
