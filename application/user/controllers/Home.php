@@ -132,7 +132,7 @@ class Home extends MY_Controller
         $data = $this->item_img
             ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
             ->get();
-        $image = imagefromstring($data->ii_data);
+        $image = imagecreatefromstring($data->ii_data);
 
         ob_start();
         header('Content-Type: image/png');
