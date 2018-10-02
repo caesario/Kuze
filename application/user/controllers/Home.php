@@ -135,7 +135,6 @@ class Home extends MY_Controller
         $image = imagecreatefromstring($data->ii_data);
 
         ob_start();
-        header('Content-Type: image/png');
         imagepng($image);
         $contents = ob_get_contents();
         imagedestroy($image);
