@@ -132,9 +132,17 @@ class Home extends MY_Controller
         $data = $this->item_img
             ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
             ->get();
+        $image = imagefromstring($data->ii_data);
+
+        ob_start();
+        header('Content-Type: image/png');
+        imagepng($image);
+        $contents = ob_get_contents();
+        imagedestroy($image);
+        ob_end_clean();
 
         if ($data != NULL) {
-            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($data->ii_data));
+            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($contents));
         } else {
             $hasil = base_url('assets/img/noimage.jpg');
         }

@@ -94,8 +94,6 @@ include "layout/Menu.php";
 
                         <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil">
                             <img id="{{new_arrival.i_kode}}"
-                                 onmouseover="img_hover($(this))"
-                                 onmouseleave="img_off($(this))"
                                  ng-src="{{ new_arrival.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
@@ -145,8 +143,6 @@ include "layout/Menu.php";
 
                         <a href="<?= site_url(); ?>best_seller/item/{{best_seller.i_url}}/detil">
                             <img id="{{best_seller.i_kode}}"
-                                 onmouseover="img_hover($(this))"
-                                 onmouseleave="img_off($(this))"
                                  ng-src="{{ best_seller.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
@@ -201,8 +197,6 @@ include "layout/Menu.php";
 
                         <a href="<?= site_url(); ?>sale_item/item/{{sale_item.i_url}}/detil">
                             <img id="{{sale_item.i_kode}}"
-                                 onmouseover="img_hover($(this))"
-                                 onmouseleave="img_off($(this))"
                                  ng-src="{{ sale_item.i_img }}"
                                  class="img-fluid mx-auto d-block">
 
