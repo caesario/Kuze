@@ -65,7 +65,7 @@ include "layout/Menu.php";
                                     <i class="fa fa-star c-star"></i>
                                     <i class="fa fa-star c-star"></i>
                                     <i class="fa fa-star c-star"></i>-->
-                                    <h5 class="card-title c-both c-title"><?= $item->i_nama; ?></h5>
+                                    <h5 class="card-title c-both c-title font-weight-bold"><?= $item->i_nama; ?></h5>
                                     <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
 
                                     <a href="<?= site_url('sale_item/item/' . $item->i_url . '/detil'); ?>"
