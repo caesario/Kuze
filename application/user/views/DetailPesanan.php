@@ -181,7 +181,7 @@ include "layout/Menu.php";
                             </tbody>
                         </table>
                         <?php if ($orders->orders_status < 6): ?>
-                        YOU NEED TO FILL THE ADDRESS
+
                         <a href="<?= base_url() . 'order_status'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Kembali</a>
                         <?php elseif ($orders->orders_status == 6): ?>
                         <a href="<?= base_url() . 'order_history'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Kembali</a>
