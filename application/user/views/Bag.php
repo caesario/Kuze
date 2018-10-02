@@ -9,9 +9,9 @@ include "layout/Menu.php";
 
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
-                <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
+                <a class="breadcrumb-item" href="">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Bag</a>
+                <a class="breadcrumb-item active-bread" href="">Bag</a>
             </nav>
         </div>
     </div>

@@ -33,41 +33,59 @@ class Detil extends MY_Controller
         $pengiriman = function () use ($orders_noid) {
             $hasil = new stdClass();
             $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
-            $hasil->provinsi = $this->provinsi
-                ->where('provinsi_id', $order_pengiriman->orders_pengiriman_provinsi)
-                ->get()->provinsi_nama;
-            $hasil->kabupaten = $this->kabupaten
-                ->where('kabupaten_id', $order_pengiriman->orders_pengiriman_kabupaten)
-                ->get()->kabupaten_nama;
-            $hasil->kecamatan = $this->kecamatan
-                ->where('kecamatan_id', $order_pengiriman->orders_pengiriman_kecamatan)
-                ->get()->kecamatan_nama;
+            if ( $order_pengiriman == NULL) {
+                return 'YOU NEED TO FILL THE ADDRESS';
+            } else {
+                $hasil->provinsi = $this->provinsi
+                    ->where('provinsi_id', $order_pengiriman->orders_pengiriman_provinsi)
+                    ->get()->provinsi_nama;
+                $hasil->kabupaten = $this->kabupaten
+                    ->where('kabupaten_id', $order_pengiriman->orders_pengiriman_kabupaten)
+                    ->get()->kabupaten_nama;
+                $hasil->kecamatan = $this->kecamatan
+                    ->where('kecamatan_id', $order_pengiriman->orders_pengiriman_kecamatan)
+                    ->get()->kecamatan_nama;
 
 
-            return $order_pengiriman->orders_pengiriman_deskripsi . '<br>' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
-                $hasil->provinsi . ', ' . $order_pengiriman->orders_pengiriman_kodepos;
+                return $order_pengiriman->orders_pengiriman_deskripsi . '<br>' . $hasil->kecamatan . ', ' . $hasil->kabupaten . '<br>' .
+                    $hasil->provinsi . ', ' . $order_pengiriman->orders_pengiriman_kodepos;
+            }
+
 
         };
 
         $nama_nomor = function () use ($orders_noid) {
             $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
-            $hasil = new stdClass();
-            $hasil->nama = $order_pengiriman->orders_pengiriman_r_nama;
-            $hasil->kontak = $order_pengiriman->orders_pengiriman_r_kontak;
 
-            return $hasil->nama . '<br>' . $hasil->kontak;
+            if ( $order_pengiriman == NULL) {
+                return 'YOU NEED TO FILL THE ADDRESS';
+            } else {
+                $hasil = new stdClass();
+                $hasil->nama = $order_pengiriman->orders_pengiriman_r_nama;
+                $hasil->kontak = $order_pengiriman->orders_pengiriman_r_kontak;
+                return $hasil->nama . '<br>' . $hasil->kontak;
+            }
         };
 
         $jasa = function () use ($orders_noid) {
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
-
+            if ($ongkir == NULL) {
+                return 'YOU NEED TO FILL SHIPPING & PAYMENT METHOD';
+            } else {
             return $ongkir->orders_ongkir_nama . ' - ' . $ongkir->orders_ongkir_deskripsi . ' (' . $ongkir->orders_ongkir_estimasi . ' hari)';
+            }
         };
 
         $metode_pembayaran = function () use ($orders_noid) {
-            $pembayaran = $this->order_payment->with_bank()->where('orders_noid', $orders_noid)->get()->bank;
+            $pembayaran = $this->order_payment->with_bank()->where('orders_noid', $orders_noid)->get();
+            if ($pembayaran) {
+                $hasil = $pembayaran->bank->bank_penerbit . ' - (A/N: ' . $pembayaran->bank->bank_nama . ') (Nomor Rek: ' . $pembayaran->bank->bank_rek . ')';
 
-            return $pembayaran->bank_penerbit . ' - (A/N: ' . $pembayaran->bank_nama . ') (Nomor Rek: ' . $pembayaran->bank_rek . ')';
+            } else {
+                return 'YOU NEED TO FILL SHIPPING & PAYMENT METHOD';
+            }
+
+            return $hasil;
         };
 
         $biaya_subtotal = function () use ($orders_noid) {
@@ -81,7 +99,12 @@ class Detil extends MY_Controller
 
         $biaya_pengiriman = function () use ($orders_noid) {
             $ongkir = $this->order_ongkir->where('orders_noid', $orders_noid)->get();
-            return (int)$ongkir->orders_ongkir_biaya;
+            if ($ongkir == NULL ) {
+                return 0;
+            } else {
+                return (int)$ongkir->orders_ongkir_biaya;
+            }
+
         };
 
         if ($this->data->orders->orders_status == 7) {

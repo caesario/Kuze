@@ -84,10 +84,13 @@ include "layout/Menu.php";
                                             </div>
 
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle">
+
                                             <a class="btn c-login-btn c-edit"
                                                href="<?= site_url('order_status/' . $order->orders_noid . '/detil'); ?>"
-                                            role="button">Detail</a>
+                                               role="button">
+                                                Detail
+                                            </a>
                                             <?php if ($order->orders_status == 0): ?>
                                                 <a class="btn c-login-btn c-edit"
                                                    href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
@@ -106,6 +109,10 @@ include "layout/Menu.php";
                                             <?php else: ?>
                                                 <i></i>
                                             <?php endif; ?>
+                                            <a class="btn c-login-btn c-edit"
+                                               href="">
+                                                Invoice
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

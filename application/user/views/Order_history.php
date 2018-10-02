@@ -86,6 +86,7 @@ include "layout/Menu.php";
                                     </td>
 
                                     <td class="align-middle">
+
                                         <a class="btn c-login-btn c-edit"
                                            href="<?= site_url('order_history/' . $order->orders_noid . '/detil'); ?>"
                                            role="button">
