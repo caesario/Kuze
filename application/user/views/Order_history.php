@@ -49,72 +49,76 @@ include "layout/Menu.php";
                         <tbody>
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
-                                <tr>
-                                    <td class="align-middle">
-                                        <?= $order->orders_noid; ?>
-                                    </td>
-                                    <td class="align-middle">
-                                        <b>Date :</b><br>
-                                        <?= $order->created_at; ?>
-                                        <br>
-                                        <b>Total Price :</b><br>
-                                        <div id="rupiah"><?= $order->total; ?></div>
-                                        <br>
-                                        <b>Status :</b><br>
-                                        <?php if ($order->orders_status == 0): ?>
-                                            <div class="text-warning">YOU NEED TO FILL THE ADDRESS</div>
-                                        <?php elseif ($order->orders_status == 1): ?>
-                                            <div class="text-warning">YOU NEED TO FILL SHIPPING & PAYMENT METHOD</div>
-                                        <?php elseif ($order->orders_status == 2): ?>
-                                            <div class="text-success">YOU NEED TO CONFIRM YOUR PAYMENT</div>
-                                        <?php elseif ($order->orders_status == 3): ?>
-                                            <div class="text-success">ON PROCESS</div>
-                                        <?php elseif ($order->orders_status == 4): ?>
-                                            <div class="text-success">ON PROCESS</div>
-                                        <?php elseif ($order->orders_status == 5): ?>
-                                            <div class="text-success">ON PROCESS</div>
-                                        <?php elseif ($order->orders_status == 6): ?>
-                                            <div class="text-success">SUCCESS (Telah dikirim)</div>
-                                        <?php elseif ($order->orders_status == 7): ?>
-                                            <div class="text-danger">CANCEL</div>
-                                        <?php endif; ?>
-                                        <b>Description :</b><br>
-                                        <div class="text-danger">
-                                            <?= $order->orders_deskripsi; ?>
-                                        </div>
+                                    <?php if($order->orders_status == 6) : ?>
+                                        <tr>
+                                            <td class="align-middle">
+                                                <?= $order->orders_noid; ?>
+                                            </td>
+                                            <td class="align-middle">
+                                                <b class="c-order-info">Order Date :</b><br>
+                                                <?= $order->created_at; ?>
+                                                <br>
+                                                <b class="c-order-info">Price Total :</b><br>
+                                                <div id="rupiah"><?= $order->total; ?></div>
+                                                <br>
+                                                <b class="c-order-info">Status :</b><br>
+                                                <?php if ($order->orders_status == 0): ?>
+                                                    <div class="text-warning">YOU NEED TO FILL THE ADDRESS</div>
+                                                <?php elseif ($order->orders_status == 1): ?>
+                                                    <div class="text-warning">YOU NEED TO FILL SHIPPING & PAYMENT METHOD</div>
+                                                <?php elseif ($order->orders_status == 2): ?>
+                                                    <div class="text-success">YOU NEED TO CONFIRM YOUR PAYMENT</div>
+                                                <?php elseif ($order->orders_status == 3): ?>
+                                                    <div class="text-success">ON PROCESS</div>
+                                                <?php elseif ($order->orders_status == 4): ?>
+                                                    <div class="text-success">ON PROCESS</div>
+                                                <?php elseif ($order->orders_status == 5): ?>
+                                                    <div class="text-success">ON PROCESS</div>
+                                                <?php elseif ($order->orders_status == 6): ?>
+                                                    <div class="text-success">SUCCESS (Telah dikirim)</div>
+                                                <?php elseif ($order->orders_status == 7): ?>
+                                                    <div class="text-danger">CANCEL</div>
+                                                <?php endif; ?>
+                                                <b class="c-order-info">Description :</b><br>
+                                                <div class="text-danger">
+                                                    <?= $order->orders_deskripsi; ?>
+                                                </div>
 
-                                    </td>
+                                            </td>
+                                            <td class="align-middle">
 
-                                    <td class="align-middle">
-                                        <a class="btn c-login-btn c-edit"
-                                           href="<?= site_url('order_history/' . $order->orders_noid . '/detil'); ?>"
-                                           role="button">
-                                            Detail
-                                        </a>
-                                        <?php if ($order->orders_status == 0): ?>
-                                            <a class="btn c-login-btn c-edit"
-                                               href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Process
-                                            </a>
-                                        <?php elseif ($order->orders_status == 1): ?>
-                                            <a class="btn c-login-btn c-edit"
-                                               href="<?= site_url('checkout/' . $order->orders_noid . '/ongkir_transfer'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Process
-                                            </a>
-                                        <?php elseif ($order->orders_status == 2): ?>
-                                            <a class="btn c-login-btn c-edit"
-                                               href="<?= site_url('checkout/' . $order->orders_noid . '/konfirmasi_pembayaran'); ?>">
-                                                <i class="fas fa-sync mr-2"></i>Process
-                                            </a>
-                                        <?php else: ?>
-                                            <i></i>
-                                        <?php endif; ?>
-                                        <a class="btn c-login-btn c-edit"
-                                           href="">
-                                            Invoice
-                                        </a>
-                                    </td>
-                                </tr>
+                                                <a class="btn c-login-btn c-edit"
+                                                   href="<?= site_url('order_status/' . $order->orders_noid . '/detil'); ?>"
+                                                   role="button">
+                                                    Detail
+                                                </a>
+                                                <?php if ($order->orders_status == 0): ?>
+                                                    <a class="btn c-login-btn c-edit"
+                                                       href="<?= site_url('checkout/' . $order->orders_noid . '/alamat_pengiriman'); ?>">
+                                                        <i class="fas fa-sync mr-2"></i>Process
+                                                    </a>
+                                                <?php elseif ($order->orders_status == 1): ?>
+                                                    <a class="btn c-login-btn c-edit"
+                                                       href="<?= site_url('checkout/' . $order->orders_noid . '/ongkir_transfer'); ?>">
+                                                        <i class="fas fa-sync mr-2"></i>Process
+                                                    </a>
+                                                <?php elseif ($order->orders_status == 2): ?>
+                                                    <a class="btn c-login-btn c-edit"
+                                                       href="<?= site_url('checkout/' . $order->orders_noid . '/konfirmasi_pembayaran'); ?>">
+                                                        <i class="fas fa-sync mr-2"></i>Process
+                                                    </a>
+                                                <?php else: ?>
+                                                    <i></i>
+                                                <?php endif; ?>
+                                                <a class="btn c-login-btn c-edit"
+                                                   href="">
+                                                    Invoice
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php elseif($order->orders_status < 6 ): ?>
+                                        <tr></tr>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>
 

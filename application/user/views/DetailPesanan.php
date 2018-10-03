@@ -62,11 +62,12 @@ include "layout/Menu.php";
                         <?php endif; ?></p>
 
 
-                    <?php if ($orders->orders_status > 2): ?>
+                    <?php if ($orders->orders_status >= 0): ?>
                     <div class="row ml-3 mr-2 mt-2">
                         <div class="col-md-7 col-sm-12">
                             <div class="c-order-info">
                                 <p class="mb-1"><i class="fa fa-credit-card mr-2"></i><b>Recipient</b></p>
+                                <?php if ($orders->orders_status >= 0): ?>
                                 <p class="ml-5 mb-0"><?= $nama_nomor; ?></p>
                             </div>
                         </div>
@@ -93,7 +94,7 @@ include "layout/Menu.php";
                     </div>
                     <?php endif; ?>
                 </div>
-
+                    <?php endif; ?>
 
                 <div class="row mb-5">
                     <!-- ======= Detail Order Table ======= -->
@@ -179,7 +180,12 @@ include "layout/Menu.php";
                             </tr>
                             </tbody>
                         </table>
-                        <a href="<?= current_url() . '/order_status'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Kembali</a>
+                        <?php if ($orders->orders_status < 6): ?>
+
+                        <a href="<?= base_url() . 'order_status'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Kembali</a>
+                        <?php elseif ($orders->orders_status == 6): ?>
+                        <a href="<?= base_url() . 'order_history'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Kembali</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 </div>
