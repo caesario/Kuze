@@ -6,7 +6,7 @@ class Detil extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->session->set_flashdata('current_url', $this->uri->uri_string());
+        $this->session->set_userdata('current_url', $this->uri->uri_string());
         if (!$this->session->isonline) {
             redirect('login');
         }
