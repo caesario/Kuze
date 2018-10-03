@@ -32,7 +32,7 @@ include "layout/Menu.php";
                     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                     <input type="hidden" name="orders_noid" value="<?= $orders->orders_noid; ?>">
                     <input type="hidden" name="nomor_order" value="<?= $this->uri->segment(2); ?>">
-                    <h6>Shipping Method</h6>
+                    <h6>Shipping Method (Please Select One)</h6>
                     <?php foreach ($pengiriman as $k1): ?>
                         <?php $nama = $k1->name; ?>
                         <?php foreach ($k1->costs as $k2): ?>
@@ -62,7 +62,7 @@ include "layout/Menu.php";
                     <br>
 
 
-                    <h6>Payment Method</h6>
+                    <h6>Payment Method (Please Select One)</h6>
                     <?php if ($bank_opsi() === true): ?>
                         <?php if ($bank_s() != NULL): ?>
                             <?php foreach ($bank_s() as $bank): ?>

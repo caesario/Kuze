@@ -60,7 +60,7 @@ include "layout/Menu.php";
                                     </a>
                                 <?php endif; ?>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title c-both c-title"><?= $item->i_nama; ?></h5>
+                                    <h5 class="card-title c-both c-title font-weight-bold"><?= $item->i_nama; ?></h5>
                                     <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
 
                                     <a href="<?= site_url('new_arrival/item/' . $item->i_url . '/detil'); ?>"

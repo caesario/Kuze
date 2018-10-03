@@ -614,11 +614,14 @@ p.c-footer-copy{
     font-family: 'Poppins', sans-serif;
 }
 nav.c-nav-breadcrumb a{
+    pointer-events: none;
+}
+nav.c-nav-breadcrumb a{
     color: #878787;
     text-decoration: none;
 }
 nav.c-nav-breadcrumb a:hover{
-    color: #56cfe1;
+    color: #inherit;
 }
 nav.c-nav-breadcrumb i{
     margin: 0 15px 0 10px;
@@ -1432,6 +1435,8 @@ a.c-modal-clr:hover {
 .c-kon-font th, span {
     font-size: 0.97rem;
 }
+
+
 
 
 

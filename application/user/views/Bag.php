@@ -9,9 +9,9 @@ include "layout/Menu.php";
 
         <div class="c-breadcrumb text-center c-bread-padding">
             <nav class="c-nav-breadcrumb c-bread-cart">
-                <a class="breadcrumb-item " href="<?= site_url('/'); ?>">Home</a>
+                <a class="breadcrumb-item" href="">Home</a>
                 <i class="fa fa-arrow-right"></i>
-                <a class="breadcrumb-item active-bread" href="<?= site_url('cart'); ?>">Bag</a>
+                <a class="breadcrumb-item active-bread" href="">Bag</a>
             </nav>
         </div>
     </div>
@@ -156,21 +156,21 @@ include "layout/Menu.php";
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Disc. Total Price (-)</th>
-                    <td><span id="rupiah"
+                    <td class="text-right"><span id="rupiah"
                               class="c-price-cart-3 pl-3 text-center"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span></td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Shipping Charges</th>
-                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                    <td class="text-right"><span class="c-price-cart-3 pl-3">-</span></td>
                 </tr>
                 <tr>
                     <th nowrap class="p-1 pl-4 pr-4">Disc. Shipping Charges</th>
-                    <td><span class="c-price-cart-3 pl-3">-</span></td>
+                    <td class="text-right"><span class="c-price-cart-3 pl-3">-</span></td>
                 </tr>
 
                 <tr>
                     <th class="p-1 pl-4">Grand Total</th>
-                    <td><span id="rupiah"
+                    <td class="text-right"><span id="rupiah"
                               class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
                 </tr>
                 </tbody>

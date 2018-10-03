@@ -80,7 +80,7 @@ include "layout/Menu.php";
 
                                                 <div class="card-body text-center">
                                                     <h5 id="title"
-                                                        class="card-title c-both c-title"><?= $kat->item->i_nama; ?></h5>
+                                                        class="card-title c-both c-title font-weight-bold"><?= $kat->item->i_nama; ?></h5>
                                                     <h5 id="rupiah" class="c-price"><?= $kat->item->i_hrg; ?></h5>
                                                     <a href="<?= site_url('category/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>"
                                                        class="btn btn-csr c-cart c-cart-p">
@@ -117,7 +117,7 @@ include "layout/Menu.php";
                                             <?php endif; ?>
                                             <div class="card-body text-center">
                                                 <h5 id="title"
-                                                    class="card-title c-both c-title"><?= $item->i_nama; ?></h5>
+                                                    class="card-title c-both c-title font-weight-bold"><?= $item->i_nama; ?></h5>
                                                 <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
                                                 <a href="<?= site_url('category/all/item/' . $item->i_url . '/detil'); ?>"
                                                    class="btn btn-csr c-cart c-cart-p">
