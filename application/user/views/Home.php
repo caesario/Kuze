@@ -98,7 +98,7 @@ include "layout/Menu.php";
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title" ng-bind="new_arrival.i_nama"></h5>
+                                <h5 class="card-title c-both c-title font-weight-bold" ng-bind="new_arrival.i_nama"></h5>
 
                                 <h5 class="c-price" ng-bind="new_arrival.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil"
@@ -147,7 +147,7 @@ include "layout/Menu.php";
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title" ng-bind="best_seller.i_nama"></h5>
+                                <h5 class="card-title c-both c-title font-weight-bold" ng-bind="best_seller.i_nama"></h5>
 
                                 <h5 class="c-price" ng-bind="best_seller.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>best_seller/item/{{best_seller.i_url}}/detil"
@@ -201,7 +201,7 @@ include "layout/Menu.php";
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title" ng-bind="sale_item.i_nama"></h5>
+                                <h5 class="card-title c-both c-title font-weight-bold" ng-bind="sale_item.i_nama"></h5>
 
                                 <h5 class="c-price" ng-bind="sale_item.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>sale_item/item/{{sale_item.i_url}}/detil"
