@@ -80,6 +80,13 @@ class MY_Controller extends CI_Controller
             return $this->cart->with_item_detil()->where('pengguna_kode', $session_id)->get_all();
         };
 
+        if (isset($_SESSION['current_url'])) {
+            $this->data->current_url = $_SESSION['current_url'];
+        } else {
+            $this->data->current_url = 0;
+        }
+        var_dump($this->data->current_url);
+
         // cek user
         if (isset($_SESSION['id'])) {
             $user = $this->pengguna->where('pengguna_kode', $_SESSION['id'])->get();

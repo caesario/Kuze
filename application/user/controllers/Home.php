@@ -6,6 +6,7 @@ class Home extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->session->set_flashdata('current_url', $this->uri->uri_string());
     }
 
     public function index()
@@ -132,16 +133,16 @@ class Home extends MY_Controller
         $data = $this->item_img
             ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
             ->get();
-        $image = imagecreatefromstring($data->ii_data);
-
-        ob_start();
-        imagepng($image);
-        $contents = ob_get_contents();
-        imagedestroy($image);
-        ob_end_clean();
 
         if ($data != NULL) {
-            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($contents));
+            $image = new Imagick();
+            $image->readimageblob($data->ii_data);
+            $image->setImageCompressionQuality(80);
+
+//            $fisik = fopen('./upload/' . $data->ii_kode .'.png' ,"w");
+//            fwrite($fisik, $image->getimageblob());
+//            fclose($fisik);
+            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($image->getimageblob()));
         } else {
             $hasil = base_url('assets/img/noimage.jpg');
         }

@@ -136,7 +136,8 @@
                                                     <div class="dropdown-menu" aria-labelledby="opsi">
                                                         <a class="dropdown-item"
                                                            href="<?= site_url('print_pdf/slip_pengiriman/' . $order->orders_noid); ?>"
-                                                        ><i class="far fa-file-alt mr-2"></i>Slip Pengiriman
+                                                           target="_blank"><i class="far fa-file-alt mr-2"></i>Slip
+                                                            Pengiriman
                                                         </a>
                                                     </div>
                                                 </div>
@@ -167,6 +168,15 @@
                                                    data-backdrop="static" data-keyboard="false"
                                                    data-id="<?= $order->orders_noid; ?>">
                                                     Konfirmasi Pengiriman
+                                                </a>
+                                            <?php endif; ?>
+                                            <?php if ($order->orders_status == 6): ?>
+                                                <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                                   title="Lacak Pengiriman" href="#"
+                                                   onclick="lacak($(this))" data-target="#crud"
+                                                   data-backdrop="static" data-keyboard="false"
+                                                   data-id="<?= $order->orders_noid; ?>">
+                                                    Lacak Pengiriman
                                                 </a>
                                             <?php endif; ?>
                                             <?php if ($order->orders_status != 7 && $order->orders_status < 5): ?>

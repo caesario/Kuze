@@ -6,6 +6,7 @@ class Best_seller extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->session->set_flashdata('current_url', $this->uri->uri_string());
     }
 
     public function index()

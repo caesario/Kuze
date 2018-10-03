@@ -224,7 +224,11 @@ class Auth extends MY_Controller
                 $this->session->set_userdata($sessiondata);
 
 
-                redirect('/');
+                if ($this->data->current_url != 0) {
+                    redirect($this->data->current_url);
+                } else {
+                    redirect('/');
+                }
             } else {
                 $this->data->log = 'Incorrect username or password.';
                 $this->load->view('Login', $this->data);

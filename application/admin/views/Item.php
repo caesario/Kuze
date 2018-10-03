@@ -388,17 +388,17 @@
                 $('[tooltip]').tooltip();
             });
 
-            // ------------------------------------------------------ //
-            // Remove after 5 second
-            // ------------------------------------------------------ //
-
-            $(document).ready(function () {
-                setTimeout(function () {
-                    if ($('[role="alert"]').length > 0) {
-                        $('[role="alert"]').remove();
-                    }
-                }, 5000);
-            });
+            // // ------------------------------------------------------ //
+            // // Remove after 5 second
+            // // ------------------------------------------------------ //
+            //
+            // $(document).ready(function () {
+            //     setTimeout(function () {
+            //         if ($('[role="alert"]').length > 0) {
+            //             $('[role="alert"]').remove();
+            //         }
+            //     }, 5000);
+            // });
 
 
 

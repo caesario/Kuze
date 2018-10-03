@@ -1,3 +1,20 @@
+<div id="msg_body_success" style="display: none">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="msg_content_success"></div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+<div id="msg_body_fail" style="display: none">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="msg_content_fail"></div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
 <div class="row">
     <div class="col">
         <div class="form-group">
@@ -67,7 +84,15 @@
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                        window.location.reload();
+
+                        $('.msg_content_success').html('Gambar telah berhasil diupload');
+                        $('#msg_body_success').show();
+                        $('#viewimage').hide();
+                    },
+                    error: function () {
+                        $('.msg_content_fail').html('Gambar telah gagal diupload');
+                        $('#msg_body_fail').show();
+                        $('#viewimage').hide();
                     }
                 });
             })
