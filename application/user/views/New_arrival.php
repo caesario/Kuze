@@ -3,80 +3,72 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 
-    <!-- ======= Banner Kategori Pesanan ======= -->
-    <div class="wrapper-cart mb-0">
-        <h5 class="text-center c-title-cart">New Arrival</h5>
-        <div class="c-breadcrumb text-center c-bread-padding">
-            <p>
+    <div ng-app="kuze" ng-controller="NewArrivalController">
+        <!-- ======= Banner Kategori Pesanan ======= -->
+        <div class="wrapper-cart mb-0">
+            <h5 class="text-center c-title-cart">New Arrival</h5>
+            <div class="c-breadcrumb text-center c-bread-padding">
+                <p>
 
-            </p>
-        </div>
-    </div>
-
-    <!-- ======= Breadcrumb ======= -->
-    <div class="wrapper-bredcrumb">
-        <div class="container-flu c-padding-header">
-            <div class="c-breadcrumb">
-                <nav class="c-nav-breadcrumb">
-                    <a class="breadcrumb-item" href="<?= site_url('/'); ?>">Home</a>
-                    <i class="fa fa-arrow-right"></i>
-                    <span class="breadcrumb-item c-breadcrum-active"
-                          href="<?= $breadcumburl; ?>"><?= $breadcumb; ?></span>
-                </nav>
+                </p>
             </div>
         </div>
-    </div>
+
+        <!-- ======= Breadcrumb ======= -->
+        <div class="wrapper-bredcrumb">
+            <div class="container-flu c-padding-header">
+                <div class="c-breadcrumb">
+                    <nav class="c-nav-breadcrumb">
+                        <a class="breadcrumb-item" href="<?= site_url('/'); ?>">Home</a>
+                        <i class="fa fa-arrow-right"></i>
+                        <span class="breadcrumb-item c-breadcrum-active"
+                              href="<?= $breadcumburl; ?>"><?= $breadcumb; ?></span>
+                    </nav>
+                </div>
+            </div>
+        </div>
 
 
-    <!-- ======= Banner Kategori Pesanan ======= -->
-    <div class="container-fluid c-padding-header">
-        <div class="container-fluid c-padding-header mt-3">
+        <!-- ======= Banner Kategori Pesanan ======= -->
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div ng-if="new_arrivals" class="container-fluid c-padding-header">
             <div class="row">
-                <?php if (isset($items) && $items != NULL): ?>
-                    <?php foreach ($items as $item): ?>
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="c-ribbon c-ribbon2">
-                                        <span>New Arrival</span>
-                                    </div>
-                                </div>
-                                <?php if ($item_img($item->i_kode) != NULL): ?>
-
-                                    <a class="" href="<?= site_url('new_arrival/item/' . $item->i_url . '/detil'); ?>">
-                                        <img id="<?= $item->i_kode; ?>"
-                                             class="card-img-top"
-                                             data-src="data:<?= $item_img($item->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($item->i_kode)->ii_data)); ?>"
-                                             src="<?= base_url('assets/img/loader.gif'); ?>"
-                                             onmouseover="img_hover($(this))"
-                                             onmouseleave="img_off($(this))"
-                                             alt="<?= $item_img($item->i_kode)->ii_kode; ?>">
-                                    </a>
-                                <?php else: ?>
-                                    <a class="" href="<?= site_url('new_arrival/item/' . $item->i_url . '/detil'); ?>">
-                                        <img class="card-img-top"
-                                             src="<?= base_url('assets/img/noimage.jpg'); ?>"
-                                             alt="No Image">
-                                    </a>
-                                <?php endif; ?>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title c-both c-title font-weight-bold"><?= $item->i_nama; ?></h5>
-                                    <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
-
-                                    <a href="<?= site_url('new_arrival/item/' . $item->i_url . '/detil'); ?>"
-                                       class="btn btn-csr c-cart c-cart-p">
-                                        <i class="fa fa-plus c-cart-i mr-2"></i>
-                                        <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To
-                                            Bag</p>
-                                    </a>
-                                </div>
+                <div ng-repeat="new_arrival in new_arrivals" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="c-ribbon c-ribbon2">
+                                <span>New Arrival</span>
                             </div>
                         </div>
 
-                    <?php endforeach; ?>
-                <?php else: ?>
+                        <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil">
+                            <img id="{{new_arrival.i_kode}}"
+                                 ng-src="{{ new_arrival.i_img }}"
+                                 class="img-fluid mx-auto d-block">
 
-                <?php endif; ?>
+                            <div class="card-body text-center">
+                                <h5 class="card-title c-both c-title font-weight-bold"
+                                    ng-bind="new_arrival.i_nama"></h5>
+
+                                <h5 class="c-price" ng-bind="new_arrival.i_hrg | rupiah"></h5>
+                                <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil"
+                                   class="btn btn-csr c-cart c-cart-p">
+                                    <i class="fa fa-shopping-bag c-cart-i mr-2"></i>
+                                    <p class="d-inline-block m-0 font-weight-normal"
+                                       style="font-size:1rem;">Add
+                                        To Bag</p>
+                                </a>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -86,6 +78,51 @@ include "layout/Menu.php";
     <script>
         $(function () {
             $('img').Lazy();
+        });
+    </script>
+    <script src="<?= base_url('node_modules/angular/angular.min.js'); ?>"></script>
+    <script src="<?= base_url('node_modules/angular-fotorama/angular-fotorama.js'); ?>"></script>
+    <script>
+        var app = angular.module("kuze", []);
+        app.controller("NewArrivalController", function ($http, $scope) {
+            $http.get("/kategori/new_arrival").then(function (response) {
+                $scope.new_arrivals = response.data;
+            });
+        });
+
+        app.config(function ($httpProvider) {
+            $httpProvider.interceptors.push(function ($q) {
+                return {
+                    'request': function (config) {
+                        $('.spinner').show();
+                        return config;
+                    },
+
+                    'response': function (response) {
+                        $('.spinner').hide();
+                        return response;
+                    }
+                };
+            });
+        });
+
+        app.run(function ($rootScope) {
+            if ($rootScope.$last) {
+                $('.spinner').hide();
+            } else {
+                $('.spinner').show();
+            }
+
+        });
+
+        app.filter('rupiah', function () {
+            return function (val) {
+                while (/(\d+)(\d{3})/.test(val.toString())) {
+                    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + '.' + '$2');
+                }
+                var val = 'IDR ' + val;
+                return val;
+            };
         });
     </script>
 

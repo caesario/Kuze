@@ -6,7 +6,7 @@ class Kategori extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->session->set_userdata('current_url', $this->uri->uri_string());
+
     }
 
     public function index()
@@ -108,6 +108,61 @@ class Kategori extends MY_Controller
         $this->data->breadcumb = 'Sale Item';
         $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
         $this->load->view('Detil', $this->data);
+    }
+
+    public function best_seller()
+    {
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_best('1')
+            ->order_by('created_at', 'DESC')
+            ->get_all();
+
+        foreach ($data as $k => $v) {
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
+        echo json_encode($hasil);
+    }
+
+    public function new_arrival()
+    {
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_new('1')
+            ->order_by('created_at', 'DESC')
+            ->get_all();
+
+        foreach ($data as $k => $v) {
+
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
+
+        echo json_encode($hasil);
+    }
+
+    public function sale_item()
+    {
+        $hasil = array();
+        $data = $this->item->as_array()->where_i_sale('1')
+            ->order_by('created_at', 'DESC')
+            ->get_all();
+
+        foreach ($data as $k => $v) {
+
+            $hasil[$k]['i_kode'] = $v['i_kode'];
+            $hasil[$k]['i_url'] = $v['i_url'];
+            $hasil[$k]['i_nama'] = $v['i_nama'];
+            $hasil[$k]['i_hrg'] = $v['i_hrg'];
+            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+        }
+
+        echo json_encode($hasil);
     }
 
 }

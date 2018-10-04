@@ -162,4 +162,6 @@ class Kategori extends MY_Controller
         $this->data->members = $this->kategori->many_to_many_where($item);
         $this->load->view('Tabel_detil', $this->data);
     }
+
+
 }

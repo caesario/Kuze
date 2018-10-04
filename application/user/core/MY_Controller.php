@@ -80,12 +80,10 @@ class MY_Controller extends CI_Controller
             return $this->cart->with_item_detil()->where('pengguna_kode', $session_id)->get_all();
         };
 
-        if (isset($_SESSION['current_url'])) {
+        $this->session->set_userdata('current_url', $this->uri->uri_string());
+        if (isset($_SESSION['current_url']) && $this->uri->uri_string() != 'login') {
             $this->data->current_url = $_SESSION['current_url'];
-        } else {
-            $this->data->current_url = 0;
         }
-        var_dump($this->data->current_url);
 
         // cek user
         if (isset($_SESSION['id'])) {
@@ -295,6 +293,25 @@ class MY_Controller extends CI_Controller
             $this->data->bag_counter = $this->cart->select_count($_SESSION['id']);
         }
 
+    }
+
+    public function get_image($i_kode)
+    {
+        $data = $this->item_img
+            ->where(array('i_kode' => $i_kode))->order_by('created_at', 'DESC')
+            ->get();
+
+        if ($data != NULL) {
+            $image = new Imagick();
+            $image->readimageblob($data->ii_data);
+            $image->setImageCompressionQuality(80);
+
+            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($image->getimageblob()));
+        } else {
+            $hasil = base_url('assets/img/noimage.jpg');
+        }
+
+        return $hasil;
     }
 }
 

@@ -224,7 +224,7 @@ class Auth extends MY_Controller
                 $this->session->set_userdata($sessiondata);
 
 
-                if ($this->data->current_url != 0) {
+                if (isset($this->data->current_url)) {
                     redirect($this->data->current_url);
                 } else {
                     redirect('/');
@@ -244,6 +244,7 @@ class Auth extends MY_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('tipe');
         $this->session->unset_userdata('isonline');
+        $this->session->unset_userdata('current_url');
         redirect('/');
     }
 

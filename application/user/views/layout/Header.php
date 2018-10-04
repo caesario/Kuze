@@ -130,3 +130,4 @@
     <title><?= $brandname; ?></title>
 </head>
 <body>
+<?php var_dump($current_url); ?>
