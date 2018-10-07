@@ -19,7 +19,7 @@ class MY_Controller extends CI_Controller
         $this->load->library('session');
         $this->load->library('Layout');
 
-        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        $this->load->driver('cache', array('adapter' => 'memcached', 'backup' => 'file'));
 
         // load web config
         $this->load->config('weboptions');

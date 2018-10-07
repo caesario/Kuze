@@ -7,25 +7,36 @@ class Item extends CI_Controller
         parent::__construct();
         $this->load->model('Item_m', 'item');
         $this->load->model('Item_img_m', 'item_img');
+        $this->load->driver('cache', array('adapter' => 'memcached', 'backup' => 'file'));
     }
 
 
     public function best_seller()
     {
-        $hasil = array();
-        $data = $this->item->as_array()->where_i_best('1')
-            ->order_by('created_at', 'DESC')
-            ->limit(8)
-            ->get_all();
+        if (!$this->cache->get('best_seller')) {
+            echo 'Not Cached';
+            $hasil = array();
+            $data = $this->item->as_array()->where_i_best('1')
+                ->order_by('created_at', 'DESC')
+                ->limit(8)
+                ->get_all();
 
-        foreach ($data as $k => $v) {
-            $hasil[$k]['i_kode'] = $v['i_kode'];
-            $hasil[$k]['i_url'] = $v['i_url'];
-            $hasil[$k]['i_nama'] = $v['i_nama'];
-            $hasil[$k]['i_hrg'] = $v['i_hrg'];
-            $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+            foreach ($data as $k => $v) {
+                $hasil[$k]['i_kode'] = $v['i_kode'];
+                $hasil[$k]['i_url'] = $v['i_url'];
+                $hasil[$k]['i_nama'] = $v['i_nama'];
+                $hasil[$k]['i_hrg'] = $v['i_hrg'];
+                $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
+            }
+            $this->cache->save('hasil', $hasil, 300);
+
+        } else {
+            echo 'cached';
+            $hasil = $this->cache->get('best_seller');
         }
-        echo json_encode($hasil);
+
+//        echo json_encode($hasil);
+
     }
 
     private function get_image($i_kode)
