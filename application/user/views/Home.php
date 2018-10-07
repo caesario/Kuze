@@ -3,16 +3,25 @@ include "layout/Header.php";
 include "layout/Menu.php";
 ?>
 
-    <div class="spinner">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide f-z-slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner c-slideshow">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/img/banner-test3.jpg" alt="Third slide">
+            </div>
+        </div>
     </div>
-    <div class="fotorama mb-4" fotorama item="fotorama_items" data-fit="cover" data-autoplay="true" data-width="100%"
-         data-height="80%">
-    </div>
+
 
     <div ng-app="kuze" ng-controller="homeController">
         <div class="container-fluid px-0 mb-3">
@@ -359,23 +368,23 @@ include "layout/Menu.php";
     <script>
         var app = angular.module("kuze", []);
         app.controller("homeController", function ($http, $scope) {
-            $http.get("/home/new_arrival").then(function (response) {
+            $http.get("/item/new_arrival").then(function (response) {
                 $scope.new_arrivals = response.data;
             });
 
-            $http.get("/home/best_seller").then(function (response) {
+            $http.get("/item/best_seller").then(function (response) {
                 $scope.best_sellers = response.data;
             });
 
-            $http.get("/home/sale_item").then(function (response) {
+            $http.get("/item/sale_item").then(function (response) {
                 $scope.sale_items = response.data;
             });
 
-            $http.get("/home/slide_promo").then(function (response) {
+            $http.get("/image/slide").then(function (response) {
                 $scope.fotorama_items = response.data;
             });
 
-            $http.get("/home/get_billboard").then(function (response) {
+            $http.get("/image/billboard").then(function (response) {
                 $scope.img1 = response.data[1];
                 $scope.img2 = response.data[2];
                 $scope.img3 = response.data[3];

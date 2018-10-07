@@ -87,7 +87,7 @@ include "layout/Menu.php";
         var app = angular.module("kuze", []);
         app.controller("BestSellerController", function ($http, $scope) {
 
-            $http.get("/kategori/best_seller").then(function (response) {
+            $http.get("/item/kbest_seller").then(function (response) {
                 $scope.best_sellers = response.data;
             });
 
