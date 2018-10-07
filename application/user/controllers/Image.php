@@ -9,6 +9,7 @@ class Image extends CI_Controller
         $this->load->model('Item_img_m', 'item_img');
         $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Billboard_m', 'billboard');
+        $this->load->driver('cache', array('adapter' => 'file', 'backup' => 'file'));
 
     }
 
@@ -34,16 +35,22 @@ class Image extends CI_Controller
     public function slide()
     {
         $hasil = array();
-        $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
-        foreach ($promos as $k => $v) {
-            $image = new Imagick();
-            $image->readimageblob($v->slide_promo_data);
-            $image->setImageCompressionQuality(80);
+        if (!$this->cache->get('slide')) {
+            $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
+            foreach ($promos as $k => $v) {
+                $image = new Imagick();
+                $image->readimageblob($v->slide_promo_data);
+                $image->setImageCompressionQuality(80);
 
-            $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($image->getimageblob()));
-            $hasil[$k]['caption'] = $v->slide_promo_caption;
-            $hasil[$k]['type'] = "image";
+                $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($image->getimageblob()));
+                $hasil[$k]['caption'] = $v->slide_promo_caption;
+                $hasil[$k]['type'] = "image";
 
+            }
+
+            $this->cache->save('slide', $hasil, 300);
+        } else {
+            $hasil = $this->cache->get('slide');
         }
 
         echo json_encode($hasil);
@@ -52,20 +59,27 @@ class Image extends CI_Controller
     public function billboard()
     {
         $hasil = array();
-        for ($i = 1; $i <= 5; $i++) {
-            $tmp = $this->billboard->get($i);
+        if (!$this->cache->get('billboard')) {
+            for ($i = 1; $i <= 5; $i++) {
+                $tmp = $this->billboard->get($i);
 
-            $image = new Imagick();
-            $image->readimageblob($tmp->blb_data);
-            $image->setImageCompressionQuality(80);
+                $image = new Imagick();
+                $image->readimageblob($tmp->blb_data);
+                $image->setImageCompressionQuality(80);
 
 
-            $hasil[$i]['id'] = $tmp->blb_id;
-            $hasil[$i]['alt'] = $tmp->blb_judul;
-            $hasil[$i]['url'] = $tmp->blb_url;
-            $hasil[$i]['ket'] = $tmp->blb_ket;
-            $hasil[$i]['src'] = "data:" . $tmp->blb_type . ";base64," . (base64_encode($image->getimageblob()));
+                $hasil[$i]['id'] = $tmp->blb_id;
+                $hasil[$i]['alt'] = $tmp->blb_judul;
+                $hasil[$i]['url'] = $tmp->blb_url;
+                $hasil[$i]['ket'] = $tmp->blb_ket;
+                $hasil[$i]['src'] = "data:" . $tmp->blb_type . ";base64," . (base64_encode($image->getimageblob()));
+            }
+
+            $this->cache->save('billboard', $hasil, 300);
+        } else {
+            $hasil = $this->cache->get('billboard');
         }
+
 
         echo json_encode($hasil);
     }
