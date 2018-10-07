@@ -85,7 +85,7 @@ include "layout/Menu.php";
     <script>
         var app = angular.module("kuze", []);
         app.controller("NewArrivalController", function ($http, $scope) {
-            $http.get("/kategori/new_arrival").then(function (response) {
+            $http.get("/item/knew_arrival").then(function (response) {
                 $scope.new_arrivals = response.data;
             });
         });
