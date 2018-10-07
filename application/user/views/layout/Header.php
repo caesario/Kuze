@@ -95,11 +95,6 @@
                 id = img.attr('id'),
                 hasil = "";
             $.getJSON("/API/get_last_img/" + id, function (data) {
-                // img.fadeOut(100, function () {
-                //     hasil = "data:" + data["type"] + ";base64," + data["img"];
-                //
-                //     img.fadeIn(100);
-                // });
 
                 hasil = "data:" + data["type"] + ";base64," + data["img"];
                 img.attr("src", hasil);
@@ -113,11 +108,6 @@
                 hasil = "";
 
             $.getJSON("/API/get_default_img/" + id, function (data) {
-                // img.hide(function () {
-
-                //
-                //     img.show();
-                // });
                 hasil = "data:" + data["type"] + ";base64," + data["img"];
                 img.attr("src", hasil);
             });
@@ -130,4 +120,3 @@
     <title><?= $brandname; ?></title>
 </head>
 <body>
-<?php var_dump($current_url); ?>
