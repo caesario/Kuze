@@ -142,6 +142,12 @@
                                             <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
                                                onclick="proses($(this))" data-target="#proses"
                                                data-id="<?= $order->orders_noid; ?>"><i class="fas fa-check mr-2"></i>Proses <?= $title_page; ?></a>
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
+                                               onclick="detil($(this))" data-target="#cruddetil"
+                                               data-id="<?= $order->orders_noid; ?>"><i
+                                                        class="fas fa-sync mr-2"></i>Lihat <?= $title_page; ?>
+
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -163,6 +169,15 @@
                 d = data;
                 id = d.attr('data-id');
                 $('a#proses').attr('href', "<?= site_url('order/proses_konfirmasi/'); ?>" + id);
+            }
+
+            function detil(data) {
+                d = data;
+                id = d.attr('data-id');
+                modal = $('#cruddetil');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('order/detil/'); ?>" + id);
             }
 
             // ------------------------------------------------------ //
@@ -240,6 +255,32 @@
 </div>
 
 <div class="modal fade" id="proses" tabindex="-1" role="dialog" aria-labelledby="proses" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <p>Apakah anda yakin?</p>
+            </div>
+            <div class="modal-footer">
+                <a id="proses" href="#" class="btn btn-sm btn-primary">Proses</a>
+                <a href="#" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="cruddetil" tabindex="-1" role="dialog" aria-labelledby="crud" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cruddetil" tabindex="-1" role="dialog" aria-labelledby="proses" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
 
