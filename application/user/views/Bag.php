@@ -16,38 +16,28 @@ include "layout/Menu.php";
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-danger alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['gagal']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
-                <div class="col">
-                    <div class="alert alert-success alert-dismissible fade show"
-                         role="alert">
-                        <?php echo $_SESSION['berhasil']; ?>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-
-
     <!-- ======= Detail Bag ======= -->
     <div class="container-fluid c-padding-header">
+        <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+            <div class="alert alert-danger alert-dismissible fade show"
+                 role="alert">
+                <?php echo $_SESSION['gagal']; ?>
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+            <div class="alert alert-success alert-dismissible fade show"
+                 role="alert">
+                <?php echo $_SESSION['berhasil']; ?>
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
         <table class="table table-responsive-md table-bordered c-table-vertical">
             <tr>
                 <th class="c-table-thumbnail"></th>
@@ -135,12 +125,14 @@ include "layout/Menu.php";
                 <tbody>
                 <tr>
                     <th class="p-1 pl-4">Coupon</th>
-                    <td><span class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
+                    <td class="text-right"><span
+                                class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span></td>
                 </tr>
                 <tr>
                 <tr>
                     <th class="p-1 pl-4">Note</th>
-                    <td><span class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
+                    <td class="text-right"><span
+                                class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
                     </td>
                 </tr>
                 </tbody>
@@ -152,12 +144,13 @@ include "layout/Menu.php";
                 <tbody>
                 <tr>
                     <th class="c-table-cart-total p-1 pl-4">Total Price</th>
-                    <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
+                    <td class="text-right"><span id="rupiah" class="c-price-cart-3 pl-3"><?= $cart_total; ?></span></td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Disc. Total Price (-)</th>
                     <td class="text-right"><span id="rupiah"
-                              class="c-price-cart-3 pl-3 text-center"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span></td>
+                                                 class="c-price-cart-3 pl-3 text-center"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span>
+                    </td>
                 </tr>
                 <tr>
                     <th class="p-1 pl-4">Shipping Charges</th>
@@ -171,7 +164,7 @@ include "layout/Menu.php";
                 <tr>
                     <th class="p-1 pl-4">Grand Total</th>
                     <td class="text-right"><span id="rupiah"
-                              class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
+                                                 class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>
                 </tr>
                 </tbody>
             </table>

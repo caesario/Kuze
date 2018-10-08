@@ -50,7 +50,8 @@ include "layout/Menu.php";
 
             <div class="col-lg-6 col-md-6">
                 <div class="c-detail-info">
-                    <form action="add_to_bag" method="post">
+                    <form action="<?= $url = str_replace('/detil', '', current_url()) . '/add_to_bag'; ?>"
+                          method="post">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
                         <h5 class="mb-2"><?= $item->i_nama; ?></h5>
                         <hr class="mb-2">
