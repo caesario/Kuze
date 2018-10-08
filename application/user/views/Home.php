@@ -13,6 +13,7 @@ include "layout/Menu.php";
              data-height="80%"
              data-ratio="1024/768">
         </div>
+        <br>
         <div class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
