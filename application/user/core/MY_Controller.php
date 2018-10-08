@@ -78,9 +78,10 @@ class MY_Controller extends CI_Controller
             return $this->cart->with_item_detil()->where('pengguna_kode', $session_id)->get_all();
         };
 
-        $this->session->set_userdata('current_url', $this->uri->uri_string());
-        if (isset($_SESSION['current_url']) && $this->uri->uri_string() != 'login') {
-            $this->data->current_url = $_SESSION['current_url'];
+
+        if ($this->uri->uri_string() != 'login') {
+            $replace = str_replace('/add_to_bag', '',$this->uri->uri_string());
+            $this->session->set_userdata('current_url', $replace);
         }
 
         // cek user
