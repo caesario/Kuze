@@ -228,7 +228,10 @@ class MY_Controller extends CI_Controller
         };
 
         $this->data->item_img_all = function ($i_kode) {
-            return $this->item_img->where(array('i_kode' => $i_kode))->get_all();
+            return $this->item_img
+                ->where(array('i_kode' => $i_kode))
+                ->order_by('created_at', 'DESC')
+                ->get_all();
         };
 
 
