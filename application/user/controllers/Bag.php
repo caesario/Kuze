@@ -91,7 +91,6 @@ class Bag extends MY_Controller
                 $this->data->berhasil = 'Berhasil menambah item kedalam keranjang';
                 $this->session->set_flashdata('berhasil', $this->data->berhasil);
                 $this->session->set_flashdata('modal', '1');
-                redirect('/');
             }
         } else {
             $cart_insert = $this->cart->insert(array(
@@ -113,8 +112,14 @@ class Bag extends MY_Controller
                 $this->data->berhasil = 'Berhasil menambah item kedalam keranjang';
                 $this->session->set_flashdata('berhasil', $this->data->berhasil);
                 $this->session->set_flashdata('modal', '1');
-                redirect('/');
             }
+        }
+
+
+        if (isset($_SESSION['current_url'])) {
+            redirect($_SESSION['current_url']);
+        } else {
+            redirect('/');
         }
     }
 

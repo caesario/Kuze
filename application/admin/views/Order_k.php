@@ -145,7 +145,7 @@
                                             <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
                                                onclick="detil($(this))" data-target="#cruddetil"
                                                data-id="<?= $order->orders_noid; ?>"><i
-                                                        class="fas fa-sync mr-2"></i>Lihat <?= $title_page; ?>
+                                                        class="fas fa-sync mr-2"></i>Lihat Detail
 
                                             </a>
                                         </td>

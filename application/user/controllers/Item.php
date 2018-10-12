@@ -183,7 +183,6 @@ class Item extends CI_Controller
             $image = new Imagick();
             $image->readimageblob($data->ii_data);
             $image->setImageCompressionQuality(80);
-
             $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($image->getimageblob()));
         } else {
             $hasil = base_url('assets/img/noimage.jpg');
