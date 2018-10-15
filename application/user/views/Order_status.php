@@ -55,7 +55,19 @@ include "layout/Menu.php";
                                                 <?= $order->orders_noid; ?>
                                             </td>
                                             <td class="align-middle">
-                                                <b class="c-order-info">Order Date :</b><br>
+                                                <b class="c-order-info">Shipper :</b><br>
+                                                <?php if ($order->orders_pengiriman_s_nama != NULL): ?>
+                                                    <?= $order->orders_pengiriman_s_nama; ?>
+                                                <?php elseif ($order->orders_pengiriman_r_nama != NULL): ?>
+                                                    <?= $order->orders_pengiriman_r_nama; ?>
+                                                <?php else: ?>
+                                                    No shipper
+                                                <?php endif; ?>
+                                                <br>
+                                                <b class="c-order-info">Recipient :</b><br>
+                                                <?= $order->orders_pengiriman_r_nama ? $order->orders_pengiriman_r_nama : 'No recipient'; ?>
+                                                <br>
+                                                <b class="c-order-info">Order Dates :</b><br>
                                                 <?= $order->created_at; ?>
                                                 <br>
                                                 <b class="c-order-info">Price Total :</b><br>
