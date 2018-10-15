@@ -48,13 +48,13 @@
         var croppie_img = viewimage.croppie({
             enableExif: true,
             viewport: {
-                width: 750,
-                height: 750,
+                width: 700,
+                height: 350,
                 type: 'square' //circle
             },
             boundary: {
-                width: 750,
-                height: 750
+                width: 700,
+                height: 350
             },
             showZoomer: false,
             enableResize: false,
