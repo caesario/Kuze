@@ -162,17 +162,6 @@ class MY_Controller extends CI_Controller
                 ->get_all();
         };
 
-//        $this->data->warna = function ($i_kode) {
-//            return $this->warna
-//                ->with_item_detil('where:i_kode = \'' . $i_kode . '\'')
-//                ->get_all();
-//        };
-//
-//        $this->data->ukuran = function ($i_kode) {
-//            return $this->ukuran
-//                ->with_item_detil('where:i_kode = \'' . $i_kode . '\'')
-//                ->get_all();
-//        };
 
         $this->data->qty = function ($i_kode) {
             $hasil = 0;
