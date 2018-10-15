@@ -6,6 +6,7 @@ include "layout/Menu.php";
 
     <div ng-app="kuze" ng-controller="homeController">
         <div fotorama item="fotorama_items" class="fotorama"
+             data-autoplay="true"
              data-fit="cover"
              data-width="100%"
              data-height="80%"
