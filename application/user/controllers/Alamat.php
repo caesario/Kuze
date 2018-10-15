@@ -41,7 +41,6 @@ class Alamat extends MY_Controller
 
     public function simpan()
     {
-        $check_dropship = $this->input->post('check_dropship');
         $alamat_exist = $this->input->post('alamat_exist');
         $alamat_simpan = $this->input->post('alamat_simpan');
 
@@ -53,76 +52,43 @@ class Alamat extends MY_Controller
         $nama_penerima = $this->input->post('nama_penerima');
         $kontak_penerima = $this->input->post('kontak_penerima');
 
-        // jika dropshipper
-        if (isset($check_dropship) && $check_dropship == true) {
 
-            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
+        $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
 
-            if ($order_pengiriman) {
-                $this->order_pengiriman->where('orders_noid', $orders_noid)->update(array(
-                    'orders_pengiriman_s_nama' => $nama_pengirim,
-                    'orders_pengiriman_s_kontak' => $kontak_pengirim,
-                    'orders_pengiriman_r_nama' => $nama_penerima,
-                    'orders_pengiriman_r_kontak' => $kontak_penerima,
-                    'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
-                    'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
-                    'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
-                    'orders_pengiriman_desa' => $this->input->post('kelurahan'),
-                    'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
-                    'orders_pengiriman_deskripsi' => $this->input->post('alamat')
-                ));
-            } else {
-                $this->order_pengiriman->insert(array(
-                    'orders_noid' => $orders_noid,
-                    'orders_pengiriman_s_nama' => $nama_pengirim,
-                    'orders_pengiriman_s_kontak' => $kontak_pengirim,
-                    'orders_pengiriman_r_nama' => $nama_penerima,
-                    'orders_pengiriman_r_kontak' => $kontak_penerima,
-                    'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
-                    'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
-                    'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
-                    'orders_pengiriman_desa' => $this->input->post('kelurahan'),
-                    'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
-                    'orders_pengiriman_deskripsi' => $this->input->post('alamat')
-                ));
-            }
-
-
-            $this->order->where('orders_noid', $orders_noid)->update(array('orders_status' => 1));
+        if ($order_pengiriman) {
+            $this->order_pengiriman->where('orders_noid', $orders_noid)->update(array(
+                'orders_pengiriman_s_nama' => $nama_pengirim,
+                'orders_pengiriman_s_kontak' => $kontak_pengirim,
+                'orders_pengiriman_r_nama' => $nama_penerima,
+                'orders_pengiriman_r_kontak' => $kontak_penerima,
+                'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
+                'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
+                'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
+                'orders_pengiriman_desa' => $this->input->post('kelurahan'),
+                'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
+                'orders_pengiriman_deskripsi' => $this->input->post('alamat')
+            ));
         } else {
-
-            $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
-
-            if ($order_pengiriman) {
-                $this->order_pengiriman->where('orders_noid', $orders_noid)->update(array(
-                    'orders_pengiriman_r_nama' => $nama_penerima,
-                    'orders_pengiriman_r_kontak' => $kontak_penerima,
-                    'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
-                    'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
-                    'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
-                    'orders_pengiriman_desa' => $this->input->post('kelurahan'),
-                    'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
-                    'orders_pengiriman_deskripsi' => $this->input->post('alamat')
-                ));
-            } else {
-                $this->order_pengiriman->insert(array(
-                    'orders_noid' => $orders_noid,
-                    'orders_pengiriman_r_nama' => $nama_penerima,
-                    'orders_pengiriman_r_kontak' => $kontak_penerima,
-                    'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
-                    'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
-                    'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
-                    'orders_pengiriman_desa' => $this->input->post('kelurahan'),
-                    'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
-                    'orders_pengiriman_deskripsi' => $this->input->post('alamat')
-                ));
-            }
-
-            $this->order->where('orders_noid', $orders_noid)->update(array('orders_status' => 1));
+            $this->order_pengiriman->insert(array(
+                'orders_noid' => $orders_noid,
+                'orders_pengiriman_s_nama' => $nama_pengirim,
+                'orders_pengiriman_s_kontak' => $kontak_pengirim,
+                'orders_pengiriman_r_nama' => $nama_penerima,
+                'orders_pengiriman_r_kontak' => $kontak_penerima,
+                'orders_pengiriman_provinsi' => $this->input->post('provinsi'),
+                'orders_pengiriman_kabupaten' => $this->input->post('kabupaten'),
+                'orders_pengiriman_kecamatan' => $this->input->post('kecamatan'),
+                'orders_pengiriman_desa' => $this->input->post('kelurahan'),
+                'orders_pengiriman_kodepos' => $this->input->post('kodepos'),
+                'orders_pengiriman_deskripsi' => $this->input->post('alamat')
+            ));
         }
 
-        if (isset($alamat_simpan) && $alamat_simpan == true)
-        {
+
+        $this->order->where('orders_noid', $orders_noid)->update(array('orders_status' => 1));
+
+
+        if ($alamat_simpan == 'true') {
             // GUID
             $guid = $this->alamat->guid();
             $alamat = $this->alamat->insert(array(

@@ -76,7 +76,7 @@
 <hr>
 <div class="row small">
     <div class="col mb-1">
-        <a href="<?= site_url('/'); ?>" class="btn btn-sm btn-block c-modal-clr">Countinue Shopping</a>
+        <button type="button" class="btn btn-sm btn-block c-modal-clr" data-dismiss="modal">Countinue Shopping</button>
     </div>
     <div class="col">
         <a href="<?= site_url('bag'); ?>" class="btn btn-sm  btn-block c-modal-clr">Checkout</a>

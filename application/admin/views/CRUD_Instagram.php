@@ -31,21 +31,7 @@ if ($submit == 'Ubah') {
                  aria-valuemin="0" aria-valuemax="100">25%
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="caption">Tulisan Promo</label>
-            <textarea class="form-control" name="caption" id="caption"><?= $caption; ?></textarea>
-        </div>
-
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="aktif" value="1"
-                       id="aktif" <?= $isaktif == 1 ? 'checked' : ''; ?>>
-                <label class="form-check-label" for="aktif">
-                    Tampilkan
-                </label>
-            </div>
-        </div>
+        <br>
         <div class="form-group">
             <button type="submit" class="btn btn-sm btn-primary"><?= $submit; ?></button>
             <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>

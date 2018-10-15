@@ -19,8 +19,6 @@ class MY_Controller extends CI_Controller
         $this->load->library('session');
         $this->load->library('Layout');
 
-        $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-
         // load web config
         $this->load->config('weboptions');
 
@@ -80,9 +78,10 @@ class MY_Controller extends CI_Controller
             return $this->cart->with_item_detil()->where('pengguna_kode', $session_id)->get_all();
         };
 
-        $this->session->set_userdata('current_url', $this->uri->uri_string());
-        if (isset($_SESSION['current_url']) && $this->uri->uri_string() != 'login') {
-            $this->data->current_url = $_SESSION['current_url'];
+
+        if ($this->uri->uri_string() != 'login') {
+            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
+            $this->session->set_userdata('current_url', $replace);
         }
 
         // cek user
@@ -100,12 +99,6 @@ class MY_Controller extends CI_Controller
         $this->load_pref();
         $this->event_load();
         $this->bag_counter();
-
-//        $this->db->cache_on();
-//        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
-//        $this->output->set_header("Cache-Control: post-check=0, pre-check=0");
-//        $this->output->set_header("Pragma: no-cache");
-//        $this->output->cache(1000);
     }
 
 
@@ -169,17 +162,6 @@ class MY_Controller extends CI_Controller
                 ->get_all();
         };
 
-//        $this->data->warna = function ($i_kode) {
-//            return $this->warna
-//                ->with_item_detil('where:i_kode = \'' . $i_kode . '\'')
-//                ->get_all();
-//        };
-//
-//        $this->data->ukuran = function ($i_kode) {
-//            return $this->ukuran
-//                ->with_item_detil('where:i_kode = \'' . $i_kode . '\'')
-//                ->get_all();
-//        };
 
         $this->data->qty = function ($i_kode) {
             $hasil = 0;
@@ -235,7 +217,10 @@ class MY_Controller extends CI_Controller
         };
 
         $this->data->item_img_all = function ($i_kode) {
-            return $this->item_img->where(array('i_kode' => $i_kode))->get_all();
+            return $this->item_img
+                ->where(array('i_kode' => $i_kode))
+                ->order_by('created_at', 'DESC')
+                ->get_all();
         };
 
 
