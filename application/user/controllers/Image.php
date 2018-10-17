@@ -43,7 +43,7 @@ class Image extends CI_Controller
                     $image->readimageblob($v->slide_promo_data);
                     $image->setImageCompressionQuality(80);
 
-                    $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($image->getimageblob()));
+                    $hasil[$k]['url'] = $this->view_image($v->slide_promo_type, $image->getColorspace());
                     $hasil[$k]['caption'] = $v->slide_promo_caption;
                     $hasil[$k]['type'] = "image";
 
@@ -76,7 +76,7 @@ class Image extends CI_Controller
                 $hasil[$i]['alt'] = $tmp->blb_judul;
                 $hasil[$i]['url'] = $tmp->blb_url;
                 $hasil[$i]['ket'] = $tmp->blb_ket;
-                $hasil[$i]['src'] = "data:" . $tmp->blb_type . ";base64," . (base64_encode($image->getimageblob()));
+                $hasil[$i]['src'] = $this->view_image($tmp->blb_type, $image->getImageBlob());
             }
 
             $this->cache->save('billboard', $hasil, 300);
@@ -86,5 +86,10 @@ class Image extends CI_Controller
 
 
         echo json_encode($hasil);
+    }
+
+    private function view_image($mime, $data)
+    {
+        return 'data:' . $mime . ';base64,' . (base64_encode($data));
     }
 }
