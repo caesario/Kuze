@@ -79,12 +79,13 @@ class Ukuran extends MY_Controller
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('ukuran');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $ukuran_nama)) {
-                $this->data->gagal = 'Karakter untuk ukuran tidak diperbolehkan.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('ukuran');
             }
+            /*            else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $ukuran_nama)) {*/
+//                $this->data->gagal = 'Karakter untuk ukuran tidak diperbolehkan.';
+//                $this->session->set_flashdata('gagal', $this->data->gagal);
+//
+//                redirect('ukuran');
+//            }
 
             // update
             $ukuran_update = $this->ukuran->update($ukuran_array, 'u_kode');
@@ -107,12 +108,13 @@ class Ukuran extends MY_Controller
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('ukuran');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $ukuran_nama)) {
-                $this->data->gagal = 'Karakter untuk ukuran tidak diperbolehkan.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('ukuran');
             }
+            /*            else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $ukuran_nama)) {*/
+//                $this->data->gagal = 'Karakter untuk ukuran tidak diperbolehkan.';
+//                $this->session->set_flashdata('gagal', $this->data->gagal);
+//
+//                redirect('ukuran');
+//            }
 
             // insert
             $ukuran_insert = $this->ukuran->insert($ukuran_array);

@@ -13,6 +13,7 @@ class Item extends CI_Controller
 
     public function best_seller()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('best_seller')) {
 //            echo 'Not Cached';
@@ -35,7 +36,7 @@ class Item extends CI_Controller
             $hasil = $this->cache->get('best_seller');
         }
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -43,6 +44,7 @@ class Item extends CI_Controller
 
     public function new_arrival()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('new_arrival')) {
 
@@ -66,11 +68,12 @@ class Item extends CI_Controller
         }
 
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function sale_item()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('sale_item')) {
             $data = $this->item->as_array()->where_i_sale('1')
@@ -92,11 +95,12 @@ class Item extends CI_Controller
             $hasil = $this->cache->get('sale_item');
         }
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function kbest_seller()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('best_seller')) {
 //            echo 'Not Cached';
@@ -118,11 +122,12 @@ class Item extends CI_Controller
             $hasil = $this->cache->get('best_seller');
         }
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function knew_arrival()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('new_arrival')) {
 
@@ -145,11 +150,12 @@ class Item extends CI_Controller
         }
 
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function ksale_item()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('sale_item')) {
             $data = $this->item->as_array()->where_i_sale('1')
@@ -170,7 +176,7 @@ class Item extends CI_Controller
             $hasil = $this->cache->get('sale_item');
         }
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function test_image()

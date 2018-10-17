@@ -34,6 +34,7 @@ class Image extends CI_Controller
 
     public function slide()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('slide')) {
             $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
@@ -57,11 +58,12 @@ class Image extends CI_Controller
             $hasil = $this->cache->get('slide');
         }
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     public function billboard()
     {
+        ob_start('ob_gzhandler');
         $hasil = array();
         if (!$this->cache->get('billboard')) {
             for ($i = 1; $i <= 5; $i++) {
@@ -85,7 +87,7 @@ class Image extends CI_Controller
         }
 
 
-        echo json_encode($hasil);
+        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
     }
 
     private function view_image($mime, $data)

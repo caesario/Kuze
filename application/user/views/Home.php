@@ -19,14 +19,14 @@ include "layout/Menu.php";
             <div class="row c-padding-header">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img1" class="col-12">
+                        <div ng-if="img1check" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img1['id'] }}"
                                      ng-src="{{ img1['src'] }}"
                                      alt="{{ img1['alt'] }}">
                             </div>
                         </div>
-                        <div ng-if="img2" class="col-12">
+                        <div ng-if="img2check" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img2['id'] }}"
                                      ng-src="{{ img2['src'] }}"
@@ -37,7 +37,7 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img3" class="col-12">
+                        <div ng-if="img3check" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img3['id'] }}"
                                      ng-src="{{ img3['src'] }}"
@@ -48,14 +48,14 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img4" class="col-12">
+                        <div ng-if="img4check" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img4['id'] }}"
                                      ng-src="{{ img4['src'] }}"
                                      alt="{{ img4['alt'] }}">
                             </div>
                         </div>
-                        <div ng-if="img5" class="col-12">
+                        <div ng-if="img5check" class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img5['id'] }}"
                                      ng-src="{{ img5['src'] }}"
@@ -98,7 +98,8 @@ include "layout/Menu.php";
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title font-weight-bold" ng-bind="new_arrival.i_nama"></h5>
+                                <h5 class="card-title c-both c-title font-weight-bold"
+                                    ng-bind="new_arrival.i_nama"></h5>
 
                                 <h5 class="c-price" ng-bind="new_arrival.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>new_arrival/item/{{new_arrival.i_url}}/detil"
@@ -148,7 +149,8 @@ include "layout/Menu.php";
                                  class="img-fluid mx-auto d-block">
 
                             <div class="card-body text-center">
-                                <h5 class="card-title c-both c-title font-weight-bold" ng-bind="best_seller.i_nama"></h5>
+                                <h5 class="card-title c-both c-title font-weight-bold"
+                                    ng-bind="best_seller.i_nama"></h5>
 
                                 <h5 class="c-price" ng-bind="best_seller.i_hrg | rupiah"></h5>
                                 <a href="<?= site_url(); ?>best_seller/item/{{best_seller.i_url}}/detil"
@@ -378,13 +380,30 @@ include "layout/Menu.php";
                 $scope.fotorama_items = response.data;
             });
 
-            $http.get("/image/billboard").then(function (response) {
-                $scope.img1 = response.data[1];
-                $scope.img2 = response.data[2];
-                $scope.img3 = response.data[3];
-                $scope.img4 = response.data[4];
-                $scope.img5 = response.data[5];
-            });
+            $http.get("/image/billboard").then(
+                function (response) {
+                    $scope.img1 = response.data[1];
+                    $scope.img2 = response.data[2];
+                    $scope.img3 = response.data[3];
+                    $scope.img4 = response.data[4];
+                    $scope.img5 = response.data[5];
+                },
+                function (error) {
+                    $scope.img1check = false;
+                    $scope.img2check = false;
+                    $scope.img3check = false;
+                    $scope.img4check = false;
+                    $scope.img5check = false;
+                },
+
+                function () {
+                    $scope.img1check = true;
+                    $scope.img2check = true;
+                    $scope.img3check = true;
+                    $scope.img4check = true;
+                    $scope.img5check = true;
+                }
+            );
         });
 
         app.config(function ($httpProvider) {
