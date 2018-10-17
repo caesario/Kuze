@@ -430,7 +430,6 @@
                     cancel5 = $('#cancel5');
 
                 var obj1 = tampil1.croppie({
-                    enableExif: true,
                     viewport: {
                         width: 350,
                         height: 350,
@@ -439,10 +438,10 @@
                     boundary: {
                         width: 350,
                         height: 350
-                    }
+                    },
+                    showZoomer: false,
                 });
                 var obj2 = tampil2.croppie({
-                    enableExif: true,
                     viewport: {
                         width: 350,
                         height: 350,
@@ -451,10 +450,10 @@
                     boundary: {
                         width: 350,
                         height: 350
-                    }
+                    },
+                    showZoomer: false,
                 });
                 var obj3 = tampil3.croppie({
-                    enableExif: true,
                     viewport: {
                         width: 350,
                         height: 700,
@@ -463,10 +462,10 @@
                     boundary: {
                         width: 350,
                         height: 700
-                    }
+                    },
+                    showZoomer: false,
                 });
                 var obj4 = tampil4.croppie({
-                    enableExif: true,
                     viewport: {
                         width: 350,
                         height: 350,
@@ -475,10 +474,10 @@
                     boundary: {
                         width: 350,
                         height: 350
-                    }
+                    },
+                    showZoomer: false,
                 });
                 var obj5 = tampil5.croppie({
-                    enableExif: true,
                     viewport: {
                         width: 350,
                         height: 350,
@@ -487,7 +486,8 @@
                     boundary: {
                         width: 350,
                         height: 350
-                    }
+                    },
+                    showZoomer: false,
                 });
 
                 cancel1.click(function () {

@@ -2,7 +2,8 @@
     <div class="col">
         <div class="form-group">
             <label for="upload_image">File</label>
-            <input class="form-control-file" type="file" name="upload_image" id="upload_image">
+            <input class="form-control-file" type="file" name="upload_image" id="upload_image" size="2048"
+                   accept="image/png, image/jpeg">
             <div id="viewimage" style="display: none"></div>
             <button class="btn btn-sm btn-danger" id="cancel" style="display: none;">Batal</button>
         </div>
@@ -46,19 +47,9 @@
             cancel = $('#cancel');
 
         var croppie_img = viewimage.croppie({
-            enableExif: true,
-            viewport: {
-                width: 700,
-                height: 350,
-                type: 'square' //circle
-            },
-            boundary: {
-                width: 700,
-                height: 350
-            },
+            viewport: {width: 750, height: 300},
+            boundary: {width: 750, height: 300},
             showZoomer: false,
-            enableResize: false,
-            enableOrientation: false
         });
 
         cancel.click(function () {
@@ -103,7 +94,8 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        window.location.reload();
+                        // window.location.reload();
+                        console.log(data)
                     },
                     error: function (data) {
                         console.log(data.responseText);
