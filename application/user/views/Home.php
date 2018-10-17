@@ -5,13 +5,15 @@ include "layout/Menu.php";
 
 
     <div ng-app="kuze" ng-controller="homeController">
-        <div fotorama item="fotorama_items" class="fotorama"
-             data-autoplay="true"
-             data-fit="cover"
-             data-width="100%"
-             data-height="80%"
-             data-ratio="1024/768">
-        </div>
+        <!--        <div ng-if="fotorama_items">-->
+        <!--            <div fotorama item="fotorama_items" class="fotorama"-->
+        <!--                 data-autoplay="true"-->
+        <!--                 data-fit="cover"-->
+        <!--                 data-width="100%"-->
+        <!--                 data-height="80%"-->
+        <!--                 data-ratio="1024/768">-->
+        <!--            </div>-->
+        <!--        </div>-->
         <br>
         <div class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
@@ -357,9 +359,12 @@ include "layout/Menu.php";
     <script>
         var app = angular.module("kuze", ['angular-fotorama']);
         app.controller("homeController", function ($http, $scope) {
+
+
             $http.get("/item/new_arrival").then(function (response) {
                 $scope.new_arrivals = response.data;
             });
+
 
             $http.get("/item/best_seller").then(function (response) {
                 $scope.best_sellers = response.data;

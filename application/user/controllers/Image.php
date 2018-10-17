@@ -37,18 +37,22 @@ class Image extends CI_Controller
         $hasil = array();
         if (!$this->cache->get('slide')) {
             $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
-            foreach ($promos as $k => $v) {
-                $image = new Imagick();
-                $image->readimageblob($v->slide_promo_data);
-                $image->setImageCompressionQuality(80);
+            if ($promos) {
+                foreach ($promos as $k => $v) {
+                    $image = new Imagick();
+                    $image->readimageblob($v->slide_promo_data);
+                    $image->setImageCompressionQuality(80);
 
-                $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($image->getimageblob()));
-                $hasil[$k]['caption'] = $v->slide_promo_caption;
-                $hasil[$k]['type'] = "image";
+                    $hasil[$k]['url'] = "data:" . $v->slide_promo_type . ";base64," . (base64_encode($image->getimageblob()));
+                    $hasil[$k]['caption'] = $v->slide_promo_caption;
+                    $hasil[$k]['type'] = "image";
 
+                }
+
+                $this->cache->save('slide', $hasil, 300);
+            } else {
+                $hasil = NULL;
             }
-
-            $this->cache->save('slide', $hasil, 300);
         } else {
             $hasil = $this->cache->get('slide');
         }

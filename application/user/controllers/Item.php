@@ -173,6 +173,21 @@ class Item extends CI_Controller
         echo json_encode($hasil);
     }
 
+    public function test_image()
+    {
+        $data = $this->item_img
+            ->get();
+        if ($data != NULL) {
+            $image = new Imagick();
+            $image->readImageBlob($data->ii_data);
+            $image->setImageCompressionQuality(80);
+        }
+
+        header("Content-type: $data->ii_type");
+
+        echo $image->getImageBlob();
+    }
+
     private function get_image($i_kode)
     {
         $data = $this->item_img
@@ -183,11 +198,17 @@ class Item extends CI_Controller
             $image = new Imagick();
             $image->readimageblob($data->ii_data);
             $image->setImageCompressionQuality(80);
-            $hasil = "data:" . $data->ii_type . ";base64," . (base64_encode($image->getimageblob()));
+            $hasil = $this->view_image($data->ii_type, $image->getImageBlob());
         } else {
-            $hasil = base_url('assets/img/noimage.jpg');
+            $im = base_url('assets/img/noimage.jpg');
+            $hasil = $im;
         }
 
         return $hasil;
+    }
+
+    private function view_image($mime, $data)
+    {
+        return 'data:' . $mime . ';base64,' . (base64_encode($data));
     }
 }
