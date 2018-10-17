@@ -94,8 +94,8 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        // window.location.reload();
-                        console.log(data)
+                        window.location.reload();
+                        // console.log(data)
                     },
                     error: function (data) {
                         console.log(data.responseText);
