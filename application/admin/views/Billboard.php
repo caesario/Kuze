@@ -430,63 +430,28 @@
                     cancel5 = $('#cancel5');
 
                 var obj1 = tampil1.croppie({
-                    viewport: {
-                        width: 350,
-                        height: 350,
-                        type: 'square' //circle
-                    },
-                    boundary: {
-                        width: 350,
-                        height: 350
-                    },
+                    viewport: {width: 350, height: 350},
+                    boundary: {width: 350, height: 350},
                     showZoomer: false,
                 });
                 var obj2 = tampil2.croppie({
-                    viewport: {
-                        width: 350,
-                        height: 350,
-                        type: 'square' //circle
-                    },
-                    boundary: {
-                        width: 350,
-                        height: 350
-                    },
+                    viewport: {width: 350, height: 350},
+                    boundary: {width: 350, height: 350},
                     showZoomer: false,
                 });
                 var obj3 = tampil3.croppie({
-                    viewport: {
-                        width: 350,
-                        height: 700,
-                        type: 'square' //circle
-                    },
-                    boundary: {
-                        width: 350,
-                        height: 700
-                    },
+                    viewport: {width: 350, height: 700},
+                    boundary: {width: 350, height: 700},
                     showZoomer: false,
                 });
                 var obj4 = tampil4.croppie({
-                    viewport: {
-                        width: 350,
-                        height: 350,
-                        type: 'square' //circle
-                    },
-                    boundary: {
-                        width: 350,
-                        height: 350
-                    },
+                    viewport: {width: 350, height: 350},
+                    boundary: {width: 350, height: 350},
                     showZoomer: false,
                 });
                 var obj5 = tampil5.croppie({
-                    viewport: {
-                        width: 350,
-                        height: 350,
-                        type: 'square' //circle
-                    },
-                    boundary: {
-                        width: 350,
-                        height: 350
-                    },
+                    viewport: {width: 350, height: 350},
+                    boundary: {width: 350, height: 350},
                     showZoomer: false,
                 });
 
