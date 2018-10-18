@@ -36,29 +36,47 @@ class Image extends CI_Controller
     {
         ob_start('ob_gzhandler');
         $hasil = array();
-        if (!$this->cache->get('slide')) {
-            $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
-            if ($promos) {
-                foreach ($promos as $k => $v) {
-                    $image = new Imagick();
-                    $image->readimageblob($v->slide_promo_data);
-                    $image->setImageCompressionQuality(80);
+//        if (!$this->cache->get('slide')) {
+//            $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
+//            if ($promos) {
+//                foreach ($promos as $k => $v) {
+//                    $image = new Imagick();
+//                    $image->readimageblob($v->slide_promo_data);
+//                    $image->setImageCompressionQuality(80);
+//
+//                    $hasil[$k]['url'] = $this->view_image($v->slide_promo_type, $image->getImageBlob());
+//                    $hasil[$k]['caption'] = $v->slide_promo_caption;
+//                    $hasil[$k]['type'] = "image";
+//
+//                }
+//
+//                $this->cache->save('slide', $hasil, 300);
+//            } else {
+//                $hasil = NULL;
+//            }
+//        } else {
+//            $hasil = $this->cache->get('slide');
+//        }
 
-                    $hasil[$k]['url'] = $this->view_image($v->slide_promo_type, $image->getColorspace());
-                    $hasil[$k]['caption'] = $v->slide_promo_caption;
-                    $hasil[$k]['type'] = "image";
+        $promos = $this->slide_promo->where('slide_promo_isaktif', 1)->get_all();
+        if ($promos) {
+            foreach ($promos as $k => $v) {
+                $image = new Imagick();
+                $image->readimageblob($v->slide_promo_data);
+                $image->setImageCompressionQuality(80);
 
-                }
+                $hasil[$k]['url'] = $this->view_image($v->slide_promo_type, $image->getImageBlob());
+                $hasil[$k]['caption'] = $v->slide_promo_caption;
+                $hasil[$k]['type'] = "image";
 
-                $this->cache->save('slide', $hasil, 300);
-            } else {
-                $hasil = NULL;
             }
+
+            $this->cache->save('slide', $hasil, 300);
         } else {
-            $hasil = $this->cache->get('slide');
+            $hasil = NULL;
         }
 
-        echo json_encode($hasil, JSON_UNESCAPED_UNICODE);
+        echo json_encode($hasil);
     }
 
     public function billboard()

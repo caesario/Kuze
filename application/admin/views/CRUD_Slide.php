@@ -47,8 +47,8 @@
             cancel = $('#cancel');
 
         var croppie_img = viewimage.croppie({
-            viewport: {width: 750, height: 300},
-            boundary: {width: 750, height: 300},
+            viewport: {width: 750, height: 400},
+            boundary: {width: 750, height: 400},
             showZoomer: false,
         });
 
@@ -76,7 +76,10 @@
         $('#doupload').click(function (event) {
             croppie_img.croppie('result', {
                 type: 'blob',
-                size: 'original'
+                size: {
+                    width: 1400,
+                    height: 400
+                }
             }).then(function (response) {
                 var aktif = $('#aktif').val(),
                     caption = $('#caption').val();

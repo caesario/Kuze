@@ -5,28 +5,41 @@ include "layout/Menu.php";
 
 
     <div ng-app="kuze" ng-controller="homeController">
-        <!--        <div ng-if="fotorama_items">-->
-        <!--            <div fotorama item="fotorama_items" class="fotorama"-->
-        <!--                 data-autoplay="true"-->
-        <!--                 data-fit="cover"-->
-        <!--                 data-width="100%"-->
-        <!--                 data-height="80%"-->
-        <!--                 data-ratio="1024/768">-->
-        <!--            </div>-->
-        <!--        </div>-->
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div ng-if="fotorama_items" fotorama item="fotorama_items" class="fotorama"
+             data-autoplay="true"
+             data-fit="none"
+             data-loop="true"
+             data-ratio="1400/400"
+             data-width="100%"
+             data-minwidth="0"
+             data-maxwidth="100%"
+             data-minheight="0"
+             data-maxheight="100%">
+        </div>
+        <script>
+            $('.fotorama__img').css('width', '100%')
+        </script>
+
         <br>
         <div class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img1check" class="col-12">
+                        <div class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img1['id'] }}"
                                      ng-src="{{ img1['src'] }}"
                                      alt="{{ img1['alt'] }}">
                             </div>
                         </div>
-                        <div ng-if="img2check" class="col-12">
+                        <div class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img2['id'] }}"
                                      ng-src="{{ img2['src'] }}"
@@ -37,7 +50,7 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img3check" class="col-12">
+                        <div class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img3['id'] }}"
                                      ng-src="{{ img3['src'] }}"
@@ -48,14 +61,14 @@ include "layout/Menu.php";
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
-                        <div ng-if="img4check" class="col-12">
+                        <div class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img4['id'] }}"
                                      ng-src="{{ img4['src'] }}"
                                      alt="{{ img4['alt'] }}">
                             </div>
                         </div>
-                        <div ng-if="img5check" class="col-12">
+                        <div class="col-12">
                             <div class="content-wrapper">
                                 <img id="{{ img5['id'] }}"
                                      ng-src="{{ img5['src'] }}"
