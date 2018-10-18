@@ -23,12 +23,9 @@ include "layout/Menu.php";
              data-minheight="0"
              data-maxheight="100%">
         </div>
-        <script>
-            $('.fotorama__img').css('width', '100%')
-        </script>
 
         <br>
-        <div class="container-fluid px-0 mb-3">
+        <div ng-if="img1 && img2 && img3 && img4 && img5" class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-12">
                     <div class="row">
