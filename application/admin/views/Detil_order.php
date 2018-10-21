@@ -38,7 +38,7 @@
                     <?php elseif ($status == 6): ?>
                         <b>TELAH DIKIRIM</b>
                     <?php elseif ($status == 7): ?>
-                        BATAL
+                        <b>BATAL</b>
                     <?php endif; ?>
                 </p>
             </div>

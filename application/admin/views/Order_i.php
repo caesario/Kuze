@@ -100,7 +100,7 @@
                                             <?php elseif ($order->orders_status == 6): ?>
                                                 <div class="text-success"><b>TELAH DIKIRIM</b></div>
                                             <?php elseif ($order->orders_status == 7): ?>
-                                                <div class="text-danger">BATAL</div>
+                                                <div class="text-danger"><b>BATAL</b></div>
                                             <?php endif; ?>
                                         </td>
                                         <td>
