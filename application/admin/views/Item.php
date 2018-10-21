@@ -78,7 +78,7 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">Detail Item</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Harga Item</th>
                                 <th scope="col">New Arrival</th>
                                 <th scope="col">Best Seller</th>
                                 <th scope="col">Sale Item</th>
@@ -151,7 +151,7 @@
                                                 <?= $item->i_berat; ?> Gram
                                             </div>
                                         </td>
-                                        <td style="width: 10%;" scope="row" class="align-middle">
+                                        <td scope="row" class="align-middle">
                                             <div id="rupiah" value="<?= $item->i_hrg; ?>"></div>
                                         </td>
 
