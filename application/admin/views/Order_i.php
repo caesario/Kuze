@@ -87,7 +87,8 @@
                                             <?php if ($order->orders_status == 0): ?>
                                                 <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
                                             <?php elseif ($order->orders_status == 1): ?>
-                                                <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
+                                                <div class="text-warning"><b>BELUM MENGISI METODE PENGIRIMAN &
+                                                        PEMBAYARAN</b>
                                                 </div>
                                             <?php elseif ($order->orders_status == 2): ?>
                                                 <div class="text-success"><b>PELANGGAN BELUM KONFIRMASI PEMBAYARAN</b>

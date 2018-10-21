@@ -26,7 +26,7 @@
                 <p class="small"><?php if ($status == 0): ?>
                         BELUM MENGISI ALAMAT PENGIRIMAN
                     <?php elseif ($status == 1): ?>
-                        BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
+                        <b>BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN</b>
                     <?php elseif ($status == 2): ?>
                         <b>PELANGGAN BELUM KONFIRMASI PEMBAYARAN</b>
                     <?php elseif ($status == 3): ?>
