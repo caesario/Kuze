@@ -128,11 +128,6 @@ class Item extends MY_Controller
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('item');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_kode)) {
-                $this->data->gagal = 'Karakter untuk kode item tidak diperbolehkan.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('item');
             }
 
             // update
