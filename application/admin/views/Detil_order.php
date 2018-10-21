@@ -36,7 +36,7 @@
                     <?php elseif ($status == 5): ?>
                         ADMIN BELUM KONFIRMASI PENGIRIMAN
                     <?php elseif ($status == 6): ?>
-                        ITEM TELAH DIKIRIM
+                        <b>ITEM TELAH DIKIRIM</b>
                     <?php elseif ($status == 7): ?>
                         BATAL
                     <?php endif; ?>
