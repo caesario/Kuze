@@ -59,6 +59,16 @@ class Order extends MY_Controller
         }
     }
 
+    public function get_konfirmasi($id)
+    {
+        $order = $this->order_bukti->where('orders_noid', $id)->get();
+
+        if ($order) {
+            $this->data->order = $order;
+            $this->load->view('Order_g', $this->data);
+        }
+    }
+
     public function invoice()
     {
         $this->data->title = $this->data->brandname . ' | Invoice';

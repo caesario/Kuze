@@ -209,6 +209,9 @@
 
                 d = data;
                 id = d.attr('data-id');
+                modal = $('#konfirmasi');
+                bodymodal = modal.find('div.modal-body');
+                bodymodal.load("<?= site_url('order/get_konfirmasi/'); ?>" + id);
                 $('a#konfirmasi').attr('href', "<?= site_url('order/konfirmasi/'); ?>" + id + "/proses");
             }
 
@@ -267,7 +270,7 @@
                 mark: ',',
                 decimals: 2,
                 thousand: '.',
-                prefix: 'Rp. ',
+                prefix: 'IDR ',
                 suffix: ''
             });
 
@@ -347,46 +350,8 @@
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
 
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <h5 class="mt-2">Confirm Payment Detail</h5>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-success">Bank Account</div>
-                            <p class="small">
-                                BCA
-                            </p>
-                        </div>
-                        <div class="col">
-                            <div class="text-success">Account Name :</div>
-                            <p class="small">
-                                Ricky Ariansyah
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-success">Transfer Amount : </div>
-                            <p class="small">
-                               100.000
-                            </p>
-                        </div>
-                        <div class="col">
-                            <div class="text-success">Grand Total :</div>
-                            <p class="small">
-                                100.000
-                            </p>
-                        </div>
-                    </div>
-                    <br>
-                    <p class="">Apakah anda yakin ingin melanjutkan proses ini?</p>
-                </div>
-
-
-            </div>
+            <div class="modal-body"></div>
             <div class="modal-footer">
-
                 <a id="konfirmasi" href="#" class="btn btn-sm btn-primary">Proses</a>
                 <a data-dismiss="modal" href="#" class="btn btn-sm btn-danger">Tutup</a>
             </div>
