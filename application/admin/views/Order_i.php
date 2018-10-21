@@ -90,7 +90,8 @@
                                                 <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
                                                 </div>
                                             <?php elseif ($order->orders_status == 2): ?>
-                                                <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN</div>
+                                                <div class="text-success"><b>PELANGGAN BELUM KONFIRMASI PEMBAYARAN</b>
+                                                </div>
                                             <?php elseif ($order->orders_status == 3): ?>
                                                 <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
                                             <?php elseif ($order->orders_status == 4): ?>

@@ -121,7 +121,8 @@
                                                         PEMBAYARAN
                                                     </div>
                                                 <?php elseif ($order->orders_status == 2): ?>
-                                                    <div class="text-success">PELANGGAN BELUM KONFIRMASI PEMBAYARAN
+                                                    <div class="text-success"><b>PELANGGAN BELUM KONFIRMASI
+                                                            PEMBAYARAN</b>
                                                     </div>
                                                 <?php elseif ($order->orders_status == 3): ?>
                                                     <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>

@@ -28,7 +28,7 @@
                     <?php elseif ($status == 1): ?>
                         BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN
                     <?php elseif ($status == 2): ?>
-                        PELANGGAN BELUM KONFIRMASI PEMBAYARAN
+                        <b>PELANGGAN BELUM KONFIRMASI PEMBAYARAN</b>
                     <?php elseif ($status == 3): ?>
                         ADMIN BELUM KONFIRMASI PEMBAYARAN
                     <?php elseif ($status == 4): ?>
