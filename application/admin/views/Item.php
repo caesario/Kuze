@@ -77,13 +77,12 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col">Kode Item</th>
-                                <th scope="col">Nama Item</th>
+                                <th scope="col">Detail Item</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col">New Arrival</th>
                                 <th scope="col">Best Seller</th>
                                 <th scope="col">Sale Item</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Berat (Gram)</th>
+
                                 <th scope="col">Detail</th>
                             </tr>
                             </thead>
@@ -138,9 +137,24 @@
 
                                             </div>
                                         </td>
+                                        <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Kode Item :</b><br>
+                                                <?= $item->i_kodeitem; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Nama Item :</b><br>
+                                                <?= $item->i_nama; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Berat Item :</b><br>
+                                                <?= $item->i_berat; ?> Gram
+                                            </div>
+                                        </td>
+                                        <td style="width: 10%;" scope="row" class="align-middle">
+                                            <div id="rupiah" value="<?= $item->i_hrg; ?>"></div>
+                                        </td>
 
-                                        <td scope="row" class="align-middle"><?= $item->i_kodeitem; ?></td>
-                                        <td scope="row" class="align-middle"><?= $item->i_nama; ?></td>
                                         <td scope="row"
                                             class="align-middle text-center"><?= $item->i_new == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?></td>
                                         <td scope="row"
@@ -149,10 +163,7 @@
                                         <td scope="row"
                                             class="align-middle text-center"><?= $item->i_sale == 0 ? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>'; ?>
                                         </td>
-                                        <td style="width: 10%;" scope="row" class="align-middle">
-                                            <div id="rupiah"><?= $item->i_hrg; ?></div>
-                                        </td>
-                                        <td scope="row" class="align-middle"><?= $item->i_berat; ?> Gram</td>
+
                                         <td>
                                             <?php if (isset($item->item_detil)): ?>
                                                 <table class="table table-sm table-borderless">
@@ -373,7 +384,7 @@
                 }],
                 "fnDrawCallback": function (oSettings) {
                     $('div[id="rupiah"]').each(function (index) {
-                        var value = parseInt($(this).html()),
+                        var value = parseInt($(this).attr('value')),
                             hasil = moneyFormat.to(value);
 
                         $(this).html(hasil);

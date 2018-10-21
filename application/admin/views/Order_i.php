@@ -73,6 +73,7 @@
                                 <th scope="col">Nama Pelanggan</th>
                                 <th scope="col">Status Order</th>
                                 <th scope="col">Total</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -104,6 +105,14 @@
                                         </td>
                                         <td>
                                             <div id="rupiah" value="<?= $order->total; ?>"></div>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
+                                               onclick="detil($(this))" data-target="#cruddetil"
+                                               data-id="<?= $order->orders_noid; ?>"><i
+                                                        class="fas fa-sync mr-2"></i>Lihat Order
+
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -139,10 +148,10 @@
             function detil(data) {
                 d = data;
                 id = d.attr('data-id');
-                modal = $('#crud');
+                modal = $('#cruddetil');
                 bodymodal = modal.find('div.modal-body');
 
-                bodymodal.load("<?= site_url('ukuran/detil/'); ?>" + id);
+                bodymodal.load("<?= site_url('order/detil/'); ?>" + id);
             }
 
             function hapus(data) {
@@ -230,6 +239,18 @@
             </div>
             <div class="modal-footer">
                 <a id="hapus" href="#" class="btn btn-sm btn-danger">Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cruddetil" tabindex="-1" role="dialog" aria-labelledby="cruddetil" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>

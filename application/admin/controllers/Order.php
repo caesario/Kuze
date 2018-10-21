@@ -268,6 +268,33 @@ class Order extends MY_Controller
 
     }
 
+    public function repair_order()
+    {
+        echo '<pre>';
+        foreach ($this->order->with_order_detil()->get_all() as $o) {
+            if (!isset($o->order_detil)) {
+                echo 'data order dengan nomor order ' . $o->orders_noid . ' tidak valid.<br>';
+                echo 'hapus ' . $o->orders_noid . ' ...';
+
+                $this->order_ongkir->where('orders_noid', $o->orders_noid)->delete();
+                echo 'ongkir order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+                $this->order_bukti->where('orders_noid', $o->orders_noid)->delete();
+                echo 'bukti order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+                $this->order_payment->where('orders_noid', $o->orders_noid)->delete();
+                echo 'payment order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+                $this->order_pengiriman->where('orders_noid', $o->orders_noid)->delete();
+                echo 'pengiriman order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+                $this->order_resi->where('orders_noid', $o->orders_noid)->delete();
+                echo 'resi order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+                $this->order->where('orders_noid', $o->orders_noid)->delete();
+                echo 'data order dengan nomor order ' . $o->orders_noid . ' telah dihapus.<br>';
+            } else {
+                echo 'data order dengan nomor order ' . $o->orders_noid . ' valid.<br>';
+            }
+        }
+        echo '</pre>';
+    }
+
     public function detil($id)
     {
         $order = $this->order->where('orders_noid', $id)->get();
