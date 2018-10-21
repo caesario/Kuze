@@ -30,11 +30,11 @@
                     <?php elseif ($status == 2): ?>
                         <b>PELANGGAN BELUM KONFIRMASI PEMBAYARAN</b>
                     <?php elseif ($status == 3): ?>
-                        ADMIN BELUM KONFIRMASI PEMBAYARAN
+                        <b>ADMIN BELUM KONFIRMASI PEMBAYARAN</b>
                     <?php elseif ($status == 4): ?>
-                        ADMIN SEDANG MEMPROSES ORDER
+                        <b>ADMIN SEDANG MEMPROSES ORDER</b>
                     <?php elseif ($status == 5): ?>
-                        ADMIN BELUM KONFIRMASI PENGIRIMAN
+                        <b>ADMIN BELUM KONFIRMASI PENGIRIMAN</b>
                     <?php elseif ($status == 6): ?>
                         <b>TELAH DIKIRIM</b>
                     <?php elseif ($status == 7): ?>

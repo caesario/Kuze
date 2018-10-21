@@ -107,11 +107,13 @@
                                                             PEMBAYARAN</b>
                                                     </div>
                                                 <?php elseif ($order->orders_status == 3): ?>
-                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PEMBAYARAN</div>
+                                                    <div class="text-success"><b>ADMIN BELUM KONFIRMASI PEMBAYARAN</b>
+                                                    </div>
                                                 <?php elseif ($order->orders_status == 4): ?>
-                                                    <div class="text-success">ADMIN SEDANG MEMPROSES ORDER</div>
+                                                    <div class="text-success"><b>ADMIN SEDANG MEMPROSES ORDER</b></div>
                                                 <?php elseif ($order->orders_status == 5): ?>
-                                                    <div class="text-success">ADMIN BELUM KONFIRMASI PENGIRIMAN</div>
+                                                    <div class="text-success"><b>ADMIN BELUM KONFIRMASI PENGIRIMAN</b>
+                                                    </div>
                                                 <?php elseif ($order->orders_status == 6): ?>
                                                     <div class="text-success"><b>TELAH DIKIRIM</b></div>
                                                 <?php elseif ($order->orders_status == 7): ?>
