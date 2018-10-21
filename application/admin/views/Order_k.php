@@ -84,9 +84,7 @@
                                         <td class="align-middle">
                                             <div class="mb-2">
                                                 <b>Nominal : </b><br>
-                                                <div id="rupiah">
-                                                    <?= $order->orders_bukti_nominal; ?>
-                                                </div>
+                                                <div id="rupiah" value="<?= $order->orders_bukti_nominal; ?>"></div>
                                             </div>
                                             <div class="mb-2">
                                                 <b>Bank : </b><br>
@@ -223,7 +221,7 @@
                 },
                 "fnDrawCallback": function (oSettings) {
                     $('div[id="rupiah"]').each(function (index) {
-                        var value = parseInt($(this).html()),
+                        var value = parseInt($(this).attr('value')),
                             hasil = moneyFormat.to(value);
 
                         $(this).html(hasil);

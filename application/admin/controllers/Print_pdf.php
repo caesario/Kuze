@@ -54,6 +54,8 @@ class Print_pdf extends MY_Controller
 
         };
 
+        $this->data->order_ongkir_nama = $this->order_ongkir->where('orders_noid', $this->data->orders_noid)->get()->orders_ongkir_nama;
+
         $view = $this->load->view('Slip_pengiriman', $this->data, true);
 
         $mpdf = $this->pdf->load([

@@ -268,21 +268,37 @@ class Order extends MY_Controller
 
     }
 
-
     public function detil($id)
     {
-        $orders = $this->order->with_order_detil()->where_orders_noid($id)->get();
-        $duedate = function () use ($orders) {
-            $duedate = strtotime($orders->created_at);
+        $order = $this->order->where('orders_noid', $id)->get();
+        $order_detils = function () use ($id) {
+            $data_array = array();
+            $index = 0;
+            foreach ($this->order_detil->where('orders_noid', $id)->get_all() as $o) {
+                $item_detil_kode = $o->item_detil_kode;
+                $data_array[$index]['orders_item_nama'] = $this->item_detil->with_item()->where('item_detil_kode', $item_detil_kode)->get()->item->i_nama;
+                $data_array[$index]['orders_detil_qty'] = $o->orders_detil_qty;
+                $data_array[$index]['orders_detil_harga'] = $o->orders_detil_harga;
+                $data_array[$index]['orders_detil_tharga'] = $o->orders_detil_tharga;
+                $index += 1;
+            }
+
+            return (object)$data_array;
+
+        };
+        $duedate = function () use ($id) {
+            $order = $this->order->where('orders_noid', $id)->get();
+            $duedate = strtotime($order->created_at);
             $duedate += 21600;
             $duedate = date('Y-m-d H:i:s', $duedate);
             return $duedate;
         };
 
-        $orders_total = function () use ($orders) {
+        $orders_total = function () use ($id) {
             $hasil = 0;
-            foreach ($orders->order_detil as $order) {
-                $hasil += $order->orders_detil_tharga;
+            $order = $this->order_detil->where('orders_noid', $id)->get_all();
+            foreach ($order as $o) {
+                $hasil += $o->orders_detil_tharga;
             }
             return (int)$hasil;
         };
@@ -307,6 +323,10 @@ class Order extends MY_Controller
             }
             return $hasil;
 
+        };
+
+        $pengiriman_kontak = function () use ($id) {
+            return $order_pengiriman = $this->order_pengiriman->where('orders_noid', $id)->get();
         };
 
         $jasa = function () use ($id) {
@@ -397,10 +417,14 @@ class Order extends MY_Controller
 
         };
 
+
         $this->data->orders_noid = $id;
-        $this->data->orders = $orders;
+        $this->data->createdate = $order->created_at;
+        $this->data->status = $order->orders_status;
         $this->data->duedate = $duedate();
+        $this->data->order_detils = $order_detils();
         $this->data->pengiriman = $pengiriman();
+        $this->data->pengiriman_kontak = $pengiriman_kontak();
         $this->data->jasa = $jasa();
         $this->data->metode_pembayaran = $metode_pembayaran();
         $this->data->orders_total = $orders_total();

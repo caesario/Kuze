@@ -103,7 +103,7 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <div id="rupiah"><?= $order->total; ?></div>
+                                            <div id="rupiah" value="<?= $order->total; ?>"></div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -176,7 +176,7 @@
                 mark: ',',
                 decimals: 2,
                 thousand: '.',
-                prefix: 'Rp. ',
+                prefix: 'IDR ',
                 suffix: ''
             });
 
@@ -189,7 +189,7 @@
                 },
                 "fnDrawCallback": function (oSettings) {
                     $('div[id="rupiah"]').each(function (index) {
-                        var value = parseInt($(this).html()),
+                        var value = parseInt($(this).attr('value')),
                             hasil = moneyFormat.to(value);
 
                         $(this).html(hasil);

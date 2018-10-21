@@ -28,7 +28,7 @@
     </tr>
     <tr>
         <td height="30">Jenis Pengiriman</td>
-        <td height="30"></td>
+        <td height="30"><?= $order_ongkir_nama; ?></td>
     </tr>
 </table>
 <hr>
