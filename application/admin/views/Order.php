@@ -96,7 +96,8 @@
                                             <div class="mb-2">
                                                 <b>Status Order : </b><br>
                                                 <?php if ($order->orders_status == 0): ?>
-                                                    <div class="text-warning">BELUM MENGISI ALAMAT PENGIRIMAN</div>
+                                                    <div class="text-warning"><b>BELUM MENGISI ALAMAT PENGIRIMAN</b>
+                                                    </div>
                                                 <?php elseif ($order->orders_status == 1): ?>
                                                     <div class="text-warning">BELUM MENGISI METODE PENGIRIMAN &
                                                         PEMBAYARAN

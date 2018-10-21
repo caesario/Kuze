@@ -24,7 +24,7 @@
             <div class="col">
                 <div class="text-success">Status :</div>
                 <p class="small"><?php if ($status == 0): ?>
-                        BELUM MENGISI ALAMAT PENGIRIMAN
+                        <b>BELUM MENGISI ALAMAT PENGIRIMAN</b>
                     <?php elseif ($status == 1): ?>
                         <b>BELUM MENGISI METODE PENGIRIMAN & PEMBAYARAN</b>
                     <?php elseif ($status == 2): ?>
