@@ -8,7 +8,8 @@
                 <?php if (isset($_SESSION['profile']) && $_SESSION['profile'] != ""): ?>
                 <img src="<?= base_url('upload/' . $_SESSION['profile']); ?>" alt="person" class="img-fluid rounded-circle">
                 <?php else: ?>
-                <img src="<?= base_url('assets/img/profile.png'); ?>" alt="person" class="img-fluid rounded-circle">
+                    <img src="<?= base_url('assets/img/kuzelogo.jpeg'); ?>" alt="person"
+                         class="img-fluid rounded-circle">
                 <?php endif; ?>
                 <h2 class="h5"><?= $_SESSION['nama']; ?></h2><span>Admin</span>
             </div>

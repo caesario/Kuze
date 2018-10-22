@@ -168,7 +168,8 @@ class Bag extends MY_Controller
                 'pengguna_kode' => $pengguna_kode,
                 'orders_hrg' => $harga,
                 'promo_kode' => $promo_kode,
-                'orders_thrg' => $totalharga
+                'orders_thrg' => $totalharga,
+                'orders_uniq' => mt_rand(100, 399)
             ));
 
             foreach ($carts as $cart) {

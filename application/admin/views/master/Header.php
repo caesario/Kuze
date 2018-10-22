@@ -75,6 +75,6 @@
 
     <!-- Main File-->
     <script src="<?= base_url('assets/js/front.js'); ?>"></script>
-    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
+    <link rel="shortcut icon" href="<?= base_url('assets/img/kuzelogo.jpeg'); ?>">
 
 </head>
