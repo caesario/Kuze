@@ -1,11 +1,45 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class API extends MY_Controller
+class API extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        // load model
+        $this->load->model('Alamat_m', 'alamat');
+        $this->load->model('Event_m', 'event');
+        $this->load->model('Bag_m', 'cart');
+        $this->load->model('Item_detil_m', 'item_detil');
+        $this->load->model('Item_img_m', 'item_img');
+        $this->load->model('Item_kategori_m', 'item_kategori');
+        $this->load->model('Item_qty_m', 'item_qty');
+        $this->load->model('Item_seri_m', 'item_seri');
+        $this->load->model('Item_ukuran_m', 'item_ukuran');
+        $this->load->model('Item_warna_m', 'item_warna');
+        $this->load->model('Item_m', 'item');
+        $this->load->model('Kategori_m', 'kategori');
+        $this->load->model('Order_detil_m', 'order_detil');
+        $this->load->model('Order_m', 'order');
+        $this->load->model('Order_pengiriman_m', 'order_pengiriman');
+        $this->load->model('Order_ongkir_m', 'order_ongkir');
+        $this->load->model('Order_payment_m', 'order_payment');
+        $this->load->model('Order_bukti_m', 'order_bukti');
+        $this->load->model('Order_pengguna_m', 'order_pengguna');
+        $this->load->model('Order_resi_m', 'order_resi');
+        $this->load->model('Seri_m', 'seri');
+        $this->load->model('Toko_m', 'toko');
+        $this->load->model('Billboard_m', 'billboard');
+        $this->load->model('Warna_m', 'warna');
+        $this->load->model('Promo_m', 'promo');
+        $this->load->model('Bank_m', 'bank');
+        $this->load->model('Slide_promo_m', 'slide_promo');
+        $this->load->model('Provinsi_m', 'provinsi');
+        $this->load->model('Kabupaten_m', 'kabupaten');
+        $this->load->model('Kecamatan_m', 'kecamatan');
+        $this->load->model('Desa_m', 'desa');
+        $this->load->model('Pengguna_m', 'pengguna');
+        $this->load->model('Pengguna_alamat_m', 'pengguna_alamat');
     }
 
     public function get_provinsi($id = '')

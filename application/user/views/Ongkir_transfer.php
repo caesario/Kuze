@@ -26,6 +26,31 @@ include "layout/Menu.php";
     <!-- ======= Detail Checkout ======= -->
     <div class="container-fluid c-padding-header mb-5">
         <div class="row">
+            <div class="col-lg-6">
+                <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                    <div class="alert alert-danger alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['gagal']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                    <div class="alert alert-success alert-dismissible fade show"
+                         role="alert">
+                        <?php echo $_SESSION['berhasil']; ?>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="row">
 
             <div class="col-lg-6">
                 <form class="col-lg-12 col-md-12" action="ongkir_transfer/simpan" method="post">

@@ -24,6 +24,30 @@ include "layout/Menu.php";
         <div class="container-fluid f-padding">
             <div class="row">
                 <div class="col-lg-9 col-md-9 c-margin-auto">
+                    <?php if (isset($_SESSION['gagal']) && $_SESSION['gagal'] != ""): ?>
+                        <div class="alert alert-danger alert-dismissible fade show"
+                             role="alert">
+                            <?php echo $_SESSION['gagal']; ?>
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] != ""): ?>
+                        <div class="alert alert-success alert-dismissible fade show"
+                             role="alert">
+                            <?php echo $_SESSION['berhasil']; ?>
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 c-margin-auto">
                     <h5 class="mb-4">ADDRESS DETAIL</h5>
                     <form action="alamat_pengiriman/simpan" method="post" id="form_alamat">
                         <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
