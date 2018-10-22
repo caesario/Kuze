@@ -86,8 +86,12 @@
                                             </div>
                                             <div class="mb-2">
                                                 <b>Total Pembayaran : </b><br>
-                                                <div id="rupiah" value="<?= $order->total; ?>">
+                                                <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
                                                 </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Kode Unik :</b><br>
+                                                <div class="text-danger"><?= $order->orders_uniq; ?></div>
                                             </div>
                                             <div class="mb-2">
                                                 <b>Tanggal Order : </b><br>

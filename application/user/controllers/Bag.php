@@ -128,7 +128,7 @@ class Bag extends MY_Controller
         $kodepromo = $this->uri->segment(3);
         $pengguna_kode = $_SESSION['id'];
         $carts = $this->cart->where_pengguna_kode($pengguna_kode)->get_all();
-        $nomor_order = date('ymd') . (int)$this->order->count_rows() + 1;
+        $nomor_order = date('ymd') . mt_rand(100, 999);
         $cart_total = function () {
             $hasil = 0;
             foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {

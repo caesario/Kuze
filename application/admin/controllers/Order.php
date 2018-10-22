@@ -278,6 +278,17 @@ class Order extends MY_Controller
         echo '</pre>';
     }
 
+    public function set_uniq()
+    {
+        echo '<pre>';
+        foreach ($this->order->get_all() as $o) {
+            $uniq = mt_rand(100, 399);
+            $this->order->where('orders_noid', $o->orders_noid)->update(array('orders_uniq' => $uniq));
+            echo 'berhasil menambah kode unik ' . $uniq . ' dengan nomor order ' . $o->orders_noid . '<br>';
+        }
+        echo '</pre>';
+    }
+
     public function detil($id)
     {
         $order = $this->order->where('orders_noid', $id)->get();

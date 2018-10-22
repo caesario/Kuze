@@ -23,7 +23,7 @@ class Ongkir_transfer extends MY_Controller
     {
         $data_check = array(
             'orders_noid' => $order,
-            'orders_status' => 1
+            'orders_status >=' => 1
         );
 
         if ($this->order->where($data_check)->get()) {
@@ -99,7 +99,7 @@ class Ongkir_transfer extends MY_Controller
         $orders_noid = $this->input->post('nomor_order');
         $data_check = array(
             'orders_noid' => $orders_noid,
-            'orders_status' => 1
+            'orders_status >=' => 1
         );
 
         if ($this->order->where($data_check)->get()) {

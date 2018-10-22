@@ -83,8 +83,13 @@
                                         <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
                                         <td class="align-middle">
                                             <div class="mb-2">
+                                                <b>Kode Unik :</b><br>
+                                                <div class="text-danger"><?= $order->orders_uniq; ?></div>
+                                            </div>
+                                            <div class="mb-2">
                                                 <b>Nominal : </b><br>
-                                                <div id="rupiah" value="<?= $order->orders_bukti_nominal; ?>"></div>
+                                                <div id="rupiah"
+                                                     value="<?= $order->orders_bukti_nominal + $order->orders_uniq; ?>"></div>
                                             </div>
                                             <div class="mb-2">
                                                 <b>Bank : </b><br>
@@ -212,7 +217,7 @@
                 mark: ',',
                 decimals: 2,
                 thousand: '.',
-                prefix: 'Rp. ',
+                prefix: 'IDR ',
                 suffix: ''
             });
 
