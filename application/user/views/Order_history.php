@@ -59,7 +59,7 @@ include "layout/Menu.php";
                                                 <?= $order->created_at; ?>
                                                 <br>
                                                 <b class="c-order-info">Price Total :</b><br>
-                                                <div id="rupiah"><?= $order->total; ?></div>
+                                                <div id="rupiah"><?= $order->total + $order->orders_uniq; ?></div>
                                                 <br>
                                                 <b class="c-order-info">Status :</b><br>
                                                 <?php if ($order->orders_status == 0): ?>
