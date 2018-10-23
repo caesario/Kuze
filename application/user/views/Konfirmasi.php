@@ -177,6 +177,15 @@ include "layout/Menu.php";
                                required>
                     </div>
                     <div class="form-group">
+                        <label class="col-form-label mt-1">Account Number <span class="c-form-star ">*</span></label>
+                        <input type="text"
+                               class="form-control mt-1"
+                               id="inputRekBank"
+                               placeholder="Enter Account Number . . ."
+                               name="rek_nomor"
+                               required>
+                    </div>
+                    <div class="form-group">
                         <label for="example-date-input" class="col-form-label">Transfer Amount<span class="c-form-star">*</span></label>
                         <input class="form-control"
                                type="number"

@@ -244,7 +244,7 @@ class Konfirmasi extends MY_Controller
 
         $konfirmasi_array = array(
             'orders_bukti_nama_rek' => $this->input->post('rek_atasnama'),
-            'orders_bukti_no_rek' => $this->input->post('nomor_rekening'),
+            'orders_bukti_no_rek' => $this->input->post('rek_nomor'),
             'orders_bukti_bank_nama' => $this->input->post('bank'),
             'orders_bukti_nominal' => $this->input->post('total_pembayaran'),
             'orders_bukti_foto' => $hasil['file_name'],

@@ -81,11 +81,20 @@
                                         <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
                                         <td class="align-middle">
                                             <div class="mb-2">
+                                                <b>Tanggal Order : </b><br>
+                                                <?= $order->created_at; ?>
+                                            </div>
+                                            <div class="mb-2">
                                                 <b>Nama Pelanggan :</b><br>
                                                 <?= $order->pengguna_nama; ?>
                                             </div>
                                             <div class="mb-2">
-                                                <b>Total Pembayaran : </b><br>
+                                                <b>Pembayaran : </b><br>
+                                                <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Biaya Pengiriman : </b><br>
                                                 <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
                                                 </div>
                                             </div>
@@ -93,10 +102,7 @@
                                                 <b>Kode Unik :</b><br>
                                                 <div class="text-danger"><?= $order->orders_uniq; ?></div>
                                             </div>
-                                            <div class="mb-2">
-                                                <b>Tanggal Order : </b><br>
-                                                <?= $order->created_at; ?>
-                                            </div>
+
                                             <div class="mb-2">
                                                 <b>Status Order : </b><br>
                                                 <?php if ($order->orders_status == 0): ?>
@@ -274,7 +280,7 @@
             // ------------------------------------------------------ //
             var moneyFormat = wNumb({
                 mark: ',',
-                decimals: 2,
+                decimals: 0,
                 thousand: '.',
                 prefix: 'IDR ',
                 suffix: ''

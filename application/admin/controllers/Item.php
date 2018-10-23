@@ -118,23 +118,66 @@ class Item extends MY_Controller
         // item
         if ($item) {
 
-            // validasi
-            if ($this->form_validation->run() === FALSE && ($item->i_nama != $item_nama || $item->i_kodeitem != $item_kode)) {
-                $this->data->gagal = validation_errors();
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-                redirect('item');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
-                $this->data->gagal = 'Karakter untuk nama item tidak diperbolehkan.';
+            try {
+                // validasi
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
+                    $this->data->gagal = 'Karakter untuk nama item tidak diperbolehkan.';
+                    $this->session->set_flashdata('gagal', $this->data->gagal);
+
+                    redirect('item');
+                }
+
+                // update
+                $item_update = $this->item->update($item_array, 'i_kode');
+                $item_kategori_hapus = $this->item_kategori->where('i_kode', $id)->delete();
+
+                if ($item_kategori_hapus) {
+                    if (isset($_POST['kategori'])) {
+                        foreach ($this->input->post('kategori') as $kategori) {
+                            $this->item_kategori->insert(array(
+                                'ik_kode' => $this->item_kategori->guid(),
+                                'i_kode' => $this->input->post('id'),
+                                'k_kode' => $kategori,
+                            ));
+                        }
+                    }
+                }
+
+
+                if ($item_update) {
+                    $this->data->berhasil = 'Data Item berhasil diperbarui.';
+                    $this->session->set_flashdata('berhasil', $this->data->berhasil);
+
+                    redirect('item');
+                } else {
+                    $this->data->gagal = 'Data Item gagal diperbarui.';
+                    $this->session->set_flashdata('gagal', $this->data->gagal);
+
+                    redirect('item');
+                }
+            } catch (Exception $e) {
+                $this->data->gagal = 'Error : ' . $e;
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('item');
             }
+        } else {
 
-            // update
-            $item_update = $this->item->update($item_array, 'i_kode');
-            $item_kategori_hapus = $this->item_kategori->where('i_kode', $id)->delete();
+            try {
+                if ($this->form_validation->run() === FALSE) {
+                    $this->data->gagal = validation_errors();
+                    $this->session->set_flashdata('gagal', $this->data->gagal);
+                    redirect('item');
+                } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
+                    $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
+                    $this->session->set_flashdata('gagal', $this->data->gagal);
 
-            if ($item_kategori_hapus) {
+                    redirect('item');
+                }
+
+                // insert
+                $item_insert = $this->item->insert($item_array);
+
                 if (isset($_POST['kategori'])) {
                     foreach ($this->input->post('kategori') as $kategori) {
                         $this->item_kategori->insert(array(
@@ -144,69 +187,36 @@ class Item extends MY_Controller
                         ));
                     }
                 }
-            }
 
-
-            if ($item_update) {
-                $this->data->berhasil = 'Data Item berhasil diperbarui.';
-                $this->session->set_flashdata('berhasil', $this->data->berhasil);
-
-                redirect('item');
-            } else {
-                $this->data->gagal = 'Data Item gagal diperbarui.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('item');
-            }
-        } else {
-
-            if ($this->form_validation->run() === FALSE) {
-                $this->data->gagal = validation_errors();
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-                redirect('item');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
-                $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
-                $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                redirect('item');
-            }
-
-            // insert
-            $item_insert = $this->item->insert($item_array);
-
-            if (isset($_POST['kategori'])) {
-                foreach ($this->input->post('kategori') as $kategori) {
-                    $this->item_kategori->insert(array(
-                        'ik_kode' => $this->item_kategori->guid(),
+                for ($i = 0; $i < $counter; $i++) {
+                    $id_detil = $this->item_detil->guid();
+                    $item_detil = $this->item_detil->insert(array(
+                        'item_detil_kode' => $id_detil,
                         'i_kode' => $this->input->post('id'),
-                        'k_kode' => $kategori,
+                        'u_kode' => $_POST['ukuran'][$i],
+                    ));
+
+                    $item_qty = $this->item_qty->insert(array(
+                        'iq_kode' => $this->item_qty->guid(),
+                        'item_detil_kode' => $id_detil,
+                        'iq_qty' => $_POST['qty'][$i]
                     ));
                 }
-            }
-
-            for ($i = 0; $i < $counter; $i++) {
-                $id_detil = $this->item_detil->guid();
-                $item_detil = $this->item_detil->insert(array(
-                    'item_detil_kode' => $id_detil,
-                    'i_kode' => $this->input->post('id'),
-                    'u_kode' => $_POST['ukuran'][$i],
-                ));
-
-                $item_qty = $this->item_qty->insert(array(
-                    'iq_kode' => $this->item_qty->guid(),
-                    'item_detil_kode' => $id_detil,
-                    'iq_qty' => $_POST['qty'][$i]
-                ));
-            }
 
 
-            if ($item_insert && $item_detil && $item_qty) {
-                $this->data->berhasil = 'Data Item berhasil dibuat.';
-                $this->session->set_flashdata('berhasil', $this->data->berhasil);
+                if ($item_insert && $item_detil && $item_qty) {
+                    $this->data->berhasil = 'Data Item berhasil dibuat.';
+                    $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
-                redirect('item');
-            } else {
-                $this->data->gagal = 'Data Item gagal dibuat.';
+                    redirect('item');
+                } else {
+                    $this->data->gagal = 'Data Item gagal dibuat.';
+                    $this->session->set_flashdata('gagal', $this->data->gagal);
+
+                    redirect('item');
+                }
+            } catch (Exception $e) {
+                $this->data->gagal = 'Error : ' . $e;
                 $this->session->set_flashdata('gagal', $this->data->gagal);
 
                 redirect('item');

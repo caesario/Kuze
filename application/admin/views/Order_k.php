@@ -72,7 +72,8 @@
                             <thead>
                             <tr>
                                 <th scope="col">No. Order</th>
-                                <th scope="col">Detail Bank & Bukti</th>
+                                <th scope="col">Detail Pembayaran</th>
+                                <th scope="col">Detail Bank</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -83,21 +84,22 @@
                                         <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
                                         <td class="align-middle">
                                             <div class="mb-2">
+                                                <b>Tanggal Konfirmasi :</b><br>
+                                                <?= $order->created_at; ?>
+                                            </div>
+                                            <div class="mb-2">
                                                 <b>Kode Unik :</b><br>
                                                 <div class="text-danger"><?= $order->orders_uniq; ?></div>
                                             </div>
                                             <div class="mb-2">
-                                                <b>Nominal : </b><br>
+                                                <b>Total Pembayaran : </b><br>
                                                 <div id="rupiah"
                                                      value="<?= $order->orders_bukti_nominal + $order->orders_uniq; ?>"></div>
                                             </div>
                                             <div class="mb-2">
-                                                <b>Bank : </b><br>
-                                                <?= $order->orders_bukti_bank_nama; ?>
-                                            </div>
-                                            <div class="mb-2">
-                                                <b>Nomor Pemilik Rekening : </b><br>
-                                                <?= $order->orders_bukti_no_rek; ?>
+                                                <b>Total yang dibayarkan : </b><br>
+                                                <div id="rupiah"
+                                                     value="<?= $order->orders_bukti_nominal + $order->orders_uniq; ?>"></div>
                                             </div>
                                             <div class="mb-2">
                                                 <b>Bukti : </b><br>
@@ -145,6 +147,26 @@
                                                 <?php endif; ?>
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="mb-2">
+                                                <b>Bank : </b><br>
+                                                <?= $order->orders_bukti_bank_nama; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Nama Pemilik Rekening : </b><br>
+                                                <?= $order->orders_bukti_nama_rek; ?>
+                                            </div>
+                                            <div class="mb-3">
+                                                <b>Nomor Pemilik Rekening : </b><br>
+                                                <?= $order->orders_bukti_no_rek; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Transfer ke :</b><br>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Atas Nama :</b><br>
+                                            </div>
+                                        </td>
                                         <td class="align-middle">
                                             <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
                                                onclick="proses($(this))" data-target="#proses"
@@ -152,7 +174,7 @@
                                             <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
                                                onclick="detil($(this))" data-target="#cruddetil"
                                                data-id="<?= $order->orders_noid; ?>"><i
-                                                        class="fas fa-sync mr-2"></i>Lihat Detail
+                                                        class="fas fa-sync mr-2"></i>Lihat Order
 
                                             </a>
                                         </td>
@@ -215,7 +237,7 @@
             // ------------------------------------------------------ //
             var moneyFormat = wNumb({
                 mark: ',',
-                decimals: 2,
+                decimals: 0,
                 thousand: '.',
                 prefix: 'IDR ',
                 suffix: ''
@@ -278,10 +300,13 @@
 
 
 <div class="modal fade" id="cruddetil" tabindex="-1" role="dialog" aria-labelledby="crud" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
 
             <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>

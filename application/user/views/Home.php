@@ -5,25 +5,28 @@ include "layout/Menu.php";
 
 
     <div ng-app="kuze" ng-controller="homeController">
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
-        <div ng-if="fotorama_items" fotorama item="fotorama_items" class="fotorama"
-             data-autoplay="true"
-             data-fit="none"
-             data-loop="true"
-             data-ratio="1400/400"
-             data-width="100%"
-             data-minwidth="0"
-             data-maxwidth="100%"
-             data-minheight="0"
-             data-maxheight="100%">
-        </div>
+        <!--        <div class="spinner">-->
+        <!--            <div class="rect1"></div>-->
+        <!--            <div class="rect2"></div>-->
+        <!--            <div class="rect3"></div>-->
+        <!--            <div class="rect4"></div>-->
+        <!--            <div class="rect5"></div>-->
+        <!--        </div>-->
+        <!--        <div ng-if="fotorama_items" fotorama item="fotorama_items" class="fotorama"-->
+        <!--             data-autoplay="true"-->
+        <!--             data-fit="none"-->
+        <!--             data-loop="true"-->
+        <!--             data-ratio="1400/400"-->
+        <!--             data-width="100%"-->
+        <!--             data-minwidth="0"-->
+        <!--             data-maxwidth="100%"-->
+        <!--             data-minheight="0"-->
+        <!--             data-maxheight="100%">-->
+        <!--        </div>-->
 
+        <div class="fotorama">
+            <img src="assets/img/fina.jpg" alt="Ini">
+        </div>
         <br>
         <div ng-if="img1 && img2 && img3 && img4 && img5" class="container-fluid px-0 mb-3">
             <div class="row c-padding-header">
