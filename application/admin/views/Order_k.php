@@ -170,7 +170,10 @@
                                         <td class="align-middle">
                                             <a class="btn btn-sm btn-primary" data-toggle="modal" href="#"
                                                onclick="proses($(this))" data-target="#proses"
-                                               data-id="<?= $order->orders_noid; ?>"><i class="fas fa-check mr-2"></i>Proses <?= $title_page; ?></a>
+                                               data-id="<?= $order->orders_noid; ?>"><i class="fas fa-check mr-2"></i>Proses</a>
+                                            <a class="btn btn-sm btn-danger" data-toggle="modal" href="#"
+                                               onclick="proses_revert($(this))" data-target="#proses_revert"
+                                               data-id="<?= $order->orders_noid; ?>"><i class="fas fa-times mr-2"></i>Revert</a>
                                             <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
                                                onclick="detil($(this))" data-target="#cruddetil"
                                                data-id="<?= $order->orders_noid; ?>"><i
@@ -198,6 +201,12 @@
                 d = data;
                 id = d.attr('data-id');
                 $('a#proses').attr('href', "<?= site_url('order/proses_konfirmasi/'); ?>" + id);
+            }
+
+            function proses_revert(data) {
+                d = data;
+                id = d.attr('data-id');
+                $('a#proses_revert').attr('href', "<?= site_url('order/proses_revert/'); ?>" + id);
             }
 
             function detil(data) {
@@ -288,10 +297,26 @@
         <div class="modal-content">
 
             <div class="modal-body">
-                <p>Apakah anda yakin?</p>
+                <p>Apakah anda yakin ingin melakukan proses ini ?</p>
             </div>
             <div class="modal-footer">
                 <a id="proses" href="#" class="btn btn-sm btn-primary">Proses</a>
+                <a href="#" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="proses_revert" tabindex="-1" role="dialog" aria-labelledby="proses_revert"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Apakah anda yakin ingin melakukan proses ini ?<br>
+                    Setelah proses ini dilakukan maka order akan di-revert ke konfirmasi pembayaran.</p>
+            </div>
+            <div class="modal-footer">
+                <a id="proses_revert" href="#" class="btn btn-sm btn-primary">Revert</a>
                 <a href="#" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</a>
             </div>
         </div>

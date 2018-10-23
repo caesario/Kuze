@@ -59,6 +59,29 @@ class Order extends MY_Controller
         }
     }
 
+    public function proses_revert($id)
+    {
+        $reason = $this->input->post('alasan');
+        $order = $this->order->where_orders_noid($id)->update(
+            array(
+                'orders_status' => 2,
+                'orders_deskripsi' => $reason
+            )
+        );
+
+        if ($order) {
+            $this->data->berhasil = 'Revert Order berhasil.';
+            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+
+            redirect('order/konfirmasi');
+        } else {
+            $this->data->gagal = 'Revert Order gagal.';
+            $this->session->set_flashdata('gagal', $this->data->gagal);
+
+            redirect('order/konfirmasi');
+        }
+    }
+
     public function get_konfirmasi($id)
     {
         $order = $this->order_bukti->where('orders_noid', $id)->get();
