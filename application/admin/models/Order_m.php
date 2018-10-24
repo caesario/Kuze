@@ -37,10 +37,12 @@ class Order_m extends MY_Model
 
     public function select_orders()
     {
-        $query = $this->db->query("SELECT orders.*, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+        $query = $this->db->query("SELECT orders.*, orders_ongkir.orders_ongkir_biaya, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_ongkir
+                                    ON orders.orders_noid = orders_ongkir.orders_noid
                                     LEFT JOIN orders_detil
                                     ON orders.orders_noid = orders_detil.orders_noid
                                     GROUP BY orders.orders_noid");

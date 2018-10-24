@@ -21,7 +21,7 @@
         <div class="main-menu">
             <h5 class="sidenav-heading">Main</h5>
             <ul id="side-main-menu" class="side-menu list-unstyled">
-                <li><a href="<?= site_url('dashboard'); ?>"> <i class="icon-home"></i>Dashboard </a></li>
+                <li><a href="<?= site_url('dashboard'); ?>"> <i class="fas fa-home mr-2"></i>Dashboard </a></li>
                 <li>
                     <a href="#misc" aria-expanded="false" data-toggle="collapse"><i class="fas fa-filter mr-2"></i>Master</a>
                     <ul id="misc" class="collapse list-unstyled ">

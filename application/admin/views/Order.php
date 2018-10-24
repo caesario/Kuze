@@ -69,8 +69,8 @@
                         <table id="tables" class="table table-sm">
                             <thead>
                             <tr>
-                                <th scope="col">No. Order</th>
                                 <th scope="col">Detail Order</th>
+                                <th scope="col">Detail Biaya</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -78,8 +78,13 @@
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                     <tr>
-                                        <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
                                         <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Nomor Order :</b><br>
+                                                <div class="text-danger">
+                                                    <?= $order->orders_noid; ?>
+                                                </div>
+                                            </div>
                                             <div class="mb-2">
                                                 <b>Tanggal Order : </b><br>
                                                 <?= $order->created_at; ?>
@@ -87,20 +92,6 @@
                                             <div class="mb-2">
                                                 <b>Nama Pelanggan :</b><br>
                                                 <?= $order->pengguna_nama; ?>
-                                            </div>
-                                            <div class="mb-2">
-                                                <b>Pembayaran : </b><br>
-                                                <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="mb-2">
-                                                <b>Biaya Pengiriman : </b><br>
-                                                <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="mb-2">
-                                                <b>Kode Unik :</b><br>
-                                                <div class="text-danger"><?= $order->orders_uniq; ?></div>
                                             </div>
 
                                             <div class="mb-2">
@@ -129,6 +120,33 @@
                                                     <div class="text-danger"><b>BATAL</b></div>
                                                 <?php endif; ?>
                                             </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Kode Unik :</b><br>
+                                                <div class="text-danger"><?= $order->orders_uniq; ?></div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Pembayaran : </b><br>
+                                                <div id="rupiah" value="<?= $order->total + $order->orders_uniq; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Pengiriman : </b><br>
+                                                <?php if (isset($order->orders_ongkir_biaya) && $order->orders_ongkir_biaya != NULL): ?>
+                                                    <div id="rupiah" value="<?= $order->orders_ongkir_biaya; ?>">
+                                                    </div>
+                                                <?php else: ?>
+                                                    Belum ada Nominal
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Grand Total :</b><br>
+                                                <div id="rupiah" class="text-success"
+                                                     value="<?= $order->total + $order->orders_ongkir_biaya + $order->orders_uniq; ?>">
+                                                </div>
+                                            </div>
+
                                         </td>
                                         <td class="align-middle">
                                             <a href="#" class="btn btn-sm btn-primary" data-toggle="modal"
@@ -295,6 +313,7 @@
                 },
                 "order": [[0, 'desc']],
                 "fnDrawCallback": function (oSettings) {
+                    $(oSettings.nTHead).hide();
                     $('div[id="rupiah"]').each(function (index) {
                         var value = parseInt($(this).attr('value')),
                             hasil = moneyFormat.to(value);

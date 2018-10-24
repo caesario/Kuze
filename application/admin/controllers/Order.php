@@ -315,6 +315,11 @@ class Order extends MY_Controller
     public function detil($id)
     {
         $order = $this->order->where('orders_noid', $id)->get();
+        $order_uniq = $order->orders_uniq;
+        $order_pelanggan = function () use ($order) {
+            return $this->pengguna->where('pengguna_kode', $order->pengguna_kode)->get()->pengguna_nama;
+        };
+
         $order_detils = function () use ($id) {
             $data_array = array();
             $index = 0;
@@ -392,7 +397,7 @@ class Order extends MY_Controller
             $pembayaran = $this->order_payment->with_bank()->where('orders_noid', $orders_noid)->get();
 
             if ($pembayaran) {
-                $hasil = $pembayaran->bank->bank_penerbit . ' - (A/N: ' . $pembayaran->bank->bank_nama . ') (Nomor Rek: ' . $pembayaran->bank->bank_rek . ')';
+                $hasil = $pembayaran->bank->bank_penerbit . '<br>' . $pembayaran->bank->bank_nama . '<br>' . $pembayaran->bank->bank_rek;
 
             } else {
                 $hasil = 'Belum menentukan metode pembayaran';
@@ -462,7 +467,9 @@ class Order extends MY_Controller
         };
 
 
-        $this->data->orders_noid = $id;
+        $this->data->order_noid = $id;
+        $this->data->order_uniq = $order_uniq;
+        $this->data->order_pelanggan = $order_pelanggan();
         $this->data->createdate = $order->created_at;
         $this->data->status = $order->orders_status;
         $this->data->duedate = $duedate();
@@ -475,7 +482,7 @@ class Order extends MY_Controller
         $this->data->biaya_subtotal = $biaya_subtotal();
         $this->data->diskon_harga = $diskon_harga();
         $this->data->biaya_pengiriman = $biaya_pengiriman();
-        $this->data->grand_total = $biaya_subtotal() - $diskon_harga() + $biaya_pengiriman();
+        $this->data->grand_total = $biaya_subtotal() - $diskon_harga() + $biaya_pengiriman() + $order_uniq;
 
         $this->load->view('Detil_order', $this->data);
     }
