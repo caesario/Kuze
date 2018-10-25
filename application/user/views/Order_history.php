@@ -75,7 +75,7 @@ include "layout/Menu.php";
                                                 <?php elseif ($order->orders_status == 5): ?>
                                                     <div class="text-success">ON PROCESS</div>
                                                 <?php elseif ($order->orders_status == 6): ?>
-                                                    <div class="text-success">SUCCESS (Telah dikirim)</div>
+                                                    <div class="text-success">On Shipping</div>
                                                 <?php elseif ($order->orders_status == 7): ?>
                                                     <div class="text-danger">CANCEL</div>
                                                 <?php endif; ?>

@@ -37,20 +37,22 @@ class Order_m extends MY_Model
 
     public function select_orders()
     {
-        $query = $this->db->query("SELECT orders.orders_noid, orders.created_at, orders.orders_status, orders.orders_deskripsi, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+        $query = $this->db->query("SELECT orders.*, orders_ongkir.orders_ongkir_biaya, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_ongkir
+                                    ON orders.orders_noid = orders_ongkir.orders_noid
                                     LEFT JOIN orders_detil
                                     ON orders.orders_noid = orders_detil.orders_noid
-                                    GROUP BY orders.orders_noid;");
+                                    GROUP BY orders.orders_noid");
 
         return $query->result();
     }
 
     public function select_orders_users($id)
     {
-        $query = $this->db->query("SELECT orders_pengiriman.orders_pengiriman_r_nama, orders_pengiriman.orders_pengiriman_s_nama, orders.orders_noid, orders.orders_uniq ,orders.created_at, orders.orders_status, orders.orders_deskripsi, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+        $query = $this->db->query("SELECT orders.*, orders_pengiriman.*, orders_ongkir.*, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
@@ -58,6 +60,8 @@ class Order_m extends MY_Model
                                     ON orders.orders_noid = orders_detil.orders_noid
                                     LEFT JOIN orders_pengiriman
                                     ON orders.orders_noid = orders_pengiriman.orders_noid
+                                    LEFT JOIN orders_ongkir
+                                    ON orders.orders_noid = orders_ongkir.orders_noid
                                     WHERE pengguna.pengguna_kode = '$id'
                                     GROUP BY orders.orders_noid;");
 
@@ -94,10 +98,14 @@ class Order_m extends MY_Model
 
     public function select_orders_bukti($status)
     {
-        $query = $this->db->query("SELECT orders_bukti.*, orders.orders_noid, orders.orders_status
+        $query = $this->db->query("SELECT orders_bukti.*, orders.*, orders_payment.*, bank.*
                                     FROM orders_bukti
                                     LEFT JOIN orders
                                     ON orders_bukti.orders_noid = orders.orders_noid
+                                    LEFT JOIN orders_payment
+                                    ON orders_bukti.orders_noid = orders_payment.orders_noid
+                                    INNER JOIN bank
+                                    ON orders_payment.bank_kode = bank.bank_kode
                                     WHERE orders.orders_status = $status;");
 
         return $query->result();
@@ -105,10 +113,14 @@ class Order_m extends MY_Model
 
     public function select_invoice($status)
     {
-        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_status, orders.created_at, orders_resi.orders_resi_no, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_uniq, orders.orders_status, orders.created_at,orders_pengiriman.*, orders_ongkir.*, orders_resi.orders_resi_no, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
+                                    LEFT JOIN orders_pengiriman
+                                    ON orders.orders_noid = orders_pengiriman.orders_noid
+                                    LEFT JOIN orders_ongkir
+                                    ON orders.orders_noid = orders_ongkir.orders_noid
                                     LEFT JOIN orders_resi
                                     ON orders.orders_noid = orders_resi.orders_noid
                                     LEFT JOIN orders_detil

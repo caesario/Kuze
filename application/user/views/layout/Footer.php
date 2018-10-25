@@ -106,7 +106,14 @@
     });
 
     $(function () {
-        $('#table').DataTable();
+        // ------------------------------------------------------ //
+        // Data table users
+        // ------------------------------------------------------ //
+        $('#table').DataTable({
+            "fnDrawCallback": function (oSettings) {
+                $(oSettings.nTHead).hide();
+            }
+        });
     });
 
     $(function () {

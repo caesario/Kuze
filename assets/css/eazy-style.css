@@ -621,7 +621,6 @@ nav.c-nav-breadcrumb a{
     text-decoration: none;
 }
 nav.c-nav-breadcrumb a:hover{
-    color: #inherit;
 }
 nav.c-nav-breadcrumb i{
     margin: 0 15px 0 10px;
@@ -1016,10 +1015,6 @@ a.c-collapse {
     width: 150px;
 }
 
-.table td {     /* css - reset */
-    vertical-align: middle;
-}
-
 
 /* ====================== Style #order-detail ====================== */
 
@@ -1329,7 +1324,6 @@ a.c-modal-clr:hover {
     text-decoration: none;
     color: black;
     font-size: 16px;
-    font-weight: ;
 
 }
 
