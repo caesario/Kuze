@@ -70,53 +70,58 @@ include "layout/Menu.php";
                         </div>
 
                         <div class="row">
-                                <div class="col c-detail-des"> <?= $item->i_deskripsi; ?></div>
-                            </div>
+                            <div class="col c-detail-des"> <?= $item->i_deskripsi; ?></div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12">
-                                <label for="ukuran" class="c-detil-add">Size</label>
-                                <select name="ukuran" id="ukuran" class="custom-select mr-sm-2 form-control" required>
-                                    <?php foreach ($item_detils as $id): ?>
-                                        <option data-qty="<?= $id['ukuran_qty']; ?>"
-                                                data-detil="<?= $id['item_detil_kode']; ?>"
-                                                value="<?= $id['ukuran_kode']; ?>">
-                                            <?= $id['ukuran_nama']; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-
-                                </select>
-                            </div>
-<!--                            <div class="col-lg-2 col-md-12">-->
-<!--                                <label for="stok" class="c-detil-add">Stok</label>-->
-<!--                                <input class="form-control" type="number" name="stok" id="stok" disabled>-->
-<!--                            </div>-->
-                            <div class="col-lg-2 col-md-12">
-                                <div class="form-group">
-                                    <label for="qty" class="c-detil-add">QTY</label>
-                                    <input class="form-control" type="number" name="qty" id="qty" min="1" value="1">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
-                                            class="fa fa-shopping-cart mr-2"></i>Buy Product
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <?php else: ?>
-                        <div class="col">
-                            <h2 class="text-center text-muted">No Item found</h2>
-                        </div>
-                    <?php endif; ?>
                 </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <label for="ukuran" class="c-detil-add">Size</label>
+                        <select name="ukuran" id="ukuran" class="custom-select mr-sm-2 form-control" required>
+                            <?php foreach ($item_detils as $id): ?>
+                                <option data-qty="<?= $id['ukuran_qty']; ?>"
+                                        data-detil="<?= $id['item_detil_kode']; ?>"
+                                        value="<?= $id['ukuran_kode']; ?>">
+                                    <?= $id['ukuran_nama']; ?>
+                                </option>
+                            <?php endforeach; ?>
+
+                        </select>
+                    </div>
+                    <!--                            <div class="col-lg-2 col-md-12">-->
+                    <!--                                <label for="stok" class="c-detil-add">Stok</label>-->
+                    <!--                                <input class="form-control" type="number" name="stok" id="stok" disabled>-->
+                    <!--                            </div>-->
+                    <div class="col-lg-2 col-md-12">
+                        <div class="form-group">
+                            <label for="qty" class="c-detil-add">QTY</label>
+                            <input class="form-control" type="number" name="qty" id="qty" min="1" value="1">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p id="msg" class="text-danger"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
+                                    class="fa fa-shopping-cart mr-2"></i>Buy Product
+                        </button>
+                    </div>
+                </div>
+                </form>
+                <?php else: ?>
+                    <div class="col">
+                        <h2 class="text-center text-muted">No Item found</h2>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
+    </div>
 
     <hr>
     <br>
@@ -144,16 +149,17 @@ include "layout/Menu.php";
                             <?php endif; ?>
                         </a>
                         <div class="card-body text-center">
-<!--                            <i class="fa fa-star c-star m-0"></i>-->
-<!--                            <i class="fa fa-star c-star m-0"></i>-->
-<!--                            <i class="fa fa-star c-star m-0"></i>-->
-<!--                            <i class="fa fa-star c-star m-0"></i>-->
-<!--                            <i class="fa fa-star c-star m-0"></i>-->
+                            <!--                            <i class="fa fa-star c-star m-0"></i>-->
+                            <!--                            <i class="fa fa-star c-star m-0"></i>-->
+                            <!--                            <i class="fa fa-star c-star m-0"></i>-->
+                            <!--                            <i class="fa fa-star c-star m-0"></i>-->
+                            <!--                            <i class="fa fa-star c-star m-0"></i>-->
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
                             <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
-                                <i class="fa fa-plus c-cart-i mr-2"></i><p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
+                                <i class="fa fa-plus c-cart-i mr-2"></i>
+                                <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
                             </a>
                         </div>
                     </div>
@@ -172,21 +178,12 @@ include "layout/Menu.php";
                     $('#stok').val(qty),
                     $('#qty').attr('max', qty)
                 );
-                if (qty === 0 && value !== '') {
-                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
-                    $('#check').show()
-                        .removeClass('text-success')
-                        .addClass('text-danger')
-                        .html('Stok habis');
+                if (qty < 0 && value !== '') {
+                    $('#msg').html('Stock is empty !').removeClass('text-success').addClass('text-danger');
                 } else if (qty > 0 && value !== '') {
-                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').removeClass('mt-3');
-                    $('#check').show()
-                        .removeClass('text-danger')
-                        .addClass('text-success')
-                        .html('Stok tersedia');
+                    $('#msg').html('Stock is available').removeClass('text-danger').addClass('text-success');
                 } else {
-                    $('body > div.container > div > form > div:nth-child(8) > div:nth-child(2)').addClass('mt-3');
-                    $('#check').hide();
+                    $('#msg').html('').removeClass('text-success').addClass('text-danger');
                 }
 
                 $('#detil').val(detil);
