@@ -47,10 +47,43 @@ class Kategori extends MY_Controller
 
     public function get_item_detil($k_url, $i_url)
     {
+
         $this->data->item = $this->item
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty->iq_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+//        echo '<pre>';
+//        var_dump($item_detils());
+//        echo '</pre>';
+        $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('category/' . $k_url);
         $this->data->breadcumburl1 = site_url('category/' . $k_url . '/item/' . $i_url . '/detil');
         $this->data->breadcumb = $this->kategori->where('k_url', $k_url)->get()->k_nama;
@@ -64,6 +97,38 @@ class Kategori extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty->iq_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+//        echo '<pre>';
+//        var_dump($item_detils());
+//        echo '</pre>';
+        $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('category/all');
         $this->data->breadcumburl1 = site_url('category/all/item/' . $i_url . '/detil');
         $this->data->breadcumb = 'All';
@@ -77,6 +142,38 @@ class Kategori extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty->iq_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+//        echo '<pre>';
+//        var_dump($item_detils());
+//        echo '</pre>';
+        $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('best_seller');
         $this->data->breadcumburl1 = site_url('best_seller/item/' . $i_url . '/detil');
         $this->data->breadcumb = 'Best Seller';
@@ -90,11 +187,43 @@ class Kategori extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
-        $this->data->breadcumburl = site_url('new_arrival');
-        $this->data->breadcumburl1 = site_url('new_arrival/item/' . $i_url . '/detil');
-        $this->data->breadcumb = 'New Arrival';
-        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
-        $this->load->view('Detil', $this->data);
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+        echo '<pre>';
+        var_dump($item_detils());
+        echo '</pre>';
+//        $this->data->item_detils = $item_detils();
+//        $this->data->breadcumburl = site_url('new_arrival');
+//        $this->data->breadcumburl1 = site_url('new_arrival/item/' . $i_url . '/detil');
+//        $this->data->breadcumb = 'New Arrival';
+//        $this->data->breadcumb1 = $this->item->where('i_url', $i_url)->get()->i_nama;
+//        $this->load->view('Detil', $this->data);
     }
 
     public function get_item_saleitem($i_url)
@@ -103,6 +232,38 @@ class Kategori extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty->iq_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+//        echo '<pre>';
+//        var_dump($item_detils());
+//        echo '</pre>';
+        $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('sale_item');
         $this->data->breadcumburl1 = site_url('sale_item/item/' . $i_url . '/detil');
         $this->data->breadcumb = 'Sale Item';
@@ -116,6 +277,38 @@ class Kategori extends MY_Controller
             ->with_item_detil()
             ->where('i_url', $i_url)
             ->get();
+        $item_detils = function () use ($i_url) {
+            $counter = 0;
+            $hasil = array();
+            $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
+            foreach ($item_detils as $id) {
+                $hasil[$counter]['detil_kode'] = $id->item_detil_kode;
+                if (isset($id->ukuran) && $id->ukuran != NULL) {
+                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                } else {
+                    $hasil[$counter]['ukuran_kode'] = 'NULL';
+                    $hasil[$counter]['ukuran_nama'] = 'NULL';
+                }
+
+                if (isset($id->item_qty->iq_qty)) {
+                    $hasil[$counter]['ukuran_qty'] = $id->item_qty->iq_qty;
+                } else {
+                    $hasil[$counter]['ukuran_qty'] = 0;
+                }
+
+                $counter += 1;
+
+
+            }
+
+            return $hasil;
+        };
+
+//        echo '<pre>';
+//        var_dump($item_detils());
+//        echo '</pre>';
+        $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('hot_item');
         $this->data->breadcumburl1 = site_url('hot_item/item/' . $i_url . '/detil');
         $this->data->breadcumb = 'Hot Item';

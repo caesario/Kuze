@@ -63,7 +63,8 @@ class Bag extends MY_Controller
 
     public function add()
     {
-        $ide_kode = $this->input->post('wu');
+        $ukuran_kode = $this->input->post('ukuran');
+        $item_ukuran = $this->ukuran->where('u_kode', $ukuran_kode)->get()->u_nama;
         $this->data->item = $this->item_detil->with_item()->where_item_detil_kode($ide_kode)->get();
 
         $cart = $this->cart->where_item_detil_kode($ide_kode)->get();
@@ -75,7 +76,11 @@ class Bag extends MY_Controller
                 'ca_qty' => $qty_exist + $qty_new,
                 'ca_harga' => (int)$this->input->post('harga'),
                 'ca_tharga' => ((int)$cart->ca_qty + (int)$this->input->post('qty')) * (int)$this->input->post('harga'),
-                'pengguna_kode' => $_SESSION['id']
+                'pengguna_kode' => $_SESSION['id'],
+                'item_detil_kode' => $this->input->post('detil'),
+                'item_ukuran_kode' => $this->input->post('ukuran'),
+                'item_kode' => $this->input->post('item')
+
             ));
 
             $qty_exist = -1 * abs($qty_exist);
@@ -98,8 +103,10 @@ class Bag extends MY_Controller
                 'ca_qty' => (int)$this->input->post('qty'),
                 'ca_harga' => (int)$this->input->post('harga'),
                 'ca_tharga' => (int)$this->input->post('qty') * (int)$this->input->post('harga'),
-                'item_detil_kode' => $ide_kode,
-                'pengguna_kode' => $_SESSION['id']
+                'pengguna_kode' => $_SESSION['id'],
+                'item_detil_kode' => $this->input->post('detil'),
+                'item_ukuran_kode' => $this->input->post('ukuran'),
+                'item_kode' => $this->input->post('item')
             ));
 
             $item_qty_update = $this->item_qty->insert(array(
@@ -178,7 +185,11 @@ class Bag extends MY_Controller
                     'orders_detil_harga' => (int)$cart->ca_harga,
                     'orders_detil_tharga' => (int)$cart->ca_tharga,
                     'orders_noid' => $nomor_order,
-                    'item_detil_kode' => $cart->item_detil_kode
+                    'item_kode' => $cart->item_kode,
+                    'item_nama' => $cart->item_nama,
+                    'item_detil_kode' => $cart->item_detil_kode,
+                    'item_ukuran' => $cart->item_ukuran
+
                 ));
 
             }
