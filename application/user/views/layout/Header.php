@@ -125,7 +125,7 @@
 
     <title><?= $brandname; ?></title>
 </head>
-<body onload="splash(3000)">
+<body>
 <div class="spinner">
     <div class="rect1"></div>
     <div class="rect2"></div>
@@ -134,11 +134,9 @@
     <div class="rect5"></div>
 </div>
 <script>
-    function splash(param) {
-        var time = param;
-        setTimeout(function () {
-
+    $(function () {
+        if ($.active > 0) {
             $('div.spinner').hide();
-        }, time);
-    }
+        }
+    })
 </script>

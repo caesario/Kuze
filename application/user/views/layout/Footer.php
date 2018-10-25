@@ -71,6 +71,12 @@
     <a href="https://wa.me/62<?= $whatsapp; ?>" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
 </div>
 <script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('div.spinner').hide();
+        }, 3000);
+    });
+
     $(function () {
         $('#myDropdown').on('show.bs.dropdown', function () {
             $('.dropdown-toggle').dropdown()
