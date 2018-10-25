@@ -71,7 +71,6 @@
                         <table id="tables" class="table table-sm">
                             <thead>
                             <tr>
-                                <th scope="col">No. Order</th>
                                 <th scope="col">Detail Pembayaran</th>
                                 <th scope="col">Detail Bank</th>
                                 <th scope="col"></th>
@@ -81,8 +80,13 @@
                             <?php if ($orders != NULL): ?>
                                 <?php foreach ($orders as $order): ?>
                                     <tr>
-                                        <td class="align-middle text-danger"><?= $order->orders_noid; ?></td>
                                         <td class="align-middle">
+                                            <div class="mb-2">
+                                                <b>Nomor Order :</b><br>
+                                                <div class="text-danger">
+                                                    <?= $order->orders_noid; ?>
+                                                </div>
+                                            </div>
                                             <div class="mb-2">
                                                 <b>Tanggal Konfirmasi :</b><br>
                                                 <?= $order->created_at; ?>
@@ -162,9 +166,15 @@
                                             </div>
                                             <div class="mb-2">
                                                 <b>Transfer ke :</b><br>
+                                                <?= $order->bank_penerbit; ?>
                                             </div>
                                             <div class="mb-2">
                                                 <b>Atas Nama :</b><br>
+                                                <?= $order->bank_nama; ?>
+                                            </div>
+                                            <div class="mb-2">
+                                                <b>Nomor Rek :</b><br>
+                                                <?= $order->bank_rek; ?>
                                             </div>
                                         </td>
                                         <td class="align-middle">
@@ -260,6 +270,7 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Indonesian.json"
                 },
                 "fnDrawCallback": function (oSettings) {
+                    $(oSettings.nTHead).hide();
                     $('div[id="rupiah"]').each(function (index) {
                         var value = parseInt($(this).attr('value')),
                             hasil = moneyFormat.to(value);

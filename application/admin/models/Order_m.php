@@ -94,10 +94,14 @@ class Order_m extends MY_Model
 
     public function select_orders_bukti($status)
     {
-        $query = $this->db->query("SELECT orders_bukti.*, orders.*
+        $query = $this->db->query("SELECT orders_bukti.*, orders.*, orders_payment.*, bank.*
                                     FROM orders_bukti
                                     LEFT JOIN orders
                                     ON orders_bukti.orders_noid = orders.orders_noid
+                                    LEFT JOIN orders_payment
+                                    ON orders_bukti.orders_noid = orders_payment.orders_noid
+                                    INNER JOIN bank
+                                    ON orders_payment.bank_kode = bank.bank_kode
                                     WHERE orders.orders_status = $status;");
 
         return $query->result();
