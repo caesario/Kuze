@@ -5,6 +5,7 @@ include "layout/Menu.php";
 
     <hr class="c-hr-reset">
 
+
     <!-- ======= Breadcrumb ======= -->
     <div class="wrapper-bredcrumb">
         <div class="container-flu c-padding-header">
@@ -108,7 +109,8 @@ include "layout/Menu.php";
 
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
-                        <button type="submit" class="btn btn-block c-cart-detail c-cart-p"><i
+                        <button id="addtobag" type="submit" class="btn btn-block c-cart-detail c-cart-p"
+                                disabled="disabled"><i
                                     class="fa fa-shopping-cart mr-2"></i>Buy Product
                         </button>
                     </div>
@@ -127,7 +129,7 @@ include "layout/Menu.php";
     <br>
 
     <div class="container-fluid c-padding-header text-center c-text-cons">
-        <h3 class="">- Hot Item -</h3>
+        <h3 class="">Hot Item</h3>
     </div>
 
 
@@ -136,7 +138,7 @@ include "layout/Menu.php";
             <?php foreach ($this->item->with_item_img()->limit(4)->get_all() as $hot): ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
-                        <a class="" href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>">
+                        <a class="" href="<?= site_url('hot_item/item/' . $hot->i_url . '/detil'); ?>">
                             <?php if ($item_img($hot->i_kode) != NULL): ?>
                                 <img class="card-img-top"
                                      data-src="data:<?= $item_img($hot->i_kode)->ii_type . ';base64,' . (base64_encode($item_img($hot->i_kode)->ii_data)); ?>"
@@ -156,7 +158,7 @@ include "layout/Menu.php";
                             <!--                            <i class="fa fa-star c-star m-0"></i>-->
                             <h5 id="title" class="card-title c-both c-title"><?= $hot->i_nama; ?></h5>
                             <h5 id="rupiah" class="c-price"><?= $item->i_hrg; ?></h5>
-                            <a href="<?= site_url('hot-item/item/' . $hot->i_url . '/detil'); ?>"
+                            <a href="<?= site_url('hot_item/item/' . $hot->i_url . '/detil'); ?>"
                                class="btn btn-csr c-cart c-cart-p">
                                 <i class="fa fa-plus c-cart-i mr-2"></i>
                                 <p class="d-inline-block m-0 font-weight-normal" style="font-size:1rem;">Add To Bag</p>
@@ -178,12 +180,15 @@ include "layout/Menu.php";
                     $('#stok').val(qty),
                     $('#qty').attr('max', qty)
                 );
-                if (qty < 0 && value !== '') {
+                if (qty <= 0 && value !== '') {
                     $('#msg').html('Stock is empty !').removeClass('text-success').addClass('text-danger');
+                    $('#addtobag').attr('disabled', 'disabled');
                 } else if (qty > 0 && value !== '') {
                     $('#msg').html('Stock is available').removeClass('text-danger').addClass('text-success');
+                    $('#addtobag').removeAttr('disabled');
                 } else {
                     $('#msg').html('').removeClass('text-success').addClass('text-danger');
+                    $('#addtobag').attr('disabled', 'disabled');
                 }
 
                 $('#detil').val(detil);

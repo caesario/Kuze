@@ -88,13 +88,6 @@ include "layout/Menu.php";
             <h2 class="">New Arrival</h2>
             <span class="text-muted c-sub-cons">New Arrival This Week</span>
         </div>
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
         <div ng-if="new_arrivals" class="container-fluid c-padding-header">
             <div class="row">
                 <div ng-repeat="new_arrival in new_arrivals" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -138,13 +131,7 @@ include "layout/Menu.php";
             <h2 class="">Best Seller</h2>
             <span class="text-muted c-sub-cons">Best Seller on This Month</span>
         </div>
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
+
         <div ng-if="best_sellers" class="container-fluid c-padding-header">
             <div class="row">
                 <div ng-repeat="best_seller in best_sellers track by $index"
@@ -193,13 +180,7 @@ include "layout/Menu.php";
             <span class="text-muted c-sub-cons">Sale Item This Month</span>
         </div>
 
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
+
         <div ng-if="sale_items" class="container-fluid c-padding-header">
             <div class="row">
 

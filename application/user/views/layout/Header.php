@@ -17,15 +17,22 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <style>
         .spinner {
-            margin: 100px auto;
-            width: 50px;
-            height: 40px;
+            width: 100%;
+            height: 100%;
             text-align: center;
             font-size: 10px;
+            position: fixed;
+            padding: 300px;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #2d272778;
         }
 
         .spinner > div {
-            background-color: #333;
+            background-color: #fff;
             height: 100%;
             width: 6px;
             display: inline-block;
@@ -118,4 +125,20 @@
 
     <title><?= $brandname; ?></title>
 </head>
-<body>
+<body onload="splash(3000)">
+<div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
+<script>
+    function splash(param) {
+        var time = param;
+        setTimeout(function () {
+
+            $('div.spinner').hide();
+        }, time);
+    }
+</script>

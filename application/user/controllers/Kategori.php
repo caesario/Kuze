@@ -368,9 +368,6 @@ class Kategori extends MY_Controller
             return $hasil;
         };
 
-//        echo '<pre>';
-//        var_dump($item_detils());
-//        echo '</pre>';
         $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('hot_item');
         $this->data->breadcumburl1 = site_url('hot_item/item/' . $i_url . '/detil');
