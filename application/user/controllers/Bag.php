@@ -63,23 +63,26 @@ class Bag extends MY_Controller
 
     public function add()
     {
-        $ukuran_kode = $this->input->post('ukuran');
-        $item_ukuran = $this->ukuran->where('u_kode', $ukuran_kode)->get()->u_nama;
-        $this->data->item = $this->item_detil->with_item()->where_item_detil_kode($ide_kode)->get();
+        $item_kode = $this->input->post('item');
+        $item_ukuran_kode = $this->input->post('ukuran');
+        $item_detil_kode = $this->input->post('detil');
 
-        $cart = $this->cart->where_item_detil_kode($ide_kode)->get();
+
+        $this->data->item = $this->item_detil->with_item()->where_item_detil_kode($item_detil_kode)->get();
+
+        $cart = $this->cart->where_item_detil_kode($item_detil_kode)->get();
         if ($cart) {
             $qty_exist = (int)$cart->ca_qty;
             $qty_new = (int)$this->input->post('qty');
 
-            $cart_update = $this->cart->where_item_detil_kode($ide_kode)->update(array(
+            $cart_update = $this->cart->where_item_detil_kode($item_detil_kode)->update(array(
                 'ca_qty' => $qty_exist + $qty_new,
                 'ca_harga' => (int)$this->input->post('harga'),
                 'ca_tharga' => ((int)$cart->ca_qty + (int)$this->input->post('qty')) * (int)$this->input->post('harga'),
                 'pengguna_kode' => $_SESSION['id'],
-                'item_detil_kode' => $this->input->post('detil'),
-                'item_ukuran_kode' => $this->input->post('ukuran'),
-                'item_kode' => $this->input->post('item')
+                'item_detil_kode' => $item_detil_kode,
+                'item_ukuran_kode' => $item_ukuran_kode,
+                'item_kode' => $item_kode
 
             ));
 
@@ -104,15 +107,15 @@ class Bag extends MY_Controller
                 'ca_harga' => (int)$this->input->post('harga'),
                 'ca_tharga' => (int)$this->input->post('qty') * (int)$this->input->post('harga'),
                 'pengguna_kode' => $_SESSION['id'],
-                'item_detil_kode' => $this->input->post('detil'),
-                'item_ukuran_kode' => $this->input->post('ukuran'),
-                'item_kode' => $this->input->post('item')
+                'item_detil_kode' => $item_detil_kode,
+                'item_ukuran_kode' => $item_ukuran_kode,
+                'item_kode' => $item_kode
             ));
 
             $item_qty_update = $this->item_qty->insert(array(
                 'iq_kode' => $this->item_qty->guid(),
                 'iq_qty' => -(int)$this->input->post('qty'),
-                'item_detil_kode' => $ide_kode
+                'item_detil_kode' => $item_detil_kode
             ));
 
             if ($cart_insert && $item_qty_update) {
@@ -186,9 +189,8 @@ class Bag extends MY_Controller
                     'orders_detil_tharga' => (int)$cart->ca_tharga,
                     'orders_noid' => $nomor_order,
                     'item_kode' => $cart->item_kode,
-                    'item_nama' => $cart->item_nama,
                     'item_detil_kode' => $cart->item_detil_kode,
-                    'item_ukuran' => $cart->item_ukuran
+                    'item_ukuran_kode' => $cart->item_ukuran_kode
 
                 ));
 

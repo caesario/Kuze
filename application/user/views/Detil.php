@@ -80,7 +80,7 @@ include "layout/Menu.php";
                                 <select name="ukuran" id="ukuran" class="custom-select mr-sm-2 form-control" required>
                                     <?php foreach ($item_detils as $id): ?>
                                         <option data-qty="<?= $id['ukuran_qty']; ?>"
-                                                data-detil="<?= $id['detil_kode']; ?>"
+                                                data-detil="<?= $id['item_detil_kode']; ?>"
                                                 value="<?= $id['ukuran_kode']; ?>">
                                             <?= $id['ukuran_nama']; ?>
                                         </option>

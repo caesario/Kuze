@@ -141,6 +141,11 @@ include "layout/Menu.php";
                     </tr>
 
                     <tr>
+                        <th nowrap class="p-1 pl-4 pr-4 font-weight-normal">Unique Code</th>
+                        <td><span id="rupiah" class="c-price-cart-3 pl-3"><?= $unik; ?></span></td>
+                    </tr>
+
+                    <tr>
                         <th class="p-1 pl-4 font-weight-normal">Grand Total</th>
                         <td><span id="rupiah"
                                   class="c-price-cart-2 pl-3 c-l-hight"><?= $grand_total; ?></span></td>

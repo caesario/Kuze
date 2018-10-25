@@ -339,30 +339,36 @@ class Item extends MY_Controller
         $id = $this->input->post('id');
         $counter = (int)$this->input->post('counter');
 
-        for ($i = 0; $i < $counter; $i++) {
-            $id_detil = $this->item_detil->guid();
-            $item_detil = $this->item_detil->insert(array(
-                'item_detil_kode' => $id_detil,
-                'i_kode' => $id,
-                'w_kode' => $_POST['warna'][$i],
-                'u_kode' => $_POST['ukuran'][$i],
-            ));
+        try {
+            for ($i = 0; $i < $counter; $i++) {
+                $id_detil = $this->item_detil->guid();
+                $item_detil = $this->item_detil->insert(array(
+                    'item_detil_kode' => $id_detil,
+                    'i_kode' => $id,
+                    'w_kode' => $_POST['warna'][$i],
+                    'u_kode' => $_POST['ukuran'][$i],
+                ));
 
-            $item_qty = $this->item_qty->insert(array(
-                'iq_kode' => $this->item_qty->guid(),
-                'item_detil_kode' => $id_detil,
-                'iq_qty' => $_POST['qty'][$i]
-            ));
-        }
+                $item_qty = $this->item_qty->insert(array(
+                    'iq_kode' => $this->item_qty->guid(),
+                    'item_detil_kode' => $id_detil,
+                    'iq_qty' => $_POST['qty'][$i]
+                ));
+            }
 
-        if ($item_detil && $item_qty)
-        {
-            $this->data->berhasil = 'Item detil berhasil ditambah';
-            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+            if ($item_detil && $item_qty) {
+                $this->data->berhasil = 'Item detil berhasil ditambah';
+                $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
-            redirect('item');
-        } else {
-            $this->data->gagal = 'Item detil gagal ditambah';
+                redirect('item');
+            } else {
+                $this->data->gagal = 'Item detil gagal ditambah';
+                $this->session->set_flashdata('gagal', $this->data->gagal);
+
+                redirect('item');
+            }
+        } catch (Exception $e) {
+            $this->data->gagal = $e;
             $this->session->set_flashdata('gagal', $this->data->gagal);
 
             redirect('item');
@@ -372,36 +378,51 @@ class Item extends MY_Controller
 
     public function hapus($id)
     {
+        try {
+            $item_detil = $this->item_detil->where('item_detil_kode', $id)->delete();
+            if ($item_detil) {
+                $this->data->berhasil = 'Data Item berhasil dihapus';
+                $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
-        $item_detil = $this->item_detil->where('item_detil_kode', $id)->delete();
-        if ($item_detil) {
-            $this->data->berhasil = 'Data Item berhasil dihapus';
-            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+                redirect('item');
+            } else {
+                $this->data->gagal = 'Data Item gagal dihapus';
+                $this->session->set_flashdata('gagal', $this->data->gagal);
 
-            redirect('item');
-        } else {
-            $this->data->gagal = 'Data Item gagal dihapus';
-            $this->session->set_flashdata('berhasil', $this->data->gagal);
+                redirect('item');
+            }
+        } catch (Exception $e) {
+            $this->data->gagal = $e;
+            $this->session->set_flashdata('gagal', $this->data->gagal);
 
             redirect('item');
         }
+
+
     }
 
     public function hapus_item($id)
     {
+        try {
+            $item = $this->item->where('i_kode', $id)->delete();
+            if ($item) {
+                $this->data->berhasil = 'Data Item berhasil dihapus';
+                $this->session->set_flashdata('berhasil', $this->data->berhasil);
 
-        $item = $this->item->where('i_kode', $id)->delete();
-        if ($item) {
-            $this->data->berhasil = 'Data Item berhasil dihapus';
-            $this->session->set_flashdata('berhasil', $this->data->berhasil);
+                redirect('item');
+            } else {
+                $this->data->gagal = 'Data Item gagal dihapus';
+                $this->session->set_flashdata('gagal', $this->data->gagal);
 
-            redirect('item');
-        } else {
-            $this->data->gagal = 'Data Item gagal dihapus';
-            $this->session->set_flashdata('berhasil', $this->data->gagal);
+                redirect('item');
+            }
+        } catch (Exception $e) {
+            $this->data->gagal = $e;
+            $this->session->set_flashdata('gagal', $this->data->gagal);
 
             redirect('item');
         }
+
     }
 
 }

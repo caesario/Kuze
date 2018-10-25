@@ -29,6 +29,10 @@ class Konfirmasi extends MY_Controller
                 return $hasil;
             };
 
+            $unik = function () use ($orders_noid) {
+                return $this->order->where('orders_noid', $orders_noid)->get()->orders_uniq;
+            };
+
             $promo = function () use ($orders_noid) {
                 $promo_kode = $this->order->where('orders_noid', $orders_noid)->get()->promo_kode;
                 return $this->promo->where('promo_kode', $promo_kode)->get();
@@ -149,6 +153,7 @@ class Konfirmasi extends MY_Controller
             };
 
             $this->data->promo = $promo();
+            $this->data->unik = $unik();
             $this->data->pengiriman = $pengiriman();
             $this->data->nama_nomor = $nama_nomor();
             $this->data->jasa = $jasa();
