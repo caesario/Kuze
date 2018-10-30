@@ -94,7 +94,7 @@ include "layout/Menu.php";
         <div ng-if="new_arrivals" class="container-fluid c-padding-header">
             <div class="row">
                 <div ng-repeat="new_arrival in new_arrivals" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>New Arrival</span>
@@ -139,7 +139,7 @@ include "layout/Menu.php";
             <div class="row">
                 <div ng-repeat="best_seller in best_sellers track by $index"
                      class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>Best Seller</span>
@@ -188,7 +188,7 @@ include "layout/Menu.php";
             <div class="row">
 
                 <div ng-repeat="sale_item in sale_items" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>Sale Item</span>
