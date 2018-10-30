@@ -24,7 +24,8 @@
         var base_url = '<?= base_url(); ?>';
         var hashing = '<?= $this->security->get_csrf_hash(); ?>';
     </script>
-    <link rel="shortcut icon" href="<?= base_url('upload/' . $icon); ?>">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.ico'); ?>">
 
 </head>
 <body>
