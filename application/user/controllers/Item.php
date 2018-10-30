@@ -31,12 +31,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
             $this->cache->save('best_seller', $hasil, 300);
 
@@ -71,12 +65,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
 
             $this->cache->save('new_arrival', $hasil, 300);
@@ -107,12 +95,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
 
             $this->cache->save('sale_item', $hasil, 300);
@@ -142,12 +124,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
             $this->cache->save('best_seller', $hasil, 300);
 
@@ -178,12 +154,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
 
             $this->cache->save('new_arrival', $hasil, 300);
@@ -213,12 +183,6 @@ class Item extends CI_Controller
                     $hasil[$k]['i_hrg'] = $v['i_hrg'];
                     $hasil[$k]['i_img'] = $this->get_image($v['i_kode']);
                 }
-            } else {
-                $hasil[$k]['i_kode'] = NULL;
-                $hasil[$k]['i_url'] = NULL;
-                $hasil[$k]['i_nama'] = NULL;
-                $hasil[$k]['i_hrg'] = NULL;
-                $hasil[$k]['i_img'] = NULL;
             }
 
             $this->cache->save('sale_item', $hasil, 300);
