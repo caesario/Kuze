@@ -35,7 +35,7 @@ include "layout/Menu.php";
             <div class="row">
 
                 <div ng-repeat="best_seller in best_sellers" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>Best Seller</span>
