@@ -24,8 +24,11 @@ include "layout/Menu.php";
         <!--             data-maxheight="100%">-->
         <!--        </div>-->
 
-        <div class="fotorama">
-            <img src="assets/img/fina.jpg" alt="Ini">
+        <div class="fotorama" data-autoplay="true">
+            <img src="upload/Belt.jpg" alt="Belt">
+            <img src="upload/Bracelet.jpg" alt="Bracelet">
+            <img src="upload/Clutch.jpg" alt="Clutch">
+            <img src="upload/Eyewear.jpg" alt="Eyewear">
         </div>
         <br>
         <div ng-if="img1 && img2 && img3 && img4 && img5" class="container-fluid px-0 mb-3">
@@ -236,7 +239,7 @@ include "layout/Menu.php";
         <div class="row px-4 px-lg-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig1.jpg" class="c-ig" alt="">
+                    <img src="upload/K-16.jpg" class="c-ig" alt="K-16">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -247,7 +250,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig2.jpg" class="c-ig" alt="">
+                    <img src="upload/K-50.jpg" class="c-ig" alt="K-50">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -258,7 +261,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig3.jpg" class="c-ig" alt="">
+                    <img src="upload/K-75.jpg" class="c-ig" alt="K-75">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -269,7 +272,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig4.jpg" class="c-ig" alt="">
+                    <img src="upload/K-76.jpg" class="c-ig" alt="K-76">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -280,7 +283,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig5.jpg" class="c-ig" alt="">
+                    <img src="upload/K-77.jpg" class="c-ig" alt="K-77">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -291,7 +294,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="assets/img/ig6.jpg" class="c-ig" alt="">
+                    <img src="upload/K-78.jpg" class="c-ig" alt="K-78">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
