@@ -64,9 +64,11 @@ class MY_Controller extends CI_Controller
         $menu_kategori = function () {
             $hasil = new ArrayObject();
             $query = $this->kategori->with_item_kategori()->get_all();
-            foreach ($query as $q) {
-                if ($q->item_kategori != NULL) {
-                    $hasil->append($q);
+            if ($query) {
+                foreach ($query as $q) {
+                    if ($q->item_kategori != NULL) {
+                        $hasil->append($q);
+                    }
                 }
             }
 
