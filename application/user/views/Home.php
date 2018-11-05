@@ -94,7 +94,7 @@ include "layout/Menu.php";
         <div ng-if="new_arrivals" class="container-fluid c-padding-header">
             <div class="row">
                 <div ng-repeat="new_arrival in new_arrivals" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>New Arrival</span>
@@ -139,7 +139,7 @@ include "layout/Menu.php";
             <div class="row">
                 <div ng-repeat="best_seller in best_sellers track by $index"
                      class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>Best Seller</span>
@@ -188,7 +188,7 @@ include "layout/Menu.php";
             <div class="row">
 
                 <div ng-repeat="sale_item in sale_items" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="card">
+                    <div class="card" style="border: none;">
                         <div class="row">
                             <div class="c-ribbon c-ribbon2">
                                 <span>Sale Item</span>
@@ -239,7 +239,7 @@ include "layout/Menu.php";
         <div class="row px-4 px-lg-5">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-16.jpeg" class="c-ig" alt="K-16">
+                    <img src="upload/K-16.jpg" class="c-ig" alt="K-16">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -250,7 +250,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-50.jpeg" class="c-ig" alt="K-50">
+                    <img src="upload/K-50.jpg" class="c-ig" alt="K-50">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -261,7 +261,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-75.jpeg" class="c-ig" alt="K-75">
+                    <img src="upload/K-75.jpg" class="c-ig" alt="K-75">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -272,7 +272,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-76.jpeg" class="c-ig" alt="K-76">
+                    <img src="upload/K-76.jpg" class="c-ig" alt="K-76">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -283,7 +283,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-77.jpeg" class="c-ig" alt="K-77">
+                    <img src="upload/K-77.jpg" class="c-ig" alt="K-77">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>
@@ -294,7 +294,7 @@ include "layout/Menu.php";
             </div>
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 c-ig-padding">
                 <a href="" class="c-icon-ig">
-                    <img src="upload/K-78.jpeg" class="c-ig" alt="K-78">
+                    <img src="upload/K-78.jpg" class="c-ig" alt="K-78">
                     <div class="middle-ig">
                         <div class="text">
                             <i class="fa fa-heart"> 1</i>

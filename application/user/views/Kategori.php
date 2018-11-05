@@ -62,7 +62,7 @@ include "layout/Menu.php";
                                     <?php $stok = $qty($kat->item->i_kode); ?>
                                     <?php if ($stok >= 1 && $kat->i_kode != NULL): ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="card">
+                                            <div class="card" style="border: none;">
                                                 <?php if ($item_img($kat->item->i_kode) != NULL): ?>
                                                     <a href="<?= site_url('category/' . $k_url . '/item/' . $kat->item->i_url . '/detil'); ?>">
                                                         <img class="card-img-top"
@@ -100,7 +100,7 @@ include "layout/Menu.php";
                             <?php if (isset($items) && $items != NULL): ?>
                                 <?php foreach ($items as $item): ?>
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="card">
+                                        <div class="card" style="border: none;">
                                             <?php if ($item_img($item->i_kode) != NULL): ?>
 
                                                 <a href="<?= site_url('category/all/item/' . $item->i_url . '/detil'); ?>">

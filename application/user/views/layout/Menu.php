@@ -58,7 +58,8 @@
 
 
                 <div class="row">
-                    <nav class="navbar navbar-expand-lg navbar-light main-menu pl-lg-0 pl-3 my-2 hidden-hp">
+                    <nav class="navbar navbar-expand-sm navbar-light main-menu pl-lg-0 pl-3 my-2 hidden-hp"
+                         style="overflow: hidden;">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -94,9 +95,10 @@
                             </ul>
                         </div>
                     </nav>
+
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media iconhp">
+            <div class="col-xl-2 col-lg-2 col-12 text-right text-lg-left c-icon-media iconhp" style="overflow: hidden;">
                 <?php if (isset($_SESSION['isonline']) && $_SESSION['isonline'] == true): ?>
                     <div class="col mt-4 mt-lg-2">
                         <a href="<?= site_url('bag'); ?>">
@@ -123,43 +125,52 @@
 
 
     </div>
-    <div class="row ml-2 show-hp">
-        <nav class="navbar navbar-expand-lg navbar-light main-menu pl-lg-0 pl-3 my-2" ">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="container-fluid">
+        <div class="row show-hp" style="overflow: hidden;">
+            <div class="col-8 col-sm-8">
+                <nav class="navbar navbar-expand-lg navbar-light pl-lg-0 pl-3 my-2" style="overflow: hidden;">
 
-            <div class="collapse navbar-collapse c-nav" id="navbarsExample03">
-                <ul class="navbar-nav c-margin-auto">
-                    <li class="nav-item">
-                        <a class="nav-link c-dropdown font-weight-bold" href="<?= base_url(''); ?>">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold"
-                           href="<?= base_url('kategori'); ?>">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New
-                            Arrival</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="<?= base_url('best_seller'); ?>">Best
-                            Seller</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="<?= base_url('sale_item'); ?>">Sale
-                            Item</a>
-                    </li>
-                    <!--                                <li class="nav-item">-->
-                    <!--                                    <a class="nav-link font-weight-bold" href="--><!--">Event</a>-->
-                    <!--                                </li>-->
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="<?= base_url('Howtoorder'); ?>">How to
-                            Order</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+                            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse c-nav" id="navbarsExample03">
+                        <ul class="navbar-nav c-margin-auto">
+                            <li class="nav-item">
+                                <a class="nav-link c-dropdown font-weight-bold" href="<?= base_url(''); ?>">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold"
+                                   href="<?= base_url('kategori'); ?>">Category</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="<?= base_url('new_arrival'); ?>">New
+                                    Arrival</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="<?= base_url('best_seller'); ?>">Best
+                                    Seller</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="<?= base_url('sale_item'); ?>">Sale
+                                    Item</a>
+                            </li>
+                            <!--                                <li class="nav-item">-->
+                            <!--                                    <a class="nav-link font-weight-bold" href="-->
+                            <!--">Event</a>-->
+                            <!--                                </li>-->
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="<?= base_url('Howtoorder'); ?>">How to
+                                    Order</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div
+        </div>
     </div>
+
+
 </div>
