@@ -66,7 +66,7 @@ class MY_Controller extends CI_Controller
             $query = $this->kategori->with_item_kategori()->get_all();
             if ($query) {
                 foreach ($query as $q) {
-                    if ($q->item_kategori != NULL) {
+                    if (isset($q->item_kategori) && $q->item_kategori != NULL) {
                         $hasil->append($q);
                     }
                 }
