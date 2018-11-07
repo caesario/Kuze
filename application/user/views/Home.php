@@ -57,7 +57,7 @@ include "layout/Menu.php";
                             <div class="content-wrapper">
                                 <img id="{{ img3['id'] }}"
                                      ng-src="{{ img3['src'] }}"
-                                     alt="{{ img3['alt'] }}" style="height: 104%;">
+                                     alt="{{ img3['alt'] }}">
                             </div>
                         </div>
                     </div>
