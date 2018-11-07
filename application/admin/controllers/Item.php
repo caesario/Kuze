@@ -120,13 +120,6 @@ class Item extends MY_Controller
         if ($item) {
 
             try {
-                // validasi
-                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+]/', $item_nama)) {
-                    $this->data->gagal = 'Karakter untuk nama item tidak diperbolehkan.';
-                    $this->session->set_flashdata('gagal', $this->data->gagal);
-
-                    redirect('item');
-                }
 
                 // update
                 $item_update = $this->item->update($item_array, 'i_kode');
@@ -168,11 +161,6 @@ class Item extends MY_Controller
                 if ($this->form_validation->run() === FALSE) {
                     $this->data->gagal = validation_errors();
                     $this->session->set_flashdata('gagal', $this->data->gagal);
-                    redirect('item');
-                } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+]/', $item_nama)) {
-                    $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
-                    $this->session->set_flashdata('gagal', $this->data->gagal);
-
                     redirect('item');
                 }
 
