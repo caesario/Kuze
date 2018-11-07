@@ -87,16 +87,18 @@ class Image extends CI_Controller
             for ($i = 1; $i <= 5; $i++) {
                 $tmp = $this->billboard->get($i);
 
-                $image = new Imagick();
-                $image->readimageblob($tmp->blb_data);
-                $image->setImageCompressionQuality(80);
+                if ($tmp) {
+                    $image = new Imagick();
+                    $image->readimageblob($tmp->blb_data);
+                    $image->setImageCompressionQuality(80);
 
 
-                $hasil[$i]['id'] = $tmp->blb_id;
-                $hasil[$i]['alt'] = $tmp->blb_judul;
-                $hasil[$i]['url'] = $tmp->blb_url;
-                $hasil[$i]['ket'] = $tmp->blb_ket;
-                $hasil[$i]['src'] = $this->view_image($tmp->blb_type, $image->getImageBlob());
+                    $hasil[$i]['id'] = $tmp->blb_id;
+                    $hasil[$i]['alt'] = $tmp->blb_judul;
+                    $hasil[$i]['url'] = $tmp->blb_url;
+                    $hasil[$i]['ket'] = $tmp->blb_ket;
+                    $hasil[$i]['src'] = $this->view_image($tmp->blb_type, $image->getImageBlob());
+                }
             }
 
             $this->cache->save('billboard', $hasil, 300);

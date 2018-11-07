@@ -163,7 +163,11 @@ class Auth extends MY_Controller
         }
 
 
-        redirect('register');
+        if (isset($_SESSION['current_url'])) {
+            redirect($_SESSION['current_url']);
+        } else {
+            redirect('/');
+        }
 
     }
 

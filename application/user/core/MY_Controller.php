@@ -96,7 +96,7 @@ class MY_Controller extends CI_Controller
         $this->load_pref();
         $this->event_load();
         $this->bag_counter();
-        $this->get_url();
+        $this->get_url($this->uri->uri_string());
     }
 
 
@@ -278,18 +278,14 @@ class MY_Controller extends CI_Controller
 
     }
 
-    private function get_url()
+    private function get_url($url)
     {
-        if ($this->uri->uri_string() != 'login') {
-            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
-            $this->session->set_userdata('current_url', $replace);
-            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';
-        } elseif ($this->uri->uri_string() != 'register') {
-            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
+        if ($url != 'login' AND $url != 'register') {
+            $replace = str_replace('/add_to_bag', '', $url);
             $this->session->set_userdata('current_url', $replace);
             echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';
         } else {
-            echo '<script>console.log("URL : NULL")';
+            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '")</script>';
         }
     }
 
