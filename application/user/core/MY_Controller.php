@@ -280,7 +280,7 @@ class MY_Controller extends CI_Controller
 
     private function get_url($url)
     {
-        if ($url != 'login' AND $url != 'register') {
+        if ($url != 'auth/login' AND $url != 'login' AND $url != 'auth/register' AND $url != 'register') {
             $replace = str_replace('/add_to_bag', '', $url);
             $this->session->set_userdata('current_url', $replace);
             echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';

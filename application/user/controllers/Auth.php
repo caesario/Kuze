@@ -162,6 +162,15 @@ class Auth extends MY_Controller
             $this->session->set_flashdata('gagal', $this->data->gagal);
         }
 
+        $sessiondata = array(
+            'id' => $this->data->guid,
+            'nama' => $this->data->nama,
+            'email' => $this->data->email,
+            'tipe' => 2,
+            'isonline' => true
+        );
+        $this->session->set_userdata($sessiondata);
+
 
         if (isset($_SESSION['current_url'])) {
             redirect($_SESSION['current_url']);
