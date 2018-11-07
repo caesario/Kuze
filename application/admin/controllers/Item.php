@@ -121,7 +121,7 @@ class Item extends MY_Controller
 
             try {
                 // validasi
-                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+]/', $item_nama)) {
                     $this->data->gagal = 'Karakter untuk nama item tidak diperbolehkan.';
                     $this->session->set_flashdata('gagal', $this->data->gagal);
 
@@ -169,7 +169,7 @@ class Item extends MY_Controller
                     $this->data->gagal = validation_errors();
                     $this->session->set_flashdata('gagal', $this->data->gagal);
                     redirect('item');
-                } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item_nama)) {
+                } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+]/', $item_nama)) {
                     $this->data->gagal = 'Karakter untuk item tidak diperbolehkan.';
                     $this->session->set_flashdata('gagal', $this->data->gagal);
 
