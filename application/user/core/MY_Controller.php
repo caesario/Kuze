@@ -81,11 +81,6 @@ class MY_Controller extends CI_Controller
         };
 
 
-        if ($this->uri->uri_string() != 'login') {
-            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
-            $this->session->set_userdata('current_url', $replace);
-        }
-
         // cek user
         if (isset($_SESSION['id'])) {
             $user = $this->pengguna->where('pengguna_kode', $_SESSION['id'])->get();
@@ -101,6 +96,7 @@ class MY_Controller extends CI_Controller
         $this->load_pref();
         $this->event_load();
         $this->bag_counter();
+        $this->get_url();
     }
 
 
@@ -280,6 +276,21 @@ class MY_Controller extends CI_Controller
             $this->data->bag_counter = $this->cart->select_count($_SESSION['id']);
         }
 
+    }
+
+    private function get_url()
+    {
+        if ($this->uri->uri_string() != 'login') {
+            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
+            $this->session->set_userdata('current_url', $replace);
+            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';
+        } elseif ($this->uri->uri_string() != 'register') {
+            $replace = str_replace('/add_to_bag', '', $this->uri->uri_string());
+            $this->session->set_userdata('current_url', $replace);
+            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';
+        } else {
+            echo '<script>console.log("URL : NULL")';
+        }
     }
 
     public function get_image($i_kode)

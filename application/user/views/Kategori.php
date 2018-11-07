@@ -140,7 +140,6 @@ include "layout/Menu.php";
             </div>
         </div>
     </div>
-    <script src="<?= base_url('node_modules/angular/angular.min.js'); ?>"></script>
     <script>
         $('[id="title"]').ellipsis();
     </script>
@@ -149,12 +148,7 @@ include "layout/Menu.php";
             $('img').Lazy();
         });
     </script>
-    <script>
-        var app = angular.module("kuze", []);
-        app.controller("kategoriController", function ($http, $scope) {
 
-        }
-    </script>
 
 
 <?php
