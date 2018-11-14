@@ -163,7 +163,11 @@
                                                 <?= $order->orders_pengiriman_r_nama; ?><br>
                                                 <?= $order->orders_pengiriman_r_kontak; ?>
                                             </div>
-
+                                            <div class="mb-2">
+                                                <b>Resi :</b><br>
+                                                <?= $order->orders_resi_unik; ?>
+                                                <?= $order->orders_resi_no; ?><br>
+                                            </div>
                                         </td>
 
                                         <td class="align-middle">

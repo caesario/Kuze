@@ -32,7 +32,8 @@ include "layout/Menu.php";
 <!--            </ul>-->
 <!--        </div>-->
 
-        <div class="container">
+        <div class="container" id="detilpesanan">
+            <button>Print</button>
             <h5 class="text-center c-order-info mb-0">DETAIL PESANAN : #421504</h5>
             <p class="text-center c-order-info mb-4">19 May 2018</p>
             <div class="row">

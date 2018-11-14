@@ -20,11 +20,8 @@ include "layout/Menu.php";
 
 
     <!-- ======= Detail Order ======= -->
-    <div class="container-fluid c-padding-header c-margin-bot-detail-order ">
+    <div class="container-fluid c-padding-header c-margin-bot-detail-order">
         <div class="row">
-
-
-
             <div class="col-lg-8 c-margin-auto">
                 <div class="card bg-light">
                 <div class="container">

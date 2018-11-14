@@ -109,7 +109,7 @@ class Order_m extends MY_Model
 
     public function select_invoice($status)
     {
-        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_uniq, orders.orders_status, orders.created_at,orders_pengiriman.*, orders_ongkir.*, orders_resi.orders_resi_no, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
+        $query = $this->db->query("SELECT orders.orders_noid, orders.orders_uniq, orders.orders_status, orders.created_at,orders_pengiriman.*, orders_ongkir.*, orders_resi.*, pengguna.pengguna_nama, SUM(orders_detil.orders_detil_tharga) total
                                     FROM orders
                                     INNER JOIN pengguna
                                     ON orders.pengguna_kode = pengguna.pengguna_kode
