@@ -106,6 +106,7 @@ class Ongkir_transfer extends MY_Controller
             try {
                 $data_ongkir = array(
                     'orders_noid' => $orders_noid,
+                    'orders_ongkir_unik' => $this->input->post('code'),
                     'orders_ongkir_nama' => $this->input->post('nama'),
                     'orders_ongkir_deskripsi' => $this->input->post('deskripsi'),
                     'orders_ongkir_estimasi' => $this->input->post('estimasi'),
