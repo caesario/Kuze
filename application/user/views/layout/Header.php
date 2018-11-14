@@ -89,6 +89,7 @@
     <script src="<?= base_url('assets/vendor/popper.js/umd/popper.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-ellipsis/jquery.ellipsis.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/jquery-print/jQuery.print.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/jquery-emoji-rating/jquery.emojiRatings.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/wnumb/wNumb.js'); ?>"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
