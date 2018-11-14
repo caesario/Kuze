@@ -242,6 +242,17 @@ class Order extends MY_Controller
     public function resi($id)
     {
         $this->data->orders_noid = $id;
+        $orders_resi = function () use ($id) {
+            $resi = $this->order_ongkir->where('orders_noid', $id)->get();
+            if ($resi) {
+                $resi = $resi->orders_ongkir_unik;
+            } else {
+                $resi = '';
+            }
+
+            return $resi;
+        };
+        $this->data->orders_resi_unik = $orders_resi();
         $this->load->view('CRUD_Pengiriman', $this->data);
     }
 

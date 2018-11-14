@@ -39,6 +39,7 @@ class Resi extends MY_Controller
 
         $data_resi = array(
             'orders_noid' => $this->input->post('orders_noid'),
+            'orders_resi_unik' => $this->input->post('orders_resi_unik'),
             'orders_resi_no' => $this->input->post('resi')
         );
 

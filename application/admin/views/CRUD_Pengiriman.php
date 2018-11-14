@@ -2,6 +2,7 @@
     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
 
     <input type="hidden" name="orders_noid" value="<?= $orders_noid; ?>">
+    <input type="hidden" name="orders_resi_unik" value="<?= $orders_resi_unik; ?>">
     <div class="form-group">
         <label for="resi">Nomor Resi</label>
         <input class="form-control" type="text" name="resi" id="resi" placeholder="Input nomor resi">
