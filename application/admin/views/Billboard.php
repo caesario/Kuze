@@ -440,8 +440,8 @@
                     showZoomer: false,
                 });
                 var obj3 = tampil3.croppie({
-                    viewport: {width: 350, height: 700},
-                    boundary: {width: 350, height: 700},
+                    viewport: {width: 350, height: 730},
+                    boundary: {width: 350, height: 730},
                     showZoomer: false,
                 });
                 var obj4 = tampil4.croppie({

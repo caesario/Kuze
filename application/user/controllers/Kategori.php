@@ -168,44 +168,43 @@ class Kategori extends MY_Controller
             $counter = 0;
             $hasil = array();
             $item_detils = $this->item_detil->with_item('where: i_url=\'' . $i_url . '\'')->with_ukuran()->with_item_qty()->get_all();
-            foreach ($item_detils as $id) {
-                if (isset($id->item) && $id->item != NULL) {
-                    $hasil[$counter]['item_kode'] = $id->item->i_kode;
-                    $hasil[$counter]['item_nama'] = $id->item->i_nama;
-                } else {
-                    $hasil[$counter]['item_kode'] = NULL;
-                    $hasil[$counter]['item_nama'] = NULL;
-                }
-                $hasil[$counter]['item_detil_kode'] = $id->item_detil_kode;
-                if (isset($id->ukuran) && $id->ukuran != NULL) {
-                    $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
-                    $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
-                } else {
-                    $hasil[$counter]['ukuran_kode'] = 'NULL';
-                    $hasil[$counter]['ukuran_nama'] = 'NULL';
-                }
-
-                if (isset($id->item_qty) && $id->item_qty != NULL) {
-                    $qty = 0;
-                    foreach ($id->item_qty as $iqty) {
-                        $qty += $iqty->iq_qty;
+            if ($item_detils) {
+                foreach ($item_detils as $id) {
+                    if (isset($id->item) && $id->item != NULL) {
+                        $hasil[$counter]['item_kode'] = $id->item->i_kode;
+                        $hasil[$counter]['item_nama'] = $id->item->i_nama;
+                    } else {
+                        $hasil[$counter]['item_kode'] = NULL;
+                        $hasil[$counter]['item_nama'] = NULL;
                     }
-                    $hasil[$counter]['ukuran_qty'] = $qty;
-                } else {
-                    $hasil[$counter]['ukuran_qty'] = 0;
+                    $hasil[$counter]['item_detil_kode'] = $id->item_detil_kode;
+                    if (isset($id->ukuran) && $id->ukuran != NULL) {
+                        $hasil[$counter]['ukuran_kode'] = $id->ukuran->u_kode;
+                        $hasil[$counter]['ukuran_nama'] = $id->ukuran->u_nama;
+                    } else {
+                        $hasil[$counter]['ukuran_kode'] = 'NULL';
+                        $hasil[$counter]['ukuran_nama'] = 'NULL';
+                    }
+
+                    if (isset($id->item_qty) && $id->item_qty != NULL) {
+                        $qty = 0;
+                        foreach ($id->item_qty as $iqty) {
+                            $qty += $iqty->iq_qty;
+                        }
+                        $hasil[$counter]['ukuran_qty'] = $qty;
+                    } else {
+                        $hasil[$counter]['ukuran_qty'] = 0;
+                    }
+
+                    $counter += 1;
+
+
                 }
-
-                $counter += 1;
-
-
             }
 
             return $hasil;
         };
 
-//        echo '<pre>';
-//        var_dump($item_detils());
-//        echo '</pre>';
         $this->data->item_detils = $item_detils();
         $this->data->breadcumburl = site_url('best_seller');
         $this->data->breadcumburl1 = site_url('best_seller/item/' . $i_url . '/detil');
