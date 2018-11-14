@@ -43,8 +43,8 @@ class Resi extends MY_Controller
         );
 
         try {
-            $order = $this->order->where('orders_noid', $data_order['orders_noid']);
-            $order_resi = $this->order_resi->where('orders_noid', $data_order['orders_noid']);
+            $order = $this->order->where('orders_noid', $data_order['orders_noid'])->get();
+            $order_resi = $this->order_resi->where('orders_noid', $data_order['orders_noid'])->get();
 
             if ($order) {
                 $order_update = $this->order->update($data_order, 'orders_noid');

@@ -60,6 +60,7 @@ include "layout/Menu.php";
                     <h6>Shipping Method (Please Select One)</h6>
                     <?php foreach ($pengiriman as $k1): ?>
                         <?php $nama = $k1->name; ?>
+                        <?php $code = $k1->code; ?>
                         <?php foreach ($k1->costs as $k2): ?>
                             <?php $service = $k2->service; ?>
                             <?php $deskripsi = $k2->description; ?>
@@ -74,6 +75,7 @@ include "layout/Menu.php";
                                            data-biaya="<?= $biaya; ?>"
                                            data-estimasi="<?= $estimasi; ?>"
                                            data-nama="<?= $nama; ?>"
+                                           data-code="<?= $code; ?>"
                                            value="1" required>
                                     <label class="form-check-label" for="pengiriman-<?= $service; ?>">
                                         <?= $nama . ' - ' . $deskripsi . ' (' . $estimasi . ' hari) ('; ?> <span
@@ -112,6 +114,7 @@ include "layout/Menu.php";
                     <?php endif; ?>
                     <br>
                     <input type="hidden" name="bank_id" id="bank_id">
+                    <input type="hidden" name="code" id="code">
                     <input type="hidden" name="nama" id="nama">
                     <input type="hidden" name="deskripsi" id="deskripsi">
                     <input type="hidden" name="biaya" id="biaya">
@@ -131,14 +134,16 @@ include "layout/Menu.php";
             var biaya = prepare.attr('data-biaya');
             var estimasi = prepare.attr('data-estimasi');
             var nama = prepare.attr('data-nama');
+            var code = prepare.attr('data-code');
 
             $.when(
+                $('#code').val(code),
                 $('#nama').val(nama),
                 $('#deskripsi').val(deskripsi),
                 $('#biaya').val(biaya),
                 $('#estimasi').val(estimasi)
             )
-        };
+        }
 
         function bank_change(prepare) {
             var bank_id = prepare.attr('data-id');
