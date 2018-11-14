@@ -1,4 +1,4 @@
-<form action="<?= site_url('order/resi_pengiriman'); ?>" method="post">
+<form action="<?= site_url('resi/save'); ?>" method="post">
     <input type="hidden" name="ecommerce_eazy" value="<?= $this->security->get_csrf_hash(); ?>">
 
     <input type="hidden" name="orders_noid" value="<?= $orders_noid; ?>">

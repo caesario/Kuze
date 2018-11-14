@@ -18,14 +18,17 @@ class Trace extends MY_Controller
     {
         $data = json_decode($this->rajaongkir->waybill($resi, $kurir));
         $data = $data->rajaongkir->result;
+//
+//        $this->data->delivered = $data->delivered;
+//        $this->data->summary = $data->summary;
+//        $this->data->details = $data->details;
+//        $this->data->delivery_status = $data->delivery_status;
+//        $this->data->manifest = $data->manifest;
 
-        $this->data->delivered = $data->delivered;
-        $this->data->summary = $data->summary;
-        $this->data->details = $data->details;
-        $this->data->delivery_status = $data->delivery_status;
-        $this->data->manifest = $data->manifest;
-
-        $this->load->view('Trace', $this->data);
+//        $this->load->view('Trace', $this->data);
+        echo '<pre>';
+        var_dump($data);
+        echo '</pre>';
     }
 
 }

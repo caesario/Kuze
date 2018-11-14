@@ -30,5 +30,41 @@ class Resi extends MY_Controller
         $this->load->view('Resi', $this->data);
     }
 
+    public function save()
+    {
+        $data_order = array(
+            'orders_noid' => $this->input->post('orders_noid'),
+            'orders_status' => 6
+        );
+
+        $data_resi = array(
+            'orders_noid' => $this->input->post('orders_noid'),
+            'orders_resi_no' => $this->input->post('resi')
+        );
+
+        try {
+            $order = $this->order->where('orders_noid', $data_order['orders_noid']);
+            $order_resi = $this->order_resi->where('orders_noid', $data_order['orders_noid']);
+
+            if ($order) {
+                $order_update = $this->order->update($data_order, 'orders_noid');
+
+                if ($order_update && $order_resi) {
+                    $this->order_resi->update($data_resi, 'orders_noid');
+                } else {
+                    $this->order_resi->insert($data_resi);
+                }
+
+                $this->data->berhasil = 'Berhasil membuat resi.';
+                $this->session->set_flashdata('berhasil', $this->data->berhasil);
+            }
+        } catch (Exception $e) {
+            $this->data->gagal = 'ERROR : ' . $e;
+            $this->session->set_flashdata('gagal', $this->data->gagal);
+        }
+
+        redirect('Order');
+    }
+
 
 }
