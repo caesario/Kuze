@@ -2,6 +2,41 @@
 include "layout/Header.php";
 include "layout/Menu.php";
 ?>
+    <style>
+        * {
+            border-radius: 0 !important;
+        }
+
+        .big {
+            font-size: 20px !important;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .process-meta {
+            display: block;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            color: #fff;
+            margin-top: 15px;
+        }
+
+        .b-green {
+            background: #41bb19;
+            color: #fff;
+            margin: 3px 0;
+            display: inline-block;
+            -webkit-transition: background 1s ease;
+            -moz-transition: background 1s ease;
+            -o-transition: background 1s ease;
+            transition: background 1s ease;
+            cursor: default;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
     <hr class="mb-5 c-hr-reset">
 
     <div class="container-fluid c-padding-header mb-5">
@@ -103,7 +138,9 @@ include "layout/Menu.php";
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn c-login-btn c-edit" id="btnprint">Print</button>
                     <button type="button" class="btn c-login-btn c-edit" data-dismiss="modal">Tutup</button>
+
                 </div>
             </div>
         </div>
