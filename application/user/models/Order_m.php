@@ -21,6 +21,20 @@ class Order_m extends MY_Model
             'foreign_key'=>'orders_noid',
             'local_key'=>'orders_noid'
         );
+
+        $this->has_one['order_resi'] = array(
+            'foreign_model' => 'Order_resi_m',
+            'foreign_table' => 'order_resi',
+            'foreign_key' => 'orders_noid',
+            'local_key' => 'orders_noid'
+        );
+
+        $this->has_one['order_pengiriman'] = array(
+            'foreign_model' => 'Order_pengiriman_m',
+            'foreign_table' => 'order_pengiriman',
+            'foreign_key' => 'orders_noid',
+            'local_key' => 'orders_noid'
+        );
         parent::__construct();
     }
 
