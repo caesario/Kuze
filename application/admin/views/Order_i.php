@@ -177,6 +177,13 @@
                                                         class="fas fa-sync mr-2"></i>Lihat Order
 
                                             </a>
+                                            <a class="btn btn-sm btn-primary" data-toggle="modal"
+                                               title="Lacak Pengiriman" href="#"
+                                               onclick="lacak($(this))" data-target="#modaltracking"
+                                               data-backdrop="static" data-keyboard="false"
+                                               data-id="<?= $order->orders_noid; ?>">
+                                                Lacak Pengiriman
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -207,6 +214,16 @@
                 bodymodal = modal.find('div.modal-body');
 
                 bodymodal.load("<?= site_url('ukuran/ubah/'); ?>" + id);
+            }
+
+            function lacak(data) {
+                d = data;
+                id = d.attr('data-id');
+
+                modal = $('#modaltracking');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('resi/tracking/'); ?>" + id);
             }
 
             function detil(data) {
@@ -284,6 +301,19 @@
             </div>
         </div>
     </footer>
+</div>
+<div class="modal fade" id="modaltracking" tabindex="-1" role="dialog" aria-labelledby="modaltracking"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade" id="crud" tabindex="-1" role="dialog" aria-labelledby="crud" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
