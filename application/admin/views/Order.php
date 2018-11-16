@@ -261,6 +261,16 @@
                 bodymodal.load("<?= site_url('order/resi/'); ?>" + id);
             }
 
+            function lacak(data) {
+                d = data;
+                id = d.attr('data-id');
+
+                modal = $('#crud');
+                bodymodal = modal.find('div.modal-body');
+
+                bodymodal.load("<?= site_url('resi/tracking/'); ?>" + id);
+            }
+
             function batal(data) {
                 d = data;
                 url = d.attr('data-url');
