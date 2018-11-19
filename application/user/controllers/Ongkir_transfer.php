@@ -65,7 +65,7 @@ class Ongkir_transfer extends MY_Controller
 
     }
 
-    private function get_biaya($orders_noid, $kurir = 'jne:sicepat:jnt')
+    private function get_biaya($orders_noid, $kurir = 'sicepat:jnt')
     {
         $order_pengiriman = $this->order_pengiriman->where('orders_noid', $orders_noid)->get();
         $dst_id = $order_pengiriman->orders_pengiriman_kecamatan;
