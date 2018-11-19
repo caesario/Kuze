@@ -55,10 +55,10 @@ include "layout/Menu.php";
                         <div class="row form-group">
                             <div class="col-lg-12 col-sm-12">
                                 <div class="form-check pl-0">
-                                    <input class="form-check-input d-none" type="checkbox" name="alamat_exist"
+                                    <input class="form-check-input d-none r-check " type="checkbox" name="alamat_exist"
                                            value="false" id="alamat_exist">
-                                    <label class="form-check-label" for="alamat_exist">
-                                        <h5 class=""><i class="fa fa-address-book text-center" style="width:30px;"></i>
+                                    <label class="form-check-label r-check-label" for="alamat_exist">
+                                        <h5 class=""><i class="fa fa-address-book text-center " style="width:30px;"></i>
                                             Choose an existing address</h5>
                                     </label>
                                 </div>
@@ -67,9 +67,9 @@ include "layout/Menu.php";
                         <div class="row form-group">
                             <div class="col">
                                 <div class="form-check pl-0">
-                                    <input class="form-check-input d-none" type="checkbox" value="false"
+                                    <input class="form-check-input d-none r-check" type="checkbox" value="false"
                                            id="check_dropship">
-                                    <label class="form-check-label" for="check_dropship">
+                                    <label class="form-check-label r-check-label" for="check_dropship">
                                         <h5 class=""><i class="fa fa-cart-arrow-down text-center"
                                                         style="width:30px;"></i> Dropship Order</h5>
                                     </label>

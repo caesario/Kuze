@@ -1695,6 +1695,14 @@ a.c-modal-clr:hover {
     }
 }
 
+.r-check-label:hover {
+    color: #777777 !important;
+}
+
+.r-check:checked + .r-check-label {
+    font-weight: bold !important;
+    color: #777777 !important;
+}
 
 
 
