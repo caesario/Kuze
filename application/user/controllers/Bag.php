@@ -17,32 +17,6 @@ class Bag extends MY_Controller
 
     public function index()
     {
-        $cart_s = function () {
-            return $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
-        };
-
-        $cart_total = function () {
-            $hasil = 0;
-            $carts = $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
-            if ($carts) {
-                foreach ($carts as $cart_total) {
-                    $hasil += (int)$cart_total->ca_tharga;
-                }
-            } else {
-                $hasil = 0;
-            }
-
-
-            return (int)$hasil;
-        };
-
-        $grand_total = function () use ($cart_total) {
-            return $cart_total();
-        };
-
-        $this->data->cart_s = $cart_s();
-        $this->data->cart_total = $cart_total();
-        $this->data->grand_total = $grand_total();
         $this->load->view('Bag', $this->data);
 
     }
@@ -135,7 +109,58 @@ class Bag extends MY_Controller
 
     public function checkout()
     {
-        $kodepromo = $this->uri->segment(3);
+        $pengguna_kode = $_SESSION['id'];
+        $carts = $this->cart->where_pengguna_kode($pengguna_kode)->get_all();
+        $nomor_order = date('ymd') . mt_rand(100, 999);
+        $cart_total = function () {
+            $hasil = 0;
+            foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
+                $hasil += (int)$cart_total->ca_tharga;
+            }
+
+            return (int)$hasil;
+        };
+
+        if ($carts) {
+
+            $promo_kode = 0;
+            $harga = $cart_total();
+            $totalharga = $harga;
+            $this->order->insert(array(
+                'orders_noid' => $nomor_order,
+                'pengguna_kode' => $pengguna_kode,
+                'orders_hrg' => $harga,
+                'promo_kode' => $promo_kode,
+                'orders_thrg' => $totalharga,
+                'orders_uniq' => mt_rand(100, 399)
+            ));
+
+            foreach ($carts as $cart) {
+                $this->order_detil->insert(array(
+                    'orders_detil_qty' => (int)$cart->ca_qty,
+                    'orders_detil_harga' => (int)$cart->ca_harga,
+                    'orders_detil_tharga' => (int)$cart->ca_tharga,
+                    'orders_noid' => $nomor_order,
+                    'item_kode' => $cart->item_kode,
+                    'item_detil_kode' => $cart->item_detil_kode,
+                    'item_ukuran_kode' => $cart->item_ukuran_kode
+
+                ));
+
+            }
+            $this->cart->where_pengguna_kode($pengguna_kode)->delete();
+            redirect('checkout/' . $nomor_order . '/alamat_pengiriman');
+        } else {
+            $this->data->gagal = 'Tidak ada item didalam keranjang.';
+            $this->session->set_flashdata('gagal', $this->data->gagal);
+            redirect('bag');
+        }
+
+
+    }
+
+    public function checkout_with_promo($kodepromo)
+    {
         $pengguna_kode = $_SESSION['id'];
         $carts = $this->cart->where_pengguna_kode($pengguna_kode)->get_all();
         $nomor_order = date('ymd') . mt_rand(100, 999);
@@ -206,7 +231,6 @@ class Bag extends MY_Controller
 
     }
 
-
     public function delete($ca_kode)
     {
         $cart = $this->cart->where_ca_kode($ca_kode)->get();
@@ -235,96 +259,6 @@ class Bag extends MY_Controller
 
     }
 
-    public function promo($kode_promo = '')
-    {
-        $cart_s = function () {
-            return $this->cart->where('pengguna_kode', $_SESSION['id'])->get_all();
-        };
-
-        $promo = function () use ($kode_promo) {
-            $promo_where = array(
-                'promo_nama' => $kode_promo,
-                'promo_aktif' => '1'
-            );
-
-            $promo = $this->promo->where($promo_where)->get();
-
-            if ($promo) {
-                return $promo;
-            } else {
-                redirect('bag');
-            }
-        };
-
-
-        $cart_total = function () {
-
-            $hasil = 0;
-            foreach ($this->cart->where('pengguna_kode', $_SESSION['id'])->get_all() as $cart_total) {
-                $hasil += (int)$cart_total->ca_tharga;
-            }
-
-            return (int)$hasil;
-        };
-
-        $grand_total = function () use ($cart_total, $promo) {
-
-            $harga = $cart_total();
-            $diskon = $promo();
-            if ($diskon) {
-                $promo_rate = $diskon->promo_rate;
-                $promo_nominal = $diskon->promo_nominal;
-            } else {
-                $promo_rate = 0;
-                $promo_nominal = 0;
-            }
-
-
-            if ($promo_rate != 0) {
-                $potongan = $harga * ($promo_rate / 100);
-                $hasil = $harga - $potongan;
-
-            } elseif ($promo_nominal != 0) {
-                $potongan = $promo_nominal;
-                $hasil = $harga - $potongan;
-            } else {
-                $hasil = $harga;
-            }
-
-            return $hasil;
-        };
-
-        $diskon_harga = function () use ($cart_total, $promo) {
-            $harga = $cart_total();
-            $diskon = $promo();
-            if ($diskon) {
-                $promo_rate = $diskon->promo_rate;
-                $promo_nominal = $diskon->promo_nominal;
-            } else {
-                $promo_rate = 0;
-                $promo_nominal = 0;
-            }
-
-            if ($promo_rate != 0) {
-                $potongan = $harga * ($promo_rate / 100);
-                $hasil = $potongan;
-            } elseif ($promo_nominal != 0) {
-                $hasil = $promo_nominal;
-            } else {
-                $hasil = 0;
-            }
-
-            return $hasil;
-        };
-
-        $this->data->kode_promo = $kode_promo;
-        $this->data->promo_ket = $promo()->promo_ket;
-        $this->data->cart_s = $cart_s();
-        $this->data->cart_total = $cart_total();
-        $this->data->diskon_harga = $diskon_harga();
-        $this->data->grand_total = $grand_total();
-        $this->load->view('Bag', $this->data);
-    }
 
 }
 

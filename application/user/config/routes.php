@@ -50,6 +50,7 @@ $route['order_status/(:any)/detil'] = 'detil';
 
 // api
 $route['api/bag'] = 'BagApiCtrl/bag_index';
+$route['api/bag/promo/(:any)'] = 'BagApiCtrl/bag_promo/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -97,34 +97,28 @@ include "layout/Menu.php";
                 <!-- ======= Promo Code ======= -->
                 <h5 class="c-title-cart-total">Promo Code</h5>
                 <div class="input-group mb-3">
-                    <input name="kode_promo" id="kode_promo" type="text" class="form-control"
+                    <input name="kode_promo" id="kode_promo" ng-model="kode_promo" type="text" class="form-control"
                            placeholder="Enter Promo Code"
                            aria-label="Masukan Kode Voucher">
                     <div class="input-group-append">
-                        <button type="submit" id="btn_kode" class="btn btn-kupon btn-csr">Use Code</button>
+                        <button id="btn_kode" class="btn btn-kupon btn-csr" ng-click="promo()">Use Code</button>
                     </div>
                 </div>
-                <script>
-                    $('#btn_kode').click(function () {
-                        kode_promo = $('#kode_promo').val();
-                        window.location.href = '/bag/promo/' + kode_promo;
-                    });
-                </script>
                 <!-- ======= Promo ======= -->
                 <h5 class="c-title-cart-total">Promo</h5>
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
                         <th class="p-1 pl-4">Coupon</th>
-                        <td class="text-right"><span
-                                    class="c-price-cart-3 pl-3"><?= isset($kode_promo) ? $kode_promo : '-'; ?></span>
+                        <td class="text-right">
+                            <span class="c-price-cart-3 pl-3" ng-bind="bags_promo_kode"></span>
                         </td>
                     </tr>
                     <tr>
                     <tr>
                         <th class="p-1 pl-4">Note</th>
-                        <td class="text-right"><span
-                                    class="c-price-cart-2 pl-3 c-l-hight"><?= isset($promo_ket) ? $promo_ket : '-'; ?></span>
+                        <td class="text-right">
+                            <span class="c-price-cart-2 pl-3 c-l-hight" ng-bind="bags_promo_ket"></span>
                         </td>
                     </tr>
                     </tbody>
@@ -141,8 +135,8 @@ include "layout/Menu.php";
                     </tr>
                     <tr>
                         <th class="p-1 pl-4">Disc. Total Price (-)</th>
-                        <td class="text-right"><span id="rupiah"
-                                                     class="c-price-cart-3 pl-3 text-center"><?= isset($diskon_harga) ? $diskon_harga : '-'; ?></span>
+                        <td class="text-right"><span class="c-price-cart-3 pl-3 text-center"
+                                                     ng-bind="bags_promo_harga | rupiah"></span>
                         </td>
                     </tr>
                     <tr>
@@ -162,7 +156,7 @@ include "layout/Menu.php";
                     </tr>
                     </tbody>
                 </table>
-                <a href="<?= current_url() . '/checkout'; ?>" class="btn btn-csr c-btn-cart mt-3 float-right">Address
+                <a href="{{ bags_url }}" class="btn btn-csr c-btn-cart mt-3 float-right">Address
                     Shipping</a>
             </div>
         </div>
@@ -176,9 +170,27 @@ include "layout/Menu.php";
             var url = "/api/bag";
             $http.get(url).then(function (response) {
                 $scope.bags = response.data.bags;
+                $scope.bags_promo_kode = response.data.bags_promo_kode;
+                $scope.bags_promo_ket = response.data.bags_promo_ket;
+                $scope.bags_promo_harga = response.data.bags_promo_harga;
                 $scope.bags_total = response.data.bags_total;
                 $scope.bags_grand_total = response.data.bags_grand_total;
-            })
+                $scope.bags_url = response.data.bags_url;
+            });
+
+            $scope.promo = function () {
+                var url = "/api/bag/promo/" + $scope.kode_promo;
+                $http.get(url).then(function (response) {
+                    console.log(response.data);
+                    $scope.bags = response.data.bags;
+                    $scope.bags_promo_kode = response.data.bags_promo_kode;
+                    $scope.bags_promo_ket = response.data.bags_promo_ket;
+                    $scope.bags_promo_harga = response.data.bags_promo_harga;
+                    $scope.bags_total = response.data.bags_total;
+                    $scope.bags_grand_total = response.data.bags_grand_total;
+                    $scope.bags_url = response.data.bags_url;
+                });
+            }
         });
 
         app.config(function ($httpProvider) {
@@ -207,12 +219,12 @@ include "layout/Menu.php";
         });
 
         app.filter('rupiah', function () {
-            return function (val) {
-                while (/(\d+)(\d{3})/.test(val.toString())) {
-                    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + '.' + '$2');
+            return function (nilai) {
+                while (/(\d+)(\d{3})/.test(nilai)) {
+                    nilai = nilai.toString().replace(/(\d+)(\d{3})/, '$1' + '.' + '$2');
                 }
-                var val = 'IDR ' + val;
-                return val;
+                var nilai = 'IDR ' + nilai;
+                return nilai;
             };
         });
     </script>
