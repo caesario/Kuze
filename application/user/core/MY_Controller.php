@@ -52,6 +52,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('Slide_promo_m', 'slide_promo');
         $this->load->model('Provinsi_m', 'provinsi');
         $this->load->model('Kabupaten_m', 'kabupaten');
+        $this->load->model('Ukuran_m', 'ukuran');
         $this->load->model('Kecamatan_m', 'kecamatan');
         $this->load->model('Desa_m', 'desa');
         $this->load->model('Pengguna_m', 'pengguna');
@@ -283,9 +284,6 @@ class MY_Controller extends CI_Controller
         if ($url != 'auth/login' AND $url != 'login' AND $url != 'auth/register' AND $url != 'register') {
             $replace = str_replace('/add_to_bag', '', $url);
             $this->session->set_userdata('current_url', $replace);
-            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '");</script>';
-        } else {
-            echo '<script>console.log("URL : ' . $this->session->userdata('current_url') . '")</script>';
         }
     }
 

@@ -46,5 +46,10 @@ $route['blog/(:any)'] = 'artikel/get/$1';
 $route['resi/(:any)/detil'] = 'resi/get/$1';
 $route['order_history/(:any)/detil'] = 'detil';
 $route['order_status/(:any)/detil'] = 'detil';
+
+
+// api
+$route['api/bag'] = 'BagApiCtrl/bag_index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

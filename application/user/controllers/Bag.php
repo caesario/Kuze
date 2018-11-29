@@ -200,7 +200,7 @@ class Bag extends MY_Controller
         } else {
             $this->data->gagal = 'Tidak ada item didalam keranjang.';
             $this->session->set_flashdata('gagal', $this->data->gagal);
-            redirect('cart');
+            redirect('bag');
         }
 
 

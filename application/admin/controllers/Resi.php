@@ -103,5 +103,12 @@ class Resi extends MY_Controller
         }
     }
 
+    public function tracking_by_resi($airwaybill, $courier)
+    {
+        $this->load->library('RajaOngkir');
+        $result = $this->rajaongkir->waybill($airwaybill, $courier);
+        echo $result;
+    }
+
 
 }
