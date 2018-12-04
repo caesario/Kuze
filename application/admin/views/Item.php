@@ -123,7 +123,6 @@
                                                        onclick="unggah($(this))" data-target="#crudfoto"
                                                        data-id="<?= $item->i_kode; ?>"><i
                                                                 class="fas fa-upload mr-2"></i>Upload Gambar</a>
-                                                    <?php if (!isset($item->item_detil)): ?>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item small" data-toggle="modal"
                                                            data-backdrop="static" data-keyboard="false"
@@ -132,7 +131,6 @@
                                                            data-target="#modal_hapus"
                                                            data-id="<?= $item->i_kode; ?>"><i
                                                                     class="far fa-trash-alt mr-2"></i>Hapus Item</a>
-                                                    <?php endif; ?>
                                                 </div>
 
                                             </div>

@@ -392,6 +392,7 @@ class Item extends MY_Controller
     public function hapus_item($id)
     {
         try {
+            $this->item_detil->where('i_kode', $id)->delete();
             $item = $this->item->where('i_kode', $id)->delete();
             if ($item) {
                 $this->data->berhasil = 'Data Item berhasil dihapus';
