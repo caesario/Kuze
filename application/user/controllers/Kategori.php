@@ -11,7 +11,7 @@ class Kategori extends MY_Controller
 
     public function index()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->get_all();
         $this->data->breadcumburl = site_url('kategori');
         $this->data->breadcumb = 'Category';
         $this->load->view('Kategori', $this->data);
@@ -19,7 +19,7 @@ class Kategori extends MY_Controller
 
     public function get_item_all()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->get_all();
         $this->data->breadcumburl = site_url('kategori');
         $this->data->breadcumb = 'Kategori';
         $this->load->view('Kategori', $this->data);
