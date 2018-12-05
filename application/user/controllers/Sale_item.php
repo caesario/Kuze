@@ -11,7 +11,7 @@ class Sale_item extends MY_Controller
 
     public function index()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->get_all();
         $this->data->breadcumburl = site_url('Sale_item');
         $this->data->breadcumb = 'Sale Item';
         $this->load->view('Sale_item', $this->data);
@@ -19,7 +19,7 @@ class Sale_item extends MY_Controller
 
     public function get_item_all()
     {
-        $this->data->items = $this->item->limit(10)->get_all();
+        $this->data->items = $this->item->get_all();
         $this->data->breadcumburl = site_url('category');
         $this->data->breadcumb = 'Kategori';
         $this->load->view('Kategori', $this->data);
